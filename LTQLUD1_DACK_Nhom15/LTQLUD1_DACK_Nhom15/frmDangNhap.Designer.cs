@@ -28,35 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TextBox textBox1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDangNhap));
             this.lbTittle = new System.Windows.Forms.Label();
             this.lbUserName = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnDangKy = new System.Windows.Forms.Button();
             this.cbNhoPassWord = new System.Windows.Forms.CheckBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.btnClosed = new System.Windows.Forms.Button();
             this.lbCopyright = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtUSER = new System.Windows.Forms.TextBox();
+            this.txtPASS = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            textBox1.AllowDrop = true;
-            textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            textBox1.Location = new System.Drawing.Point(282, 114);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(212, 31);
-            textBox1.TabIndex = 3;
             // 
             // lbTittle
             // 
@@ -69,7 +56,6 @@
             this.lbTittle.Size = new System.Drawing.Size(371, 27);
             this.lbTittle.TabIndex = 0;
             this.lbTittle.Text = "PHẦM MỀM QUẢN LÝ THƯ VIỆN";
-            this.lbTittle.Click += new System.EventHandler(this.label1_Click);
             this.lbTittle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.lbTittle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.lbTittle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
@@ -89,18 +75,6 @@
             this.lbUserName.Text = "Tên Đăng Nhập :";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbUserName.UseCompatibleTextRendering = true;
-            this.lbUserName.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.AllowDrop = true;
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox2.Location = new System.Drawing.Point(282, 177);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 31);
-            this.textBox2.TabIndex = 4;
             // 
             // btnDangKy
             // 
@@ -110,7 +84,7 @@
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDangKy.ForeColor = System.Drawing.Color.Black;
-            this.btnDangKy.Location = new System.Drawing.Point(309, 329);
+            this.btnDangKy.Location = new System.Drawing.Point(366, 294);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(104, 41);
             this.btnDangKy.TabIndex = 5;
@@ -142,26 +116,6 @@
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(259, 291);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(192, 35);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Đăng Ký ủy Quyền ADIM";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(322, 258);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 19);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Hoặc ";
             // 
             // lbPassword
             // 
@@ -224,6 +178,29 @@
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(139, 303);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(221, 35);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Nếu bạn chưa có tài khoản?";
+            // 
+            // txtUSER
+            // 
+            this.txtUSER.Location = new System.Drawing.Point(282, 124);
+            this.txtUSER.Name = "txtUSER";
+            this.txtUSER.Size = new System.Drawing.Size(212, 20);
+            this.txtUSER.TabIndex = 23;
+            // 
+            // txtPASS
+            // 
+            this.txtPASS.Location = new System.Drawing.Point(282, 177);
+            this.txtPASS.Name = "txtPASS";
+            this.txtPASS.Size = new System.Drawing.Size(212, 20);
+            this.txtPASS.TabIndex = 24;
+            // 
             // FrmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,25 +208,23 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(779, 430);
             this.ControlBox = false;
+            this.Controls.Add(this.txtPASS);
+            this.Controls.Add(this.txtUSER);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbCopyright);
             this.Controls.Add(this.btnClosed);
             this.Controls.Add(this.lbPassword);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.cbNhoPassWord);
             this.Controls.Add(this.btnDangKy);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(textBox1);
             this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.lbTittle);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDangNhap";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
@@ -263,17 +238,17 @@
 
         private System.Windows.Forms.Label lbTittle;
         private System.Windows.Forms.Label lbUserName;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnDangKy;
         private System.Windows.Forms.CheckBox cbNhoPassWord;
         private System.Windows.Forms.Button btnDangNhap;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Button btnClosed;
         private System.Windows.Forms.Label lbCopyright;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtUSER;
+        private System.Windows.Forms.TextBox txtPASS;
     }
 }
 

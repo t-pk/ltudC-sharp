@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDangKy));
             this.lbTittle = new System.Windows.Forms.Label();
             this.lbUserName = new System.Windows.Forms.Label();
-            this.txtEmailDangKy = new System.Windows.Forms.TextBox();
             this.btnDangKy = new System.Windows.Forms.Button();
             this.lbPassword = new System.Windows.Forms.Label();
             this.btnClosed = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPassDangKy = new System.Windows.Forms.TextBox();
             this.lbCopyright = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtUserDangKy = new System.Windows.Forms.TextBox();
+            this.txtEmailDangKy = new System.Windows.Forms.TextBox();
+            this.txtPassDangKy = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,17 +74,6 @@
             this.lbUserName.Text = "Tên Đăng Nhập :";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbUserName.UseCompatibleTextRendering = true;
-            // 
-            // txtEmailDangKy
-            // 
-            this.txtEmailDangKy.AllowDrop = true;
-            this.txtEmailDangKy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEmailDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtEmailDangKy.Location = new System.Drawing.Point(278, 180);
-            this.txtEmailDangKy.Multiline = true;
-            this.txtEmailDangKy.Name = "txtEmailDangKy";
-            this.txtEmailDangKy.Size = new System.Drawing.Size(212, 31);
-            this.txtEmailDangKy.TabIndex = 4;
             // 
             // btnDangKy
             // 
@@ -151,17 +140,6 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label1.UseCompatibleTextRendering = true;
             // 
-            // txtPassDangKy
-            // 
-            this.txtPassDangKy.AllowDrop = true;
-            this.txtPassDangKy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPassDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtPassDangKy.Location = new System.Drawing.Point(278, 247);
-            this.txtPassDangKy.Multiline = true;
-            this.txtPassDangKy.Name = "txtPassDangKy";
-            this.txtPassDangKy.Size = new System.Drawing.Size(212, 31);
-            this.txtPassDangKy.TabIndex = 14;
-            // 
             // lbCopyright
             // 
             this.lbCopyright.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -195,11 +173,33 @@
             this.txtUserDangKy.AllowDrop = true;
             this.txtUserDangKy.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUserDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtUserDangKy.Location = new System.Drawing.Point(278, 122);
+            this.txtUserDangKy.Location = new System.Drawing.Point(274, 122);
             this.txtUserDangKy.Multiline = true;
             this.txtUserDangKy.Name = "txtUserDangKy";
             this.txtUserDangKy.Size = new System.Drawing.Size(212, 31);
-            this.txtUserDangKy.TabIndex = 20;
+            this.txtUserDangKy.TabIndex = 23;
+            // 
+            // txtEmailDangKy
+            // 
+            this.txtEmailDangKy.AllowDrop = true;
+            this.txtEmailDangKy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEmailDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtEmailDangKy.Location = new System.Drawing.Point(274, 180);
+            this.txtEmailDangKy.Multiline = true;
+            this.txtEmailDangKy.Name = "txtEmailDangKy";
+            this.txtEmailDangKy.Size = new System.Drawing.Size(212, 31);
+            this.txtEmailDangKy.TabIndex = 24;
+            // 
+            // txtPassDangKy
+            // 
+            this.txtPassDangKy.AllowDrop = true;
+            this.txtPassDangKy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPassDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtPassDangKy.Location = new System.Drawing.Point(274, 247);
+            this.txtPassDangKy.Multiline = true;
+            this.txtPassDangKy.Name = "txtPassDangKy";
+            this.txtPassDangKy.Size = new System.Drawing.Size(212, 31);
+            this.txtPassDangKy.TabIndex = 25;
             // 
             // FrmDangKy
             // 
@@ -208,16 +208,16 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(651, 398);
             this.ControlBox = false;
+            this.Controls.Add(this.txtPassDangKy);
+            this.Controls.Add(this.txtEmailDangKy);
             this.Controls.Add(this.txtUserDangKy);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbCopyright);
-            this.Controls.Add(this.txtPassDangKy);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClosed);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.btnDangKy);
-            this.Controls.Add(this.txtEmailDangKy);
             this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.lbTittle);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -237,16 +237,16 @@
 
         private System.Windows.Forms.Label lbTittle;
         private System.Windows.Forms.Label lbUserName;
-        private System.Windows.Forms.TextBox txtEmailDangKy;
         private System.Windows.Forms.Button btnDangKy;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Button btnClosed;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPassDangKy;
         private System.Windows.Forms.Label lbCopyright;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtUserDangKy;
+        private System.Windows.Forms.TextBox txtEmailDangKy;
+        private System.Windows.Forms.TextBox txtPassDangKy;
     }
 }
 

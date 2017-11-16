@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+using System.Data;
+using System.Data.SqlClient;
+
 namespace LTQLUD1_DACK_Nhom15
 {
     public partial class FrmDangNhap : Form
@@ -51,21 +54,6 @@ namespace LTQLUD1_DACK_Nhom15
             drag = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -73,9 +61,28 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            frmHome frHome = new frmHome();
-            this.Hide();
-            frHome.Show();
+            String username = txtUSER.Text;
+            String password = txtUSER.Text;
+
+            string strSql = "usp_Login";
+            Provider provider = new Provider();
+            provider.Connect();
+
+            SqlParameter p = new SqlParameter("@result", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@username", Value = username },
+            new SqlParameter { ParameterName = "@password", Value = password }, p);
+            
+            provider.Disconnect();
+            if (p.Value.ToString() == "1")
+            {
+                frmHome frHome = new frmHome();
+                this.Hide();
+                frHome.Show();
+            }
+            else MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng");
         }
 
         private void btnDangKy_Click(object sender, EventArgs e)
@@ -85,9 +92,9 @@ namespace LTQLUD1_DACK_Nhom15
             frDangKy.Show();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void txtUserLogin_TextChanged(object sender, EventArgs e)
         {
-       
+
         }
     }
 }
