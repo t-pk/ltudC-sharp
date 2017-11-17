@@ -16,12 +16,12 @@ namespace LTQLUD1_DACK_Nhom15
 {
     public partial class FrmDangNhap : Form
     {
+        public delegate void delPassData(TextBox text);
         public FrmDangNhap()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Normal;         
             this.StartPosition = FormStartPosition.CenterScreen;
-
         }
         private bool drag = false;
         private Point dragCursor, dragForm;
@@ -62,7 +62,7 @@ namespace LTQLUD1_DACK_Nhom15
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             String username = txtUSER.Text;
-            String password = txtUSER.Text;
+            String password = txtPASS.Text;
 
             string strSql = "usp_Login";
             Provider provider = new Provider();
@@ -78,11 +78,16 @@ namespace LTQLUD1_DACK_Nhom15
             provider.Disconnect();
             if (p.Value.ToString() == "1")
             {
-                frmHome frHome = new frmHome();
+                //frmHome frHome = new frmHome(this);
                 this.Hide();
+                //frHome.Show();
+
+                 frmHome frHome = new frmHome();
+                delPassData del = new delPassData(frHome.funData);
+                del(this.txtUSER);
                 frHome.Show();
             }
-            else MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng");
+            else MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!\n\tVui lòng kiểm tra lại!!!");
         }
 
         private void btnDangKy_Click(object sender, EventArgs e)
@@ -92,9 +97,9 @@ namespace LTQLUD1_DACK_Nhom15
             frDangKy.Show();
         }
 
-        private void txtUserLogin_TextChanged(object sender, EventArgs e)
+        private void txtPASS_TextChanged(object sender, EventArgs e)
         {
-
+            txtPASS.PasswordChar = '*';
         }
     }
 }

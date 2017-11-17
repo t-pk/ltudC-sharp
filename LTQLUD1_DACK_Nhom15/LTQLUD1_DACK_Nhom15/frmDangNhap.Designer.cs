@@ -95,7 +95,7 @@
             // cbNhoPassWord
             // 
             this.cbNhoPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbNhoPassWord.Location = new System.Drawing.Point(273, 217);
+            this.cbNhoPassWord.Location = new System.Drawing.Point(282, 217);
             this.cbNhoPassWord.Name = "cbNhoPassWord";
             this.cbNhoPassWord.Size = new System.Drawing.Size(140, 38);
             this.cbNhoPassWord.TabIndex = 6;
@@ -167,7 +167,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 22);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Version 1.2";
+            this.label3.Text = "Version 1.3";
             // 
             // pictureBox2
             // 
@@ -200,6 +200,7 @@
             this.txtPASS.Name = "txtPASS";
             this.txtPASS.Size = new System.Drawing.Size(212, 20);
             this.txtPASS.TabIndex = 24;
+            this.txtPASS.TextChanged += new System.EventHandler(this.txtPASS_TextChanged);
             // 
             // FrmDangNhap
             // 

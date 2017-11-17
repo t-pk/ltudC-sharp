@@ -11,14 +11,15 @@ using System.Windows.Forms;
 namespace LTQLUD1_DACK_Nhom15
 {
     public partial class frmHome : Form
-    {
+    {     
         public frmHome()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             setVisiblePannel();
-            Add_IconTab();
+            Add_IconTab();   
         }
+
         private void tab_MouseClick(object sender, MouseEventArgs e)
         {
            
@@ -193,6 +194,17 @@ namespace LTQLUD1_DACK_Nhom15
         private void frmHome_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void UserName(string text)
+        {
+            userName.Text = text;
+        }
+
+        public void funData(TextBox txtForm1)
+        {
+            userName.Text = txtForm1.Text;
         }
 
         private void label25_Click(object sender, EventArgs e)

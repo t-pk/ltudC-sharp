@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem(new string[] {
             "S01",
             "Khoa học Máy Tính",
             "Giáo Dục",
@@ -39,7 +39,7 @@
             "2",
             "7",
             ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem(new string[] {
             "S03",
             "Execl cơ bản",
             "Giáo Dục",
@@ -47,7 +47,7 @@
             "2014",
             "4",
             "3"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem(new string[] {
             "S04",
             "Vật Lý Lượng Tử",
             "Kim Đồng",
@@ -55,7 +55,7 @@
             "2015",
             "4",
             "8"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem(new string[] {
             "S06",
             "AutoCaD",
             "CAD",
@@ -63,27 +63,27 @@
             "2013",
             "3",
             "2"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem(new string[] {
             "NV01",
             "Nguyễn Văn A",
             "0151446497",
             "Nhân Viên"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem(new string[] {
             "NV02",
             "Đào Bá Lộc",
             "09466464",
             "Nhân Viên"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem(new string[] {
             "NV06",
             "Trần Cương",
             "019876323",
             "Kho"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem(new string[] {
             "NV04",
             "Lê Dữ",
             "012254863",
             "Kế Toán"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem(new string[] {
             "DG01",
             "Huỳnh Tấn Tài",
             "231316464",
@@ -94,7 +94,7 @@
             "10",
             "8",
             "Giáo Khoa"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem(new string[] {
             "DG02",
             "Nguyễn Hùng",
             "233454346",
@@ -110,7 +110,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lbTittle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.userName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelQLSach = new System.Windows.Forms.Panel();
             this.tbcQuanLiSach = new System.Windows.Forms.TabControl();
@@ -303,7 +303,7 @@
             this.lbTittle.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbTittle.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTittle.ForeColor = System.Drawing.Color.Lime;
-            this.lbTittle.Location = new System.Drawing.Point(348, 18);
+            this.lbTittle.Location = new System.Drawing.Point(347, 9);
             this.lbTittle.Name = "lbTittle";
             this.lbTittle.Size = new System.Drawing.Size(371, 27);
             this.lbTittle.TabIndex = 1;
@@ -322,14 +322,13 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // label4
+            // userName
             // 
-            this.label4.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(952, 37);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 24);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Alibaba";
+            this.userName.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.userName.Location = new System.Drawing.Point(952, 37);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(131, 24);
+            this.userName.TabIndex = 9;
             // 
             // label1
             // 
@@ -387,10 +386,10 @@
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4});
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24});
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(903, 413);
@@ -660,10 +659,10 @@
             this.listView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView4.ImeMode = System.Windows.Forms.ImeMode.On;
             this.listView4.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem25,
+            listViewItem26,
+            listViewItem27,
+            listViewItem28});
             this.listView4.Location = new System.Drawing.Point(3, 3);
             this.listView4.Name = "listView4";
             this.listView4.Size = new System.Drawing.Size(886, 408);
@@ -761,8 +760,8 @@
             this.clLoaiTaiLieu});
             this.listView5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView5.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10});
+            listViewItem29,
+            listViewItem30});
             this.listView5.Location = new System.Drawing.Point(3, 3);
             this.listView5.Name = "listView5";
             this.listView5.Size = new System.Drawing.Size(877, 420);
@@ -1801,7 +1800,7 @@
             this.Controls.Add(this.panelQLSach);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.userName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbTittle);
             this.Controls.Add(this.groupBox1);
@@ -1848,7 +1847,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbTittle;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label userName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelQLSach;
         private System.Windows.Forms.GroupBox groupBox2;
