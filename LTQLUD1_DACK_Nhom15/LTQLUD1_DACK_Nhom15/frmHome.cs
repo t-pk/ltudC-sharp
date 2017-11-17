@@ -7,19 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace LTQLUD1_DACK_Nhom15
 {
     public partial class frmHome : Form
-    {     
+    {
         public frmHome()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             setVisiblePannel();
-            Add_IconTab();   
+            Add_IconTab();
         }
-
         private void tab_MouseClick(object sender, MouseEventArgs e)
         {
            
@@ -47,6 +48,12 @@ namespace LTQLUD1_DACK_Nhom15
      
 
         }
+
+        public void funData(TextBox txtForm1)
+        {
+            userName.Text = txtForm1.Text;
+        }
+
         void Add_IconTab()
         {
             tbcDocGia.Dock = DockStyle.Fill;
@@ -143,13 +150,40 @@ namespace LTQLUD1_DACK_Nhom15
             panelTraCuu.Visible = true;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnDocGia_Click(object sender, EventArgs e)
         {
+            txtMSCBDG.Hide();
+            txtCMNDDG.Hide();
+            lblCMNDangKy.Hide();
+            lblMSCBDangKy.Hide();
+            txtMSSVDG.Hide();
+            lblMSSVDangKy.Hide();
+
+
+            txtMSSVCapNhat.Hide();
+            lblMSSVCapNhat.Hide();
+            txtCMNDCapNhat.Hide();
+            txtMSCBCapNhat.Hide();
+            lblCMNDCapNhat.Hide();
+            lblMSCBCapNhat.Hide();
+
+
             panelQLNhanVien.Visible = false;           
             panelQLSach.Visible = false;
             panelTraCuu.Visible = false;
             this.panelDocGia.Location = new System.Drawing.Point(220, 118);
             panelDocGia.Visible = true;
+            if (panelDocGia.Visible == true)
+            {
+                string strSql = "exec usp_XemDocGia";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvDocGia.DataSource = dt;
+
+                provider.Disconnect();
+            }
         }
 
         private void lbTittle_Click(object sender, EventArgs e)
@@ -160,6 +194,16 @@ namespace LTQLUD1_DACK_Nhom15
         private void button2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            panelQLNhanVien.Visible = true;
+            this.panelQLNhanVien.Location = new System.Drawing.Point(220, 118);
+            panelQLSach.Visible = false;
+            panelDocGia.Visible = false;
+            panelTraCuu.Visible = false;
+
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -186,17 +230,6 @@ namespace LTQLUD1_DACK_Nhom15
 
         }
 
-
-        private void UserName(string text)
-        {
-            userName.Text = text;
-        }
-
-        public void funData(TextBox txtForm1)
-        {
-            userName.Text = txtForm1.Text;
-        }
-
         private void label25_Click(object sender, EventArgs e)
         {
 
@@ -207,67 +240,233 @@ namespace LTQLUD1_DACK_Nhom15
             drag = false;
         }
 
-        private void btnNhanVien_Click(object sender, EventArgs e)
+        private void rdSinhVien_CheckedChanged(object sender, EventArgs e)
         {
-            panelQLNhanVien.Visible = true;
-            if(panelQLNhanVien.Visible == true)
+            txtMSSVDG.Show();
+            lblMSSVDangKy.Show();
+            txtMSCBDG.Hide();
+            txtCMNDDG.Hide();
+            lblCMNDangKy.Hide();
+            lblMSCBDangKy.Hide();
+        }
+
+        private void rdCanBo_CheckedChanged(object sender, EventArgs e)
+        {
+            txtMSCBDG.Show();
+            lblMSCBDangKy.Show();
+            txtMSSVDG.Hide();
+            txtCMNDDG.Hide();
+            lblMSSVDangKy.Hide();
+            lblCMNDangKy.Hide();
+        }
+
+        private void rdKhac_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCMNDDG.Show();
+            lblCMNDangKy.Show();
+            txtMSSVDG.Hide();
+            txtMSCBDG.Hide();
+            lblMSSVDangKy.Hide();
+            lblMSCBDangKy.Hide();
+        }
+
+        private void btnDangKyDocGia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string tendocgia = txtTenDG.Text;
+                string ngaysinh = txtNgaySinhDG.Text;
+                string diachi = txtDiaChiDG.Text;
+                string sdt = txtSDTDG.Text;
+                string email = txtEmailDG.Text;
+                string cmnd = txtCMNDDG.Text;
+                string mscb = txtMSCBDG.Text;
+                string mssv = txtMSSVDG.Text;
+                string loai;
+                if (rdSinhVien.Checked == true)
+                    loai = "SV";
+                else if (rdCanBo.Checked == true)
+                    loai = "CBNV";
+                else
+                    loai = "K";
+
+                string strSql = "usp_ThemDocGia";
+                Provider provider = new Provider();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@TenDG", Value = tendocgia },
+                new SqlParameter { ParameterName = "@NgaySinhDG", Value = ngaysinh },
+                new SqlParameter { ParameterName = "@DiaChiDG", Value = diachi },
+                new SqlParameter { ParameterName = "@SDTDG", Value = sdt },
+                new SqlParameter { ParameterName = "@EmailDG", Value = email },
+                new SqlParameter { ParameterName = "@CMNDDG", Value = cmnd },
+                new SqlParameter { ParameterName = "@MSSVDG", Value = mssv },
+                new SqlParameter { ParameterName = "@MCBDG", Value = mscb },
+                new SqlParameter { ParameterName = "@LoaiDG", Value = loai });
+                provider.Disconnect();
+                MessageBox.Show("Đăng ký Độc Giả Thành Công!!!");
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Lỗi");
+                throw ex;
+            }
+            txtTenDG.Text = null;
+            txtNgaySinhDG.Text = null;
+            txtDiaChiDG.Text = null;
+            txtSDTDG.Text = null;
+            txtEmailDG.Text = null;
+            txtCMNDDG.Text = null;
+            txtMSCBDG.Text = null;
+            txtMSSVDG.Text = null;
+            rdSinhVien.Checked = false;
+            rdCanBo.Checked = false;
+            rdKhac.Checked = false;
+            if (panelDocGia.Visible == true)
             {
                 string strSql = "exec usp_XemDocGia";
 
                 Provider provider = new Provider();
                 provider.Connect();
                 DataTable dt = provider.Select(CommandType.Text, strSql);
-                dgvDSDG.DataSource = dt;
+                dgvDocGia.DataSource = dt;
 
                 provider.Disconnect();
             }
-            this.panelQLNhanVien.Location = new System.Drawing.Point(220, 118);
-
-            panelQLSach.Visible = false;
-            panelDocGia.Visible = false;
-            panelTraCuu.Visible = false;
         }
 
-        private void btnDangKyDocGia_Click(object sender, EventArgs e)
+        private void btnCapNhatDocGia_Click(object sender, EventArgs e)
         {
-            string tendocgia = txtTenDocGiaDangKy.Text;
-            string email = txtEmailDocGiaDangKy.Text;
-            string diachi = txtDiaChiDocGiaDangKy.Text;
-            string sdt = txtSDTDocGiaDangKy.Text;
-            string cmnd = "", cbnv = "", mssv = "";
-            string loai = "";
-            if (rdSinhVien.Checked == true)
+            try
             {
-                mssv = txtMSSVDocGiaDangKy.Text;
-                loai = "SinhVien";
-                txtCBNVDocGiaDangKy.ReadOnly = true;
-                txtCMNDDocGiaDangKy.ReadOnly = true;
+                string madocgia = txtMaCapNhat.Text;
+                string tendocgia = txtTenCapNhat.Text;
+                string ngaysinh = txtNgaySinhCapNhat.Text;
+                string diachi = txtDiaChiCapNhat.Text;
+                string sdt = txtSDTCapNhat.Text;
+                string email = txtEmailCapNhat.Text;
+                string cmnd = txtCMNDCapNhat.Text;
+                string mscb = txtMSCBCapNhat.Text;
+                string mssv = txtMSSVCapNhat.Text;
+                string loai;
+                if (rdSinhVienCapNhat.Checked == true)
+                    loai = "SV";
+                else if (rdCanBoCapNhat.Checked == true)
+                    loai = "CBNV";
+                else
+                    loai = "K";
 
+                string strSql = "usp_CapNhatDocGia";
+                Provider provider = new Provider();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaDG", Value = madocgia },
+                new SqlParameter { ParameterName = "@TenDG", Value = tendocgia },
+                new SqlParameter { ParameterName = "@NgaySinhDG", Value = ngaysinh },
+                new SqlParameter { ParameterName = "@DiaChiDG", Value = diachi },
+                new SqlParameter { ParameterName = "@SDTDG", Value = sdt },
+                new SqlParameter { ParameterName = "@EmailDG", Value = email },
+                new SqlParameter { ParameterName = "@CMNDDG", Value = cmnd },
+                new SqlParameter { ParameterName = "@MSSVDG", Value = mssv },
+                new SqlParameter { ParameterName = "@MCBDG", Value = mscb },
+                new SqlParameter { ParameterName = "@LoaiDG", Value = loai });
+                provider.Disconnect();
+                MessageBox.Show("Cập Nhật Độc Giả Thành Công!!!");
             }
-            //if (rdCBNV.Checked == true)
-            //{
-            //    mssv = txtCBNVDocGiaDangKy.Text;
-            //    loai = "CBNV";
-            //    txtMSSVDocGiaDangKy.ReadOnly = true;
-            //    txtCMNDDocGiaDangKy.ReadOnly = true;
-            //}
-            //if (rdKhac.Checked == true)
-            //{
-            //    mssv = txtCMNDDocGiaDangKy.Text;
-            //    loai = "Khac";
-            //    txtCBNVDocGiaDangKy.ReadOnly = true;
-            //    txtMSSVDocGiaDangKy.ReadOnly = true;
-            //}
-            //string strSql = "usp_AddUser";
-            //Provider provider = new Provider();
-            //provider.Connect();
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Lỗi");
+                throw ex;
+            }
+            txtMaCapNhat.Text = null;
+            txtTenCapNhat.Text = null;
+            txtNgaySinhCapNhat.Text = null;
+            txtDiaChiCapNhat.Text = null;
+            txtSDTCapNhat.Text = null;
+            txtEmailCapNhat.Text = null;
+            txtCMNDCapNhat.Text = null;
+            txtMSCBCapNhat.Text = null;
+            txtMSSVCapNhat.Text = null;
+            rdSinhVienCapNhat.Checked = false;
+            rdCanBoCapNhat.Checked = false;
+            rdKhacCapNhat.Checked = false;
+            if (panelDocGia.Visible == true)
+            {
+                string strSql = "exec usp_XemDocGia";
 
-            //provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-            //new SqlParameter { ParameterName = "@username", Value = username },
-            //new SqlParameter { ParameterName = "@email", Value = email },
-            //new SqlParameter { ParameterName = "@password", Value = password });
-            //provider.Disconnect();
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvDocGia.DataSource = dt;
+
+                provider.Disconnect();
+            }
         }
 
+        private void rdSinhVienCapNhat_CheckedChanged(object sender, EventArgs e)
+        {
+            txtMSSVCapNhat.Show();
+            lblMSSVCapNhat.Show();
+            txtCMNDCapNhat.Hide();
+            txtMSCBCapNhat.Hide();
+            lblCMNDCapNhat.Hide();
+            lblMSCBCapNhat.Hide();
+        }
+
+        private void rdCanBoCapNhat_CheckedChanged(object sender, EventArgs e)
+        {
+            txtMSCBCapNhat.Show();
+            lblMSCBCapNhat.Show();
+            txtMSSVCapNhat.Hide();
+            lblMSSVCapNhat.Hide();
+            txtCMNDCapNhat.Hide();
+            lblCMNDCapNhat.Hide();
+        }
+
+        private void rdKhacCapNhat_CheckedChanged(object sender, EventArgs e)
+        {
+            txtCMNDCapNhat.Show();
+            lblCMNDCapNhat.Show();
+            txtMSCBCapNhat.Hide();
+            lblMSCBCapNhat.Hide();
+            txtMSSVCapNhat.Hide();
+            lblMSSVCapNhat.Hide();
+        }
+
+        private void btnXoaDocGia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string madocgia = txtMaDocGiaXoa.Text;
+                string strSql = "usp_XoaDocGia";
+                Provider provider = new Provider();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaDG", Value = madocgia });
+                provider.Disconnect();
+                MessageBox.Show("Xóa Độc Giả Thành Công");
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Lỗi");
+                throw ex;
+            }
+            txtMaDocGiaXoa.Text = null;
+            if (panelDocGia.Visible == true)
+            {
+                string strSql = "exec usp_XemDocGia";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvDocGia.DataSource = dt;
+
+                provider.Disconnect();
+            }
+
+        }
     }
 }

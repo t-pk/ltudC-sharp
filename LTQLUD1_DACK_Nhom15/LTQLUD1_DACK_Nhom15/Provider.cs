@@ -48,7 +48,7 @@ namespace LTQLUD1_DACK_Nhom15
                 int nRow = command.ExecuteNonQuery();
                 return nRow;
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }

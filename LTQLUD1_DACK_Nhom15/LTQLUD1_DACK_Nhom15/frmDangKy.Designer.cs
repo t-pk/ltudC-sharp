@@ -55,6 +55,7 @@
             this.lbTittle.Size = new System.Drawing.Size(371, 27);
             this.lbTittle.TabIndex = 0;
             this.lbTittle.Text = "PHẦM MỀM QUẢN LÝ THƯ VIỆN";
+            this.lbTittle.Click += new System.EventHandler(this.label1_Click);
             this.lbTittle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.lbTittle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.lbTittle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
@@ -65,7 +66,7 @@
             this.lbUserName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbUserName.Image = ((System.Drawing.Image)(resources.GetObject("lbUserName.Image")));
             this.lbUserName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbUserName.Location = new System.Drawing.Point(99, 108);
+            this.lbUserName.Location = new System.Drawing.Point(98, 105);
             this.lbUserName.Margin = new System.Windows.Forms.Padding(0);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Padding = new System.Windows.Forms.Padding(2);
@@ -74,6 +75,7 @@
             this.lbUserName.Text = "Tên Đăng Nhập :";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbUserName.UseCompatibleTextRendering = true;
+            this.lbUserName.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnDangKy
             // 
@@ -83,7 +85,7 @@
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDangKy.ForeColor = System.Drawing.Color.Black;
-            this.btnDangKy.Location = new System.Drawing.Point(260, 318);
+            this.btnDangKy.Location = new System.Drawing.Point(290, 308);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(104, 41);
             this.btnDangKy.TabIndex = 5;
@@ -97,7 +99,7 @@
             this.lbPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbPassword.Image = ((System.Drawing.Image)(resources.GetObject("lbPassword.Image")));
             this.lbPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbPassword.Location = new System.Drawing.Point(99, 167);
+            this.lbPassword.Location = new System.Drawing.Point(98, 164);
             this.lbPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Padding = new System.Windows.Forms.Padding(2);
@@ -116,7 +118,7 @@
             this.btnClosed.FlatAppearance.BorderSize = 0;
             this.btnClosed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosed.Image = ((System.Drawing.Image)(resources.GetObject("btnClosed.Image")));
-            this.btnClosed.Location = new System.Drawing.Point(606, 12);
+            this.btnClosed.Location = new System.Drawing.Point(624, 2);
             this.btnClosed.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.btnClosed.Name = "btnClosed";
             this.btnClosed.Size = new System.Drawing.Size(30, 30);
@@ -130,7 +132,7 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(90, 234);
+            this.label1.Location = new System.Drawing.Point(89, 231);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2);
@@ -143,7 +145,7 @@
             // lbCopyright
             // 
             this.lbCopyright.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbCopyright.Location = new System.Drawing.Point(12, 414);
+            this.lbCopyright.Location = new System.Drawing.Point(12, 396);
             this.lbCopyright.Name = "lbCopyright";
             this.lbCopyright.Size = new System.Drawing.Size(146, 22);
             this.lbCopyright.TabIndex = 17;
@@ -153,11 +155,11 @@
             // 
             this.label3.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(656, 414);
+            this.label3.Location = new System.Drawing.Point(550, 396);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 22);
             this.label3.TabIndex = 18;
-            this.label3.Text = "Version 1.2";
+            this.label3.Text = "Version 1.3";
             // 
             // pictureBox2
             // 
@@ -170,43 +172,31 @@
             // 
             // txtUserDangKy
             // 
-            this.txtUserDangKy.AllowDrop = true;
-            this.txtUserDangKy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUserDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtUserDangKy.Location = new System.Drawing.Point(274, 122);
-            this.txtUserDangKy.Multiline = true;
+            this.txtUserDangKy.Location = new System.Drawing.Point(307, 124);
             this.txtUserDangKy.Name = "txtUserDangKy";
-            this.txtUserDangKy.Size = new System.Drawing.Size(212, 31);
-            this.txtUserDangKy.TabIndex = 23;
+            this.txtUserDangKy.Size = new System.Drawing.Size(212, 20);
+            this.txtUserDangKy.TabIndex = 20;
             // 
             // txtEmailDangKy
             // 
-            this.txtEmailDangKy.AllowDrop = true;
-            this.txtEmailDangKy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEmailDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtEmailDangKy.Location = new System.Drawing.Point(274, 180);
-            this.txtEmailDangKy.Multiline = true;
+            this.txtEmailDangKy.Location = new System.Drawing.Point(307, 182);
             this.txtEmailDangKy.Name = "txtEmailDangKy";
-            this.txtEmailDangKy.Size = new System.Drawing.Size(212, 31);
-            this.txtEmailDangKy.TabIndex = 24;
+            this.txtEmailDangKy.Size = new System.Drawing.Size(212, 20);
+            this.txtEmailDangKy.TabIndex = 21;
             // 
             // txtPassDangKy
             // 
-            this.txtPassDangKy.AllowDrop = true;
-            this.txtPassDangKy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPassDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtPassDangKy.Location = new System.Drawing.Point(274, 247);
-            this.txtPassDangKy.Multiline = true;
+            this.txtPassDangKy.Location = new System.Drawing.Point(307, 249);
             this.txtPassDangKy.Name = "txtPassDangKy";
-            this.txtPassDangKy.Size = new System.Drawing.Size(212, 31);
-            this.txtPassDangKy.TabIndex = 25;
+            this.txtPassDangKy.Size = new System.Drawing.Size(212, 20);
+            this.txtPassDangKy.TabIndex = 22;
             // 
             // FrmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(651, 398);
+            this.ClientSize = new System.Drawing.Size(662, 426);
             this.ControlBox = false;
             this.Controls.Add(this.txtPassDangKy);
             this.Controls.Add(this.txtEmailDangKy);
@@ -224,6 +214,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDangKy";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
