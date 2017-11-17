@@ -67,12 +67,40 @@ if OBJECT_ID('usp_ThemDocGia') is not null
  Drop proc usp_ThemDocGia
 
 go
-create proc usp_ThemDocGia @MaDG nchar(10), @TenDG nvarchar(40), @NgaySinhDG date, @DiaChiDG nchar(100), @SDTDG as char(12), @EmailDG char(30), @CMNDDG char(20),@MSSVDG char(20), @MCBDG char(20), @LoaiDG char(20)
+create proc usp_ThemDocGia @TenDG nvarchar(40), @NgaySinhDG nvarchar(20), @DiaChiDG nvarchar(100), @SDTDG nvarchar(20), @EmailDG nvarchar(30), @CMNDDG nvarchar(20),@MSSVDG nvarchar(20), @MCBDG nvarchar(20), @LoaiDG nvarchar(20)
 as
 begin
-	exec usp_TimMaDGTiepTheo @MaDG
+	Declare @MaDG nchar(10)
+	exec usp_TimMaDGTiepTheo @MaDG out
 	insert into [DOC GIA]
-	values(@MaDG, @TenDG, @NgaySinhDG, @DiaChiDG, @SDTDG, @EmailDG, @CMNDDG, @MSSVDG, @CMNDDG, @LoaiDG)
+	values(@MaDG, @TenDG,@NgaySinhDG, @DiaChiDG, @SDTDG, @EmailDG, @CMNDDG, @MSSVDG, @CMNDDG, @LoaiDG)
 end
+
+
+if OBJECT_ID('usp_CapNhatDocGia') is not null
+ Drop proc usp_CapNhatDocGia
+ go
+create proc usp_CapNhatDocGia @MaDG nvarchar(10), @TenDG nvarchar(40), @NgaySinhDG nvarchar(20), @DiaChiDG nvarchar(100), @SDTDG nvarchar(20), @EmailDG nvarchar(30), @CMNDDG nvarchar(20),@MSSVDG nvarchar(20), @MCBDG nvarchar(20), @LoaiDG nvarchar(20)
+as
+begin
+	update [DOC GIA]
+	set HoTen = @TenDG, NgaySinh = @NgaySinhDG, DiaChi = @DiaChiDG, Sdt = @SDTDG, Email = @EmailDG, CMND = @CMNDDG, MSSV = @MSSVDG, MCB = @MCBDG, LoaiDG = @LoaiDG
+	where MaDocGia = @MaDG
+end
+
+if OBJECT_ID('usp_XoaDocGia') is not null
+ Drop proc usp_XoaDocGia
+ go
+
+ create proc usp_XoaDocGia @MaDG char(15)
+ as
+ begin
+	delete from [DOC GIA]
+	where MaDocGia = @MaDG
+ end
+
+
+select * from [DOC GIA]
+
 
 

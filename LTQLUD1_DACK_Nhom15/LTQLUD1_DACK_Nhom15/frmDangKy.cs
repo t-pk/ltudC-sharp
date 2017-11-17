@@ -56,7 +56,20 @@ namespace LTQLUD1_DACK_Nhom15
             drag = false;
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -66,10 +79,10 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            
-            String username = txtUserDangKy.Text;
-            String email = txtEmailDangKy.Text;
-            String password = txtPassDangKy.Text;
+
+            string username = txtUserDangKy.Text;
+            string email = txtEmailDangKy.Text;
+            string password = txtPassDangKy.Text;
 
             string strSql = "usp_AddUser";
             Provider provider = new Provider();
@@ -83,6 +96,16 @@ namespace LTQLUD1_DACK_Nhom15
             frmHome frHome = new frmHome();
             this.Hide();
             frHome.Show();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+       
         }
     }
 }

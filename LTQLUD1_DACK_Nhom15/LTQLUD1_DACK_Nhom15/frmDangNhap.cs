@@ -12,6 +12,8 @@ using System.Drawing.Printing;
 using System.Data;
 using System.Data.SqlClient;
 
+
+
 namespace LTQLUD1_DACK_Nhom15
 {
     public partial class FrmDangNhap : Form
@@ -22,6 +24,7 @@ namespace LTQLUD1_DACK_Nhom15
             InitializeComponent();
             this.WindowState = FormWindowState.Normal;         
             this.StartPosition = FormStartPosition.CenterScreen;
+
         }
         private bool drag = false;
         private Point dragCursor, dragForm;
@@ -54,6 +57,21 @@ namespace LTQLUD1_DACK_Nhom15
             drag = false;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -61,8 +79,8 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            String username = txtUSER.Text;
-            String password = txtPASS.Text;
+            string username = txtUSER.Text;
+            string password = txtPASS.Text;
 
             string strSql = "usp_Login";
             Provider provider = new Provider();
@@ -74,7 +92,7 @@ namespace LTQLUD1_DACK_Nhom15
             provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
             new SqlParameter { ParameterName = "@username", Value = username },
             new SqlParameter { ParameterName = "@password", Value = password }, p);
-            
+
             provider.Disconnect();
             if (p.Value.ToString() == "1")
             {
@@ -82,7 +100,7 @@ namespace LTQLUD1_DACK_Nhom15
                 this.Hide();
                 //frHome.Show();
 
-                 frmHome frHome = new frmHome();
+                frmHome frHome = new frmHome();
                 delPassData del = new delPassData(frHome.funData);
                 del(this.txtUSER);
                 frHome.Show();
@@ -97,9 +115,16 @@ namespace LTQLUD1_DACK_Nhom15
             frDangKy.Show();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+       
+        }
+
         private void txtPASS_TextChanged(object sender, EventArgs e)
         {
             txtPASS.PasswordChar = '*';
         }
+
+        
     }
 }
