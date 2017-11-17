@@ -29,4 +29,50 @@ begin
 	end
 end
 
-select * from [DANG NHAP NV]
+if OBJECT_ID('usp_XemDocGia') is not null
+ Drop proc usp_XemDocGia
+
+go
+create proc usp_XemDocGia
+as
+begin
+	select * from [DOC GIA]
+end
+
+
+go
+
+
+if OBJECT_ID('usp_TimMaDGTiepTheo') is not null
+ Drop proc usp_TimMaDGTiepTheo
+
+go
+create proc usp_TimMaDGTiepTheo @MaDocGia varchar(10) out
+as
+begin
+	declare @MaDG nchar(10) = 'DG00001'	
+	declare @idx int 
+	set @idx = 1
+	while exists (select MaDocGia from [DOC GIA] Where MaDocGia = @MaDG)
+	begin
+		set @idx = @idx + 1
+		set @MaDG = 'DG' + REPLICATE('0', 5 - len(cast(@idx as varchar))) + cast(@idx as varchar)
+	end
+	Set @MaDocGia = @MaDG
+end
+
+
+
+if OBJECT_ID('usp_ThemDocGia') is not null
+ Drop proc usp_ThemDocGia
+
+go
+create proc usp_ThemDocGia @MaDG nchar(10), @TenDG nvarchar(40), @NgaySinhDG date, @DiaChiDG nchar(100), @SDTDG as char(12), @EmailDG char(30), @CMNDDG char(20),@MSSVDG char(20), @MCBDG char(20), @LoaiDG char(20)
+as
+begin
+	exec usp_TimMaDGTiepTheo @MaDG
+	insert into [DOC GIA]
+	values(@MaDG, @TenDG, @NgaySinhDG, @DiaChiDG, @SDTDG, @EmailDG, @CMNDDG, @MSSVDG, @CMNDDG, @LoaiDG)
+end
+
+

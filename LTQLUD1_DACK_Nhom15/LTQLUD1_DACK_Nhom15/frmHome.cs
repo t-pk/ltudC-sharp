@@ -162,16 +162,6 @@ namespace LTQLUD1_DACK_Nhom15
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            panelQLNhanVien.Visible = true;
-            this.panelQLNhanVien.Location = new System.Drawing.Point(220, 118);
-            panelQLSach.Visible = false;
-            panelDocGia.Visible = false;
-            panelTraCuu.Visible = false;
-
-        }
-
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             panelQLNhanVien.Visible = false;
@@ -216,5 +206,68 @@ namespace LTQLUD1_DACK_Nhom15
         {
             drag = false;
         }
+
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            panelQLNhanVien.Visible = true;
+            if(panelQLNhanVien.Visible == true)
+            {
+                string strSql = "exec usp_XemDocGia";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvDSDG.DataSource = dt;
+
+                provider.Disconnect();
+            }
+            this.panelQLNhanVien.Location = new System.Drawing.Point(220, 118);
+
+            panelQLSach.Visible = false;
+            panelDocGia.Visible = false;
+            panelTraCuu.Visible = false;
+        }
+
+        private void btnDangKyDocGia_Click(object sender, EventArgs e)
+        {
+            string tendocgia = txtTenDocGiaDangKy.Text;
+            string email = txtEmailDocGiaDangKy.Text;
+            string diachi = txtDiaChiDocGiaDangKy.Text;
+            string sdt = txtSDTDocGiaDangKy.Text;
+            string cmnd = "", cbnv = "", mssv = "";
+            string loai = "";
+            if (rdSinhVien.Checked == true)
+            {
+                mssv = txtMSSVDocGiaDangKy.Text;
+                loai = "SinhVien";
+                txtCBNVDocGiaDangKy.ReadOnly = true;
+                txtCMNDDocGiaDangKy.ReadOnly = true;
+
+            }
+            //if (rdCBNV.Checked == true)
+            //{
+            //    mssv = txtCBNVDocGiaDangKy.Text;
+            //    loai = "CBNV";
+            //    txtMSSVDocGiaDangKy.ReadOnly = true;
+            //    txtCMNDDocGiaDangKy.ReadOnly = true;
+            //}
+            //if (rdKhac.Checked == true)
+            //{
+            //    mssv = txtCMNDDocGiaDangKy.Text;
+            //    loai = "Khac";
+            //    txtCBNVDocGiaDangKy.ReadOnly = true;
+            //    txtMSSVDocGiaDangKy.ReadOnly = true;
+            //}
+            //string strSql = "usp_AddUser";
+            //Provider provider = new Provider();
+            //provider.Connect();
+
+            //provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            //new SqlParameter { ParameterName = "@username", Value = username },
+            //new SqlParameter { ParameterName = "@email", Value = email },
+            //new SqlParameter { ParameterName = "@password", Value = password });
+            //provider.Disconnect();
+        }
+
     }
 }
