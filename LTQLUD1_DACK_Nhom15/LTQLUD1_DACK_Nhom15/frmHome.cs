@@ -196,16 +196,6 @@ namespace LTQLUD1_DACK_Nhom15
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            panelQLNhanVien.Visible = true;
-            this.panelQLNhanVien.Location = new System.Drawing.Point(220, 118);
-            panelQLSach.Visible = false;
-            panelDocGia.Visible = false;
-            panelTraCuu.Visible = false;
-
-        }
-
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             panelQLNhanVien.Visible = false;
@@ -331,6 +321,7 @@ namespace LTQLUD1_DACK_Nhom15
                 provider.Connect();
                 DataTable dt = provider.Select(CommandType.Text, strSql);
                 dgvDocGia.DataSource = dt;
+                dgvDocGia.ReadOnly = true;
 
                 provider.Disconnect();
             }
@@ -466,6 +457,33 @@ namespace LTQLUD1_DACK_Nhom15
 
                 provider.Disconnect();
             }
+
+        }
+
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            panelQLNhanVien.Visible = true;
+            this.panelQLNhanVien.Location = new System.Drawing.Point(220, 118);
+            panelQLSach.Visible = false;
+            panelDocGia.Visible = false;
+            panelTraCuu.Visible = false;
+
+            if (panelQLNhanVien.Visible == true)
+            {
+                string strSql = "exec usp_XemNhanVien";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvNhanVien.DataSource = dt;
+                dgvNhanVien.ReadOnly = true;
+
+                provider.Disconnect();
+            }
+        }
+
+        private void btnCapNhatNhanVien_Click(object sender, EventArgs e)
+        {
 
         }
     }
