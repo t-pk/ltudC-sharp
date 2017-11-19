@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "S01",
             "Khoa học Máy Tính",
             "Giáo Dục",
@@ -39,7 +39,7 @@
             "2",
             "7",
             ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "S03",
             "Execl cơ bản",
             "Giáo Dục",
@@ -47,7 +47,7 @@
             "2014",
             "4",
             "3"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
             "S04",
             "Vật Lý Lượng Tử",
             "Kim Đồng",
@@ -55,7 +55,7 @@
             "2015",
             "4",
             "8"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "S06",
             "AutoCaD",
             "CAD",
@@ -137,6 +137,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtMaNVCapNhap = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btnXoaNhanVien = new System.Windows.Forms.Button();
+            this.txtMaNVXoa = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.panelDocGia = new System.Windows.Forms.Panel();
             this.tbcDocGia = new System.Windows.Forms.TabControl();
             this.tabDsdg = new System.Windows.Forms.TabPage();
@@ -198,10 +202,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.btnXoaNhanVien = new System.Windows.Forms.Button();
-            this.txtMaNVXoa = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelQLSach.SuspendLayout();
@@ -216,6 +216,7 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.panelDocGia.SuspendLayout();
             this.tbcDocGia.SuspendLayout();
             this.tabDsdg.SuspendLayout();
@@ -226,7 +227,6 @@
             this.groupBox5.SuspendLayout();
             this.tabXoadg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -288,7 +288,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(884, 37);
+            this.pictureBox1.Location = new System.Drawing.Point(865, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(62, 45);
             this.pictureBox1.TabIndex = 2;
@@ -297,11 +297,10 @@
             // userName
             // 
             this.userName.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.userName.Location = new System.Drawing.Point(952, 37);
+            this.userName.Location = new System.Drawing.Point(933, 30);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(82, 24);
+            this.userName.Size = new System.Drawing.Size(153, 31);
             this.userName.TabIndex = 9;
-            this.userName.Text = "Alibaba";
             // 
             // label1
             // 
@@ -359,10 +358,10 @@
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4});
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(903, 413);
@@ -1048,6 +1047,49 @@
             this.label8.Size = new System.Drawing.Size(84, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Mã Nhân Viên : ";
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.btnXoaNhanVien);
+            this.tabPage6.Controls.Add(this.txtMaNVXoa);
+            this.tabPage6.Controls.Add(this.label22);
+            this.tabPage6.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(892, 414);
+            this.tabPage6.TabIndex = 4;
+            this.tabPage6.Text = "Xóa Nhân Viên";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // btnXoaNhanVien
+            // 
+            this.btnXoaNhanVien.BackColor = System.Drawing.Color.Red;
+            this.btnXoaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnXoaNhanVien.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnXoaNhanVien.Location = new System.Drawing.Point(189, 176);
+            this.btnXoaNhanVien.Name = "btnXoaNhanVien";
+            this.btnXoaNhanVien.Size = new System.Drawing.Size(115, 38);
+            this.btnXoaNhanVien.TabIndex = 2;
+            this.btnXoaNhanVien.Text = "Xóa";
+            this.btnXoaNhanVien.UseVisualStyleBackColor = false;
+            this.btnXoaNhanVien.Click += new System.EventHandler(this.btnXoaNhanVien_Click);
+            // 
+            // txtMaNVXoa
+            // 
+            this.txtMaNVXoa.Location = new System.Drawing.Point(145, 122);
+            this.txtMaNVXoa.Name = "txtMaNVXoa";
+            this.txtMaNVXoa.Size = new System.Drawing.Size(187, 20);
+            this.txtMaNVXoa.TabIndex = 1;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label22.Location = new System.Drawing.Point(118, 68);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(252, 25);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Mã Nhân Viên Muốn Xóa";
             // 
             // panelDocGia
             // 
@@ -1778,49 +1820,6 @@
             this.imageList3.Images.SetKeyName(1, "icons8-change-user.png");
             this.imageList3.Images.SetKeyName(2, "icons8-trash-can.png");
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.btnXoaNhanVien);
-            this.tabPage6.Controls.Add(this.txtMaNVXoa);
-            this.tabPage6.Controls.Add(this.label22);
-            this.tabPage6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(892, 414);
-            this.tabPage6.TabIndex = 4;
-            this.tabPage6.Text = "Xóa Nhân Viên";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // btnXoaNhanVien
-            // 
-            this.btnXoaNhanVien.BackColor = System.Drawing.Color.Red;
-            this.btnXoaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnXoaNhanVien.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnXoaNhanVien.Location = new System.Drawing.Point(189, 176);
-            this.btnXoaNhanVien.Name = "btnXoaNhanVien";
-            this.btnXoaNhanVien.Size = new System.Drawing.Size(115, 38);
-            this.btnXoaNhanVien.TabIndex = 2;
-            this.btnXoaNhanVien.Text = "Xóa";
-            this.btnXoaNhanVien.UseVisualStyleBackColor = false;
-            this.btnXoaNhanVien.Click += new System.EventHandler(this.btnXoaNhanVien_Click);
-            // 
-            // txtMaNVXoa
-            // 
-            this.txtMaNVXoa.Location = new System.Drawing.Point(145, 122);
-            this.txtMaNVXoa.Name = "txtMaNVXoa";
-            this.txtMaNVXoa.Size = new System.Drawing.Size(187, 20);
-            this.txtMaNVXoa.TabIndex = 1;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label22.Location = new System.Drawing.Point(118, 68);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(252, 25);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Mã Nhân Viên Muốn Xóa";
-            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1860,6 +1859,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.panelDocGia.ResumeLayout(false);
             this.tbcDocGia.ResumeLayout(false);
             this.tabDsdg.ResumeLayout(false);
@@ -1873,8 +1874,6 @@
             this.tabXoadg.ResumeLayout(false);
             this.tabXoadg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

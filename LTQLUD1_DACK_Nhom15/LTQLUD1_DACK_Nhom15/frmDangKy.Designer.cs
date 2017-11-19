@@ -38,9 +38,16 @@
             this.lbCopyright = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtUserDangKy = new System.Windows.Forms.TextBox();
-            this.txtEmailDangKy = new System.Windows.Forms.TextBox();
-            this.txtPassDangKy = new System.Windows.Forms.TextBox();
+            this.txtMaNVDangKy = new System.Windows.Forms.TextBox();
+            this.txtUserNVDangKy = new System.Windows.Forms.TextBox();
+            this.txtPassNVDangKy = new System.Windows.Forms.TextBox();
+            this.txtHoTenNVDangKy = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblCaTrucNVDangKy = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.rdAdminDangKy = new System.Windows.Forms.RadioButton();
+            this.rdThuThuDangKy = new System.Windows.Forms.RadioButton();
+            this.txtCaNVDangKy = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,13 +73,13 @@
             this.lbUserName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbUserName.Image = ((System.Drawing.Image)(resources.GetObject("lbUserName.Image")));
             this.lbUserName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbUserName.Location = new System.Drawing.Point(98, 105);
+            this.lbUserName.Location = new System.Drawing.Point(37, 112);
             this.lbUserName.Margin = new System.Windows.Forms.Padding(0);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Padding = new System.Windows.Forms.Padding(2);
             this.lbUserName.Size = new System.Drawing.Size(172, 54);
             this.lbUserName.TabIndex = 1;
-            this.lbUserName.Text = "Tên Đăng Nhập :";
+            this.lbUserName.Text = "Mã NV :";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbUserName.UseCompatibleTextRendering = true;
             this.lbUserName.Click += new System.EventHandler(this.label2_Click);
@@ -85,7 +92,7 @@
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDangKy.ForeColor = System.Drawing.Color.Black;
-            this.btnDangKy.Location = new System.Drawing.Point(290, 308);
+            this.btnDangKy.Location = new System.Drawing.Point(419, 328);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(104, 41);
             this.btnDangKy.TabIndex = 5;
@@ -99,13 +106,13 @@
             this.lbPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbPassword.Image = ((System.Drawing.Image)(resources.GetObject("lbPassword.Image")));
             this.lbPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbPassword.Location = new System.Drawing.Point(98, 164);
+            this.lbPassword.Location = new System.Drawing.Point(37, 171);
             this.lbPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Padding = new System.Windows.Forms.Padding(2);
-            this.lbPassword.Size = new System.Drawing.Size(118, 53);
+            this.lbPassword.Size = new System.Drawing.Size(172, 53);
             this.lbPassword.TabIndex = 11;
-            this.lbPassword.Text = "Email :";
+            this.lbPassword.Text = "UserName :";
             this.lbPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbPassword.UseCompatibleTextRendering = true;
             // 
@@ -118,7 +125,7 @@
             this.btnClosed.FlatAppearance.BorderSize = 0;
             this.btnClosed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosed.Image = ((System.Drawing.Image)(resources.GetObject("btnClosed.Image")));
-            this.btnClosed.Location = new System.Drawing.Point(624, 2);
+            this.btnClosed.Location = new System.Drawing.Point(927, 2);
             this.btnClosed.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.btnClosed.Name = "btnClosed";
             this.btnClosed.Size = new System.Drawing.Size(30, 30);
@@ -132,20 +139,20 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(89, 231);
+            this.label1.Location = new System.Drawing.Point(37, 238);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2);
-            this.label1.Size = new System.Drawing.Size(146, 53);
+            this.label1.Size = new System.Drawing.Size(172, 53);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Mật Khẩu :";
+            this.label1.Text = "Loại NV :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label1.UseCompatibleTextRendering = true;
             // 
             // lbCopyright
             // 
             this.lbCopyright.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbCopyright.Location = new System.Drawing.Point(12, 396);
+            this.lbCopyright.Location = new System.Drawing.Point(9, 395);
             this.lbCopyright.Name = "lbCopyright";
             this.lbCopyright.Size = new System.Drawing.Size(146, 22);
             this.lbCopyright.TabIndex = 17;
@@ -155,11 +162,11 @@
             // 
             this.label3.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(550, 396);
+            this.label3.Location = new System.Drawing.Point(843, 395);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 22);
             this.label3.TabIndex = 18;
-            this.label3.Text = "Version 1.3";
+            this.label3.Text = "Version 2.4";
             // 
             // pictureBox2
             // 
@@ -170,37 +177,130 @@
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;
             // 
-            // txtUserDangKy
+            // txtMaNVDangKy
             // 
-            this.txtUserDangKy.Location = new System.Drawing.Point(307, 124);
-            this.txtUserDangKy.Name = "txtUserDangKy";
-            this.txtUserDangKy.Size = new System.Drawing.Size(212, 20);
-            this.txtUserDangKy.TabIndex = 20;
+            this.txtMaNVDangKy.Location = new System.Drawing.Point(246, 131);
+            this.txtMaNVDangKy.Name = "txtMaNVDangKy";
+            this.txtMaNVDangKy.Size = new System.Drawing.Size(212, 20);
+            this.txtMaNVDangKy.TabIndex = 20;
             // 
-            // txtEmailDangKy
+            // txtUserNVDangKy
             // 
-            this.txtEmailDangKy.Location = new System.Drawing.Point(307, 182);
-            this.txtEmailDangKy.Name = "txtEmailDangKy";
-            this.txtEmailDangKy.Size = new System.Drawing.Size(212, 20);
-            this.txtEmailDangKy.TabIndex = 21;
+            this.txtUserNVDangKy.Location = new System.Drawing.Point(246, 189);
+            this.txtUserNVDangKy.Name = "txtUserNVDangKy";
+            this.txtUserNVDangKy.Size = new System.Drawing.Size(212, 20);
+            this.txtUserNVDangKy.TabIndex = 21;
             // 
-            // txtPassDangKy
+            // txtPassNVDangKy
             // 
-            this.txtPassDangKy.Location = new System.Drawing.Point(307, 249);
-            this.txtPassDangKy.Name = "txtPassDangKy";
-            this.txtPassDangKy.Size = new System.Drawing.Size(212, 20);
-            this.txtPassDangKy.TabIndex = 22;
+            this.txtPassNVDangKy.Location = new System.Drawing.Point(691, 189);
+            this.txtPassNVDangKy.Name = "txtPassNVDangKy";
+            this.txtPassNVDangKy.Size = new System.Drawing.Size(212, 20);
+            this.txtPassNVDangKy.TabIndex = 27;
+            // 
+            // txtHoTenNVDangKy
+            // 
+            this.txtHoTenNVDangKy.Location = new System.Drawing.Point(691, 131);
+            this.txtHoTenNVDangKy.Name = "txtHoTenNVDangKy";
+            this.txtHoTenNVDangKy.Size = new System.Drawing.Size(212, 20);
+            this.txtHoTenNVDangKy.TabIndex = 26;
+            // 
+            // label2
+            // 
+            this.label2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(496, 171);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(2);
+            this.label2.Size = new System.Drawing.Size(146, 53);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Mật Khẩu :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.UseCompatibleTextRendering = true;
+            // 
+            // lblCaTrucNVDangKy
+            // 
+            this.lblCaTrucNVDangKy.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lblCaTrucNVDangKy.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblCaTrucNVDangKy.Image = ((System.Drawing.Image)(resources.GetObject("lblCaTrucNVDangKy.Image")));
+            this.lblCaTrucNVDangKy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCaTrucNVDangKy.Location = new System.Drawing.Point(496, 238);
+            this.lblCaTrucNVDangKy.Margin = new System.Windows.Forms.Padding(0);
+            this.lblCaTrucNVDangKy.Name = "lblCaTrucNVDangKy";
+            this.lblCaTrucNVDangKy.Padding = new System.Windows.Forms.Padding(2);
+            this.lblCaTrucNVDangKy.Size = new System.Drawing.Size(146, 53);
+            this.lblCaTrucNVDangKy.TabIndex = 24;
+            this.lblCaTrucNVDangKy.Text = "Ca Trực :";
+            this.lblCaTrucNVDangKy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCaTrucNVDangKy.UseCompatibleTextRendering = true;
+            // 
+            // label5
+            // 
+            this.label5.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(496, 112);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(2);
+            this.label5.Size = new System.Drawing.Size(146, 54);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Họ Tên :";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.UseCompatibleTextRendering = true;
+            // 
+            // rdAdminDangKy
+            // 
+            this.rdAdminDangKy.AutoSize = true;
+            this.rdAdminDangKy.Location = new System.Drawing.Point(246, 238);
+            this.rdAdminDangKy.Name = "rdAdminDangKy";
+            this.rdAdminDangKy.Size = new System.Drawing.Size(54, 17);
+            this.rdAdminDangKy.TabIndex = 28;
+            this.rdAdminDangKy.TabStop = true;
+            this.rdAdminDangKy.Text = "Admin";
+            this.rdAdminDangKy.UseVisualStyleBackColor = true;
+            this.rdAdminDangKy.CheckedChanged += new System.EventHandler(this.rdAdminDangKy_CheckedChanged);
+            // 
+            // rdThuThuDangKy
+            // 
+            this.rdThuThuDangKy.AutoSize = true;
+            this.rdThuThuDangKy.Location = new System.Drawing.Point(246, 286);
+            this.rdThuThuDangKy.Name = "rdThuThuDangKy";
+            this.rdThuThuDangKy.Size = new System.Drawing.Size(66, 17);
+            this.rdThuThuDangKy.TabIndex = 29;
+            this.rdThuThuDangKy.TabStop = true;
+            this.rdThuThuDangKy.Text = "Thủ Thư";
+            this.rdThuThuDangKy.UseVisualStyleBackColor = true;
+            this.rdThuThuDangKy.CheckedChanged += new System.EventHandler(this.rdThuThuDangKy_CheckedChanged);
+            // 
+            // txtCaNVDangKy
+            // 
+            this.txtCaNVDangKy.Location = new System.Drawing.Point(691, 258);
+            this.txtCaNVDangKy.Name = "txtCaNVDangKy";
+            this.txtCaNVDangKy.Size = new System.Drawing.Size(212, 20);
+            this.txtCaNVDangKy.TabIndex = 30;
             // 
             // FrmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(662, 426);
+            this.ClientSize = new System.Drawing.Size(959, 426);
             this.ControlBox = false;
-            this.Controls.Add(this.txtPassDangKy);
-            this.Controls.Add(this.txtEmailDangKy);
-            this.Controls.Add(this.txtUserDangKy);
+            this.Controls.Add(this.txtCaNVDangKy);
+            this.Controls.Add(this.rdThuThuDangKy);
+            this.Controls.Add(this.rdAdminDangKy);
+            this.Controls.Add(this.txtPassNVDangKy);
+            this.Controls.Add(this.txtHoTenNVDangKy);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCaTrucNVDangKy);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtUserNVDangKy);
+            this.Controls.Add(this.txtMaNVDangKy);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbCopyright);
@@ -235,9 +335,16 @@
         private System.Windows.Forms.Label lbCopyright;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox txtUserDangKy;
-        private System.Windows.Forms.TextBox txtEmailDangKy;
-        private System.Windows.Forms.TextBox txtPassDangKy;
+        private System.Windows.Forms.TextBox txtMaNVDangKy;
+        private System.Windows.Forms.TextBox txtUserNVDangKy;
+        private System.Windows.Forms.TextBox txtPassNVDangKy;
+        private System.Windows.Forms.TextBox txtHoTenNVDangKy;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCaTrucNVDangKy;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton rdAdminDangKy;
+        private System.Windows.Forms.RadioButton rdThuThuDangKy;
+        private System.Windows.Forms.TextBox txtCaNVDangKy;
     }
 }
 

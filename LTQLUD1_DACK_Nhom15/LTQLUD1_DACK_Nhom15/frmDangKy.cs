@@ -79,23 +79,35 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
+            string hotennv = txtHoTenNVDangKy.Text;
+            string user = txtUserNVDangKy.Text;
+            string pass = txtPassNVDangKy.Text;
+            string loai = "";
+            string ca = "";
+            if (rdAdminDangKy.Checked == true)
+                loai = "AD";
+            else if (rdThuThuDangKy.Checked == true)
+            {
+                loai = "TT";
+                ca = txtCaNVDangKy.Text;
+            }
 
-            string username = txtUserDangKy.Text;
-            string email = txtEmailDangKy.Text;
-            string password = txtPassDangKy.Text;
 
-            string strSql = "usp_AddUser";
+            string strSql = "usp_ThemNhanVien";
             Provider provider = new Provider();
             provider.Connect();
 
             provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-            new SqlParameter { ParameterName = "@username", Value = username },
-            new SqlParameter { ParameterName = "@email", Value = email },
-            new SqlParameter { ParameterName = "@password", Value = password });
+            new SqlParameter { ParameterName = "@CaTruc", Value = ca },
+            new SqlParameter { ParameterName = "@TenDangNhap", Value = user },
+            new SqlParameter { ParameterName = "@HoTen", Value = hotennv },
+            new SqlParameter { ParameterName = "@MatKhau", Value = pass },
+            new SqlParameter { ParameterName = "@LoaiNV", Value = loai });
             provider.Disconnect();
-            frmHome frHome = new frmHome();
+            MessageBox.Show("Đăng Ký Nhân Viên Thành Công!!!");
+            FrmDangNhap frmDangNhap = new FrmDangNhap();
             this.Hide();
-            frHome.Show();
+            frmDangNhap.Show();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -105,7 +117,33 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void Form1_Load(object sender, EventArgs e)
         {
-       
+            lblCaTrucNVDangKy.Hide();
+            txtCaNVDangKy.Hide();
+            txtMaNVDangKy.ReadOnly = true;
+
+            string strSql1 = "usp_TimMaNVTiepTheo";
+            Provider provider1 = new Provider();
+            provider1.Connect();
+
+            SqlParameter p = new SqlParameter("@MaNV", SqlDbType.VarChar, 100);
+            p.Direction = ParameterDirection.Output;
+
+            provider1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1, p);
+
+            provider1.Disconnect();
+            txtMaNVDangKy.Text = p.Value.ToString();
+        }
+
+        private void rdThuThuDangKy_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCaTrucNVDangKy.Show();
+            txtCaNVDangKy.Show();
+        }
+
+        private void rdAdminDangKy_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCaTrucNVDangKy.Hide();
+            txtCaNVDangKy.Hide();
         }
     }
 }

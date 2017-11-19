@@ -18,7 +18,7 @@ namespace LTQLUD1_DACK_Nhom15
 {
     public partial class FrmDangNhap : Form
     {
-        public delegate void delPassData(TextBox text);
+        public delegate void delPassData(string ten, string quyen);
         public FrmDangNhap()
         {
             InitializeComponent();
@@ -82,6 +82,40 @@ namespace LTQLUD1_DACK_Nhom15
             string username = txtUSER.Text;
             string password = txtPASS.Text;
 
+
+            string strSql1 = "usp_LayTenNhanVien";
+            Provider provider1 = new Provider();
+            provider1.Connect();
+
+            SqlParameter p1 = new SqlParameter("@TenNV", SqlDbType.NVarChar, 100);
+            p1.Direction = ParameterDirection.Output;
+
+            provider1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1,
+             new SqlParameter { ParameterName = "@UserName", Value = username },
+             new SqlParameter { ParameterName = "@Pass", Value = password }, p1);
+
+            provider1.Disconnect();
+            string NameUser = p1.Value.ToString();
+
+
+            string strSql2 = "usp_LayQuyenNhanVien";
+            Provider provider2 = new Provider();
+            provider2.Connect();
+
+            SqlParameter p2 = new SqlParameter("@QuyenNV", SqlDbType.NVarChar, 100);
+            p2.Direction = ParameterDirection.Output;
+
+            provider2.ExecuteNonQuery(CommandType.StoredProcedure, strSql2,
+            new SqlParameter { ParameterName = "@UserName", Value = username },
+            new SqlParameter { ParameterName = "@Pass", Value = password }, p2);
+
+            provider1.Disconnect();
+            string Quyen = p2.Value.ToString();
+
+
+
+
+
             string strSql = "usp_Login";
             Provider provider = new Provider();
             provider.Connect();
@@ -96,14 +130,12 @@ namespace LTQLUD1_DACK_Nhom15
             provider.Disconnect();
             if (p.Value.ToString() == "1")
             {
-                //frmHome frHome = new frmHome(this);
                 this.Hide();
-                //frHome.Show();
-
                 frmHome frHome = new frmHome();
-                delPassData del = new delPassData(frHome.funData);
-                del(this.txtUSER);
                 frHome.Show();
+
+                delPassData del = new delPassData(frHome.funData);
+                del(NameUser, Quyen);
             }
             else MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!\n\tVui lòng kiểm tra lại!!!");
         }

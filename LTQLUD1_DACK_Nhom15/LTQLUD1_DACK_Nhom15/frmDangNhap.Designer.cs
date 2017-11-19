@@ -87,7 +87,7 @@
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDangKy.ForeColor = System.Drawing.Color.Black;
-            this.btnDangKy.Location = new System.Drawing.Point(309, 329);
+            this.btnDangKy.Location = new System.Drawing.Point(548, 299);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(104, 41);
             this.btnDangKy.TabIndex = 5;
@@ -98,7 +98,7 @@
             // cbNhoPassWord
             // 
             this.cbNhoPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbNhoPassWord.Location = new System.Drawing.Point(273, 217);
+            this.cbNhoPassWord.Location = new System.Drawing.Point(290, 217);
             this.cbNhoPassWord.Name = "cbNhoPassWord";
             this.cbNhoPassWord.Size = new System.Drawing.Size(140, 38);
             this.cbNhoPassWord.TabIndex = 6;
@@ -123,18 +123,18 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(259, 291);
+            this.label4.Location = new System.Drawing.Point(294, 308);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(192, 35);
+            this.label4.Size = new System.Drawing.Size(147, 35);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Đăng Ký ủy Quyền ADIM";
+            this.label4.Text = "Đăng Ký Tại Đây  ->";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(322, 258);
+            this.label5.Location = new System.Drawing.Point(333, 267);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 19);
             this.label5.TabIndex = 9;
@@ -186,11 +186,11 @@
             // 
             this.label3.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(656, 388);
+            this.label3.Location = new System.Drawing.Point(663, 399);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 22);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Version 1.2";
+            this.label3.Text = "Version 2.4";
             // 
             // pictureBox2
             // 
