@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "S01",
             "Khoa học Máy Tính",
             "Giáo Dục",
@@ -39,7 +39,7 @@
             "2",
             "7",
             ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "S03",
             "Execl cơ bản",
             "Giáo Dục",
@@ -47,7 +47,7 @@
             "2014",
             "4",
             "3"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "S04",
             "Vật Lý Lượng Tử",
             "Kim Đồng",
@@ -55,7 +55,7 @@
             "2015",
             "4",
             "8"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "S06",
             "AutoCaD",
             "CAD",
@@ -148,7 +148,9 @@
             this.tabThemdg = new System.Windows.Forms.TabPage();
             this.btnDangKyDocGia = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblCMNDangKy = new System.Windows.Forms.Label();
+            this.txtMaDG = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.lblMSCBDangKy = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lblMSSVDangKy = new System.Windows.Forms.Label();
@@ -170,10 +172,10 @@
             this.lbUserName = new System.Windows.Forms.Label();
             this.tabCapnhatdg = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.btnCapNhatDocGia = new System.Windows.Forms.Button();
             this.txtMaCapNhat = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblCMNDCapNhat = new System.Windows.Forms.Label();
             this.lblMSCBCapNhat = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblMSSVCapNhat = new System.Windows.Forms.Label();
@@ -198,6 +200,20 @@
             this.btnXoaDocGia = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMaDocGiaXoa = new System.Windows.Forms.TextBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.cbMSCB = new System.Windows.Forms.CheckBox();
+            this.cbMSSV = new System.Windows.Forms.CheckBox();
+            this.cbCMND = new System.Windows.Forms.CheckBox();
+            this.dgvDGSearch = new System.Windows.Forms.DataGridView();
+            this.btnSearchDocGia = new System.Windows.Forms.Button();
+            this.lblHoTenSearch = new System.Windows.Forms.Label();
+            this.lblDinhDanhSearch = new System.Windows.Forms.Label();
+            this.lblMaDGSearch = new System.Windows.Forms.Label();
+            this.rdHoTenSearch = new System.Windows.Forms.RadioButton();
+            this.rdMaDinhDanhSearch = new System.Windows.Forms.RadioButton();
+            this.rdMaDGSearch = new System.Windows.Forms.RadioButton();
+            this.txtSearchDG = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
@@ -226,6 +242,8 @@
             this.tabCapnhatdg.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabXoadg.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDGSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -358,10 +376,10 @@
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8});
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(903, 413);
@@ -1105,6 +1123,7 @@
             this.tbcDocGia.Controls.Add(this.tabThemdg);
             this.tbcDocGia.Controls.Add(this.tabCapnhatdg);
             this.tbcDocGia.Controls.Add(this.tabXoadg);
+            this.tbcDocGia.Controls.Add(this.tabPage7);
             this.tbcDocGia.ImageList = this.imageList1;
             this.tbcDocGia.ItemSize = new System.Drawing.Size(110, 25);
             this.tbcDocGia.Location = new System.Drawing.Point(3, 3);
@@ -1161,7 +1180,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.lblCMNDangKy);
+            this.groupBox3.Controls.Add(this.txtMaDG);
+            this.groupBox3.Controls.Add(this.label29);
+            this.groupBox3.Controls.Add(this.label27);
             this.groupBox3.Controls.Add(this.lblMSCBDangKy);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.lblMSSVDangKy);
@@ -1181,27 +1202,51 @@
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.lbUserName);
-            this.groupBox3.Location = new System.Drawing.Point(27, 29);
+            this.groupBox3.Location = new System.Drawing.Point(27, 8);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox3.Size = new System.Drawing.Size(847, 307);
+            this.groupBox3.Size = new System.Drawing.Size(847, 355);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
-            // lblCMNDangKy
+            // txtMaDG
             // 
-            this.lblCMNDangKy.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lblCMNDangKy.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblCMNDangKy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblCMNDangKy.Location = new System.Drawing.Point(495, 230);
-            this.lblCMNDangKy.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCMNDangKy.Name = "lblCMNDangKy";
-            this.lblCMNDangKy.Padding = new System.Windows.Forms.Padding(2);
-            this.lblCMNDangKy.Size = new System.Drawing.Size(60, 44);
-            this.lblCMNDangKy.TabIndex = 70;
-            this.lblCMNDangKy.Text = "CMND:";
-            this.lblCMNDangKy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblCMNDangKy.UseCompatibleTextRendering = true;
+            this.txtMaDG.Location = new System.Drawing.Point(199, 21);
+            this.txtMaDG.Name = "txtMaDG";
+            this.txtMaDG.Size = new System.Drawing.Size(211, 20);
+            this.txtMaDG.TabIndex = 73;
+            // 
+            // label29
+            // 
+            this.label29.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label29.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label29.Image = ((System.Drawing.Image)(resources.GetObject("label29.Image")));
+            this.label29.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label29.Location = new System.Drawing.Point(45, 9);
+            this.label29.Margin = new System.Windows.Forms.Padding(0);
+            this.label29.Name = "label29";
+            this.label29.Padding = new System.Windows.Forms.Padding(2);
+            this.label29.Size = new System.Drawing.Size(147, 54);
+            this.label29.TabIndex = 72;
+            this.label29.Text = "Mã Độc Giả :";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label29.UseCompatibleTextRendering = true;
+            // 
+            // label27
+            // 
+            this.label27.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label27.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label27.Image = ((System.Drawing.Image)(resources.GetObject("label27.Image")));
+            this.label27.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label27.Location = new System.Drawing.Point(472, 86);
+            this.label27.Margin = new System.Windows.Forms.Padding(0);
+            this.label27.Name = "label27";
+            this.label27.Padding = new System.Windows.Forms.Padding(2);
+            this.label27.Size = new System.Drawing.Size(124, 54);
+            this.label27.TabIndex = 71;
+            this.label27.Text = "CMND :";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label27.UseCompatibleTextRendering = true;
             // 
             // lblMSCBDangKy
             // 
@@ -1224,7 +1269,7 @@
             this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label12.Image = ((System.Drawing.Image)(resources.GetObject("label12.Image")));
             this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label12.Location = new System.Drawing.Point(45, 262);
+            this.label12.Location = new System.Drawing.Point(45, 273);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(2);
@@ -1252,7 +1297,7 @@
             // rdKhac
             // 
             this.rdKhac.AutoSize = true;
-            this.rdKhac.Location = new System.Drawing.Point(637, 187);
+            this.rdKhac.Location = new System.Drawing.Point(649, 220);
             this.rdKhac.Name = "rdKhac";
             this.rdKhac.Size = new System.Drawing.Size(50, 17);
             this.rdKhac.TabIndex = 67;
@@ -1264,7 +1309,7 @@
             // rdCanBo
             // 
             this.rdCanBo.AutoSize = true;
-            this.rdCanBo.Location = new System.Drawing.Point(636, 150);
+            this.rdCanBo.Location = new System.Drawing.Point(648, 183);
             this.rdCanBo.Name = "rdCanBo";
             this.rdCanBo.Size = new System.Drawing.Size(121, 17);
             this.rdCanBo.TabIndex = 66;
@@ -1276,7 +1321,7 @@
             // rdSinhVien
             // 
             this.rdSinhVien.AutoSize = true;
-            this.rdSinhVien.Location = new System.Drawing.Point(637, 111);
+            this.rdSinhVien.Location = new System.Drawing.Point(649, 144);
             this.rdSinhVien.Name = "rdSinhVien";
             this.rdSinhVien.Size = new System.Drawing.Size(70, 17);
             this.rdSinhVien.TabIndex = 65;
@@ -1287,7 +1332,7 @@
             // 
             // txtCMNDDG
             // 
-            this.txtCMNDDG.Location = new System.Drawing.Point(571, 243);
+            this.txtCMNDDG.Location = new System.Drawing.Point(601, 105);
             this.txtCMNDDG.Name = "txtCMNDDG";
             this.txtCMNDDG.Size = new System.Drawing.Size(211, 20);
             this.txtCMNDDG.TabIndex = 64;
@@ -1315,28 +1360,28 @@
             // 
             // txtSDTDG
             // 
-            this.txtSDTDG.Location = new System.Drawing.Point(196, 281);
+            this.txtSDTDG.Location = new System.Drawing.Point(196, 292);
             this.txtSDTDG.Name = "txtSDTDG";
             this.txtSDTDG.Size = new System.Drawing.Size(211, 20);
             this.txtSDTDG.TabIndex = 60;
             // 
             // txtDiaChiDG
             // 
-            this.txtDiaChiDG.Location = new System.Drawing.Point(196, 201);
+            this.txtDiaChiDG.Location = new System.Drawing.Point(196, 223);
             this.txtDiaChiDG.Name = "txtDiaChiDG";
             this.txtDiaChiDG.Size = new System.Drawing.Size(211, 20);
             this.txtDiaChiDG.TabIndex = 59;
             // 
             // txtNgaySinhDG
             // 
-            this.txtNgaySinhDG.Location = new System.Drawing.Point(199, 120);
+            this.txtNgaySinhDG.Location = new System.Drawing.Point(196, 150);
             this.txtNgaySinhDG.Name = "txtNgaySinhDG";
             this.txtNgaySinhDG.Size = new System.Drawing.Size(211, 20);
             this.txtNgaySinhDG.TabIndex = 58;
             // 
             // txtTenDG
             // 
-            this.txtTenDG.Location = new System.Drawing.Point(207, 28);
+            this.txtTenDG.Location = new System.Drawing.Point(199, 83);
             this.txtTenDG.Name = "txtTenDG";
             this.txtTenDG.Size = new System.Drawing.Size(211, 20);
             this.txtTenDG.TabIndex = 57;
@@ -1347,7 +1392,7 @@
             this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(469, 130);
+            this.label6.Location = new System.Drawing.Point(481, 163);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(2);
@@ -1363,7 +1408,7 @@
             this.label13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
             this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label13.Location = new System.Drawing.Point(45, 101);
+            this.label13.Location = new System.Drawing.Point(45, 132);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(2);
@@ -1379,7 +1424,7 @@
             this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label11.Image = ((System.Drawing.Image)(resources.GetObject("label11.Image")));
             this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label11.Location = new System.Drawing.Point(45, 187);
+            this.label11.Location = new System.Drawing.Point(45, 205);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(2);
@@ -1411,7 +1456,7 @@
             this.lbUserName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbUserName.Image = ((System.Drawing.Image)(resources.GetObject("lbUserName.Image")));
             this.lbUserName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbUserName.Location = new System.Drawing.Point(45, 9);
+            this.lbUserName.Location = new System.Drawing.Point(42, 71);
             this.lbUserName.Margin = new System.Windows.Forms.Padding(0);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Padding = new System.Windows.Forms.Padding(2);
@@ -1435,10 +1480,10 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label28);
             this.groupBox5.Controls.Add(this.btnCapNhatDocGia);
             this.groupBox5.Controls.Add(this.txtMaCapNhat);
             this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Controls.Add(this.lblCMNDCapNhat);
             this.groupBox5.Controls.Add(this.lblMSCBCapNhat);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.lblMSSVCapNhat);
@@ -1464,6 +1509,22 @@
             this.groupBox5.Size = new System.Drawing.Size(847, 366);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
+            // 
+            // label28
+            // 
+            this.label28.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label28.Image = ((System.Drawing.Image)(resources.GetObject("label28.Image")));
+            this.label28.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label28.Location = new System.Drawing.Point(468, 66);
+            this.label28.Margin = new System.Windows.Forms.Padding(0);
+            this.label28.Name = "label28";
+            this.label28.Padding = new System.Windows.Forms.Padding(2);
+            this.label28.Size = new System.Drawing.Size(124, 54);
+            this.label28.TabIndex = 74;
+            this.label28.Text = "CMND :";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label28.UseCompatibleTextRendering = true;
             // 
             // btnCapNhatDocGia
             // 
@@ -1501,21 +1562,6 @@
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label3.UseCompatibleTextRendering = true;
             // 
-            // lblCMNDCapNhat
-            // 
-            this.lblCMNDCapNhat.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lblCMNDCapNhat.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblCMNDCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblCMNDCapNhat.Location = new System.Drawing.Point(500, 236);
-            this.lblCMNDCapNhat.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCMNDCapNhat.Name = "lblCMNDCapNhat";
-            this.lblCMNDCapNhat.Padding = new System.Windows.Forms.Padding(2);
-            this.lblCMNDCapNhat.Size = new System.Drawing.Size(60, 44);
-            this.lblCMNDCapNhat.TabIndex = 70;
-            this.lblCMNDCapNhat.Text = "CMND:";
-            this.lblCMNDCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblCMNDCapNhat.UseCompatibleTextRendering = true;
-            // 
             // lblMSCBCapNhat
             // 
             this.lblMSCBCapNhat.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -1527,7 +1573,7 @@
             this.lblMSCBCapNhat.Padding = new System.Windows.Forms.Padding(2);
             this.lblMSCBCapNhat.Size = new System.Drawing.Size(60, 44);
             this.lblMSCBCapNhat.TabIndex = 69;
-            this.lblMSCBCapNhat.Text = "MSCB";
+            this.lblMSCBCapNhat.Text = "MSCB :";
             this.lblMSCBCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblMSCBCapNhat.UseCompatibleTextRendering = true;
             // 
@@ -1565,7 +1611,7 @@
             // rdKhacCapNhat
             // 
             this.rdKhacCapNhat.AutoSize = true;
-            this.rdKhacCapNhat.Location = new System.Drawing.Point(637, 187);
+            this.rdKhacCapNhat.Location = new System.Drawing.Point(639, 207);
             this.rdKhacCapNhat.Name = "rdKhacCapNhat";
             this.rdKhacCapNhat.Size = new System.Drawing.Size(50, 17);
             this.rdKhacCapNhat.TabIndex = 67;
@@ -1577,7 +1623,7 @@
             // rdCanBoCapNhat
             // 
             this.rdCanBoCapNhat.AutoSize = true;
-            this.rdCanBoCapNhat.Location = new System.Drawing.Point(636, 150);
+            this.rdCanBoCapNhat.Location = new System.Drawing.Point(638, 170);
             this.rdCanBoCapNhat.Name = "rdCanBoCapNhat";
             this.rdCanBoCapNhat.Size = new System.Drawing.Size(121, 17);
             this.rdCanBoCapNhat.TabIndex = 66;
@@ -1589,7 +1635,7 @@
             // rdSinhVienCapNhat
             // 
             this.rdSinhVienCapNhat.AutoSize = true;
-            this.rdSinhVienCapNhat.Location = new System.Drawing.Point(637, 111);
+            this.rdSinhVienCapNhat.Location = new System.Drawing.Point(639, 131);
             this.rdSinhVienCapNhat.Name = "rdSinhVienCapNhat";
             this.rdSinhVienCapNhat.Size = new System.Drawing.Size(70, 17);
             this.rdSinhVienCapNhat.TabIndex = 65;
@@ -1600,14 +1646,14 @@
             // 
             // txtMSCBCapNhat
             // 
-            this.txtMSCBCapNhat.Location = new System.Drawing.Point(571, 244);
+            this.txtMSCBCapNhat.Location = new System.Drawing.Point(571, 245);
             this.txtMSCBCapNhat.Name = "txtMSCBCapNhat";
             this.txtMSCBCapNhat.Size = new System.Drawing.Size(211, 20);
             this.txtMSCBCapNhat.TabIndex = 64;
             // 
             // txtCMNDCapNhat
             // 
-            this.txtCMNDCapNhat.Location = new System.Drawing.Point(571, 245);
+            this.txtCMNDCapNhat.Location = new System.Drawing.Point(601, 85);
             this.txtCMNDCapNhat.Name = "txtCMNDCapNhat";
             this.txtCMNDCapNhat.Size = new System.Drawing.Size(211, 20);
             this.txtCMNDCapNhat.TabIndex = 63;
@@ -1660,7 +1706,7 @@
             this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(469, 130);
+            this.label5.Location = new System.Drawing.Point(471, 150);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2);
@@ -1786,6 +1832,160 @@
             this.txtMaDocGiaXoa.Size = new System.Drawing.Size(177, 20);
             this.txtMaDocGiaXoa.TabIndex = 0;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.cbMSCB);
+            this.tabPage7.Controls.Add(this.cbMSSV);
+            this.tabPage7.Controls.Add(this.cbCMND);
+            this.tabPage7.Controls.Add(this.dgvDGSearch);
+            this.tabPage7.Controls.Add(this.btnSearchDocGia);
+            this.tabPage7.Controls.Add(this.lblHoTenSearch);
+            this.tabPage7.Controls.Add(this.lblDinhDanhSearch);
+            this.tabPage7.Controls.Add(this.lblMaDGSearch);
+            this.tabPage7.Controls.Add(this.rdHoTenSearch);
+            this.tabPage7.Controls.Add(this.rdMaDinhDanhSearch);
+            this.tabPage7.Controls.Add(this.rdMaDGSearch);
+            this.tabPage7.Controls.Add(this.txtSearchDG);
+            this.tabPage7.Controls.Add(this.label30);
+            this.tabPage7.Location = new System.Drawing.Point(4, 29);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(883, 426);
+            this.tabPage7.TabIndex = 4;
+            this.tabPage7.Text = "Tìm Kiếm Độc Giả";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // cbMSCB
+            // 
+            this.cbMSCB.AutoSize = true;
+            this.cbMSCB.Location = new System.Drawing.Point(450, 95);
+            this.cbMSCB.Name = "cbMSCB";
+            this.cbMSCB.Size = new System.Drawing.Size(56, 17);
+            this.cbMSCB.TabIndex = 12;
+            this.cbMSCB.Text = "MSCB";
+            this.cbMSCB.UseVisualStyleBackColor = true;
+            // 
+            // cbMSSV
+            // 
+            this.cbMSSV.AutoSize = true;
+            this.cbMSSV.Location = new System.Drawing.Point(450, 64);
+            this.cbMSSV.Name = "cbMSSV";
+            this.cbMSSV.Size = new System.Drawing.Size(56, 17);
+            this.cbMSSV.TabIndex = 11;
+            this.cbMSSV.Text = "MSSV";
+            this.cbMSSV.UseVisualStyleBackColor = true;
+            // 
+            // cbCMND
+            // 
+            this.cbCMND.AutoSize = true;
+            this.cbCMND.Location = new System.Drawing.Point(450, 29);
+            this.cbCMND.Name = "cbCMND";
+            this.cbCMND.Size = new System.Drawing.Size(58, 17);
+            this.cbCMND.TabIndex = 10;
+            this.cbCMND.Text = "CMND";
+            this.cbCMND.UseVisualStyleBackColor = true;
+            // 
+            // dgvDGSearch
+            // 
+            this.dgvDGSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDGSearch.Location = new System.Drawing.Point(20, 135);
+            this.dgvDGSearch.Name = "dgvDGSearch";
+            this.dgvDGSearch.Size = new System.Drawing.Size(841, 252);
+            this.dgvDGSearch.TabIndex = 9;
+            // 
+            // btnSearchDocGia
+            // 
+            this.btnSearchDocGia.BackColor = System.Drawing.Color.Purple;
+            this.btnSearchDocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSearchDocGia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearchDocGia.Location = new System.Drawing.Point(596, 80);
+            this.btnSearchDocGia.Name = "btnSearchDocGia";
+            this.btnSearchDocGia.Size = new System.Drawing.Size(123, 33);
+            this.btnSearchDocGia.TabIndex = 8;
+            this.btnSearchDocGia.Text = "Tìm Kiếm";
+            this.btnSearchDocGia.UseVisualStyleBackColor = false;
+            this.btnSearchDocGia.Click += new System.EventHandler(this.btnSearchDocGia_Click);
+            // 
+            // lblHoTenSearch
+            // 
+            this.lblHoTenSearch.AutoSize = true;
+            this.lblHoTenSearch.Location = new System.Drawing.Point(565, 30);
+            this.lblHoTenSearch.Name = "lblHoTenSearch";
+            this.lblHoTenSearch.Size = new System.Drawing.Size(49, 13);
+            this.lblHoTenSearch.TabIndex = 7;
+            this.lblHoTenSearch.Text = "Họ Tên :";
+            // 
+            // lblDinhDanhSearch
+            // 
+            this.lblDinhDanhSearch.AutoSize = true;
+            this.lblDinhDanhSearch.Location = new System.Drawing.Point(565, 30);
+            this.lblDinhDanhSearch.Name = "lblDinhDanhSearch";
+            this.lblDinhDanhSearch.Size = new System.Drawing.Size(115, 13);
+            this.lblDinhDanhSearch.TabIndex = 6;
+            this.lblDinhDanhSearch.Text = "CMND/MSSV/MSCB :";
+            // 
+            // lblMaDGSearch
+            // 
+            this.lblMaDGSearch.AutoSize = true;
+            this.lblMaDGSearch.Location = new System.Drawing.Point(565, 32);
+            this.lblMaDGSearch.Name = "lblMaDGSearch";
+            this.lblMaDGSearch.Size = new System.Drawing.Size(70, 13);
+            this.lblMaDGSearch.TabIndex = 5;
+            this.lblMaDGSearch.Text = "Mã Độc Giả :";
+            // 
+            // rdHoTenSearch
+            // 
+            this.rdHoTenSearch.AutoSize = true;
+            this.rdHoTenSearch.Location = new System.Drawing.Point(284, 100);
+            this.rdHoTenSearch.Name = "rdHoTenSearch";
+            this.rdHoTenSearch.Size = new System.Drawing.Size(61, 17);
+            this.rdHoTenSearch.TabIndex = 4;
+            this.rdHoTenSearch.TabStop = true;
+            this.rdHoTenSearch.Text = "Họ Tên";
+            this.rdHoTenSearch.UseVisualStyleBackColor = true;
+            this.rdHoTenSearch.CheckedChanged += new System.EventHandler(this.rdHoTenSearch_CheckedChanged);
+            // 
+            // rdMaDinhDanhSearch
+            // 
+            this.rdMaDinhDanhSearch.AutoSize = true;
+            this.rdMaDinhDanhSearch.Location = new System.Drawing.Point(284, 64);
+            this.rdMaDinhDanhSearch.Name = "rdMaDinhDanhSearch";
+            this.rdMaDinhDanhSearch.Size = new System.Drawing.Size(127, 17);
+            this.rdMaDinhDanhSearch.TabIndex = 3;
+            this.rdMaDinhDanhSearch.TabStop = true;
+            this.rdMaDinhDanhSearch.Text = "CMND/MSSV/MSCB";
+            this.rdMaDinhDanhSearch.UseVisualStyleBackColor = true;
+            this.rdMaDinhDanhSearch.CheckedChanged += new System.EventHandler(this.rdMaDinhDanhSearch_CheckedChanged);
+            // 
+            // rdMaDGSearch
+            // 
+            this.rdMaDGSearch.AutoSize = true;
+            this.rdMaDGSearch.Location = new System.Drawing.Point(284, 28);
+            this.rdMaDGSearch.Name = "rdMaDGSearch";
+            this.rdMaDGSearch.Size = new System.Drawing.Size(82, 17);
+            this.rdMaDGSearch.TabIndex = 2;
+            this.rdMaDGSearch.TabStop = true;
+            this.rdMaDGSearch.Text = "Mã Độc Giả";
+            this.rdMaDGSearch.UseVisualStyleBackColor = true;
+            this.rdMaDGSearch.CheckedChanged += new System.EventHandler(this.rdMaDGSearch_CheckedChanged);
+            // 
+            // txtSearchDG
+            // 
+            this.txtSearchDG.Location = new System.Drawing.Point(696, 25);
+            this.txtSearchDG.Name = "txtSearchDG";
+            this.txtSearchDG.Size = new System.Drawing.Size(122, 20);
+            this.txtSearchDG.TabIndex = 1;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label30.Location = new System.Drawing.Point(90, 42);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(168, 25);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "Tìm Kiếm Theo :";
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -1873,6 +2073,9 @@
             this.groupBox5.PerformLayout();
             this.tabXoadg.ResumeLayout(false);
             this.tabXoadg.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDGSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1928,7 +2131,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.TabPage tabCapnhatdg;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -1960,21 +2162,18 @@
         private System.Windows.Forms.TextBox txtCMNDDG;
         private System.Windows.Forms.TextBox txtMSCBDG;
         private System.Windows.Forms.TextBox txtMSSVDG;
-        private System.Windows.Forms.TextBox txtEmailDG;
         private System.Windows.Forms.TextBox txtSDTDG;
         private System.Windows.Forms.TextBox txtDiaChiDG;
         private System.Windows.Forms.TextBox txtTenDG;
         private System.Windows.Forms.RadioButton rdKhac;
         private System.Windows.Forms.RadioButton rdCanBo;
         private System.Windows.Forms.RadioButton rdSinhVien;
-        private System.Windows.Forms.Label lblCMNDangKy;
         private System.Windows.Forms.Label lblMSCBDangKy;
         private System.Windows.Forms.Label lblMSSVDangKy;
         private System.Windows.Forms.TextBox txtNgaySinhDG;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnDangKyDocGia;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label lblCMNDCapNhat;
         private System.Windows.Forms.Label lblMSCBCapNhat;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblMSSVCapNhat;
@@ -2021,5 +2220,25 @@
         private System.Windows.Forms.Button btnXoaNhanVien;
         private System.Windows.Forms.TextBox txtMaNVXoa;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txtEmailDG;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtMaDG;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button btnSearchDocGia;
+        private System.Windows.Forms.Label lblHoTenSearch;
+        private System.Windows.Forms.Label lblDinhDanhSearch;
+        private System.Windows.Forms.Label lblMaDGSearch;
+        private System.Windows.Forms.RadioButton rdHoTenSearch;
+        private System.Windows.Forms.RadioButton rdMaDinhDanhSearch;
+        private System.Windows.Forms.RadioButton rdMaDGSearch;
+        private System.Windows.Forms.TextBox txtSearchDG;
+        private System.Windows.Forms.DataGridView dgvDGSearch;
+        private System.Windows.Forms.CheckBox cbMSCB;
+        private System.Windows.Forms.CheckBox cbMSSV;
+        private System.Windows.Forms.CheckBox cbCMND;
     }
 }

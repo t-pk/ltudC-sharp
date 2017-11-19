@@ -174,6 +174,79 @@ if OBJECT_ID('usp_XoaDocGia') is not null
  end
 
 
+ if OBJECT_ID('usp_TimKiemDocGiaTheoMaDocGia') is not null
+ Drop proc usp_TimKiemDocGiaTheoMaDocGia
+ go
+
+ create proc usp_TimKiemDocGiaTheoMaDocGia @MaDG char(15)
+ as
+ begin
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.MaDocGia = @MaDG and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.MaDocGia = @MaDG) as 'So Sach Qua Han'
+	from [DOC GIA] dg
+	where dg.MaDocGia = @MaDG
+ end
+
+
+
+  if OBJECT_ID('usp_TimKiemDocGiaTheoMSSV') is not null
+ Drop proc usp_TimKiemDocGiaTheoMSSV
+ go
+
+ create proc usp_TimKiemDocGiaTheoMSSV @MSSV char(15)
+ as
+ begin
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.MSSV = @MSSV and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.MSSV = @MSSV) as 'So Sach Qua Han'
+	from [DOC GIA] dg
+	where dg.MSSV = @MSSV
+ end
+
+
+   if OBJECT_ID('usp_TimKiemDocGiaTheoMSCB') is not null
+ Drop proc usp_TimKiemDocGiaTheoMSCB
+ go
+
+ create proc usp_TimKiemDocGiaTheoMSCB @MSCB char(15)
+ as
+ begin
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.MCB = @MSCB and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.MCB = @MSCB) as 'So Sach Qua Han'
+	from [DOC GIA] dg
+	where dg.MCB = @MSCB
+ end
+
+
+
+
+   if OBJECT_ID('usp_TimKiemDocGiaTheoCMND') is not null
+ Drop proc usp_TimKiemDocGiaTheoCMND
+ go
+
+ create proc usp_TimKiemDocGiaTheoCMND @CMND char(15)
+ as
+ begin
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.CMND = @CMND and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.CMND = @CMND) as 'So Sach Qua Han'
+	from [DOC GIA] dg
+	where dg.CMND = @CMND
+ end
+
+
+
+
+  if OBJECT_ID('usp_TimKiemDocGiaTheoHoTen') is not null
+ Drop proc usp_TimKiemDocGiaTheoHoTen
+ go
+
+ create proc usp_TimKiemDocGiaTheoHoTen @HoTen nvarchar(100)
+ as
+ begin
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.HoTen like @HoTen and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.HoTen like @HoTen) as 'So Sach Qua Han'
+	from [DOC GIA] dg
+	where dg.HoTen like @HoTen
+ end
+
+ select * from [DOC GIA]
+
+
+
 
 
 

@@ -158,8 +158,6 @@ namespace LTQLUD1_DACK_Nhom15
         private void btnDocGia_Click(object sender, EventArgs e)
         {
             txtMSCBDG.Hide();
-            txtCMNDDG.Hide();
-            lblCMNDangKy.Hide();
             lblMSCBDangKy.Hide();
             txtMSSVDG.Hide();
             lblMSSVDangKy.Hide();
@@ -167,10 +165,19 @@ namespace LTQLUD1_DACK_Nhom15
 
             txtMSSVCapNhat.Hide();
             lblMSSVCapNhat.Hide();
-            txtCMNDCapNhat.Hide();
             txtMSCBCapNhat.Hide();
-            lblCMNDCapNhat.Hide();
             lblMSCBCapNhat.Hide();
+
+
+
+            lblMaDGSearch.Hide();
+            lblDinhDanhSearch.Hide();
+            lblHoTenSearch.Hide();
+            txtSearchDG.Hide();
+
+            cbMSSV.Hide();
+            cbCMND.Hide();
+            cbMSCB.Hide();
 
 
             panelQLNhanVien.Visible = false;           
@@ -222,7 +229,19 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void frmHome_Load(object sender, EventArgs e)
         {
+            txtMaDG.ReadOnly = true;
 
+            string strSql1 = "usp_TimMaDGTiepTheo";
+            Provider provider1 = new Provider();
+            provider1.Connect();
+
+            SqlParameter p = new SqlParameter("@MaDocGia", SqlDbType.VarChar, 100);
+            p.Direction = ParameterDirection.Output;
+
+            provider1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1, p);
+
+            provider1.Disconnect();
+            txtMaDG.Text = p.Value.ToString();
         }
 
         private void label25_Click(object sender, EventArgs e)
@@ -241,7 +260,6 @@ namespace LTQLUD1_DACK_Nhom15
             lblMSSVDangKy.Show();
             txtMSCBDG.Hide();
             txtCMNDDG.Hide();
-            lblCMNDangKy.Hide();
             lblMSCBDangKy.Hide();
         }
 
@@ -252,13 +270,11 @@ namespace LTQLUD1_DACK_Nhom15
             txtMSSVDG.Hide();
             txtCMNDDG.Hide();
             lblMSSVDangKy.Hide();
-            lblCMNDangKy.Hide();
         }
 
         private void rdKhac_CheckedChanged(object sender, EventArgs e)
         {
             txtCMNDDG.Show();
-            lblCMNDangKy.Show();
             txtMSSVDG.Hide();
             txtMSCBDG.Hide();
             lblMSSVDangKy.Hide();
@@ -269,6 +285,20 @@ namespace LTQLUD1_DACK_Nhom15
         {
             try
             {
+                txtMaDG.ReadOnly = true;
+
+                string strSql1 = "usp_TimMaDGTiepTheo";
+                Provider provider1 = new Provider();
+                provider1.Connect();
+
+                SqlParameter p = new SqlParameter("@MaDocGia", SqlDbType.VarChar, 100);
+                p.Direction = ParameterDirection.Output;
+
+                provider1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1, p);
+
+                provider1.Disconnect();
+                txtMaDG.Text = p.Value.ToString();
+                
                 string tendocgia = txtTenDG.Text;
                 string ngaysinh = txtNgaySinhDG.Text;
                 string diachi = txtDiaChiDG.Text;
@@ -407,7 +437,6 @@ namespace LTQLUD1_DACK_Nhom15
             lblMSSVCapNhat.Show();
             txtCMNDCapNhat.Hide();
             txtMSCBCapNhat.Hide();
-            lblCMNDCapNhat.Hide();
             lblMSCBCapNhat.Hide();
         }
 
@@ -418,13 +447,11 @@ namespace LTQLUD1_DACK_Nhom15
             txtMSSVCapNhat.Hide();
             lblMSSVCapNhat.Hide();
             txtCMNDCapNhat.Hide();
-            lblCMNDCapNhat.Hide();
         }
 
         private void rdKhacCapNhat_CheckedChanged(object sender, EventArgs e)
         {
             txtCMNDCapNhat.Show();
-            lblCMNDCapNhat.Show();
             txtMSCBCapNhat.Hide();
             lblMSCBCapNhat.Hide();
             txtMSSVCapNhat.Hide();
@@ -580,6 +607,82 @@ namespace LTQLUD1_DACK_Nhom15
                 }
             }
             else MessageBox.Show("Bạn Không Phải ADMIN, Bạn Không Có Quyền Xóa Nhân Viên !!!");
+        }
+
+        private void btnSearchDocGia_Click(object sender, EventArgs e)
+        {
+            string strSql = "";
+            string Search = txtSearchDG.Text;
+            if (rdMaDGSearch.Checked == true)
+            {
+                strSql = "exec usp_TimKiemDocGiaTheoMaDocGia " + Search;
+            }
+
+            else if(rdMaDinhDanhSearch.Checked == true)
+            {
+                cbMSSV.Show();
+                cbCMND.Show();
+                cbCMND.Show();
+                if(cbMSSV.Checked == true && cbMSCB.Checked == false && cbCMND.Checked == false)
+                {
+                    strSql = "exec usp_TimKiemDocGiaTheoMSSV " + Search;
+                }
+
+                else if (cbMSSV.Checked == false && cbMSCB.Checked == true && cbCMND.Checked == false)
+                {
+                    strSql = "exec usp_TimKiemDocGiaTheoMSCB " + Search;
+                }
+
+                else if (cbMSSV.Checked == false && cbMSCB.Checked == false && cbCMND.Checked == true)
+                {
+                    strSql = "exec usp_TimKiemDocGiaTheoCMND " + Search;
+                }
+            }
+            else if (rdHoTenSearch.Checked == true)
+            {
+                strSql = "exec usp_TimKiemDocGiaTheoHoTen [" + Search + "]";
+            }
+            
+            Provider provider = new Provider();
+            provider.Connect();
+            DataTable dt = provider.Select(CommandType.Text, strSql);
+            dgvDGSearch.DataSource = dt;
+            dgvDGSearch.ReadOnly = true;
+            provider.Disconnect();
+
+        }
+
+        private void rdMaDGSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            lblMaDGSearch.Show();
+            lblDinhDanhSearch.Hide();
+            lblHoTenSearch.Hide();
+            txtSearchDG.Show();
+            cbMSSV.Hide();
+            cbCMND.Hide();
+            cbMSCB.Hide();
+        }
+
+        private void rdMaDinhDanhSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            lblMaDGSearch.Hide();
+            lblDinhDanhSearch.Show();
+            lblHoTenSearch.Hide();
+            txtSearchDG.Show();
+            cbMSSV.Show();
+            cbCMND.Show();
+            cbMSCB.Show();
+        }
+
+        private void rdHoTenSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            lblMaDGSearch.Hide();
+            lblDinhDanhSearch.Hide();
+            lblHoTenSearch.Show();
+            txtSearchDG.Show();
+            cbMSSV.Hide();
+            cbCMND.Hide();
+            cbMSCB.Hide();
         }
     }
 }
