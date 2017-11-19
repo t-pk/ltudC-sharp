@@ -484,7 +484,89 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void btnCapNhatNhanVien_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string manv = txtMaNVCapNhap.Text;
+                string hotennv = txtHoTenNVCapNhat.Text;
+                string tendangnhapnv = txtTenDangNhapNVCapNhat.Text;
+                string mkhaudangnhapnv = txtMatKhauNVCapNhat.Text;
+                string catruc = txtCaTrucNVCapNhat.Text;
+                string loai = "";
+                if (rdAdminCapNhat.Checked == true)
+                    loai = "AD";
+                else if (rdThuThuCapNhat.Checked == true)
+                    loai = "TT";
 
+                string strSql = "usp_CapNhatNhanVien";
+                Provider provider = new Provider();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaNV", Value = manv },
+                new SqlParameter { ParameterName = "@CaTruc", Value = catruc },
+                new SqlParameter { ParameterName = "@TenDangNhap", Value = tendangnhapnv },
+                new SqlParameter { ParameterName = "@MatKhau", Value = mkhaudangnhapnv },
+                new SqlParameter { ParameterName = "@HoTen", Value = hotennv },
+                new SqlParameter { ParameterName = "@LoaiNV", Value = loai });
+                provider.Disconnect();
+                MessageBox.Show("Cập Nhật Nhân Viên Thành Công!!!");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi");
+                throw ex;
+            }
+            txtMaNVCapNhap.Text = null;
+            txtHoTenNVCapNhat.Text = null;
+            txtTenDangNhapNVCapNhat.Text = null;
+            txtMatKhauNVCapNhat.Text = null;
+            txtCaTrucNVCapNhat.Text = null;
+            rdAdminCapNhat.Checked = false;
+            rdThuThuCapNhat.Checked = false;
+            if (panelQLNhanVien.Visible == true)
+            {
+                string strSql = "exec usp_XemNhanVien";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvNhanVien.DataSource = dt;
+                dgvNhanVien.ReadOnly = true;
+                provider.Disconnect();
+            }
+        }
+
+        private void btnXoaNhanVien_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string manvxoa = txtMaNVXoa.Text;
+                string strSql = "usp_XoaNhanVien";
+                Provider provider = new Provider();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaNV", Value = manvxoa });
+                provider.Disconnect();
+                MessageBox.Show("Xóa Nhân Viên Thành Công");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi");
+                throw ex;
+            }
+            txtMaNVXoa.Text = null;
+            if (panelQLNhanVien.Visible == true)
+            {
+                string strSql = "exec usp_XemNhanVien";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvNhanVien.DataSource = dt;
+                dgvNhanVien.ReadOnly = true;
+                provider.Disconnect();
+            }
         }
     }
 }

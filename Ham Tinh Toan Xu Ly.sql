@@ -2,59 +2,16 @@ use QL_thuvien
 
 go
 
-if OBJECT_ID('usp_XemNhanVien') is not null
- Drop proc usp_XemNhanVien
+if OBJECT_ID('usp_AddUser') is not null
+ Drop proc usp_AddUser
 
 go
-create proc usp_XemNhanVien
+
+create proc usp_AddUser @username nchar(40), @email nchar(40), @password nchar(40)
 as
 begin
-	select * from [NHAN VIEN]
-end
-
-
-if OBJECT_ID('usp_TimMaNVTiepTheo') is not null
- Drop proc usp_TimMaNVTiepTheo
-
-go
-create proc usp_TimMaNVTiepTheo @MaNV varchar(10) out
-as
-begin
-	declare @MaNhanVien nchar(10) = 'NV0001'	
-	declare @idx int 
-	set @idx = 1
-	while exists (select MaNV from [NHAN VIEN] Where MaNV = @MaNhanVien)
-	begin
-		set @idx = @idx + 1
-		set @MaNhanVien = 'NV' + REPLICATE('0', 4 - len(cast(@idx as varchar))) + cast(@idx as varchar)
-	end
-	Set @MaNV = @MaNhanVien
-end
-
-
-if OBJECT_ID('usp_ThemNhanVien') is not null
- Drop proc usp_ThemNhanVien
-
-go
-create proc usp_ThemNhanVien @CaTruc nvarchar(40), @TenDangNhap nvarchar(20), @HoTen nvarchar(100), @LoginGanNhat nvarchar(20), @LoaiNV nvarchar(20)
-as
-begin
-	Declare @MaNV nchar(10)
-	exec usp_TimMaNVTiepTheo @MaNV out
-	insert into [DOC GIA]
-	values(@MaNV, @CaTruc ,@TenDangNhap, @HoTen, @LoginGanNhat, @LoaiNV)
-end
-
-
-if OBJECT_ID('usp_CapNhatNhanVien') is not null
- Drop proc usp_CapNhatNhanVien
- go
-create proc usp_CapNhatNhanVien @MaNV nvarchar(10), @CaTruc nvarchar(40), @TenDangNhap nvarchar(20), @HoTen nvarchar(100), @LoginGanNhat nvarchar(20), @LoaiNV nvarchar(20)
-as
-begin
-	update [NHAN VIEN]
-	set	CaTruc = @CaTruc, TenDangNhap = @TenDangNhap, HoTen = @HoTen, LoginGanNhat = @LoginGanNhat, LoaiNV =@LoaiNV
-	where MaNV = @MaNV
+	insert into [DANG NHAP NV]
+	values(@username, @email, @password)
 end
 
 
@@ -145,5 +102,12 @@ if OBJECT_ID('usp_XoaDocGia') is not null
 
 
 
+if OBJECT_ID('usp_XemNhanVien') is not null
+ Drop proc usp_XemNhanVien
 
-
+go
+create proc usp_XemNhanVien
+as
+begin
+	select * from [NHAN VIEN]
+end
