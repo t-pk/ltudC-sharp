@@ -11,7 +11,7 @@ namespace LTQLUD1_DACK_Nhom15
 
     class Provider
     {
-        static String ConnectionString = @"Server=WIN-GCDD6G4KV5S\SQLEXPRESS; Database=QL_thuvien; Trusted_Connection=True;";
+        static String ConnectionString = @"Server=PKTAI-IOT\SQLEXPRESS; Database=QL_thuvien; Trusted_Connection=True;";
         SqlConnection Connection;
 
         public void Connect()

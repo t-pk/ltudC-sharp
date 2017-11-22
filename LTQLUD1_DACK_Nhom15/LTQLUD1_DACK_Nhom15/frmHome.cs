@@ -102,6 +102,7 @@ namespace LTQLUD1_DACK_Nhom15
             this.panelQLSach.Location = new System.Drawing.Point(220, 118);
             panelQLSach.Visible = true;
             panelQLSach.Size = new Size(900, 447);
+            pnThongKe.Visible = false;
 
 
         }
@@ -172,7 +173,7 @@ namespace LTQLUD1_DACK_Nhom15
             lblCMNDCapNhat.Hide();
             lblMSCBCapNhat.Hide();
 
-
+            pnThongKe.Visible = false;
             panelQLNhanVien.Visible = false;           
             panelQLSach.Visible = false;
             panelTraCuu.Visible = false;
@@ -208,6 +209,7 @@ namespace LTQLUD1_DACK_Nhom15
             panelQLSach.Visible = true;
             panelDocGia.Visible = false;
             panelTraCuu.Visible = false;
+            pnThongKe.Visible = false;
 
         }
 
@@ -473,6 +475,7 @@ namespace LTQLUD1_DACK_Nhom15
             panelQLSach.Visible = false;
             panelDocGia.Visible = false;
             panelTraCuu.Visible = false;
+            pnThongKe.Visible = false;
 
             if (panelQLNhanVien.Visible == true)
             {
@@ -716,6 +719,16 @@ namespace LTQLUD1_DACK_Nhom15
                 }
             }
             else MessageBox.Show("Bạn Không Phải ADMIN, Bạn Không Có Quyền Xóa Nhân Viên !!!");
+        }
+
+        private void btn_ThongKe_Click(object sender, EventArgs e)
+        {
+            pnThongKe.Visible = true;
+            panelQLNhanVien.Visible = false;
+            panelQLSach.Visible = false;
+            panelTraCuu.Visible = false;
+
+            panelDocGia.Visible = false;
         }
     }
 }
