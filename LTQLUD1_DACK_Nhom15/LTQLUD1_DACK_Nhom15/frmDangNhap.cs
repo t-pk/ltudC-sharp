@@ -152,6 +152,16 @@ namespace LTQLUD1_DACK_Nhom15
        
         }
 
+        private void txtUSER_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbCopyright_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void txtPASS_TextChanged(object sender, EventArgs e)
         {
             txtPASS.PasswordChar = '*';

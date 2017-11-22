@@ -57,7 +57,7 @@
             this.lbTittle.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbTittle.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTittle.ForeColor = System.Drawing.Color.Lime;
-            this.lbTittle.Location = new System.Drawing.Point(187, 25);
+            this.lbTittle.Location = new System.Drawing.Point(345, 25);
             this.lbTittle.Name = "lbTittle";
             this.lbTittle.Size = new System.Drawing.Size(371, 27);
             this.lbTittle.TabIndex = 0;
@@ -92,7 +92,7 @@
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDangKy.ForeColor = System.Drawing.Color.Black;
-            this.btnDangKy.Location = new System.Drawing.Point(419, 328);
+            this.btnDangKy.Location = new System.Drawing.Point(426, 402);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(104, 41);
             this.btnDangKy.TabIndex = 5;
@@ -106,7 +106,7 @@
             this.lbPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbPassword.Image = ((System.Drawing.Image)(resources.GetObject("lbPassword.Image")));
             this.lbPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbPassword.Location = new System.Drawing.Point(37, 171);
+            this.lbPassword.Location = new System.Drawing.Point(37, 186);
             this.lbPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Padding = new System.Windows.Forms.Padding(2);
@@ -139,7 +139,7 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(37, 238);
+            this.label1.Location = new System.Drawing.Point(37, 250);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2);
@@ -152,7 +152,7 @@
             // lbCopyright
             // 
             this.lbCopyright.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbCopyright.Location = new System.Drawing.Point(9, 395);
+            this.lbCopyright.Location = new System.Drawing.Point(12, 475);
             this.lbCopyright.Name = "lbCopyright";
             this.lbCopyright.Size = new System.Drawing.Size(146, 22);
             this.lbCopyright.TabIndex = 17;
@@ -162,7 +162,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(843, 395);
+            this.label3.Location = new System.Drawing.Point(843, 465);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 22);
             this.label3.TabIndex = 18;
@@ -179,31 +179,39 @@
             // 
             // txtMaNVDangKy
             // 
-            this.txtMaNVDangKy.Location = new System.Drawing.Point(246, 131);
+            this.txtMaNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtMaNVDangKy.Location = new System.Drawing.Point(246, 116);
+            this.txtMaNVDangKy.Multiline = true;
             this.txtMaNVDangKy.Name = "txtMaNVDangKy";
-            this.txtMaNVDangKy.Size = new System.Drawing.Size(212, 20);
-            this.txtMaNVDangKy.TabIndex = 20;
+            this.txtMaNVDangKy.Size = new System.Drawing.Size(212, 32);
+            this.txtMaNVDangKy.TabIndex = 32;
             // 
             // txtUserNVDangKy
             // 
+            this.txtUserNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtUserNVDangKy.Location = new System.Drawing.Point(246, 189);
+            this.txtUserNVDangKy.Multiline = true;
             this.txtUserNVDangKy.Name = "txtUserNVDangKy";
-            this.txtUserNVDangKy.Size = new System.Drawing.Size(212, 20);
-            this.txtUserNVDangKy.TabIndex = 21;
+            this.txtUserNVDangKy.Size = new System.Drawing.Size(212, 32);
+            this.txtUserNVDangKy.TabIndex = 32;
             // 
             // txtPassNVDangKy
             // 
-            this.txtPassNVDangKy.Location = new System.Drawing.Point(691, 189);
+            this.txtPassNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtPassNVDangKy.Location = new System.Drawing.Point(691, 186);
+            this.txtPassNVDangKy.Multiline = true;
             this.txtPassNVDangKy.Name = "txtPassNVDangKy";
-            this.txtPassNVDangKy.Size = new System.Drawing.Size(212, 20);
-            this.txtPassNVDangKy.TabIndex = 27;
+            this.txtPassNVDangKy.Size = new System.Drawing.Size(212, 32);
+            this.txtPassNVDangKy.TabIndex = 32;
             // 
             // txtHoTenNVDangKy
             // 
-            this.txtHoTenNVDangKy.Location = new System.Drawing.Point(691, 131);
+            this.txtHoTenNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtHoTenNVDangKy.Location = new System.Drawing.Point(691, 116);
+            this.txtHoTenNVDangKy.Multiline = true;
             this.txtHoTenNVDangKy.Name = "txtHoTenNVDangKy";
-            this.txtHoTenNVDangKy.Size = new System.Drawing.Size(212, 20);
-            this.txtHoTenNVDangKy.TabIndex = 26;
+            this.txtHoTenNVDangKy.Size = new System.Drawing.Size(212, 32);
+            this.txtHoTenNVDangKy.TabIndex = 32;
             // 
             // label2
             // 
@@ -256,9 +264,10 @@
             // rdAdminDangKy
             // 
             this.rdAdminDangKy.AutoSize = true;
-            this.rdAdminDangKy.Location = new System.Drawing.Point(246, 238);
+            this.rdAdminDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.rdAdminDangKy.Location = new System.Drawing.Point(246, 257);
             this.rdAdminDangKy.Name = "rdAdminDangKy";
-            this.rdAdminDangKy.Size = new System.Drawing.Size(54, 17);
+            this.rdAdminDangKy.Size = new System.Drawing.Size(65, 21);
             this.rdAdminDangKy.TabIndex = 28;
             this.rdAdminDangKy.TabStop = true;
             this.rdAdminDangKy.Text = "Admin";
@@ -268,9 +277,10 @@
             // rdThuThuDangKy
             // 
             this.rdThuThuDangKy.AutoSize = true;
+            this.rdThuThuDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.rdThuThuDangKy.Location = new System.Drawing.Point(246, 286);
             this.rdThuThuDangKy.Name = "rdThuThuDangKy";
-            this.rdThuThuDangKy.Size = new System.Drawing.Size(66, 17);
+            this.rdThuThuDangKy.Size = new System.Drawing.Size(80, 21);
             this.rdThuThuDangKy.TabIndex = 29;
             this.rdThuThuDangKy.TabStop = true;
             this.rdThuThuDangKy.Text = "Thủ Thư";
@@ -279,17 +289,19 @@
             // 
             // txtCaNVDangKy
             // 
-            this.txtCaNVDangKy.Location = new System.Drawing.Point(691, 258);
+            this.txtCaNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtCaNVDangKy.Location = new System.Drawing.Point(691, 250);
+            this.txtCaNVDangKy.Multiline = true;
             this.txtCaNVDangKy.Name = "txtCaNVDangKy";
-            this.txtCaNVDangKy.Size = new System.Drawing.Size(212, 20);
-            this.txtCaNVDangKy.TabIndex = 30;
+            this.txtCaNVDangKy.Size = new System.Drawing.Size(212, 32);
+            this.txtCaNVDangKy.TabIndex = 32;
             // 
             // FrmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(959, 426);
+            this.ClientSize = new System.Drawing.Size(959, 515);
             this.ControlBox = false;
             this.Controls.Add(this.txtCaNVDangKy);
             this.Controls.Add(this.rdThuThuDangKy);
