@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace LTQLUD1_DACK_Nhom15
 {
 
     class Provider
     {
-        static String ConnectionString = @"Server=NGUYENDUYQUYET\SQLEXPRESS; Database=QL_thuvien; Trusted_Connection=True;";
+        static string nameCS = "sqlPC_QLThuVien";
+        static string ConnectionString = ConfigurationManager.ConnectionStrings[nameCS].ConnectionString;
         SqlConnection Connection;
 
         public void Connect()
