@@ -673,7 +673,6 @@
             this.label25.Text = "Tên Loại Sách :";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label25.UseCompatibleTextRendering = true;
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // textBox24
             // 

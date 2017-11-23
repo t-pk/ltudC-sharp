@@ -231,11 +231,6 @@ namespace LTQLUD1_DACK_Nhom15
             btnChinhSua.Hide();
         }
 
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
@@ -552,7 +547,6 @@ namespace LTQLUD1_DACK_Nhom15
             btnLapPhieuTra.Show();
 
             dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            //dgvDGSearch.Columns["MaDocGia"].ReadOnly = true;
             string strSql = "exec usp_TimKiemTatCaDocGia";
             Provider provider = new Provider();
             provider.Connect();
@@ -569,7 +563,6 @@ namespace LTQLUD1_DACK_Nhom15
             string secondCellValue = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
 
             dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            //dgvDGSearch.Columns["MaDocGia"].ReadOnly = true;
             string strSql = "exec usp_SearchDocGia " + secondCellValue;
             Provider provider = new Provider();
             provider.Connect();
