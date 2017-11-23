@@ -272,8 +272,28 @@ if OBJECT_ID('usp_XoaDocGia') is not null
  select * from [DOC GIA]
 
 
+---------------------------------------------------------------------------
 
+----------------------------------------------------------------------------
 
+if OBJECT_ID('usp_xemPhieuMuon') is not null
+drop proc usp_xemPhieuMuon
+go
+ create proc usp_xemPhieuMuon
+ as
+ begin
+ select *from [PHIEU MUON]
+  select *from [CHI TIET PHIEU MUON]
+-------------------------------------------------------------
+if OBJECT_ID('usp_xemPhieuTra') is not null
+drop proc usp_xemPhieuTra
+go
+ create proc usp_xemPhieuTra
+ as
+ begin
+ select *from [PHIEU TRA] 
+ select *from [CHI TIET PHIEU TRA]
+ end
 
 
 
