@@ -54,3 +54,16 @@ C:\Users\Quyet\Desktop\DOAN LTUDQL\DOAN_ V1\DOAN\LTQLUD1_DACK_Nhom15\LTQLUD1_DAC
 C:\Users\Quyet\Desktop\DOAN LTUDQL\DOAN_ V1\DOAN\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.Properties.Resources.resources
 C:\Users\Quyet\Desktop\DOAN LTUDQL\DOAN_ V1\DOAN\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.csproj.GenerateResource.Cache
 C:\Users\Quyet\Desktop\DOAN LTUDQL\DOAN_ V1\DOAN\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.exe.licenses
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Debug\LTQLUD1_DACK_Nhom15.exe.config
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.csprojResolveAssemblyReference.cache
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.FrmDangKy.resources
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.FrmDangNhap.resources
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.frmHome.resources
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.Properties.Resources.resources
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.csproj.GenerateResource.Cache
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.exe.licenses
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Debug\LTQLUD1_DACK_Nhom15.exe
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Debug\LTQLUD1_DACK_Nhom15.pdb
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Debug\Bunifu_UI_v1.5.3.dll
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.exe
+F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.pdb

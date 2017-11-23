@@ -99,6 +99,7 @@ namespace LTQLUD1_DACK_Nhom15
             this.panelQLSach.Location = new System.Drawing.Point(220, 118);
             panelQLSach.Visible = true;
             panelQLSach.Size = new Size(900, 447);
+            pnThongKe.Visible = false;
 
 
         }
@@ -171,6 +172,7 @@ namespace LTQLUD1_DACK_Nhom15
             panelTraCuu.Visible = false;
             this.panelDocGia.Location = new System.Drawing.Point(220, 118);
             panelDocGia.Visible = true;
+            pnThongKe.Visible = false;
         }
 
         private void lbTittle_Click(object sender, EventArgs e)
@@ -189,6 +191,7 @@ namespace LTQLUD1_DACK_Nhom15
             this.panelQLSach.Location = new System.Drawing.Point(220, 118);
             panelQLSach.Visible = true;
             panelDocGia.Visible = false;
+            pnThongKe.Visible = false;
 
         }
 
@@ -338,6 +341,7 @@ namespace LTQLUD1_DACK_Nhom15
             panelQLSach.Visible = false;
             panelDocGia.Visible = false;
             panelTraCuu.Visible = false;
+            pnThongKe.Visible = false;
 
             if (panelQLNhanVien.Visible == true)
             {
@@ -668,5 +672,18 @@ namespace LTQLUD1_DACK_Nhom15
             dgvDGSearch.DataSource = dt1;
             provider1.Disconnect();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            rdMaDGSearch.Checked = true;
+
+            panelQLNhanVien.Visible = false;
+            panelQLSach.Visible = false;
+            panelTraCuu.Visible = false;
+            this.panelDocGia.Location = new System.Drawing.Point(220, 118);
+            panelDocGia.Visible = false;
+            pnThongKe.Visible = true;
+        }
+  
     }
 }
