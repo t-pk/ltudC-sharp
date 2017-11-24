@@ -204,6 +204,48 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void frmHome_Load(object sender, EventArgs e)
         {
+
+            txtMaTL.Enabled = false;
+            btnChinhSuaTL.Hide();
+            btnLuuTL.Hide();
+            btnHuyTL.Hide();
+            btnXemChiTietTL.Hide();
+            btnXoaTL.Hide();
+            btnLapPhieuMuonTL.Hide();
+            btnYeuCauTL.Hide();
+
+
+            txtSearchTaiLieu.Hide();
+            lblTenTaiLieu.Hide();
+            lblMaTaiLieu.Hide();
+            txtSearchTaiLieu.ReadOnly = false;
+            btnXemChiTiet.Hide();
+            btnXoaDocGia.Hide();
+            btnLapPhieMuon.Hide();
+            btnLapPhieuCanhCao.Hide();
+            btnLapPhieuTra.Hide();
+
+            cbxLoaiTaiLieu.Items.Add("SÁCH");
+            cbxLoaiTaiLieu.Items.Add("CÔNG TRÌNH NGHIÊN CỨU");
+            cbxLoaiTaiLieu.Items.Add("TẠP CHÍ");
+            cbxLoaiTaiLieu.Items.Add("LUẬN VĂN");
+            cbxLoaiTaiLieu.Items.Add("HỘI NGHỊ-BÁO CÁO");
+
+            string strSql1 = "usp_TimMaTLTiepTheo";
+            Provider provider1 = new Provider();
+            provider1.Connect();
+
+            SqlParameter p1 = new SqlParameter("@MaTaiLieu", SqlDbType.VarChar, 100);
+            p1.Direction = ParameterDirection.Output;
+
+            provider1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1, p1);
+
+            provider1.Disconnect();
+            txtMaTL.Text = p1.Value.ToString();
+
+            //--------------------------------------------------------------------------------------------
+
+
             txtMaDG.Enabled = false;
             cbxDinhDanh.Hide();
 
@@ -214,17 +256,17 @@ namespace LTQLUD1_DACK_Nhom15
             cbxDinhDanh.Items.Add("MCB");
             
 
-            string strSql1 = "usp_TimMaDGTiepTheo";
-            Provider provider1 = new Provider();
-            provider1.Connect();
+            string strSql2 = "usp_TimMaDGTiepTheo";
+            Provider provider2= new Provider();
+            provider2.Connect();
 
-            SqlParameter p = new SqlParameter("@MaDocGia", SqlDbType.VarChar, 100);
-            p.Direction = ParameterDirection.Output;
+            SqlParameter p2 = new SqlParameter("@MaDocGia", SqlDbType.VarChar, 100);
+            p2.Direction = ParameterDirection.Output;
 
-            provider1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1, p);
+            provider2.ExecuteNonQuery(CommandType.StoredProcedure, strSql2, p2);
 
-            provider1.Disconnect();
-            txtMaDG.Text = p.Value.ToString();
+            provider2.Disconnect();
+            txtMaDG.Text = p2.Value.ToString();
 
             btnLuu.Hide();
             btnHuy.Hide();
@@ -502,7 +544,11 @@ namespace LTQLUD1_DACK_Nhom15
                 dgvDGSearch.DataSource = dt;
                 dgvDGSearch.ReadOnly = true;
                 provider.Disconnect();
-                dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                //dgvDGSearch.Columns[0].Width = 90;
+                //dgvDGSearch.Columns[1].Width = 420;
+                //dgvDGSearch.Columns[2].Width = 90;
+                //dgvDGSearch.Columns[3].Width = 90;
+                //dgvDGSearch.Columns[4].Width = 90;
             }
 
         }
@@ -546,7 +592,7 @@ namespace LTQLUD1_DACK_Nhom15
             btnLapPhieuCanhCao.Show();
             btnLapPhieuTra.Show();
 
-            dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             string strSql = "exec usp_TimKiemTatCaDocGia";
             Provider provider = new Provider();
             provider.Connect();
@@ -554,6 +600,16 @@ namespace LTQLUD1_DACK_Nhom15
             dgvDGSearch.DataSource = dt;
             dgvDGSearch.ReadOnly = true;
             provider.Disconnect();
+            //dgvDGSearch.Columns[0].Width = 40;
+            //dgvDGSearch.Columns[1].Width = 200;
+            //dgvDGSearch.Columns[2].Width = 60;
+            //dgvDGSearch.Columns[3].Width = 110;
+            //dgvDGSearch.Columns[4].Width = 70;
+            //dgvDGSearch.Columns[5].Width = 90;
+            //dgvDGSearch.Columns[6].Width = 60;
+            //dgvDGSearch.Columns[7].Width = 60;
+            //dgvDGSearch.Columns[8].Width = 60;
+            //dgvDGSearch.Columns[9].Width = 40;
         }
 
         private void btnXemChiTiet_Click(object sender, EventArgs e)
@@ -562,7 +618,7 @@ namespace LTQLUD1_DACK_Nhom15
             // lấy mã độc giả
             string secondCellValue = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
 
-            dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             string strSql = "exec usp_SearchDocGia " + secondCellValue;
             Provider provider = new Provider();
             provider.Connect();
@@ -580,6 +636,17 @@ namespace LTQLUD1_DACK_Nhom15
             btnHuy.Show();
             btnLuu.Show();
             btnChinhSua.Show();
+
+            //dgvDGSearch.Columns[0].Width = 40;
+            //dgvDGSearch.Columns[1].Width = 200;
+            //dgvDGSearch.Columns[2].Width = 60;
+            //dgvDGSearch.Columns[3].Width = 110;
+            //dgvDGSearch.Columns[4].Width = 70;
+            //dgvDGSearch.Columns[4].Width = 90;
+            //dgvDGSearch.Columns[4].Width = 60;
+            //dgvDGSearch.Columns[4].Width = 60;
+            //dgvDGSearch.Columns[4].Width = 60;
+            //dgvDGSearch.Columns[4].Width = 40;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -628,11 +695,11 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            btnXemChiTiet.Show();
-            btnXoaDocGia.Show();
-            btnLapPhieMuon.Show();
-            btnLapPhieuCanhCao.Show();
-            btnLapPhieuTra.Show();
+            btnXemChiTiet.Hide();
+            btnXoaDocGia.Hide();
+            btnLapPhieMuon.Hide();
+            btnLapPhieuCanhCao.Hide();
+            btnLapPhieuTra.Hide();
             btnHuy.Hide();
             btnLuu.Hide();
             btnChinhSua.Hide();
@@ -660,13 +727,295 @@ namespace LTQLUD1_DACK_Nhom15
                 provider.Disconnect();
                 MessageBox.Show("Xóa Độc Giả Thành Công!!!");
             }
-            dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             string strSql1 = "exec usp_TimKiemTatCaDocGia";
             Provider provider1 = new Provider();
             provider1.Connect();
             DataTable dt1 = provider1.Select(CommandType.Text, strSql1);
             dgvDGSearch.DataSource = dt1;
             provider1.Disconnect();
+
+            dgvDGSearch.Columns[0].Width = 40;
+            dgvDGSearch.Columns[1].Width = 200;
+            dgvDGSearch.Columns[2].Width = 60;
+            dgvDGSearch.Columns[3].Width = 110;
+            dgvDGSearch.Columns[4].Width = 70;
+            dgvDGSearch.Columns[5].Width = 90;
+            dgvDGSearch.Columns[6].Width = 60;
+            dgvDGSearch.Columns[7].Width = 60;
+            dgvDGSearch.Columns[8].Width = 60;
+            dgvDGSearch.Columns[9].Width = 40;
+        }
+
+        private void btnXemTheoLoai_Click(object sender, EventArgs e)
+        {
+            string loaitl = cbxLoaiTaiLieu.Text;
+
+            string strSql = "exec usp_SearchTaiLieuTheoLoai N'" + loaitl + "'";
+
+            Provider provider = new Provider();
+            provider.Connect();
+            DataTable dt = provider.Select(CommandType.Text, strSql);
+            dgvSearchTaiLieu.DataSource = dt;
+            dgvSearchTaiLieu.ReadOnly = true;
+            provider.Disconnect();
+            dgvSearchTaiLieu.Columns[0].Width = 90;
+            dgvSearchTaiLieu.Columns[1].Width = 420;
+            dgvSearchTaiLieu.Columns[2].Width = 90;
+            dgvSearchTaiLieu.Columns[3].Width = 90;
+            dgvSearchTaiLieu.Columns[4].Width = 90;
+
+
+            btnXemChiTietTL.Show();
+            btnXoaTL.Show();
+            btnLapPhieuMuonTL.Show();
+            btnYeuCauTL.Show();
+
+            btnChinhSuaTL.Hide();
+            btnLuuTL.Hide();
+            btnHuyTL.Hide();
+        }
+
+        private void btnXemAllTaiLieu_Click(object sender, EventArgs e)
+        {
+            string strSql = "exec usp_XemAllTaiLieu";
+            Provider provider = new Provider();
+            provider.Connect();
+            DataTable dt = provider.Select(CommandType.Text, strSql);
+            dgvSearchTaiLieu.DataSource = dt;
+            dgvSearchTaiLieu.ReadOnly = true;
+            provider.Disconnect();
+            dgvSearchTaiLieu.Columns[0].Width = 90;
+            dgvSearchTaiLieu.Columns[1].Width = 420;
+            dgvSearchTaiLieu.Columns[2].Width = 90;
+            dgvSearchTaiLieu.Columns[3].Width = 90;
+            dgvSearchTaiLieu.Columns[4].Width = 90;
+
+            btnXemChiTietTL.Show();
+            btnXoaTL.Show();
+            btnLapPhieuMuonTL.Show();
+            btnYeuCauTL.Show();
+
+            btnChinhSuaTL.Hide();
+            btnLuuTL.Hide();
+            btnHuyTL.Hide();
+        }
+
+        private void btnLapPhieMuon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchTaiLieu_Click(object sender, EventArgs e)
+        {
+            if (rdTimTLCoBan.Checked == true)
+            {
+
+                string matl = txtSearchTaiLieu.Text;
+
+                string strSql = "exec usp_SearchTaiLieuTheoMa " + matl;
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvSearchTaiLieu.DataSource = dt;
+                dgvSearchTaiLieu.ReadOnly = true;
+                provider.Disconnect();
+                btnXemChiTietTL.Show();
+                btnXoaTL.Show();
+                btnLapPhieuMuonTL.Show();
+                btnYeuCauTL.Show();
+            }
+
+            if (rdTimTLNangCao.Checked == true)
+            {
+                string tentl = txtSearchTaiLieu.Text;
+
+                string strSql = "exec usp_SearchTaiLieuTheoTen " + "N'" + tentl + "'";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvSearchTaiLieu.DataSource = dt;
+                dgvSearchTaiLieu.ReadOnly = true;
+                provider.Disconnect();
+
+                btnXemChiTietTL.Show();
+                btnXoaTL.Show();
+                btnLapPhieuMuonTL.Show();
+                btnYeuCauTL.Show();
+
+                btnChinhSuaTL.Hide();
+                btnLuuTL.Hide();
+                btnHuyTL.Hide();
+            }
+        }
+
+        private void rdTimTLNangCao_CheckedChanged(object sender, EventArgs e)
+        {
+            lblMaTaiLieu.Hide();
+            lblTenTaiLieu.Show();
+            txtSearchTaiLieu.Show();
+        }
+
+        private void rdTimTLCoBan_CheckedChanged(object sender, EventArgs e)
+        {
+            lblMaTaiLieu.Show();
+            lblTenTaiLieu.Hide();
+            txtSearchTaiLieu.Show();
+        }
+
+        private void btnThemTaiLieu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //string matailieu = txtMaTL.Text;
+                string tentailieu = txtTenTL.Text;
+                string hientrangtailieu = txtHienTrangTL.Text;
+                string loaitailieu = txtLoaiTL.Text;
+                string soluongtailieu = txtSoLuongTL.Text;
+
+                string strSql = "usp_InsertTaiLieu";
+
+                Provider provider = new Provider();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@TenTaiLieu", Value = tentailieu },
+                new SqlParameter { ParameterName = "@HienTrang", Value = hientrangtailieu },
+                new SqlParameter { ParameterName = "@LoaiTaiLieu", Value = loaitailieu },
+                new SqlParameter { ParameterName = "@SoLuong", Value = soluongtailieu });
+                provider.Disconnect();
+                MessageBox.Show("Thêm Tài Liệu Thành Công!!!");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi");
+                throw ex;
+            }
+
+            txtTenTL.Text = null;
+            txtHienTrangTL.Text = null;
+            txtLoaiTL.Text = null;
+            txtSoLuongTL.Text = null;
+
+            string strSql1 = "usp_TimMaTLTiepTheo";
+            Provider provider1 = new Provider();
+            provider1.Connect();
+
+            SqlParameter p = new SqlParameter("@MaTaiLieu", SqlDbType.VarChar, 100);
+            p.Direction = ParameterDirection.Output;
+
+            provider1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1, p);
+
+            provider1.Disconnect();
+            txtMaTL.Text = p.Value.ToString();
+        }
+
+        private void btnXemChiTietTL_Click(object sender, EventArgs e)
+        {
+            string secondCellValue = dgvSearchTaiLieu[0, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString();
+
+            //dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            string strSql = "exec usp_SearchTaiLieuTheoMa " + secondCellValue;
+            Provider provider = new Provider();
+            provider.Connect();
+            DataTable dt = provider.Select(CommandType.Text, strSql);
+            dgvSearchTaiLieu.DataSource = dt;
+            provider.Disconnect();
+
+            btnChinhSuaTL.Show();
+            btnLuuTL.Show();
+            btnHuyTL.Show();
+
+            btnXemChiTietTL.Hide();
+            btnXoaTL.Hide();
+            btnLapPhieuMuonTL.Hide();
+            btnYeuCauTL.Hide();
+        }
+
+        private void btnChinhSuaTL_Click(object sender, EventArgs e)
+        {
+            dgvSearchTaiLieu.ReadOnly = false;
+        }
+
+        private void btnXoaTL_Click(object sender, EventArgs e)
+        {
+            string matailieu = dgvSearchTaiLieu[0, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString();
+            if (MessageBox.Show(string.Format("Xác nhận xóa Tài Liệu {0}", matailieu), "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                string strSql = "usp_DeleteTaiLieu";
+
+                Provider provider = new Provider();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaTaiLieu", Value = matailieu });
+                provider.Disconnect();
+                MessageBox.Show("Xóa Tài Liệu Thành Công!!!");
+            }
+            //dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            string strSql1 = "exec usp_XemAllTaiLieu";
+            Provider provider1 = new Provider();
+            provider1.Connect();
+            DataTable dt1 = provider1.Select(CommandType.Text, strSql1);
+            dgvSearchTaiLieu.DataSource = dt1;
+            provider1.Disconnect();
+        }
+
+        private void btnLuuTL_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string matailieu = dgvSearchTaiLieu[0, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString();
+                string tentailieu = dgvSearchTaiLieu[1, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString().ToUpper();
+                string hientrang = dgvSearchTaiLieu[2, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString();
+                string loaitailieu = dgvSearchTaiLieu[3, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString();
+                string soluong = dgvSearchTaiLieu[4, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString();
+
+                string strSql = "usp_UpdateTaiLieu";
+                Provider provider = new Provider();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaTaiLieu", Value = matailieu },
+                new SqlParameter { ParameterName = "@TenTaiLieu", Value = tentailieu },
+                new SqlParameter { ParameterName = "@HienTrang", Value = hientrang },
+                new SqlParameter { ParameterName = "@LoaiTaiLieu", Value = loaitailieu },
+                new SqlParameter { ParameterName = "@SoLuong", Value = soluong });
+
+                provider.Disconnect();
+                MessageBox.Show("Cập Nhật Tài Liệu Thành Công!!!");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Cập Nhật Tài Liệu Thất Bại :(");
+                throw ex;
+            }
+        }
+
+        private void btnLapPhieuMuonTL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHuyTL_Click(object sender, EventArgs e)
+        {
+            btnXemChiTietTL.Hide();
+            btnXoaTL.Hide();
+            btnLapPhieuMuonTL.Hide();
+            btnYeuCauTL.Hide();
+
+            btnChinhSuaTL.Hide();
+            btnLuuTL.Hide();
+            btnHuyTL.Hide();
+
+            dgvSearchTaiLieu.DataSource = null;
+        }
+
+        private void btnYeuCauTL_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

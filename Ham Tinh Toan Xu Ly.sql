@@ -1,5 +1,114 @@
 use QL_thuvien
 
+select * from [TAI LIEU]
+
+if OBJECT_ID('usp_XemAllTaiLieu') is not null
+ Drop proc usp_XemAllTaiLieu
+
+go
+create proc usp_XemAllTaiLieu
+as
+begin
+	select * from [TAI LIEU]
+end
+
+if OBJECT_ID('usp_TimMaTLTiepTheo') is not null
+ Drop proc usp_TimMaTLTiepTheo
+
+go
+create proc usp_TimMaTLTiepTheo @MaTaiLieu varchar(10) out
+as
+begin
+	declare @MaTL nchar(10) = 'TL001'	
+	declare @idx int 
+	set @idx = 1
+	while exists (select MaTaiLieu from [TAI LIEU] Where MaTaiLieu = @MaTL)
+	begin
+		set @idx = @idx + 1
+		set @MaTL = 'TL' + REPLICATE('0', 3 - len(cast(@idx as varchar))) + cast(@idx as varchar)
+	end
+	Set @MaTaiLieu = @MaTL
+end
+
+if OBJECT_ID('usp_SearchTaiLieuTheoMa') is not null
+ Drop proc usp_SearchTaiLieuTheoMa
+
+go
+create proc usp_SearchTaiLieuTheoMa @MaTaiLieu char(15)
+as
+begin
+	select * from [TAI LIEU]
+	where MaTaiLieu = @MaTaiLieu
+end
+
+
+if OBJECT_ID('usp_SearchTaiLieuTheoTen') is not null
+ Drop proc usp_SearchTaiLieuTheoTen
+
+go
+create proc usp_SearchTaiLieuTheoTen @TenTaiLieu nvarchar(50)
+as
+begin
+	select * from [TAI LIEU]
+	where TenTaiLieu like '%' + @TenTaiLieu + '%'
+end
+
+
+
+if OBJECT_ID('usp_SearchTaiLieuTheoLoai') is not null
+ Drop proc usp_SearchTaiLieuTheoLoai
+
+go
+create proc usp_SearchTaiLieuTheoLoai @LoaiTaiLieu nvarchar(50)
+as
+begin
+	select * from [TAI LIEU]
+	where LoaiTaiLieu = @LoaiTaiLieu
+end
+
+
+if OBJECT_ID('usp_DeleteTaiLieu') is not null
+ Drop proc usp_DeleteTaiLieu
+
+go
+create proc usp_DeleteTaiLieu @MaTaiLieu nvarchar(50)
+as
+begin
+	delete from [TAI LIEU]
+	where MaTaiLieu = @MaTaiLieu
+end
+
+if OBJECT_ID('usp_UpdateTaiLieu') is not null
+ Drop proc usp_UpdateTaiLieu
+
+go
+create proc usp_UpdateTaiLieu @MaTaiLieu char(20), @TenTaiLieu nvarchar(50), @HienTrang char(20), @LoaiTaiLieu nvarchar(30), @SoLuong char(5)
+as
+begin
+	update [TAI LIEU]
+	set TenTaiLieu = @TenTaiLieu, HienTrang = @HienTrang, LoaiTaiLieu = @LoaiTaiLieu, SoLuong = @SoLuong
+	where MaTaiLieu = @MaTaiLieu
+end
+
+if OBJECT_ID('usp_InsertTaiLieu') is not null
+ Drop proc usp_InsertTaiLieu
+
+go
+create proc usp_InsertTaiLieu @TenTaiLieu nvarchar(50), @HienTrang char(20), @LoaiTaiLieu nvarchar(30), @SoLuong char(5)
+as
+begin
+	Declare @MaTaiLieu char(20)
+	exec usp_TimMaTLTiepTheo @MaTaiLieu out
+	insert into [TAI LIEU]
+	values( @MaTaiLieu, @TenTaiLieu, @HienTrang, @LoaiTaiLieu, @SoLuong)
+end
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 go
 
 if OBJECT_ID('usp_XemNhanVien') is not null
@@ -57,6 +166,9 @@ begin
 	where MaNV = @MaNV
 end
 
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+
 
 if OBJECT_ID('usp_Login') is not null
  Drop proc usp_Login
@@ -74,6 +186,9 @@ begin
 		where TenDangNhap = @username and MatKhau = @password
 	end
 end
+
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 
 
 if OBJECT_ID('usp_LayTenNhanVien') is not null
@@ -101,7 +216,8 @@ begin
 end
 
 
-
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 
 if OBJECT_ID('usp_XemDocGia') is not null
  Drop proc usp_XemDocGia
@@ -181,10 +297,9 @@ if OBJECT_ID('usp_XoaDocGia') is not null
  create proc usp_TimKiemTatCaDocGia
  as
  begin
-	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat) as 'So Sach Qua Han'
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon'
 	from [DOC GIA] dg
  end
-
 
 
   if OBJECT_ID('usp_SearchDocGia') is not null
@@ -207,7 +322,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
  create proc usp_TimKiemDocGiaTheoMaDocGia @MaDG char(15)
  as
  begin
-	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.MaDocGia = @MaDG and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.MaDocGia = @MaDG) as 'So Sach Qua Han'
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.MaDocGia = @MaDG and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon'
 	from [DOC GIA] dg
 	where dg.MaDocGia = @MaDG
  end
@@ -221,7 +336,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
  create proc usp_TimKiemDocGiaTheoMSSV @MSSV char(15)
  as
  begin
-	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.MSSV = @MSSV and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.MSSV = @MSSV) as 'So Sach Qua Han'
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.MSSV = @MSSV and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon'
 	from [DOC GIA] dg
 	where dg.MSSV = @MSSV
  end
@@ -234,7 +349,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
  create proc usp_TimKiemDocGiaTheoMSCB @MSCB char(15)
  as
  begin
-	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.MCB = @MSCB and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.MCB = @MSCB) as 'So Sach Qua Han'
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.MCB = @MSCB and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon'
 	from [DOC GIA] dg
 	where dg.MCB = @MSCB
  end
@@ -249,7 +364,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
  create proc usp_TimKiemDocGiaTheoCMND @CMND char(15)
  as
  begin
-	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.CMND = @CMND and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.CMND = @CMND) as 'So Sach Qua Han'
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.CMND = @CMND and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon'
 	from [DOC GIA] dg
 	where dg.CMND = @CMND
  end
@@ -264,16 +379,26 @@ if OBJECT_ID('usp_XoaDocGia') is not null
  create proc usp_TimKiemDocGiaTheoHoTen @HoTen nvarchar(100)
  as
  begin
-	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.HoTen = @HoTen and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon', (select sum(ctpp.SoSachQuaHan) from [DOC GIA] dg2, [PHIEU PHAT] pp, [CHI TIET PHIEU PHAT] ctpp, [PHIEU MUON] pm2 where dg2.MaDocGia = pm2.MaDocGia and pm2.MaPhieuMuon = pp.MaPhieuMuon and pp.MaPhieuPhat = ctpp.MaPhieuPhat and dg2.HoTen = @HoTen) as 'So Sach Qua Han'
+	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and dg1.HoTen like @HoTen and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon'
 	from [DOC GIA] dg
-	where dg.HoTen = @HoTen
+	where dg.HoTen like @HoTen
  end
 
- select * from [DOC GIA]
+
+ ---------------------------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------------------------------------------
 
 
+ select * from [PHIEU MUON]
 
+ select * from [CHI TIET PHIEU MUON]
 
+ select * from [PHIEU TRA]
 
+ select * from [CHI TIET PHIEU TRA]
 
+ select * from [PHIEU NHAC NHO]
 
+ select * from [PHIEU PHAT]
+
+select * from [CHI TIET PHIEU PHAT]
