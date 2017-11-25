@@ -257,10 +257,10 @@ namespace LTQLUD1_DACK_Nhom15
             cbxDinhDanh.Items.Add("CMND");
             cbxDinhDanh.Items.Add("MSSV");
             cbxDinhDanh.Items.Add("MCB");
-            
+
 
             string strSql2 = "usp_TimMaDGTiepTheo";
-            Provider provider2= new Provider();
+            Provider provider2 = new Provider();
             provider2.Connect();
 
             SqlParameter p2 = new SqlParameter("@MaDocGia", SqlDbType.VarChar, 100);
@@ -670,7 +670,7 @@ namespace LTQLUD1_DACK_Nhom15
                 string loai = dgvDGSearch[9, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
 
                 string[] ns = ngaysinh.Split(' ');
-               
+
                 string strSql = "usp_CapNhatDocGia";
 
                 Provider provider = new Provider();
@@ -719,7 +719,7 @@ namespace LTQLUD1_DACK_Nhom15
         private void btnXoaDocGia_Click(object sender, EventArgs e)
         {
             string madocgia = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
-            if(MessageBox.Show(string.Format("Xác nhận xóa độc giả {0}", madocgia), "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show(string.Format("Xác nhận xóa độc giả {0}", madocgia), "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 string strSql = "usp_XoaDocGia";
 
@@ -1030,19 +1030,15 @@ namespace LTQLUD1_DACK_Nhom15
             panelQLSach.Visible = false;
             pnThongKe.Visible = true;
             this.pnThongKe.Location = new System.Drawing.Point(220, 118);
-            this.pnxemphieumuon.Location = new System.Drawing.Point(0, 24);
-            this.pnLapPhieumuon.Location = new System.Drawing.Point(0, 24);
+
         }
 
         private void btnXPmuon_Click(object sender, EventArgs e)
         {
-            panelQLNhanVien.Visible = false;
-            panelDocGia.Visible = false;
-            panelTraCuu.Visible = false;
-            panelQLSach.Visible = false;
-            pnThongKe.Visible = true;
+            this.pnxemphieumuon.Location = new System.Drawing.Point(0, 24);
             pnLapPhieumuon.Visible = false;
-            if (pnxemphieumuon.Visible == true) ;
+            pnxemphieumuon.Visible = true;
+            if (pnxemphieumuon.Visible == true)
             {
                 string strSql = "exec usp_XemPhieuMuon";
 
@@ -1063,10 +1059,107 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void btnLPmuon_Click(object sender, EventArgs e)
         {
+            this.pnLapPhieumuon.Location = new System.Drawing.Point(0, 24);
             pnxemphieumuon.Visible = false;
             pnLapPhieumuon.Visible = true;
 
         }
 
-  }
+        private void btnLpTra_Click(object sender, EventArgs e)
+        {
+            //this.pnLapPhieumuon.Location = new System.Drawing.Point(0, 24);
+            //pnxemphieumuon.Visible = false;
+            //pnLapPhieumuon.Visible = true;
+            this.pnlapphieutra.Location = new System.Drawing.Point(0, 24);
+            pnlapphieutra.Visible = true;
+            pnXemPhieuTra.Visible = false;
+        }
+
+        private void btnXemPhieuTra_Click(object sender, EventArgs e)
+        {
+            // this.pnxemphieumuon.Location = new System.Drawing.Point(0, 24);
+            //pnLapPhieumuon.Visible = false;
+            //pnxemphieumuon.Visible = true;
+            //if (pnxemphieumuon.Visible == true) 
+            this.pnXemPhieuTra.Location = new System.Drawing.Point(0, 24);
+            pnlapphieutra.Visible = false;
+            pnXemPhieuTra.Visible = true;
+            if (pnXemPhieuTra.Visible == true) 
+            {
+                string strSql = "exec usp_XemPhieuTra";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                //dgvxemphieumuon.DataSource = dt;
+                //dgvxemphieumuon.ReadOnly = true;
+                dgvXemPhieuTra.DataSource = dt;
+                dgvXemPhieuTra.ReadOnly = true;
+
+                provider.Disconnect();
+            }
+
+        }
+
+        private void btnLPNhacNho_Click(object sender, EventArgs e)
+        {
+            pnXemPhieuNhacNho.Visible = false;
+            pnLapPhieuNhacNho.Visible = true;
+            this.pnLapPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
+        }
+
+        private void btnXemPNhacNho_Click(object sender, EventArgs e)
+        {
+            this.pnXemPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
+            //pnlapphieutra.Visible = false;
+            //pnXemPhieuTra.Visible = true;
+            pnXemPhieuNhacNho.Visible = true;
+            pnLapPhieuNhacNho.Visible = false;
+            if (pnXemPhieuNhacNho.Visible == true)
+            {
+                string strSql = "exec usp_XemPhieuNhacNho";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                //dgvxemphieumuon.DataSource = dt;
+                //dgvxemphieumuon.ReadOnly = true;
+                dgvXemPhieuNhacNho.DataSource = dt;
+                dgvXemPhieuNhacNho.ReadOnly = true;
+                provider.Disconnect();
+
+            }
+        }
+
+        private void btnLapPhieuPhat_Click(object sender, EventArgs e)
+        {
+            //pnXemPhieuNhacNho.Visible = false;
+            //pnLapPhieuNhacNho.Visible = true;
+            //this.pnLapPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
+            pnXemPhieuPhat.Visible = false;
+            pnLapPhieuPhat.Visible = true;
+            this.pnLapPhieuPhat.Location = new System.Drawing.Point(0, 24);
+        }
+
+        private void btnXemPhieuPhat_Click(object sender, EventArgs e)
+        {
+            pnXemPhieuPhat.Visible = true;
+            pnLapPhieuPhat.Visible = false;
+            this.pnXemPhieuPhat.Location = new System.Drawing.Point(0, 24);
+            if (pnXemPhieuPhat.Visible == true) 
+            {
+                string strSql = "exec usp_XemPhieuPhat";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                //dgvxemphieumuon.DataSource = dt;
+                //dgvxemphieumuon.ReadOnly = true;
+                dgvXemPhieuPhat.DataSource = dt;
+                dgvXemPhieuPhat.ReadOnly = true;
+                provider.Disconnect();
+
+            }
+        }
+    }
 }

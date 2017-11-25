@@ -383,6 +383,52 @@ if OBJECT_ID('usp_XoaDocGia') is not null
 	from [DOC GIA] dg
 	where dg.HoTen like @HoTen
  end
+ ----------------------------------------------------------------------------------
+ ----------------------pktai---------------------------------------
+ -----------------------------------------------------------------------------------
+go
+if OBJECT_ID('usp_xemPhieuMuon') is not null
+ Drop proc usp_xemPhieuMuon
+
+go
+create proc usp_xemPhieuMuon
+as
+begin
+	select * from [PHIEU MUON]
+end
+go
+---------------
+if OBJECT_ID('usp_XemPhieuTra') is not null
+ Drop proc usp_XemPhieuTra
+
+go
+create proc usp_XemPhieuTra
+as
+begin
+	select * from [PHIEU TRA]
+end
+------------------
+if OBJECT_ID('usp_XemPhieuPhat') is not null
+ Drop proc usp_XemPhieuPhat
+
+go
+create proc usp_XemPhieuPhat
+as
+begin
+	select * from [PHIEU PHAT]
+end
+go
+-----------------
+if OBJECT_ID('usp_XemPhieuNhacNho') is not null
+ Drop proc usp_XemPhieuNhacNho
+
+go
+create proc usp_XemPhieuNhacNho
+as
+begin
+	select * from [PHIEU NHAC NHO]
+end
+go
 
 
  ---------------------------------------------------------------------------------------------------------------------------------------
