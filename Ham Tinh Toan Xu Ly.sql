@@ -394,9 +394,12 @@ go
 create proc usp_xemPhieuMuon
 as
 begin
-	select * from [PHIEU MUON]
+	select pm.MaDocGia,pm.MaNVLapPhieuMuon,pm.MaPhieuMuon,pm.NgayLapPhieuMuon,ct.HanTra,ct.MaTaiLieu,ct.SoLuongMuon,ct.STTMuon
+	 from [PHIEU MUON] pm,[CHI TIET PHIEU MUON] ct
+	where pm.MaPhieuMuon=ct.MaPhieuMuon
 end
 go
+exec usp_xemPhieuMuon
 ---------------
 if OBJECT_ID('usp_XemPhieuTra') is not null
  Drop proc usp_XemPhieuTra
@@ -405,7 +408,9 @@ go
 create proc usp_XemPhieuTra
 as
 begin
-	select * from [PHIEU TRA]
+	select pt.MaNVLapPhieuTra,pt.MaPhieuMuon,pt.MaPhieuTra,pt.NgayLapPhieuTra,ct.MaDocGia,ct.NgayTra,ct.STTPhieuTra 
+	 from [PHIEU TRA] pt,[CHI TIET PHIEU TRA] ct
+	where pt.MaPhieuTra=ct.MaPhieuTra
 end
 ------------------
 if OBJECT_ID('usp_XemPhieuPhat') is not null
@@ -417,6 +422,7 @@ as
 begin
 	select * from [PHIEU PHAT]
 end
+exec usp_XemPhieuPhat
 go
 -----------------
 if OBJECT_ID('usp_XemPhieuNhacNho') is not null
