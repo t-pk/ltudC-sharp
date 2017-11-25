@@ -93,6 +93,7 @@ namespace LTQLUD1_DACK_Nhom15
         }
         void setVisiblePannel()
         {
+            pnThongKe.Visible = false;
             panelQLNhanVien.Visible = false;
             panelDocGia.Visible = false;
             panelTraCuu.Visible = false;
@@ -150,6 +151,7 @@ namespace LTQLUD1_DACK_Nhom15
             panelDocGia.Visible = false;
             this.panelTraCuu.Location = new System.Drawing.Point(220, 118);
             panelTraCuu.Visible = true;
+            pnThongKe.Visible = false;
         }
 
         private void btnDocGia_Click(object sender, EventArgs e)
@@ -163,7 +165,7 @@ namespace LTQLUD1_DACK_Nhom15
             //lblDinhDanhSearch.Hide();
             //lblHoTenSearch.Hide();
             //txtSearchDG.Hide();
-
+            pnThongKe.Visible = false;
             rdMaDGSearch.Checked = true;
 
             panelQLNhanVien.Visible = false;
@@ -189,6 +191,7 @@ namespace LTQLUD1_DACK_Nhom15
             this.panelQLSach.Location = new System.Drawing.Point(220, 118);
             panelQLSach.Visible = true;
             panelDocGia.Visible = false;
+            pnThongKe.Visible = false;
 
         }
 
@@ -380,6 +383,7 @@ namespace LTQLUD1_DACK_Nhom15
             panelQLSach.Visible = false;
             panelDocGia.Visible = false;
             panelTraCuu.Visible = false;
+            pnThongKe.Visible = false;
 
             if (panelQLNhanVien.Visible == true)
             {
@@ -1017,5 +1021,52 @@ namespace LTQLUD1_DACK_Nhom15
         {
 
         }
-    }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            panelQLNhanVien.Visible = false;
+            panelDocGia.Visible = false;
+            panelTraCuu.Visible = false;
+            panelQLSach.Visible = false;
+            pnThongKe.Visible = true;
+            this.pnThongKe.Location = new System.Drawing.Point(220, 118);
+            this.pnxemphieumuon.Location = new System.Drawing.Point(0, 24);
+            this.pnLapPhieumuon.Location = new System.Drawing.Point(0, 24);
+        }
+
+        private void btnXPmuon_Click(object sender, EventArgs e)
+        {
+            panelQLNhanVien.Visible = false;
+            panelDocGia.Visible = false;
+            panelTraCuu.Visible = false;
+            panelQLSach.Visible = false;
+            pnThongKe.Visible = true;
+            pnLapPhieumuon.Visible = false;
+            if (pnxemphieumuon.Visible == true) ;
+            {
+                string strSql = "exec usp_XemPhieuMuon";
+
+                Provider provider = new Provider();
+                provider.Connect();
+                DataTable dt = provider.Select(CommandType.Text, strSql);
+                dgvxemphieumuon.DataSource = dt;
+                dgvxemphieumuon.ReadOnly = true;
+
+                provider.Disconnect();
+            }
+        }
+
+        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnLPmuon_Click(object sender, EventArgs e)
+        {
+            pnxemphieumuon.Visible = false;
+            pnLapPhieumuon.Visible = true;
+
+        }
+
+  }
 }
