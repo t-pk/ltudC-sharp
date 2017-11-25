@@ -2166,7 +2166,7 @@
             this.dgvxemphieumuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvxemphieumuon.Location = new System.Drawing.Point(0, 0);
             this.dgvxemphieumuon.Name = "dgvxemphieumuon";
-            this.dgvxemphieumuon.Size = new System.Drawing.Size(500, 410);
+            this.dgvxemphieumuon.Size = new System.Drawing.Size(860, 410);
             this.dgvxemphieumuon.TabIndex = 0;
             // 
             // btnXmuon
@@ -2312,7 +2312,7 @@
             this.dgvXemPhieuTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvXemPhieuTra.Location = new System.Drawing.Point(0, 0);
             this.dgvXemPhieuTra.Name = "dgvXemPhieuTra";
-            this.dgvXemPhieuTra.Size = new System.Drawing.Size(500, 410);
+            this.dgvXemPhieuTra.Size = new System.Drawing.Size(860, 410);
             this.dgvXemPhieuTra.TabIndex = 0;
             // 
             // btnXoaPhieuTra
@@ -2535,7 +2535,7 @@
             // 
             // dgvXemPhieuPhat
             // 
-            this.dgvXemPhieuPhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvXemPhieuPhat.ColumnHeadersHeight = 22;
             this.dgvXemPhieuPhat.Location = new System.Drawing.Point(0, 0);
             this.dgvXemPhieuPhat.Name = "dgvXemPhieuPhat";
             this.dgvXemPhieuPhat.Size = new System.Drawing.Size(500, 410);

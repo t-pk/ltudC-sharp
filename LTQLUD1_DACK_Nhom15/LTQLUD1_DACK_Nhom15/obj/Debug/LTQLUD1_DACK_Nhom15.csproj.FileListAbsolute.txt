@@ -66,3 +66,15 @@ F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\o
 F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.Properties.Resources.resources
 F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.csproj.GenerateResource.Cache
 F:\Documents\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.exe.licenses
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Debug\LTQLUD1_DACK_Nhom15.exe.config
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.exe
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.pdb
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.csprojResolveAssemblyReference.cache
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.FrmDangKy.resources
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.FrmDangNhap.resources
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.frmHome.resources
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.Properties.Resources.resources
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.csproj.GenerateResource.Cache
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Debug\LTQLUD1_DACK_Nhom15.exe.licenses
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Debug\LTQLUD1_DACK_Nhom15.exe
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Debug\LTQLUD1_DACK_Nhom15.pdb
