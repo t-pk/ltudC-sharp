@@ -441,16 +441,16 @@ go
  ---------------------------------------------------------------------------------------------------------------------------------------
 
 
- select * from [PHIEU MUON]
+-- select * from [PHIEU MUON]
 
- select * from [CHI TIET PHIEU MUON]
+-- select * from [CHI TIET PHIEU MUON]
 
- select * from [PHIEU TRA]
+-- select * from [PHIEU TRA]
 
- select * from [CHI TIET PHIEU TRA]
+-- select * from [CHI TIET PHIEU TRA]
 
- select * from [PHIEU NHAC NHO]
+-- select * from [PHIEU NHAC NHO]
 
- select * from [PHIEU PHAT]
+-- select * from [PHIEU PHAT]
 
-select * from [CHI TIET PHIEU PHAT]
+--select * from [CHI TIET PHIEU PHAT]

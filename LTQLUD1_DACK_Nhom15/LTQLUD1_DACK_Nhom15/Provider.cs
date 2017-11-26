@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace LTQLUD1_DACK_Nhom15
 {
@@ -28,6 +29,7 @@ namespace LTQLUD1_DACK_Nhom15
             }
             catch (SqlException ex)
             {
+                MessageBox.Show("Lỗi : " + ex.ToString());
                 throw ex;
             }
         }
@@ -52,6 +54,7 @@ namespace LTQLUD1_DACK_Nhom15
             }
             catch (SqlException ex)
             {
+                MessageBox.Show("Lỗi : " + ex.ToString());
                 throw ex;
             }
         }
@@ -71,6 +74,7 @@ namespace LTQLUD1_DACK_Nhom15
             }
             catch (SqlException ex)
             {
+                MessageBox.Show("Lỗi : " + ex.ToString());
                 throw ex;
             }
         }
@@ -86,6 +90,7 @@ namespace LTQLUD1_DACK_Nhom15
             }
             catch (SqlException ex)
             {
+                MessageBox.Show("Lỗi : " + ex.ToString());
                 throw ex;
             }
         }
@@ -103,6 +108,7 @@ namespace LTQLUD1_DACK_Nhom15
             }
             catch (SqlException ex)
             {
+                MessageBox.Show("Lỗi : " +ex.ToString() );
                 throw ex;
             }
         }

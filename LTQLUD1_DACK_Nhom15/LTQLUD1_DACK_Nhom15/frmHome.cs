@@ -49,6 +49,9 @@ namespace LTQLUD1_DACK_Nhom15
 
         }
 
+        /*
+         * fuction nhận dữ liệu từ Form Đăng Nhập gửi qua (Tên NV, Quyền)
+         */
         public void funData(string ten, string quyen)
         {
             userName.Text = ten;
@@ -57,7 +60,9 @@ namespace LTQLUD1_DACK_Nhom15
             label1.TextAlign = ContentAlignment.MiddleRight;
             userName.TextAlign = ContentAlignment.MiddleRight;
         }
-
+        /*
+         * fuction add icon vào các Tab
+         */
         void Add_IconTab()
         {
             tbcDocGia.Dock = DockStyle.Fill;
@@ -78,18 +83,9 @@ namespace LTQLUD1_DACK_Nhom15
             tbcQuanLiNV.TabPages[2].ImageIndex = 2;
 
         }
-        private void tab_MouseMove(object sender, MouseEventArgs e)
-        {
-            Rectangle mouseRect = new Rectangle(e.X, e.Y, 1, 1);
-            for (int i = 0; i < tbcDocGia.TabCount; i++)
-            {
-                if (tbcDocGia.GetTabRect(i).IntersectsWith(mouseRect))
-                {
-                    tbcDocGia.SelectedIndex = i;
-                    break;
-                }
-            }
-        }
+        /*
+         * fuction chỉ hiện panel chính , ẩn các panel còn lại
+         */
         void setVisiblePannel()
         {
             pnThongKe.Visible = false;
@@ -102,6 +98,23 @@ namespace LTQLUD1_DACK_Nhom15
 
 
         }
+        private void tab_MouseMove(object sender, MouseEventArgs e)
+        {
+            Rectangle mouseRect = new Rectangle(e.X, e.Y, 1, 1);
+            for (int i = 0; i < tbcDocGia.TabCount; i++)
+            {
+                if (tbcDocGia.GetTabRect(i).IntersectsWith(mouseRect))
+                {
+                    tbcDocGia.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        /*
+         * fuction : Form1_MouseDown(), Form1_MouseMove()
+         * Di chuyển form trên màn hình
+         */
         private bool drag = false;
         private Point dragCursor, dragForm;
 
@@ -132,6 +145,14 @@ namespace LTQLUD1_DACK_Nhom15
             }
         }
 
+        /* 
+         * Kết thúc di chuyển form
+         */
+
+        /*
+        * fuction : thu nhỏ form và đóng ứng dụng
+        * Di chuyển form trên màn hình
+        */
         private void button3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -394,6 +415,14 @@ namespace LTQLUD1_DACK_Nhom15
                 dgvNhanVien.DataSource = dt;
                 dgvNhanVien.ReadOnly = true;
 
+                dgvNhanVien.Columns[0].HeaderText = "Mã Nhân Viên";
+                dgvNhanVien.Columns[1].HeaderText = "Ca Trực ";
+                dgvNhanVien.Columns[2].HeaderText = "Tên Đăng Nhập";
+                dgvNhanVien.Columns[3].HeaderText = "Mật Khẩu";
+                dgvNhanVien.Columns[4].HeaderText = "Họ Tên";
+                dgvNhanVien.Columns[5].HeaderText = "Login Gần Nhất";
+                dgvNhanVien.Columns[6].HeaderText = "Loại Nhân Viên";
+
                 provider.Disconnect();
             }
         }
@@ -603,16 +632,14 @@ namespace LTQLUD1_DACK_Nhom15
             dgvDGSearch.DataSource = dt;
             dgvDGSearch.ReadOnly = true;
             provider.Disconnect();
-            //dgvDGSearch.Columns[0].Width = 40;
-            //dgvDGSearch.Columns[1].Width = 200;
-            //dgvDGSearch.Columns[2].Width = 60;
-            //dgvDGSearch.Columns[3].Width = 110;
-            //dgvDGSearch.Columns[4].Width = 70;
-            //dgvDGSearch.Columns[5].Width = 90;
-            //dgvDGSearch.Columns[6].Width = 60;
-            //dgvDGSearch.Columns[7].Width = 60;
-            //dgvDGSearch.Columns[8].Width = 60;
-            //dgvDGSearch.Columns[9].Width = 40;
+
+
+            dgvDGSearch.Columns[0].HeaderText = "Mã Độc Giả";
+            dgvDGSearch.Columns[1].HeaderText = "Họ Tên ";
+            dgvDGSearch.Columns[2].HeaderText = "CMND";
+            dgvDGSearch.Columns[3].HeaderText = "Loại Độc Giả";
+            dgvDGSearch.Columns[4].HeaderText = "Số Sách Mượn";
+        
         }
 
         private void btnXemChiTiet_Click(object sender, EventArgs e)
@@ -748,6 +775,14 @@ namespace LTQLUD1_DACK_Nhom15
             dgvDGSearch.Columns[7].Width = 60;
             dgvDGSearch.Columns[8].Width = 60;
             dgvDGSearch.Columns[9].Width = 40;
+
+
+          
+
+
+
+
+
         }
 
         private void btnXemTheoLoai_Click(object sender, EventArgs e)
@@ -793,6 +828,13 @@ namespace LTQLUD1_DACK_Nhom15
             dgvSearchTaiLieu.Columns[2].Width = 90;
             dgvSearchTaiLieu.Columns[3].Width = 90;
             dgvSearchTaiLieu.Columns[4].Width = 90;
+
+            dgvSearchTaiLieu.Columns[0].HeaderText = "Mã Tài Liệu";         
+            dgvSearchTaiLieu.Columns[1].HeaderText = "Tên Tài Liệu";
+            dgvSearchTaiLieu.Columns[2].HeaderText = "Hiện Trạng";
+            dgvSearchTaiLieu.Columns[3].HeaderText = "Loại Tài Liệu";
+            dgvSearchTaiLieu.Columns[4].HeaderText = "Số Lượng";
+
 
             btnXemChiTietTL.Show();
             btnXoaTL.Show();
