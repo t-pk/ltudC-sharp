@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -1038,6 +1037,7 @@ namespace LTQLUD1_DACK_Nhom15
             this.pnxemphieumuon.Location = new System.Drawing.Point(0, 24);
             pnLapPhieumuon.Visible = false;
             pnxemphieumuon.Visible = true;
+            pnNhapthongtintimkiemphieumuon.Visible = false;
             if (pnxemphieumuon.Visible == true)
             {
                 string strSql = "exec usp_XemPhieuMuon";
@@ -1160,6 +1160,12 @@ namespace LTQLUD1_DACK_Nhom15
                 provider.Disconnect();
 
             }
+        }
+
+        private void btnCNmuon_Click(object sender, EventArgs e)
+        {
+            pnxemphieumuon.Visible = true;
+            pnNhapthongtintimkiemphieumuon.Visible = true;
         }
     }
 }

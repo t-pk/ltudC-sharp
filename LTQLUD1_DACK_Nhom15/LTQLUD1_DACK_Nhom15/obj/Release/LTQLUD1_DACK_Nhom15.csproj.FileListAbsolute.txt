@@ -1,0 +1,12 @@
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Release\LTQLUD1_DACK_Nhom15.exe.config
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Release\LTQLUD1_DACK_Nhom15.FrmDangKy.resources
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Release\LTQLUD1_DACK_Nhom15.FrmDangNhap.resources
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Release\LTQLUD1_DACK_Nhom15.frmHome.resources
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Release\LTQLUD1_DACK_Nhom15.Properties.Resources.resources
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Release\LTQLUD1_DACK_Nhom15.csproj.GenerateResource.Cache
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Release\LTQLUD1_DACK_Nhom15.exe.licenses
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Release\LTQLUD1_DACK_Nhom15.exe
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\bin\Release\LTQLUD1_DACK_Nhom15.pdb
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Release\LTQLUD1_DACK_Nhom15.exe
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Release\LTQLUD1_DACK_Nhom15.pdb
+C:\Users\Donald Trump\Desktop\ltudql1-15ck4-nhom15-dack\LTQLUD1_DACK_Nhom15\LTQLUD1_DACK_Nhom15\obj\Release\LTQLUD1_DACK_Nhom15.csprojResolveAssemblyReference.cache
