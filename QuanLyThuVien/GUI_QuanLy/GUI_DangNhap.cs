@@ -12,15 +12,20 @@ using System.Data;
 using System.Data.SqlClient;
 using DTO_QuanLy;
 using BUS_QuanLy;
+
+
 namespace GUI_QuanLy
 {
-    public partial class GUI_DangKy : Form
+    public partial class GUI_DangNhap : Form
     {
-        BUS_DangKy busDangKy = new BUS_DangKy();
-        public GUI_DangKy()
+        BUS_DangNhap busDangNhap = new BUS_DangNhap();
+
+
+        public delegate void delPassData(string ten, string quyen);
+        public GUI_DangNhap()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Normal;           
+            this.WindowState = FormWindowState.Normal;         
             this.StartPosition = FormStartPosition.CenterScreen;
 
         }
@@ -32,6 +37,7 @@ namespace GUI_QuanLy
             dragCursor = Cursor.Position;
             dragForm = this.Location;
         }
+
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             int wid = SystemInformation.VirtualScreen.Width;
@@ -57,83 +63,61 @@ namespace GUI_QuanLy
         {
 
         }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
+
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
             Application.Exit();
         }
-        private void btnDangKy_Click(object sender, EventArgs e)
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if (txtHoTenNVDangKy.Text != "" && txtUserNVDangKy.Text != "" && txtPassNVDangKy.Text != "")
-            {
-                string hotennv = txtHoTenNVDangKy.Text;
-                string user = txtUserNVDangKy.Text;
-                string pass = txtPassNVDangKy.Text;
-                string loai = "";
-                string ca = "";
-                if (rdAdminDangKy.Checked == true)
-                    loai = "AD";
-                else if (rdThuThuDangKy.Checked == true)
-                {
-                    loai = "TT";
-                    ca = txtCaNVDangKy.Text;
-                }
+            string username = txtUSER.Text;
+            string password = txtPASS.Text;
 
-                // Tạo DTo
-                DTO_DangKy tv = new DTO_DangKy(user, hotennv, pass, loai, ca); // Vì ID tự tăng nên để ID số gì cũng dc
-                                                                                             
-                if (busDangKy.addNhanVien(tv))
-                {
-                    MessageBox.Show("Đăng Ký Nhân Viên Thành Công!!!");
-                    GUI_DangNhap frmDangNhap = new GUI_DangNhap();
-                    this.Hide();
-                    frmDangNhap.Show();
+            string NameUser = busDangNhap.getNameUser_Login(username, password);
+            string Quyen = busDangNhap.getPermissionUser_Login(username, password);
+            string p = busDangNhap._Login(username, password);
+            
+            if (p.ToString() == "1")
+            {             
+                this.Hide();
+                GUI_Home frHome = new GUI_Home();
+                frHome.Show();
 
-                }
-                else
-                {
-                    MessageBox.Show("Thêm ko thành công");
-                }
-
+                delPassData del = new delPassData(frHome.funData);
+                del(NameUser, Quyen);
             }
-            else
-            {
-                MessageBox.Show("Xin hãy nhập đầy đủ");
-            }
+            else MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!\n\tVui lòng kiểm tra lại!!!");
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void btnDangKy_Click(object sender, EventArgs e)
         {
-
+            GUI_DangKy frDangKy = new GUI_DangKy();
+            this.Hide();
+            frDangKy.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblCaTrucNVDangKy.Hide();
-            txtCaNVDangKy.Hide();
-            txtMaNVDangKy.ReadOnly = true;
-
-            txtMaNVDangKy.Text = busDangKy.TimNhanVienTiepTheo();
+       
         }
 
-        private void rdThuThuDangKy_CheckedChanged(object sender, EventArgs e)
+        private void txtPASS_TextChanged(object sender, EventArgs e)
         {
-            lblCaTrucNVDangKy.Show();
-            txtCaNVDangKy.Show();
+            txtPASS.PasswordChar = '*';
         }
 
-        private void rdAdminDangKy_CheckedChanged(object sender, EventArgs e)
-        {
-            lblCaTrucNVDangKy.Hide();
-            txtCaNVDangKy.Hide();
-        }
+        
     }
 }

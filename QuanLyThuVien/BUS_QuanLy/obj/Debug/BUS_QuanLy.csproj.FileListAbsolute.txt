@@ -36,13 +36,3 @@ C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\BUS_QuanLy\obj\Debug\
 C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\BUS_QuanLy\obj\Debug\BUS_QuanLy.csproj.CoreCompileInputs.cache
 C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\BUS_QuanLy\obj\Debug\BUS_QuanLy.dll
 C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\BUS_QuanLy\obj\Debug\BUS_QuanLy.pdb
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\bin\Debug\BUS_QuanLy.dll
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\bin\Debug\BUS_QuanLy.pdb
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\bin\Debug\DAL_QuanLy.dll
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\bin\Debug\DTO_QuanLy.dll
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\bin\Debug\DAL_QuanLy.pdb
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\bin\Debug\DTO_QuanLy.pdb
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\obj\Debug\BUS_QuanLy.csprojResolveAssemblyReference.cache
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\obj\Debug\BUS_QuanLy.csproj.CoreCompileInputs.cache
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\obj\Debug\BUS_QuanLy.dll
-C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThuVien1\BUS_QuanLy\obj\Debug\BUS_QuanLy.pdb
