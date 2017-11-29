@@ -435,22 +435,91 @@ begin
 	select * from [PHIEU NHAC NHO]
 end
 go
+--------------------------------------------------------------------------------------------
+if OBJECT_ID('usp_TimMaPhieuMuonTiepTheo') is not null
+drop proc usp_TimMaPhieuMuonTiepTheo
+go
+create proc usp_TimMaPhieuMuonTiepTheo @Maphieumuon nchar(10) out
+as 
+begin
+declare @mapm nchar(10)='PM001'
+declare @idx int 
+	set @idx = 1
+	while exists (select MaPhieuMuon from [PHIEU MUON] Where MaPhieuMuon = @Mapm)
+	begin
+		set @idx = @idx + 1
+		set @Mapm= 'PM' + REPLICATE('0', 3 - len(cast(@idx as varchar))) + cast(@idx as varchar)
+	end
+	Set  @Maphieumuon=@Mapm
+end
+go
+if OBJECT_ID('usp_ThemPhieuMuon') is not null
+ Drop proc usp_ThemPhieuMuon
+go
+create proc usp_ThemPhieuMuon @MaNVLapPhieuMuon nchar(10), @Madocgia nchar(10), @ngaylapphieumuon date
+as
+begin
+	Declare @Mapm nchar(10)
+	if exists (select MaDocGia from [DOC GIA] Where MaDocGia = @Madocgia)
+	begin
+	exec usp_TimMaPhieuMuonTiepTheo @Mapm out
+	--if exists (select MaDocGia from [DOC GIA] Where MaDocGia = @Madocgia)
 
+	insert into [PHIEU MUON]
 
+	values(@Mapm,@MaNVLapPhieuMuon ,@Madocgia,@ngaylapphieumuon)
+end
+end
+------------------------------------------------------------
+if OBJECT_ID('usp_TimMaPhieuTraTiepTheo') is not null
+drop proc usp_TimMaPhieuTraTiepTheo
+go
+create proc usp_TimMaPhieuTraTiepTheo @Maphieutra nchar(10) out
+as 
+begin
+declare @mapt nchar(10)='PT001'
+declare @idx int 
+	set @idx = 1
+	while exists (select MaPhieuTra from [PHIEU Tra] Where MaPhieuTra = @Mapt)
+	begin
+		set @idx = @idx + 1
+		set @Mapm= 'PT' + REPLICATE('0', 3 - len(cast(@idx as varchar))) + cast(@idx as varchar)
+	end
+	Set  @Maphieutra=@Mapt
+end
+go
+-------------------------------------------------
+if OBJECT_ID('usp_ThemPhieuTra') is not null
+ Drop proc usp_ThemPhieuTra
+go
+create proc usp_ThemPhieuTra @MaPhieuMuon nchar(10), @MaNVLapPhieuTra nchar(10), @ngaylapphieutra date
+as
+begin
+	Declare @Mapt nchar(10)
+	if exists (select MaPhieuMuon from [PHIEU MUON] Where MaPhieuMuon = @MaPhieuMuon)
+	begin
+	exec usp_TimMaPhieuTraTiepTheo @Mapt out
+	--if exists (select MaDocGia from [DOC GIA] Where MaDocGia = @Madocgia)
+
+	insert into [PHIEU TRA]
+
+	values(@Mapm,MaPhieuMuon, @MaNVLapPhieuTra, @ngaylapphieutra)
+end
+end
  ---------------------------------------------------------------------------------------------------------------------------------------
  ---------------------------------------------------------------------------------------------------------------------------------------
 
 
--- select * from [PHIEU MUON]
+ select * from [PHIEU MUON]
 
--- select * from [CHI TIET PHIEU MUON]
+ select * from [CHI TIET PHIEU MUON]
 
--- select * from [PHIEU TRA]
+ select * from [PHIEU TRA]
 
--- select * from [CHI TIET PHIEU TRA]
+ select * from [CHI TIET PHIEU TRA]
 
--- select * from [PHIEU NHAC NHO]
+ select * from [PHIEU NHAC NHO]
 
--- select * from [PHIEU PHAT]
+ select * from [PHIEU PHAT]
 
---select * from [CHI TIET PHIEU PHAT]
+select * from [CHI TIET PHIEU PHAT]
