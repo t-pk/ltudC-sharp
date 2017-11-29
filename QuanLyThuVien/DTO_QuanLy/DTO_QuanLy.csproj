@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="DTO_DangKy.cs" />
     <Compile Include="DTO_DangNhap.cs" />
+    <Compile Include="DTO_Home.cs" />
     <Compile Include="DTO_ThanhVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
