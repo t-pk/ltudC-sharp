@@ -1,0 +1,76 @@
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csprojResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_ThanhVien.resources
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.Properties.Resources.resources
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.GenerateResource.Cache
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.exe
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.exe
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.exe
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_ThanhVien.resources
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.Properties.Resources.resources
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.GenerateResource.Cache
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.CoreCompileInputs.cache
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.exe
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.exe
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.exe
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csprojResolveAssemblyReference.cache
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_ThanhVien.resources
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.Properties.Resources.resources
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.GenerateResource.Cache
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_DangNhap.resources
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_Home.resources
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_DangKy.resources
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.exe
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_Home.resources
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_DangNhap.resources
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_DangKy.resources
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_ThanhVien.resources
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.Properties.Resources.resources
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.GenerateResource.Cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.CoreCompileInputs.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.exe
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\bin\Debug\GUI_QuanLy.exe
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\bin\Debug\GUI_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\bin\Debug\BUS_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\bin\Debug\BUS_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\obj\Debug\GUI_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\obj\Debug\GUI_QuanLy.Properties.Resources.resources
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.GenerateResource.Cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.CoreCompileInputs.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\obj\Debug\GUI_QuanLy.exe
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\GUI_QuanLy\obj\Debug\GUI_QuanLy.pdb

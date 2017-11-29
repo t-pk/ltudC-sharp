@@ -78,35 +78,43 @@ namespace LTQLUD1_DACK_Nhom15
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            string hotennv = txtHoTenNVDangKy.Text;
-            string user = txtUserNVDangKy.Text;
-            string pass = txtPassNVDangKy.Text;
-            string loai = "";
-            string ca = "";
-            if (rdAdminDangKy.Checked == true)
-                loai = "AD";
-            else if (rdThuThuDangKy.Checked == true)
+            if (txtHoTenNVDangKy.Text != "" && txtUserNVDangKy.Text != "" && txtPassNVDangKy.Text != "")
             {
-                loai = "TT";
-                ca = txtCaNVDangKy.Text;
+                string hotennv = txtHoTenNVDangKy.Text;
+                string user = txtUserNVDangKy.Text;
+                string pass = txtPassNVDangKy.Text;
+                string loai = "";
+                string ca = "";
+                if (rdAdminDangKy.Checked == true)
+                    loai = "AD";
+                else if (rdThuThuDangKy.Checked == true)
+                {
+                    loai = "TT";
+                    ca = txtCaNVDangKy.Text;
+                }
+
+
+                string strSql = "usp_ThemNhanVien";
+                Provider provider = new Provider();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@CaTruc", Value = ca },
+                new SqlParameter { ParameterName = "@TenDangNhap", Value = user },
+                new SqlParameter { ParameterName = "@HoTen", Value = hotennv },
+                new SqlParameter { ParameterName = "@MatKhau", Value = pass },
+                new SqlParameter { ParameterName = "@LoaiNV", Value = loai });
+                provider.Disconnect();
+                MessageBox.Show("Đăng Ký Nhân Viên Thành Công!!!");
+                FrmDangNhap frmDangNhap = new FrmDangNhap();
+                this.Hide();
+                frmDangNhap.Show();
             }
-
-
-            string strSql = "usp_ThemNhanVien";
-            Provider provider = new Provider();
-            provider.Connect();
-
-            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-            new SqlParameter { ParameterName = "@CaTruc", Value = ca },
-            new SqlParameter { ParameterName = "@TenDangNhap", Value = user },
-            new SqlParameter { ParameterName = "@HoTen", Value = hotennv },
-            new SqlParameter { ParameterName = "@MatKhau", Value = pass },
-            new SqlParameter { ParameterName = "@LoaiNV", Value = loai });
-            provider.Disconnect();
-            MessageBox.Show("Đăng Ký Nhân Viên Thành Công!!!");
-            FrmDangNhap frmDangNhap = new FrmDangNhap();
-            this.Hide();
-            frmDangNhap.Show();
+            else
+            {
+                MessageBox.Show("Xin hãy nhập đầy đủ");
+            }
+           
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

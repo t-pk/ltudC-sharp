@@ -1,0 +1,22 @@
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.csprojResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.csproj.CoreCompileInputs.cache
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.csprojResolveAssemblyReference.cache
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DTO_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DTO_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DTO_QuanLy\obj\Debug\DTO_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DTO_QuanLy\obj\Debug\DTO_QuanLy.csproj.CoreCompileInputs.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DTO_QuanLy\obj\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DTO_QuanLy\obj\Debug\DTO_QuanLy.pdb

@@ -1,0 +1,38 @@
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.csprojResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.csproj.CoreCompileInputs.cache
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.csprojResolveAssemblyReference.cache
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.csproj.CoreCompileInputs.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DAL_QuanLy\bin\Debug\DAL_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DAL_QuanLy\bin\Debug\DAL_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DAL_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DAL_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DAL_QuanLy\obj\Debug\DAL_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DAL_QuanLy\obj\Debug\DAL_QuanLy.csproj.CoreCompileInputs.cache
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DAL_QuanLy\obj\Debug\DAL_QuanLy.dll
+C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\chia-mo-hinh\DAL_QuanLy\obj\Debug\DAL_QuanLy.pdb
