@@ -13,11 +13,8 @@ using BUS_QuanLy;
 
 namespace GUI_QuanLy
 {
-  
     public partial class GUI_Home : Form
     {
-        BUS_Home busUP = new BUS_Home();
-        BUS_ThanhVien busTV = new BUS_ThanhVien();
         string Quyen = "";
         public GUI_Home()
         {
@@ -401,8 +398,6 @@ namespace GUI_QuanLy
             //txtMaDG.Text = p.Value.ToString();
         }
 
-
-        //xem danh sách nhân viên
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             panelQLNhanVien.Visible = true;
@@ -414,78 +409,82 @@ namespace GUI_QuanLy
 
             if (panelQLNhanVien.Visible == true)
             {
-                dgvNhanVien.DataSource = busTV.getNV();
+                string strSql = "exec usp_XemNhanVien";
+
+                //DBConnect DBConnect = new DBConnect();
+                //DBConnect.Connect();
+                //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+                //dgvNhanVien.DataSource = dt;
+                //dgvNhanVien.ReadOnly = true;
+
+                //dgvNhanVien.Columns[0].HeaderText = "Mã Nhân Viên";
+                //dgvNhanVien.Columns[1].HeaderText = "Ca Trực ";
+                //dgvNhanVien.Columns[2].HeaderText = "Tên Đăng Nhập";
+                //dgvNhanVien.Columns[3].HeaderText = "Mật Khẩu";
+                //dgvNhanVien.Columns[4].HeaderText = "Họ Tên";
+                //dgvNhanVien.Columns[5].HeaderText = "Login Gần Nhất";
+                //dgvNhanVien.Columns[6].HeaderText = "Loại Nhân Viên";
+
+                //DBConnect.Disconnect();
             }
         }
 
         private void btnCapNhatNhanVien_Click(object sender, EventArgs e)
         {
-            
-
-            if (txtMaNVCapNhap.Text != "" && txtHoTenNVCapNhat.Text != "" && txtTenDangNhapNVCapNhat.Text != "" && txtMatKhauNVCapNhat.Text != ""
-                && txtCaTrucNVCapNhat.Text != "")
+            if (Quyen == "Admin")
             {
-                if (Quyen == "Admin")
+                try
                 {
-                    try
-                    {
-                        string manv = txtMaNVCapNhap.Text;
-                        string hotennv = txtHoTenNVCapNhat.Text;
-                        string tendangnhapnv = txtTenDangNhapNVCapNhat.Text;
-                        string mkhaudangnhapnv = txtMatKhauNVCapNhat.Text;
-                        string catruc = txtCaTrucNVCapNhat.Text;
-                        string loai = "";
-                        if (rdAdminCapNhat.Checked == true)
-                            loai = "AD";
-                        else if (rdThuThuCapNhat.Checked == true)
-                            loai = "TT";
+                    string manv = txtMaNVCapNhap.Text;
+                    string hotennv = txtHoTenNVCapNhat.Text;
+                    string tendangnhapnv = txtTenDangNhapNVCapNhat.Text;
+                    string mkhaudangnhapnv = txtMatKhauNVCapNhat.Text;
+                    string catruc = txtCaTrucNVCapNhat.Text;
+                    string loai = "";
+                    if (rdAdminCapNhat.Checked == true)
+                        loai = "AD";
+                    else if (rdThuThuCapNhat.Checked == true)
+                        loai = "TT";
 
+                    //string strSql = "usp_CapNhatNhanVien";
+                    //DBConnect DBConnect = new DBConnect();
+                    //DBConnect.Connect();
 
-
-
-                        // Tạo DTo
-                        DTO_Home up = new DTO_Home(manv, tendangnhapnv,hotennv, mkhaudangnhapnv, loai, catruc); // Vì ID tự tăng nên để ID số gì cũng dc
-
-                        if (busUP.updateNV(up))
-                        {
-                            MessageBox.Show("Cập Nhật Nhân Viên Thành Công!!!");
-
-                        }
-
-                       
-                    }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show("Lỗi");
-                        throw ex;
-                    }
-
-                    txtMaNVCapNhap.Text = null;
-                    txtHoTenNVCapNhat.Text = null;
-                    txtTenDangNhapNVCapNhat.Text = null;
-                    txtMatKhauNVCapNhat.Text = null;
-                    txtCaTrucNVCapNhat.Text = null;
-                    rdAdminCapNhat.Checked = false;
-                    rdThuThuCapNhat.Checked = false;
-                    if (panelQLNhanVien.Visible == true)
-                    {
-                        dgvNhanVien.DataSource = busTV.getNV();
-                    }
-
+                    //DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                    //new SqlParameter { ParameterName = "@MaNV", Value = manv },
+                    //new SqlParameter { ParameterName = "@CaTruc", Value = catruc },
+                    //new SqlParameter { ParameterName = "@TenDangNhap", Value = tendangnhapnv },
+                    //new SqlParameter { ParameterName = "@MatKhau", Value = mkhaudangnhapnv },
+                    //new SqlParameter { ParameterName = "@HoTen", Value = hotennv },
+                    //new SqlParameter { ParameterName = "@LoaiNV", Value = loai });
+                    //DBConnect.Disconnect();
+                    MessageBox.Show("Cập Nhật Nhân Viên Thành Công!!!");
                 }
-                else MessageBox.Show("Bạn Không Phải ADMIN, Bạn Không Có Quyền Cập Nhật Nhân Viên !!!");
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Lỗi");
+                    throw ex;
+                }
+                txtMaNVCapNhap.Text = null;
+                txtHoTenNVCapNhat.Text = null;
+                txtTenDangNhapNVCapNhat.Text = null;
+                txtMatKhauNVCapNhat.Text = null;
+                txtCaTrucNVCapNhat.Text = null;
+                rdAdminCapNhat.Checked = false;
+                rdThuThuCapNhat.Checked = false;
+                if (panelQLNhanVien.Visible == true)
+                {
+                    //string strSql = "exec usp_XemNhanVien";
+
+                    //DBConnect DBConnect = new DBConnect();
+                    //DBConnect.Connect();
+                    //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+                    //dgvNhanVien.DataSource = dt;
+                    //dgvNhanVien.ReadOnly = true;
+                    //DBConnect.Disconnect();
+                }
             }
-
-            else
-            {
-                MessageBox.Show("Xin hãy nhập đầy đủ");
-            }
-
-
-
-
-
-            
+            else MessageBox.Show("Bạn Không Phải ADMIN, Bạn Không Có Quyền Cập Nhật Nhân Viên !!!");
         }
 
         private void btnXoaNhanVien_Click(object sender, EventArgs e)
