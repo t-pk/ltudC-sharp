@@ -62,12 +62,6 @@
     <Compile Include="GUI_DangKy.Designer.cs">
       <DependentUpon>GUI_DangKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI_ThanhVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI_ThanhVien.Designer.cs">
-      <DependentUpon>GUI_ThanhVien.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI_Home.resx">
@@ -78,9 +72,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_DangKy.resx">
       <DependentUpon>GUI_DangKy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI_ThanhVien.resx">
-      <DependentUpon>GUI_ThanhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,6 +96,10 @@
     <ProjectReference Include="..\BUS_QuanLy\BUS_QuanLy.csproj">
       <Project>{1b55d3cc-097b-41e5-a9f1-5d624585adac}</Project>
       <Name>BUS_QuanLy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL_QuanLy\DAL_QuanLy.csproj">
+      <Project>{e5447a61-e327-4527-9dde-7b6d6c778024}</Project>
+      <Name>DAL_QuanLy</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO_QuanLy\DTO_QuanLy.csproj">
       <Project>{d1c8fe7e-fd28-4bf7-89e9-0dfa5ffe557e}</Project>

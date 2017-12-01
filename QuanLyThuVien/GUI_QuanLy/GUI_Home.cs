@@ -10,14 +10,20 @@ using System.Data;
 using System.Data.SqlClient;
 using DTO_QuanLy;
 using BUS_QuanLy;
-
+using DAL_QuanLy;
+using System.Runtime.InteropServices;
 namespace GUI_QuanLy
 {
   
     public partial class GUI_Home : Form
     {
-        BUS_Home busUP = new BUS_Home();
-        BUS_ThanhVien busTV = new BUS_ThanhVien();
+        [DllImport("Kernel32.dll")]
+        static extern Boolean AllocConsole();
+        public delegate void delPassData(string loai);
+        BUS_NhanVien busUP = new BUS_NhanVien();
+        BUS_TaiLieu TL = new BUS_TaiLieu();
+
+        
         string Quyen = "";
         public GUI_Home()
         {
@@ -28,7 +34,7 @@ namespace GUI_QuanLy
         }
         private void tab_MouseClick(object sender, MouseEventArgs e)
         {
-
+          
         }
 
         private void tab_DrawItem(object sender, DrawItemEventArgs e)
@@ -414,7 +420,7 @@ namespace GUI_QuanLy
 
             if (panelQLNhanVien.Visible == true)
             {
-                dgvNhanVien.DataSource = busTV.getNV();
+                dgvNhanVien.DataSource = busUP.getNV();
             }
         }
 
@@ -444,7 +450,7 @@ namespace GUI_QuanLy
 
 
                         // Tạo DTo
-                        DTO_Home up = new DTO_Home(manv, tendangnhapnv,hotennv, mkhaudangnhapnv, loai, catruc); // Vì ID tự tăng nên để ID số gì cũng dc
+                        DTO_NhanVien up = new DTO_NhanVien(manv, tendangnhapnv,hotennv, mkhaudangnhapnv, loai, catruc); // Vì ID tự tăng nên để ID số gì cũng dc
 
                         if (busUP.updateNV(up))
                         {
@@ -469,7 +475,7 @@ namespace GUI_QuanLy
                     rdThuThuCapNhat.Checked = false;
                     if (panelQLNhanVien.Visible == true)
                     {
-                        dgvNhanVien.DataSource = busTV.getNV();
+                        dgvNhanVien.DataSource = busUP.getNV();
                     }
 
                 }
@@ -790,9 +796,16 @@ namespace GUI_QuanLy
 
         private void btnXemTheoLoai_Click(object sender, EventArgs e)
         {
+            
+            
             string loaitl = cbxLoaiTaiLieu.Text;
+           
+            DAL_TaiLieu a = new DAL_TaiLieu();
+            delPassData del = new delPassData(a.loai);
+            del(loaitl);
+           
+            dgvSearchTaiLieu.DataSource = TL.gettheloai();
 
-            string strSql = "exec usp_SearchTaiLieuTheoLoai N'" + loaitl + "'";
 
             //DBConnect DBConnect = new DBConnect();
             //DBConnect.Connect();
@@ -800,6 +813,7 @@ namespace GUI_QuanLy
             //dgvSearchTaiLieu.DataSource = dt;
             //dgvSearchTaiLieu.ReadOnly = true;
             //DBConnect.Disconnect();
+            dgvSearchTaiLieu.ReadOnly = true;
             dgvSearchTaiLieu.Columns[0].Width = 90;
             dgvSearchTaiLieu.Columns[1].Width = 420;
             dgvSearchTaiLieu.Columns[2].Width = 90;
@@ -819,13 +833,17 @@ namespace GUI_QuanLy
 
         private void btnXemAllTaiLieu_Click(object sender, EventArgs e)
         {
-            string strSql = "exec usp_XemAllTaiLieu";
-            //DBConnect DBConnect = new DBConnect();
-            //DBConnect.Connect();
-            //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-            //dgvSearchTaiLieu.DataSource = dt;
-            //dgvSearchTaiLieu.ReadOnly = true;
-            //DBConnect.Disconnect();
+
+           
+
+
+
+
+
+            dgvSearchTaiLieu.DataSource = TL.getTL();
+
+
+
             dgvSearchTaiLieu.Columns[0].Width = 90;
             dgvSearchTaiLieu.Columns[1].Width = 420;
             dgvSearchTaiLieu.Columns[2].Width = 90;
@@ -860,7 +878,7 @@ namespace GUI_QuanLy
             {
 
                 string matl = txtSearchTaiLieu.Text;
-
+               
                 string strSql = "exec usp_SearchTaiLieuTheoMa " + matl;
 
                 //DBConnect DBConnect = new DBConnect();
@@ -1213,4 +1231,5 @@ namespace GUI_QuanLy
             pnNhapthongtintimkiemphieumuon.Visible = true;
         }
     }
+   
 }
