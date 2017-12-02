@@ -14,10 +14,37 @@ namespace BUS_QuanLy
         {
             return dalTaiLieu.getTL();
         }
-
         public DataTable gettheloai()
         {
             return dalTaiLieu.getTheoLoai();
+        }
+        public DataTable getTheoMa()
+        {
+            return dalTaiLieu.getTheoMa();
+        }
+        public DataTable getTheoTen()
+        {
+            return dalTaiLieu.getTheoTen();
+        }
+        public string TimMaTLTiepTheo()
+        {
+            return dalTaiLieu.TimMaTLTiepTheo();
+        }
+        public void ThemTaiLieuMoi(DTO_TaiLieu DTO)
+        {
+            dalTaiLieu.ThemTaiLieuMoi(DTO);
+        }
+        public DataTable XemChitietTaiLieu(string maTL)
+        {
+            return dalTaiLieu.xemChiTietTaiLieu(maTL);
+        }
+        public bool XoaChitietTaiLieu(string maTL)
+        {
+            return dalTaiLieu.XoaChiTietTaiLieu(maTL);
+        }
+        public void LuuChitietTaiLieu(DTO_TaiLieu  DTO_TL)
+        {
+            dalTaiLieu.LuuChiTietTaiLieu(DTO_TL);
         }
     }
 }

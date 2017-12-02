@@ -8,17 +8,32 @@ using DTO_QuanLy;
 
 namespace DAL_QuanLy
 {
-   
     public class DAL_TaiLieu
     {
+       static string loaisach = "";
+       static string masach = "";
+       static string tensach = "";
 
-       static string rong = "";
+        //lấy loại sách từ form 
         public void loai(string a)
         {
-            rong = a;
+            loaisach = a;
            
         }
-        
+
+        //lấy ma sách từ form 
+        public void ma(string a)
+        {
+            masach = a;
+
+        }
+        //lấy ten sách từ form 
+        public void ten(string a)
+        {
+            tensach = a;
+
+        }
+
         public DataTable getTL()
         {
            
@@ -32,13 +47,8 @@ namespace DAL_QuanLy
         
         public DataTable getTheoLoai()
         {
-
-
            
-
-            
-           
-            string strSql1 = "exec usp_SearchTaiLieuTheoLoai N'" + rong + "'";
+            string strSql1 = "exec usp_SearchTaiLieuTheoLoai N'" + loaisach + "'";
             DBConnect db = new DBConnect();
             db.Connect();
             DataTable gettl = db.Select(CommandType.Text, strSql1);
@@ -46,6 +56,97 @@ namespace DAL_QuanLy
             return gettl;
 
            
+        }
+
+        public DataTable getTheoMa()
+        {
+            string strSql1 = "exec usp_SearchTaiLieuTheoMa N'" + masach + "'";
+            DBConnect db = new DBConnect();
+            db.Connect();
+            DataTable getma = db.Select(CommandType.Text, strSql1);
+            db.Disconnect();
+            return getma;
+
+
+        }
+
+        public DataTable getTheoTen()
+        {
+            string strSql1 = "exec usp_SearchTaiLieuTheoTen N'" + tensach + "'";
+            DBConnect db = new DBConnect();
+            db.Connect();
+            DataTable getten = db.Select(CommandType.Text, strSql1);
+            db.Disconnect();
+            return getten;
+
+
+        }
+
+        public string TimMaTLTiepTheo()
+        {
+            string strSql1 = "usp_TimMaTLTiepTheo";
+            DBConnect DBConnect1 = new DBConnect();
+            DBConnect1.Connect();
+            SqlParameter p = new SqlParameter("@MaTaiLieu", SqlDbType.VarChar, 100);
+            p.Direction = ParameterDirection.Output;      
+            DBConnect1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1, p);
+            DBConnect1.Disconnect();
+            return p.Value.ToString();
+        }
+        public void ThemTaiLieuMoi(DTO_TaiLieu dTO_TL)
+        {
+            string strSql = "usp_InsertTaiLieu";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+
+            DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@TenTaiLieu", Value = dTO_TL._tenTL },
+            new SqlParameter { ParameterName = "@HienTrang", Value = dTO_TL._hienTrang },
+            new SqlParameter { ParameterName = "@LoaiTaiLieu", Value = dTO_TL._loaiTL },
+            new SqlParameter { ParameterName = "@SoLuong", Value = dTO_TL._soLuong });
+            DBConnect.Disconnect();
+        }
+        public DataTable xemChiTietTaiLieu(string  maTL)
+        {
+            string strSql = "exec usp_SearchTaiLieuTheoMa " + maTL;
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);         
+            DBConnect.Disconnect();
+            return dt;
+        }
+        public bool XoaChiTietTaiLieu(string maTL)
+        {
+           
+                string strSql = "usp_DeleteTaiLieu";
+                DBConnect DBConnect = new DBConnect();
+                DBConnect.Connect();               
+                try
+                {
+                    DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                    new SqlParameter { ParameterName = "@MaTaiLieu", Value = maTL });
+                    DBConnect.Disconnect();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+        }
+        public void LuuChiTietTaiLieu(DTO_TaiLieu dTO_TL)
+        {
+            string strSql = "usp_UpdateTaiLieu";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+
+            DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@MaTaiLieu", Value = dTO_TL._maTL },
+            new SqlParameter { ParameterName = "@TenTaiLieu", Value = dTO_TL._tenTL },
+            new SqlParameter { ParameterName = "@HienTrang", Value = dTO_TL._hienTrang },
+            new SqlParameter { ParameterName = "@LoaiTaiLieu", Value = dTO_TL._loaiTL },
+            new SqlParameter { ParameterName = "@SoLuong", Value = dTO_TL._soLuong });
+            DBConnect.Disconnect();
+
         }
     }
     

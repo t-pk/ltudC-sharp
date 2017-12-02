@@ -1,4 +1,4 @@
-use QL_thuvien
+﻿use QL_thuvien
 
 select * from [TAI LIEU]
 
@@ -189,9 +189,21 @@ begin
 		where TenDangNhap = @username and MatKhau = @password
 	end
 end
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 go
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
+if OBJECT_ID('usp_LayMaNhanVienHienTai') is not null
+ Drop proc usp_LayMaNhanVienHienTai
+
+go
+create proc usp_LayMaNhanVienHienTai @UserName char(40), @MaNV nvarchar(10) out
+as
+begin
+	select @MaNV =  nv.MaNV
+	from [NHAN VIEN] nv
+	where nv.HoTen = @UserName
+end
+go
 
 
 if OBJECT_ID('usp_LayTenNhanVien') is not null
@@ -528,4 +540,4 @@ end
  ---------------------------------------------------------------------------------------------------------------------------------------
 
  select * from [dbo].[TAI LIEU]
- --son
+ --son đã update

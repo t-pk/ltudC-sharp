@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DAL_DangNhap.cs" />
     <Compile Include="DAL_DangKy.cs" />
+    <Compile Include="DAL_DocGia.cs" />
     <Compile Include="DAL_NhanVien.cs" />
     <Compile Include="DAL_TaiLieu.cs" />
     <Compile Include="DBConnect.cs" />

@@ -38,5 +38,33 @@ namespace DAL_QuanLy
             db.Disconnect();
             return dt;
         }
+        public string getMaNhanVienHienTai(string username)
+        {
+            string strSql = "usp_LayMaNhanVienHienTai";
+         
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+
+            SqlParameter p1 = new SqlParameter("@MaNV", SqlDbType.VarChar, 10);
+            p1.Direction = ParameterDirection.Output;
+
+            DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+             new SqlParameter { ParameterName = "@UserName", Value = username }, p1);
+
+            DBConnect.Disconnect();
+            return p1.Value.ToString();
+
+        }
+        public bool XoaNhanVien(string maNV)
+        {
+            string strSql = "usp_XoaNhanVien";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+
+            DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@MaNV", Value = maNV });
+            DBConnect.Disconnect();
+            return true;
+        }
     }
 }

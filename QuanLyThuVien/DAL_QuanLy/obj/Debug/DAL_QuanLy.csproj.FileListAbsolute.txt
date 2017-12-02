@@ -28,3 +28,10 @@ C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\obj\Debug\
 C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.csproj.CoreCompileInputs.cache
 C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.dll
 C:\Users\SON\Desktop\HOCTAP\hop-nhom-29-11\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien_2\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien_2\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DAL_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien_2\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien_2\QuanLyThanhVien\DAL_QuanLy\bin\Debug\DTO_QuanLy.pdb
+D:\Backup C\LTQLUD1\QuanLyThanhVien_2\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.csprojResolveAssemblyReference.cache
+D:\Backup C\LTQLUD1\QuanLyThanhVien_2\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.dll
+D:\Backup C\LTQLUD1\QuanLyThanhVien_2\QuanLyThanhVien\DAL_QuanLy\obj\Debug\DAL_QuanLy.pdb
