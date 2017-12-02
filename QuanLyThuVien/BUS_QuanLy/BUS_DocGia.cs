@@ -32,5 +32,13 @@ namespace BUS_QuanLy
         {
             return dal_DOcGia.XoaDocGia(maDG);
         }
+        public string TimMaDocGiaTiepTheo()
+        {
+            return dal_DOcGia.TimMaDocGiaTiepTheo();
+        }
+        public bool ThemDocGia(DTO_DocGia DTO)
+        {
+           return dal_DOcGia.ThemDocGia(DTO);
+        }
     }
 }

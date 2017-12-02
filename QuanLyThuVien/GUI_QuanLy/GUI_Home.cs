@@ -12,6 +12,8 @@ using DTO_QuanLy;
 using BUS_QuanLy;
 using DAL_QuanLy;
 using System.Runtime.InteropServices;
+using System.Globalization;
+
 namespace GUI_QuanLy
 {
   
@@ -23,7 +25,11 @@ namespace GUI_QuanLy
         BUS_NhanVien busUP = new BUS_NhanVien();
         BUS_TaiLieu TL = new BUS_TaiLieu();
 
-        
+
+        /*
+         * PHẦN XỬ LÝ GIAO DIỆN FORM
+         */
+
         string Quyen = "";
         public GUI_Home()
         {
@@ -187,6 +193,7 @@ namespace GUI_QuanLy
 
         private void btnDocGia_Click(object sender, EventArgs e)
         {
+            BUS_DocGia busDocGia = new BUS_DocGia();
             //txtMSCBDG.Hide();
             //lblMSCBDangKy.Hide();
             //txtMSSVDG.Hide();
@@ -204,6 +211,9 @@ namespace GUI_QuanLy
             panelTraCuu.Visible = false;
             this.panelDocGia.Location = new System.Drawing.Point(220, 118);
             panelDocGia.Visible = true;
+
+            // Tìm mã Độc Giả Tiếp theo để Thêm Mới
+            txtMaDG.Text = busDocGia.TimMaDocGiaTiepTheo();
         }
 
         private void lbTittle_Click(object sender, EventArgs e)
@@ -342,74 +352,6 @@ namespace GUI_QuanLy
             lblMSCBDangKy.Hide();
         }
 
-        private void btnDangKyDocGia_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                txtMaDG.Enabled = false;
-
-                string tendocgia = txtTenDG.Text;
-                string ngaysinh = txtNgaySinhDG.Text;
-                string diachi = txtDiaChiDG.Text;
-                string sdt = txtSDTDG.Text;
-                string email = txtEmailDG.Text;
-                string cmnd = txtCMNDDG.Text;
-                string mscb = txtMSCBDG.Text;
-                string mssv = txtMSSVDG.Text;
-                string loai;
-                if (rdSinhVien.Checked == true)
-                    loai = "SV";
-                else if (rdCanBo.Checked == true)
-                    loai = "CBNV";
-                else
-                    loai = "K";
-
-                //string strSql = "usp_ThemDocGia";
-                //DBConnect DBConnect = new DBConnect();
-                //DBConnect.Connect();
-
-                //DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-                //new SqlParameter { ParameterName = "@TenDG", Value = tendocgia },
-                //new SqlParameter { ParameterName = "@NgaySinhDG", Value = ngaysinh },
-                //new SqlParameter { ParameterName = "@DiaChiDG", Value = diachi },
-                //new SqlParameter { ParameterName = "@SDTDG", Value = sdt },
-                //new SqlParameter { ParameterName = "@EmailDG", Value = email },
-                //new SqlParameter { ParameterName = "@CMNDDG", Value = cmnd },
-                //new SqlParameter { ParameterName = "@MSSVDG", Value = mssv },
-                //new SqlParameter { ParameterName = "@MCBDG", Value = mscb },
-                //new SqlParameter { ParameterName = "@LoaiDG", Value = loai });
-                //DBConnect.Disconnect();
-                MessageBox.Show("Đăng ký Độc Giả Thành Công!!!");
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Lỗi");
-                throw ex;
-            }
-            txtTenDG.Text = null;
-            txtNgaySinhDG.Text = null;
-            txtDiaChiDG.Text = null;
-            txtSDTDG.Text = null;
-            txtEmailDG.Text = null;
-            txtCMNDDG.Text = null;
-            txtMSCBDG.Text = null;
-            txtMSSVDG.Text = null;
-            rdSinhVien.Checked = false;
-            rdCanBo.Checked = false;
-            rdKhac.Checked = false;
-            //string strSql1 = "usp_TimMaDGTiepTheo";
-            //DBConnect DBConnect1 = new DBConnect();
-            //DBConnect1.Connect();
-
-            //SqlParameter p = new SqlParameter("@MaDocGia", SqlDbType.VarChar, 100);
-            //p.Direction = ParameterDirection.Output;
-
-            //DBConnect1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1, p);
-
-            //DBConnect1.Disconnect();
-            //txtMaDG.Text = p.Value.ToString();
-        }
-        
         /*
          * PHẦN XỬ LÝ NHÂN VIÊN
          */
@@ -629,6 +571,109 @@ namespace GUI_QuanLy
         /*
          * PHẦN XỬ LÝ ĐỘC GIẢ
          */
+         // kiểm tra dữ liệu Ngày
+        protected bool CheckDate(String date)
+        {
+            try
+            {
+                // convert dữ liệu từ datetime 
+                DateTime dt2 = Convert.ToDateTime(date);
+                date = dt2.ToString("yyyy-MM-dd");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        private void btnDangKyDocGia_Click(object sender, EventArgs e)
+        {
+            BUS_DocGia busDocGia = new BUS_DocGia();
+            try
+            {
+                txtMaDG.Enabled = false;
+
+                string tendocgia = txtTenDG.Text;
+                string ngaysinh = "";
+                string diachi = txtDiaChiDG.Text;
+                string sdt = txtSDTDG.Text;
+                string email = txtEmailDG.Text;
+                string cmnd = txtCMNDDG.Text;
+                string mscb = txtMSCBDG.Text;
+                string mssv = txtMSSVDG.Text;
+
+                ngaysinh = dtpk_ngaysinhDocGia.Value.ToString();               
+                // convert dữ liệu từ datetime picker
+                DateTime dt2 = Convert.ToDateTime(ngaysinh);
+                ngaysinh = dt2.ToString("yyyy-MM-dd");
+               
+                string loai;
+                if (rdSinhVien.Checked == true)
+                    loai = "SV";
+                else if (rdCanBo.Checked == true)
+                    loai = "CBNV";
+                else
+                    loai = "K";
+
+                if (tendocgia == "" || ngaysinh == "" || diachi == "" || sdt == "" || email == "" )
+                {
+                    MessageBox.Show("Vui lòng điền đủ thông tin trước khi Thêm Độc Giả!");
+                    return;
+                }
+                if (cmnd == "" && mscb == "" && mssv == "")
+                {
+                    MessageBox.Show("Vui lòng chọn Loại Độc Giả !");
+                    return;
+                }                    
+                if (rdSinhVien.Checked == false && rdCanBo.Checked == false && rdKhac.Checked == false)
+                {
+                    MessageBox.Show("Vui lòng chọn Loại Độc Giả !");
+                    return;
+                }
+                if ((CheckNumber(cmnd) == false || cmnd == "") && rdKhac.Checked == true)
+                {
+                    MessageBox.Show("Vui lòng nhập lại Số CMND !");
+                    return;
+                }
+                if (mssv == "" && rdSinhVien.Checked == true)
+                {
+                    MessageBox.Show("Vui lòng nhập lại MSSV !");
+                    return;
+                }
+                if (mscb == "" && rdCanBo.Checked == true)
+                {
+                    MessageBox.Show("Vui lòng nhập lại Mã Số CB !");
+                    return;
+                }
+                if (CheckNumber(sdt) == false)
+                {
+                    MessageBox.Show("Vui lòng Nhập lại Số Điện Thoại!");
+                    return;
+                }
+
+                DTO_DocGia DTO = new DTO_DocGia(txtMaDG.Text, tendocgia, ngaysinh, diachi, sdt, email, cmnd, mssv, mscb, loai);
+                if (busDocGia.ThemDocGia(DTO))
+                    MessageBox.Show("Đăng ký Độc Giả Thành Công!!!");
+                else
+                    MessageBox.Show("Đăng Ký không Thành Công\n Lỗi Dữ Liệu Nhập!!!");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi");
+                throw ex;
+            }
+            txtTenDG.Text = null;
+            txtDiaChiDG.Text = null;
+            txtSDTDG.Text = null;
+            txtEmailDG.Text = null;
+            txtCMNDDG.Text = null;
+            txtMSCBDG.Text = null;
+            txtMSSVDG.Text = null;
+            rdSinhVien.Checked = false;
+            rdCanBo.Checked = false;
+            rdKhac.Checked = false;           
+            txtMaDG.Text = busDocGia.TimMaDocGiaTiepTheo();
+        }
 
         private void btnSearchDocGia_Click(object sender, EventArgs e)
         {
@@ -786,9 +831,24 @@ namespace GUI_QuanLy
             try
             {
                 string madocgia = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
-                //string madocgia = dgvDGSearch[0, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
                 string hoten = dgvDGSearch[1, dgvDGSearch.CurrentCell.RowIndex].Value.ToString().ToUpper();
                 string ngaysinh = dgvDGSearch[2, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
+                if (CheckDate(ngaysinh) == false)
+                {
+                    MessageBox.Show("Vui lòng Nhập lại Ngày Sinh !");
+                    return;
+                }
+                try
+                {
+                    // convert dữ liệu từ datetime 
+                    DateTime dt2 = Convert.ToDateTime(ngaysinh);
+                    ngaysinh = dt2.ToString("yyyy-MM-dd");
+                }
+                catch
+                {
+                    MessageBox.Show("Vui lòng Nhập lại Ngày Sinh !");
+                    return;
+                }
                 string diachi = dgvDGSearch[3, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
                 string sdt = dgvDGSearch[4, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
                 string email = dgvDGSearch[5, dgvDGSearch.CurrentCell.RowIndex].Value.ToString().ToUpper();
@@ -1144,26 +1204,34 @@ namespace GUI_QuanLy
             pnThongKe.Visible = true;
             this.pnThongKe.Location = new System.Drawing.Point(220, 118);
 
+            btnChinhSua_PhieuMuon.Visible = false;
+            btnLuuPhieuMuon.Visible = false;
+            btnHuy_PhieuMuon.Visible = false;
+
+            btnXemChiTiet_PhieuMuon.Visible = false;
+            btnXoaPhieuMuon.Visible = false;
+            btnLapPhieuTra_PhieuMuon.Visible = false;
+
+
         }
 
         private void btnXPmuon_Click(object sender, EventArgs e)
         {
-            this.pnxemphieumuon.Location = new System.Drawing.Point(0, 24);
-            pnLapPhieumuon.Visible = false;
-            pnxemphieumuon.Visible = true;
-            pnNhapthongtintimkiemphieumuon.Visible = false;
-            if (pnxemphieumuon.Visible == true)
-            {
-                string strSql = "exec usp_XemPhieuMuon";
+            //this.pnxemphieumuon.Location = new System.Drawing.Point(0, 24);
+            //pnLapPhieumuon.Visible = false;
+            //pnxemphieumuon.Visible = true;
+            //pnNhapthongtintimkiemphieumuon.Visible = false;
+            //if (pnxemphieumuon.Visible == true)
+            //{
+            //    string strSql = "exec usp_XemPhieuMuon";
 
                 //DBConnect DBConnect = new DBConnect();
                 //DBConnect.Connect();
                 //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-                //dgvxemphieumuon.DataSource = dt;
-                //dgvxemphieumuon.ReadOnly = true;
+                
 
                 //DBConnect.Disconnect();
-            }
+            //}
         }
 
         private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1173,9 +1241,9 @@ namespace GUI_QuanLy
 
         private void btnLPmuon_Click(object sender, EventArgs e)
         {
-            this.pnLapPhieumuon.Location = new System.Drawing.Point(0, 24);
-            pnxemphieumuon.Visible = false;
-            pnLapPhieumuon.Visible = true;
+        //    this.pnLapPhieumuon.Location = new System.Drawing.Point(0, 24);
+        //    pnxemphieumuon.Visible = false;
+        //    pnLapPhieumuon.Visible = true;
 
         }
 
@@ -1184,9 +1252,46 @@ namespace GUI_QuanLy
             //this.pnLapPhieumuon.Location = new System.Drawing.Point(0, 24);
             //pnxemphieumuon.Visible = false;
             //pnLapPhieumuon.Visible = true;
-            this.pnlapphieutra.Location = new System.Drawing.Point(0, 24);
-            pnlapphieutra.Visible = true;
-            pnXemPhieuTra.Visible = false;
+            //this.pnlapphieutra.Location = new System.Drawing.Point(0, 24);
+            //pnlapphieutra.Visible = true;
+            //pnXemPhieuTra.Visible = false;
+        }
+
+        private void btnXemTatcaPhieuMuon_Click(object sender, EventArgs e)
+        {
+            BUS_Phieu busPhieu = new BUS_Phieu();
+            dgvPhieuMuon.DataSource = busPhieu.XemTatCaPhieuMuon();
+            dgvPhieuMuon.ReadOnly = true;
+
+            btnXemChiTiet_PhieuMuon.Visible = true;
+            btnXoaPhieuMuon.Visible = true;
+            btnLapPhieuTra_PhieuMuon.Visible = true;
+
+            btnChinhSua_PhieuMuon.Visible = false;
+            btnLuuPhieuMuon.Visible = false;
+            btnHuy_PhieuMuon.Visible = false;
+        }
+
+        private void btnTimKiemPhieuMuon_Click(object sender, EventArgs e)
+        {
+            btnChinhSua_PhieuMuon.Visible = false;
+            btnLuuPhieuMuon.Visible = false;
+            btnHuy_PhieuMuon.Visible = false;
+
+            btnXemChiTiet_PhieuMuon.Visible = true;
+            btnXoaPhieuMuon.Visible = true;
+            btnLapPhieuTra_PhieuMuon.Visible = true;
+        }
+
+        private void btnXemChiTiet_PhieuMuon_Click(object sender, EventArgs e)
+        {
+            btnChinhSua_PhieuMuon.Visible = true;
+            btnLuuPhieuMuon.Visible = true;
+            btnHuy_PhieuMuon.Visible = true;
+
+            btnXemChiTiet_PhieuMuon.Visible = false;
+            btnXoaPhieuMuon.Visible = false;
+            btnLapPhieuTra_PhieuMuon.Visible = false;
         }
 
         private void btnXemPhieuTra_Click(object sender, EventArgs e)
@@ -1195,91 +1300,91 @@ namespace GUI_QuanLy
             //pnLapPhieumuon.Visible = false;
             //pnxemphieumuon.Visible = true;
             //if (pnxemphieumuon.Visible == true) 
-            this.pnXemPhieuTra.Location = new System.Drawing.Point(0, 24);
-            pnlapphieutra.Visible = false;
-            pnXemPhieuTra.Visible = true;
-            if (pnXemPhieuTra.Visible == true) 
-            {
-                string strSql = "exec usp_XemPhieuTra";
-
-                //DBConnect DBConnect = new DBConnect();
-                //DBConnect.Connect();
-                //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-                ////dgvxemphieumuon.DataSource = dt;
-                ////dgvxemphieumuon.ReadOnly = true;
-                //dgvXemPhieuTra.DataSource = dt;
-                //dgvXemPhieuTra.ReadOnly = true;
-
-                //DBConnect.Disconnect();
-            }
-
-        }
-
-        private void btnLPNhacNho_Click(object sender, EventArgs e)
-        {
-            pnXemPhieuNhacNho.Visible = false;
-            pnLapPhieuNhacNho.Visible = true;
-            this.pnLapPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
-        }
-
-        private void btnXemPNhacNho_Click(object sender, EventArgs e)
-        {
-            this.pnXemPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
+            //this.pnXemPhieuTra.Location = new System.Drawing.Point(0, 24);
             //pnlapphieutra.Visible = false;
             //pnXemPhieuTra.Visible = true;
-            pnXemPhieuNhacNho.Visible = true;
-            pnLapPhieuNhacNho.Visible = false;
-            if (pnXemPhieuNhacNho.Visible == true)
-            {
-                string strSql = "exec usp_XemPhieuNhacNho";
+            //if (pnXemPhieuTra.Visible == true) 
+            //{
+            //    string strSql = "exec usp_XemPhieuTra";
 
-                //DBConnect DBConnect = new DBConnect();
-                //DBConnect.Connect();
-                //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-                ////dgvxemphieumuon.DataSource = dt;
-                ////dgvxemphieumuon.ReadOnly = true;
-                //dgvXemPhieuNhacNho.DataSource = dt;
-                //dgvXemPhieuNhacNho.ReadOnly = true;
-                //DBConnect.Disconnect();
+            //    //DBConnect DBConnect = new DBConnect();
+            //    //DBConnect.Connect();
+            //    //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            //    ////dgvxemphieumuon.DataSource = dt;
+            //    ////dgvxemphieumuon.ReadOnly = true;
+            //    //dgvXemPhieuTra.DataSource = dt;
+            //    //dgvXemPhieuTra.ReadOnly = true;
 
-            }
+            //    //DBConnect.Disconnect();
+          //  }
+
         }
 
-        private void btnLapPhieuPhat_Click(object sender, EventArgs e)
-        {
-            //pnXemPhieuNhacNho.Visible = false;
-            //pnLapPhieuNhacNho.Visible = true;
-            //this.pnLapPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
-            pnXemPhieuPhat.Visible = false;
-            pnLapPhieuPhat.Visible = true;
-            this.pnLapPhieuPhat.Location = new System.Drawing.Point(0, 24);
-        }
+    //private void btnLPNhacNho_Click(object sender, EventArgs e)
+    //{
+    //    pnXemPhieuNhacNho.Visible = false;
+    //    pnLapPhieuNhacNho.Visible = true;
+    //    this.pnLapPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
+    //}
 
-        private void btnXemPhieuPhat_Click(object sender, EventArgs e)
-        {
-            pnXemPhieuPhat.Visible = true;
-            pnLapPhieuPhat.Visible = false;
-            this.pnXemPhieuPhat.Location = new System.Drawing.Point(0, 24);
-            if (pnXemPhieuPhat.Visible == true) 
-            {
-                string strSql = "exec usp_XemPhieuPhat";
+    //private void btnXemPNhacNho_Click(object sender, EventArgs e)
+    //    {
+    //        this.pnXemPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
+    //        //pnlapphieutra.Visible = false;
+    //        //pnXemPhieuTra.Visible = true;
+    //        pnXemPhieuNhacNho.Visible = true;
+    //        pnLapPhieuNhacNho.Visible = false;
+    //        if (pnXemPhieuNhacNho.Visible == true)
+    //        {
+    //            string strSql = "exec usp_XemPhieuNhacNho";
 
-                //DBConnect DBConnect = new DBConnect();
-                //DBConnect.Connect();
-                //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-                ////dgvxemphieumuon.DataSource = dt;
-                ////dgvxemphieumuon.ReadOnly = true;
-                //dgvXemPhieuPhat.DataSource = dt;
-                //dgvXemPhieuPhat.ReadOnly = true;
-                //DBConnect.Disconnect();
+    //            //DBConnect DBConnect = new DBConnect();
+    //            //DBConnect.Connect();
+    //            //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+    //            ////dgvxemphieumuon.DataSource = dt;
+    //            ////dgvxemphieumuon.ReadOnly = true;
+    //            //dgvXemPhieuNhacNho.DataSource = dt;
+    //            //dgvXemPhieuNhacNho.ReadOnly = true;
+    //            //DBConnect.Disconnect();
 
-            }
-        }
-        private void btnCNmuon_Click(object sender, EventArgs e)
-        {
-            pnxemphieumuon.Visible = true;
-            pnNhapthongtintimkiemphieumuon.Visible = true;
-        }
+    //        }
+    //    }
+
+        //private void btnLapPhieuPhat_Click(object sender, EventArgs e)
+        //{
+        //    //pnXemPhieuNhacNho.Visible = false;
+        //    //pnLapPhieuNhacNho.Visible = true;
+        //    //this.pnLapPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
+        //    pnXemPhieuPhat.Visible = false;
+        //    pnLapPhieuPhat.Visible = true;
+        //    this.pnLapPhieuPhat.Location = new System.Drawing.Point(0, 24);
+        //}
+
+        //private void btnXemPhieuPhat_Click(object sender, EventArgs e)
+        //{
+        //    pnXemPhieuPhat.Visible = true;
+        //    pnLapPhieuPhat.Visible = false;
+        //    this.pnXemPhieuPhat.Location = new System.Drawing.Point(0, 24);
+        //    if (pnXemPhieuPhat.Visible == true) 
+        //    {
+        //        string strSql = "exec usp_XemPhieuPhat";
+
+        //        //DBConnect DBConnect = new DBConnect();
+        //        //DBConnect.Connect();
+        //        //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+        //        ////dgvxemphieumuon.DataSource = dt;
+        //        ////dgvxemphieumuon.ReadOnly = true;
+        //        //dgvXemPhieuPhat.DataSource = dt;
+        //        //dgvXemPhieuPhat.ReadOnly = true;
+        //        //DBConnect.Disconnect();
+
+        //    }
+        //}
+        //private void btnCNmuon_Click(object sender, EventArgs e)
+        //{
+        //    pnxemphieumuon.Visible = true;
+        //    pnNhapthongtintimkiemphieumuon.Visible = true;
+        //}
     }
    
 }

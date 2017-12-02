@@ -43,6 +43,7 @@
     <Compile Include="BUS_DangNhap.cs" />
     <Compile Include="BUS_DocGia.cs" />
     <Compile Include="BUS_NhanVien.cs" />
+    <Compile Include="BUS_Phieu.cs" />
     <Compile Include="BUS_TaiLieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

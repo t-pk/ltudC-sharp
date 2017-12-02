@@ -74,5 +74,42 @@ namespace DAL_QuanLy
             DBConnect.Disconnect();
         }
 
+        public string TimMaDocGiaTiepTheo()
+        {
+            string strSql1 = "usp_TimMaDGTiepTheo";
+            DBConnect DBConnect1 = new DBConnect();
+            DBConnect1.Connect();
+            SqlParameter p = new SqlParameter("@MaDocGia", SqlDbType.VarChar, 100);
+            p.Direction = ParameterDirection.Output;
+            DBConnect1.ExecuteNonQuery(CommandType.StoredProcedure, strSql1, p);
+            DBConnect1.Disconnect();
+            return p.Value.ToString();
+        }
+        public bool ThemDocGia(DTO_DocGia DTO)
+        {
+            string strSql = "usp_ThemDocGia";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            try
+            {
+               DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+               new SqlParameter { ParameterName = "@TenDG", Value = DTO._tenDG },
+               new SqlParameter { ParameterName = "@NgaySinhDG", Value = DTO._ngaySinh },
+               new SqlParameter { ParameterName = "@DiaChiDG", Value = DTO._DiaChiDG },
+               new SqlParameter { ParameterName = "@SDTDG", Value = DTO._SDT_DG },
+               new SqlParameter { ParameterName = "@EmailDG", Value = DTO._email },
+               new SqlParameter { ParameterName = "@CMNDDG", Value = DTO._CMND_DG },
+               new SqlParameter { ParameterName = "@MSSVDG", Value = DTO._MSSV_DG },
+               new SqlParameter { ParameterName = "@MCBDG", Value = DTO._MCB_DG },
+               new SqlParameter { ParameterName = "@LoaiDG", Value = DTO._LoaiDG });
+               DBConnect.Disconnect();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+           
+        }
     }
 }
