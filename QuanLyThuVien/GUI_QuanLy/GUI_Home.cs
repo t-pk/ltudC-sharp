@@ -566,12 +566,15 @@ namespace GUI_QuanLy
             }
             else MessageBox.Show("Bạn Không Phải ADMIN, Bạn Không Có Quyền Xóa Nhân Viên !!!");
         }
+        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
 
         /*
          * PHẦN XỬ LÝ ĐỘC GIẢ
          */
-         // kiểm tra dữ liệu Ngày
+        // kiểm tra dữ liệu Ngày
         protected bool CheckDate(String date)
         {
             try
@@ -1204,6 +1207,7 @@ namespace GUI_QuanLy
             pnThongKe.Visible = true;
             this.pnThongKe.Location = new System.Drawing.Point(220, 118);
 
+            // ẩn button phiếu mượn
             btnChinhSua_PhieuMuon.Visible = false;
             btnLuuPhieuMuon.Visible = false;
             btnHuy_PhieuMuon.Visible = false;
@@ -1212,51 +1216,20 @@ namespace GUI_QuanLy
             btnXoaPhieuMuon.Visible = false;
             btnLapPhieuTra_PhieuMuon.Visible = false;
 
+            // ẩn button phiếu trả
+            btnXemChiTietPhieuTra.Visible = false;
+            btnXoaPhieuTra.Visible = false;
+            btnLapPhieuTra_PhieuTra.Visible = false;
+
+            btnChinhSua_PhieuTra.Visible = false;
+            btnLuuPhieuTra.Visible = false;
+            btnHuy_PhieuTra.Visible = false;
+
 
         }
-
-        private void btnXPmuon_Click(object sender, EventArgs e)
-        {
-            //this.pnxemphieumuon.Location = new System.Drawing.Point(0, 24);
-            //pnLapPhieumuon.Visible = false;
-            //pnxemphieumuon.Visible = true;
-            //pnNhapthongtintimkiemphieumuon.Visible = false;
-            //if (pnxemphieumuon.Visible == true)
-            //{
-            //    string strSql = "exec usp_XemPhieuMuon";
-
-                //DBConnect DBConnect = new DBConnect();
-                //DBConnect.Connect();
-                //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-                
-
-                //DBConnect.Disconnect();
-            //}
-        }
-
-        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnLPmuon_Click(object sender, EventArgs e)
-        {
-        //    this.pnLapPhieumuon.Location = new System.Drawing.Point(0, 24);
-        //    pnxemphieumuon.Visible = false;
-        //    pnLapPhieumuon.Visible = true;
-
-        }
-
-        private void btnLpTra_Click(object sender, EventArgs e)
-        {
-            //this.pnLapPhieumuon.Location = new System.Drawing.Point(0, 24);
-            //pnxemphieumuon.Visible = false;
-            //pnLapPhieumuon.Visible = true;
-            //this.pnlapphieutra.Location = new System.Drawing.Point(0, 24);
-            //pnlapphieutra.Visible = true;
-            //pnXemPhieuTra.Visible = false;
-        }
-
+        /*
+         * Phiếu Mượn
+         */ 
         private void btnXemTatcaPhieuMuon_Click(object sender, EventArgs e)
         {
             BUS_Phieu busPhieu = new BUS_Phieu();
@@ -1271,7 +1244,7 @@ namespace GUI_QuanLy
             btnLuuPhieuMuon.Visible = false;
             btnHuy_PhieuMuon.Visible = false;
         }
-
+        // chưa có proc tìm kiếm phiếu mượn
         private void btnTimKiemPhieuMuon_Click(object sender, EventArgs e)
         {
             btnChinhSua_PhieuMuon.Visible = false;
@@ -1282,7 +1255,7 @@ namespace GUI_QuanLy
             btnXoaPhieuMuon.Visible = true;
             btnLapPhieuTra_PhieuMuon.Visible = true;
         }
-
+        // chưa có proc xem chi tiết phiếu mượn
         private void btnXemChiTiet_PhieuMuon_Click(object sender, EventArgs e)
         {
             btnChinhSua_PhieuMuon.Visible = true;
@@ -1292,99 +1265,202 @@ namespace GUI_QuanLy
             btnXemChiTiet_PhieuMuon.Visible = false;
             btnXoaPhieuMuon.Visible = false;
             btnLapPhieuTra_PhieuMuon.Visible = false;
-        }
 
-        private void btnXemPhieuTra_Click(object sender, EventArgs e)
+            BUS_Phieu busPhieu = new BUS_Phieu();
+            string maPhieuMuon = dgvPhieuMuon[0, dgvPhieuMuon.CurrentRow.Index].Value.ToString();
+            dgvPhieuMuon.DataSource = busPhieu.XemChiTietPhieuMuon(maPhieuMuon);
+            dgvPhieuMuon.ReadOnly = true;
+            btnHuy_PhieuMuon.Text = "Hủy";
+
+        }
+        // chưa có proc Xóa Phiếu Mượn
+        private void btnXoaPhieuMuon_Click(object sender, EventArgs e)
         {
-            // this.pnxemphieumuon.Location = new System.Drawing.Point(0, 24);
-            //pnLapPhieumuon.Visible = false;
-            //pnxemphieumuon.Visible = true;
-            //if (pnxemphieumuon.Visible == true) 
-            //this.pnXemPhieuTra.Location = new System.Drawing.Point(0, 24);
-            //pnlapphieutra.Visible = false;
-            //pnXemPhieuTra.Visible = true;
-            //if (pnXemPhieuTra.Visible == true) 
-            //{
-            //    string strSql = "exec usp_XemPhieuTra";
-
-            //    //DBConnect DBConnect = new DBConnect();
-            //    //DBConnect.Connect();
-            //    //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-            //    ////dgvxemphieumuon.DataSource = dt;
-            //    ////dgvxemphieumuon.ReadOnly = true;
-            //    //dgvXemPhieuTra.DataSource = dt;
-            //    //dgvXemPhieuTra.ReadOnly = true;
-
-            //    //DBConnect.Disconnect();
-          //  }
+            BUS_Phieu busPhieu = new BUS_Phieu();
+            string maPhieuMuon = dgvPhieuMuon[0, dgvPhieuMuon.CurrentRow.Index].Value.ToString();
+            if (MessageBox.Show(string.Format("Xác nhận xóa Phiếu Mượn {0}", maPhieuMuon), "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (busPhieu.XoaPhieuMuon(maPhieuMuon))
+                    MessageBox.Show("Xóa Phiếu Mượn Thành Công");
+                else
+                    MessageBox.Show("Không Thể Xóa Phiếu Mượn Này !");
+            }
 
         }
 
-    //private void btnLPNhacNho_Click(object sender, EventArgs e)
-    //{
-    //    pnXemPhieuNhacNho.Visible = false;
-    //    pnLapPhieuNhacNho.Visible = true;
-    //    this.pnLapPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
-    //}
+        private void btnChinhSua_PhieuMuon_Click(object sender, EventArgs e)
+        {
+            dgvPhieuMuon.ReadOnly = false;
+            dgvPhieuMuon.Columns[0].ReadOnly = true;
+        }
+        // chưa có proc update phiếu mượn
+        private void btnLuuPhieuMuon_Click(object sender, EventArgs e)
+        {
+            btnHuy_PhieuMuon.Text = "Thoát";
+        }
 
-    //private void btnXemPNhacNho_Click(object sender, EventArgs e)
-    //    {
-    //        this.pnXemPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
-    //        //pnlapphieutra.Visible = false;
-    //        //pnXemPhieuTra.Visible = true;
-    //        pnXemPhieuNhacNho.Visible = true;
-    //        pnLapPhieuNhacNho.Visible = false;
-    //        if (pnXemPhieuNhacNho.Visible == true)
-    //        {
-    //            string strSql = "exec usp_XemPhieuNhacNho";
+        private void btnHuy_PhieuMuon_Click(object sender, EventArgs e)
+        {
+            // load lại danh sách phiếu mượn
+            btnXemTatcaPhieuMuon_Click(sender, e);
+        }
 
-    //            //DBConnect DBConnect = new DBConnect();
-    //            //DBConnect.Connect();
-    //            //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-    //            ////dgvxemphieumuon.DataSource = dt;
-    //            ////dgvxemphieumuon.ReadOnly = true;
-    //            //dgvXemPhieuNhacNho.DataSource = dt;
-    //            //dgvXemPhieuNhacNho.ReadOnly = true;
-    //            //DBConnect.Disconnect();
+        private void btnLapPhieuTra_PhieuMuon_Click(object sender, EventArgs e)
+        {
 
-    //        }
-    //    }
+        }
 
-        //private void btnLapPhieuPhat_Click(object sender, EventArgs e)
-        //{
-        //    //pnXemPhieuNhacNho.Visible = false;
-        //    //pnLapPhieuNhacNho.Visible = true;
-        //    //this.pnLapPhieuNhacNho.Location = new System.Drawing.Point(0, 24);
-        //    pnXemPhieuPhat.Visible = false;
-        //    pnLapPhieuPhat.Visible = true;
-        //    this.pnLapPhieuPhat.Location = new System.Drawing.Point(0, 24);
-        //}
+        private void btnThem_PhieuMuon_Click(object sender, EventArgs e)
+        {
+            string maPhieuMuon = txtMaPhieuMuon.Text;
+            string maDG_PhieuMuon = txtMaDG_PhieuMuon.Text;
+            string sTT_PhieuMuon = txtSTTPhieuMuon.Text;
+            string maTL_PMuon = txtMaTL_Muon.Text;
+            string soLuongTL_Muon = txtSL_Muon.Text;
 
-        //private void btnXemPhieuPhat_Click(object sender, EventArgs e)
-        //{
-        //    pnXemPhieuPhat.Visible = true;
-        //    pnLapPhieuPhat.Visible = false;
-        //    this.pnXemPhieuPhat.Location = new System.Drawing.Point(0, 24);
-        //    if (pnXemPhieuPhat.Visible == true) 
-        //    {
-        //        string strSql = "exec usp_XemPhieuPhat";
+            if (maPhieuMuon == "" || maDG_PhieuMuon == "" || sTT_PhieuMuon == "" || maTL_PMuon == "" || soLuongTL_Muon == "")
+            {
+                MessageBox.Show("Vui lòng điền đủ thông tin trước khi Thêm Phiếu Mượn!");
+                return;
+            }
+            if (CheckNumber(soLuongTL_Muon)== false)
+            {
+                MessageBox.Show("Vui lòng Nhập lại Số Lượng !");
+                return;
+            }
 
-        //        //DBConnect DBConnect = new DBConnect();
-        //        //DBConnect.Connect();
-        //        //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-        //        ////dgvxemphieumuon.DataSource = dt;
-        //        ////dgvxemphieumuon.ReadOnly = true;
-        //        //dgvXemPhieuPhat.DataSource = dt;
-        //        //dgvXemPhieuPhat.ReadOnly = true;
-        //        //DBConnect.Disconnect();
+            string ngayMuon = dtpkNgayLap_PhieuMuon.Value.ToString();
+            // convert dữ liệu từ datetime picker
+            DateTime dt2 = Convert.ToDateTime(ngayMuon);
+            ngayMuon = dt2.ToString("yyyy-MM-dd");
 
-        //    }
-        //}
-        //private void btnCNmuon_Click(object sender, EventArgs e)
-        //{
-        //    pnxemphieumuon.Visible = true;
-        //    pnNhapthongtintimkiemphieumuon.Visible = true;
-        //}
+            string hanTra_Muon = dtpkHantra_PhieuMuon.Value.ToString();
+            // convert dữ liệu từ datetime picker
+            dt2 = Convert.ToDateTime(hanTra_Muon);
+            hanTra_Muon = dt2.ToString("yyyy-MM-dd");
+
+            BUS_Phieu busPhieu = new BUS_Phieu();
+            DTO_Phieu DTO = new DTO_Phieu(maPhieuMuon, maDG_PhieuMuon, sTT_PhieuMuon, maTL_PMuon, soLuongTL_Muon, ngayMuon, hanTra_Muon);
+            busPhieu.ThemPhieuMuon(DTO);
+
+        }
+        /*
+         * Phiếu Trả
+         */
+
+        private void btnXemTatCaPhieuTra_Click(object sender, EventArgs e)
+        {
+            BUS_Phieu busPhieu = new BUS_Phieu();
+            dgvPhieuTra.DataSource = busPhieu.XemTatCaPhieuTra();
+            dgvPhieuTra.ReadOnly = true;
+
+            btnXemChiTietPhieuTra.Visible = true;
+            btnXoaPhieuTra.Visible = true;
+            btnLapPhieuTra_PhieuTra.Visible = true;
+
+            btnChinhSua_PhieuTra.Visible = false;
+            btnLuuPhieuTra.Visible = false;
+            btnHuy_PhieuTra.Visible = false;
+        }
+        // chưa có proc tìm kiếm phiếu mượn
+        private void btnTimKiemPhieuTra_Click(object sender, EventArgs e)
+        {
+            btnXemChiTietPhieuTra.Visible = true;
+            btnXoaPhieuTra.Visible = true;
+            btnLapPhieuTra_PhieuTra.Visible = true;
+
+            btnChinhSua_PhieuTra.Visible = false;
+            btnLuuPhieuTra.Visible = false;
+            btnHuy_PhieuTra.Visible = false;
+        }
+        // chưa có proc xem chi tiết phiếu mượn
+        private void btnXemChiTietPhieuTra_Click(object sender, EventArgs e)
+        {
+            btnXemChiTietPhieuTra.Visible = false;
+            btnXoaPhieuTra.Visible = false;
+            btnLapPhieuTra_PhieuTra.Visible = false;
+
+            btnChinhSua_PhieuTra.Visible = true;
+            btnLuuPhieuTra.Visible = true;
+            btnHuy_PhieuTra.Visible = true;
+
+            BUS_Phieu busPhieu = new BUS_Phieu();
+            string maPhieuMuon = dgvPhieuTra[0, dgvPhieuTra.CurrentRow.Index].Value.ToString();
+            dgvPhieuTra.DataSource = busPhieu.XemChiTietPhieuTra(maPhieuMuon);
+            dgvPhieuTra.ReadOnly = true;
+            btnHuy_PhieuTra.Text = "Hủy";
+
+        }
+        // chưa có proc Xóa Phiếu Mượn
+        private void btnXoaPhieuTra_Click(object sender, EventArgs e)
+        {
+            BUS_Phieu busPhieu = new BUS_Phieu();
+            string maPhieuMuon = dgvPhieuTra[0, dgvPhieuTra.CurrentRow.Index].Value.ToString();
+            if (MessageBox.Show(string.Format("Xác nhận xóa Phiếu Mượn {0}", maPhieuMuon), "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (busPhieu.XoaPhieuTra(maPhieuMuon))
+                    MessageBox.Show("Xóa Phiếu Trả Thành Công");
+                else
+                    MessageBox.Show("Không Thể Xóa Phiếu Trả Này !");
+            }
+
+        }
+
+        private void btnChinhSua_PhieuTra_Click(object sender, EventArgs e)
+        {
+            dgvPhieuTra.ReadOnly = false;
+            dgvPhieuTra.Columns[0].ReadOnly = true;
+        }
+        // chưa có proc update phiếu mượn
+        private void btnLuuPhieuTra_Click(object sender, EventArgs e)
+        {
+            btnHuy_PhieuTra.Text = "Thoát";
+        }
+
+        private void btnHuy_PhieuTra_Click(object sender, EventArgs e)
+        {
+            // load lại danh sách phiếu mượn
+            btnXemTatCaPhieuTra_Click(sender, e);
+        }
+
+        private void btnThemPhieuTra_Click(object sender, EventArgs e)
+        {
+            //string maPhieuMuon = txtMaPhieuMuon.Text;
+            //string maDG_PhieuMuon = txtMaDG_PhieuMuon.Text;
+            //string sTT_PhieuMuon = txtSTTPhieuMuon.Text;
+            //string maTL_PMuon = txtMaTL_Muon.Text;
+            //string soLuongTL_Muon = txtSL_Muon.Text;
+
+            //if (maPhieuMuon == "" || maDG_PhieuMuon == "" || sTT_PhieuMuon == "" || maTL_PMuon == "" || soLuongTL_Muon == "")
+            //{
+            //    MessageBox.Show("Vui lòng điền đủ thông tin trước khi Thêm Phiếu Mượn!");
+            //    return;
+            //}
+            //if (CheckNumber(soLuongTL_Muon) == false)
+            //{
+            //    MessageBox.Show("Vui lòng Nhập lại Số Lượng !");
+            //    return;
+            //}
+
+            //string ngayMuon = dtpkNgayLap_PhieuMuon.Value.ToString();
+            //// convert dữ liệu từ datetime picker
+            //DateTime dt2 = Convert.ToDateTime(ngayMuon);
+            //ngayMuon = dt2.ToString("yyyy-MM-dd");
+
+            //string hanTra_Muon = dtpkHantra_PhieuMuon.Value.ToString();
+            //// convert dữ liệu từ datetime picker
+            //dt2 = Convert.ToDateTime(hanTra_Muon);
+            //hanTra_Muon = dt2.ToString("yyyy-MM-dd");
+
+            //BUS_Phieu busPhieu = new BUS_Phieu();
+            //DTO_Phieu DTO = new DTO_Phieu(maPhieuMuon, maDG_PhieuMuon, sTT_PhieuMuon, maTL_PMuon, soLuongTL_Muon, ngayMuon, hanTra_Muon);
+            //busPhieu.ThemPhieuMuon(DTO);
+
+        }
+        private void btnLapPhieuTra_PhieuTra_Click(object sender, EventArgs e)
+        {
+
+        }   
     }
    
 }

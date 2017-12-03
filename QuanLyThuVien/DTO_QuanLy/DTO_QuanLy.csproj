@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO_Phieu.cs" />
     <Compile Include="DTO_DangKy.cs" />
     <Compile Include="DTO_DangNhap.cs" />
     <Compile Include="DTO_NhanVien.cs" />
