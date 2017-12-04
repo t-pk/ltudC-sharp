@@ -12,7 +12,6 @@ begin
 	select * from [TAI LIEU]
 end
 
-go
 if OBJECT_ID('usp_TimMaTLTiepTheo') is not null
  Drop proc usp_TimMaTLTiepTheo
 
@@ -31,7 +30,6 @@ begin
 	Set @MaTaiLieu = @MaTL
 end
 
-go
 if OBJECT_ID('usp_SearchTaiLieuTheoMa') is not null
  Drop proc usp_SearchTaiLieuTheoMa
 
@@ -42,7 +40,7 @@ begin
 	select * from [TAI LIEU]
 	where MaTaiLieu = @MaTaiLieu
 end
-go
+
 
 if OBJECT_ID('usp_SearchTaiLieuTheoTen') is not null
  Drop proc usp_SearchTaiLieuTheoTen
@@ -54,7 +52,7 @@ begin
 	select * from [TAI LIEU]
 	where TenTaiLieu like '%' + @TenTaiLieu + '%'
 end
-go
+
 
 
 if OBJECT_ID('usp_SearchTaiLieuTheoLoai') is not null
@@ -67,7 +65,7 @@ begin
 	select * from [TAI LIEU]
 	where LoaiTaiLieu = @LoaiTaiLieu
 end
-go
+
 
 if OBJECT_ID('usp_DeleteTaiLieu') is not null
  Drop proc usp_DeleteTaiLieu
@@ -79,7 +77,6 @@ begin
 	delete from [TAI LIEU]
 	where MaTaiLieu = @MaTaiLieu
 end
-go
 
 if OBJECT_ID('usp_UpdateTaiLieu') is not null
  Drop proc usp_UpdateTaiLieu
@@ -92,7 +89,6 @@ begin
 	set TenTaiLieu = @TenTaiLieu, HienTrang = @HienTrang, LoaiTaiLieu = @LoaiTaiLieu, SoLuong = @SoLuong
 	where MaTaiLieu = @MaTaiLieu
 end
-go
 
 if OBJECT_ID('usp_InsertTaiLieu') is not null
  Drop proc usp_InsertTaiLieu
@@ -110,6 +106,7 @@ end
 
 
 
+
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 go
@@ -123,7 +120,7 @@ as
 begin
 	select * from [NHAN VIEN]
 end
-go
+
 
 if OBJECT_ID('usp_TimMaNVTiepTheo') is not null
  Drop proc usp_TimMaNVTiepTheo
@@ -142,7 +139,7 @@ begin
 	end
 	Set @MaNV = @MaNhanVien
 end
-go
+
 
 if OBJECT_ID('usp_ThemNhanVien') is not null
  Drop proc usp_ThemNhanVien
@@ -156,7 +153,7 @@ begin
 	insert into [NHAN VIEN]
 	values(@MaNV, @CaTruc ,@TenDangNhap, @MatKhau, @HoTen, GETDATE(), @LoaiNV)
 end
-go
+
 
 if OBJECT_ID('usp_CapNhatNhanVien') is not null
  Drop proc usp_CapNhatNhanVien
@@ -168,7 +165,7 @@ begin
 	set	CaTruc = @CaTruc, TenDangNhap = @TenDangNhap, MatKhau = @MatKhau, HoTen = @HoTen, LoaiNV = @LoaiNV
 	where MaNV = @MaNV
 end
-go
+
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 
@@ -189,21 +186,9 @@ begin
 		where TenDangNhap = @username and MatKhau = @password
 	end
 end
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-go
-if OBJECT_ID('usp_LayMaNhanVienHienTai') is not null
- Drop proc usp_LayMaNhanVienHienTai
 
-go
-create proc usp_LayMaNhanVienHienTai @UserName char(40), @MaNV nvarchar(10) out
-as
-begin
-	select @MaNV =  nv.MaNV
-	from [NHAN VIEN] nv
-	where nv.HoTen = @UserName
-end
-go
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 
 
 if OBJECT_ID('usp_LayTenNhanVien') is not null
@@ -217,7 +202,7 @@ begin
 	from [NHAN VIEN] nv
 	where nv.TenDangNhap = @UserName and nv.MatKhau = @Pass
 end
-go
+
 if OBJECT_ID('usp_LayQuyenNhanVien') is not null
  Drop proc usp_LayQuyenNhanVien
 
@@ -229,7 +214,7 @@ begin
 	from [NHAN VIEN] nv, [LOAI NHANVIEN] l
 	where nv.TenDangNhap = @UserName and nv.MatKhau = @Pass and l.MaLoaiNV = nv.LoaiNV
 end
-go
+
 
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
@@ -265,7 +250,7 @@ begin
 	end
 	Set @MaDocGia = @MaDG
 end
-go
+
 
 
 if OBJECT_ID('usp_ThemDocGia') is not null
@@ -280,7 +265,7 @@ begin
 	insert into [DOC GIA]
 	values(@MaDG, @TenDG,@NgaySinhDG, @DiaChiDG, @SDTDG, @EmailDG, @CMNDDG, @MSSVDG, @CMNDDG, @LoaiDG)
 end
-go
+
 
 if OBJECT_ID('usp_CapNhatDocGia') is not null
  Drop proc usp_CapNhatDocGia
@@ -292,7 +277,6 @@ begin
 	set HoTen = @TenDG, NgaySinh = @NgaySinhDG, DiaChi = @DiaChiDG, Sdt = @SDTDG, Email = @EmailDG, CMND = @CMNDDG, MSSV = @MSSVDG, MCB = @MCBDG, LoaiDG = @LoaiDG
 	where MaDocGia = @MaDG
 end
-go
 
 if OBJECT_ID('usp_XoaDocGia') is not null
  Drop proc usp_XoaDocGia
@@ -304,7 +288,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
 	delete from [DOC GIA]
 	where MaDocGia = @MaDG
  end
- go
+
 
  if OBJECT_ID('usp_TimKiemTatCaDocGia') is not null
  Drop proc usp_TimKiemTatCaDocGia
@@ -316,7 +300,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
 	select dg.MaDocGia, dg.HoTen, dg.CMND, dg.LoaiDG, (select sum(ctpm.SoLuongMuon) from [PHIEU MUON] pm, [PHIEU TRA] pt, [DOC GIA] dg1, [CHI TIET PHIEU MUON] ctpm where dg1.MaDocGia = pm.MaDocGia and pm.MaPhieuMuon <> pt.MaPhieuMuon and ctpm.MaPhieuMuon = pm.MaPhieuMuon) as 'So Sach Dang Muon'
 	from [DOC GIA] dg
  end
- go
+
 
   if OBJECT_ID('usp_SearchDocGia') is not null
  Drop proc usp_SearchDocGia
@@ -329,7 +313,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
 	from [DOC GIA]
 	where MaDocGia = @MaDG
  end
- go
+
 
  if OBJECT_ID('usp_TimKiemDocGiaTheoMaDocGia') is not null
  Drop proc usp_TimKiemDocGiaTheoMaDocGia
@@ -342,7 +326,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
 	from [DOC GIA] dg
 	where dg.MaDocGia = @MaDG
  end
- go
+
 
 
   if OBJECT_ID('usp_TimKiemDocGiaTheoMSSV') is not null
@@ -356,7 +340,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
 	from [DOC GIA] dg
 	where dg.MSSV = @MSSV
  end
- go
+
 
    if OBJECT_ID('usp_TimKiemDocGiaTheoMSCB') is not null
  Drop proc usp_TimKiemDocGiaTheoMSCB
@@ -369,7 +353,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
 	from [DOC GIA] dg
 	where dg.MCB = @MSCB
  end
- go
+
 
 
 
@@ -384,7 +368,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
 	from [DOC GIA] dg
 	where dg.CMND = @CMND
  end
- go
+
 
 
 
@@ -401,7 +385,7 @@ if OBJECT_ID('usp_XoaDocGia') is not null
  end
  ----------------------------------------------------------------------------------
  ----------------------pktai---------------------------------------
- -----------------------------------------------------------------------------------
+ --------------------------------XEM TẤT CẢ CÁC PHIẾU---------------------------------------------------
 go
 if OBJECT_ID('usp_xemPhieuMuon') is not null
  Drop proc usp_xemPhieuMuon
@@ -428,7 +412,6 @@ begin
 	 from [PHIEU TRA] pt,[CHI TIET PHIEU TRA] ct
 	where pt.MaPhieuTra=ct.MaPhieuTra
 end
-go
 ------------------
 if OBJECT_ID('usp_XemPhieuPhat') is not null
  Drop proc usp_XemPhieuPhat
@@ -452,7 +435,7 @@ begin
 	select * from [PHIEU NHAC NHO]
 end
 go
---------------------------------------------------------------------------------------------
+---------------------------------------PHIEU-----MUON-----------------------------------------------------
 if OBJECT_ID('usp_TimMaPhieuMuonTiepTheo') is not null
 drop proc usp_TimMaPhieuMuonTiepTheo
 go
@@ -470,6 +453,7 @@ declare @idx int
 	Set  @Maphieumuon=@Mapm
 end
 go
+-----------------------
 if OBJECT_ID('usp_ThemPhieuMuon') is not null
  Drop proc usp_ThemPhieuMuon
 go
@@ -485,10 +469,65 @@ begin
 	insert into [PHIEU MUON]
 
 	values(@Mapm,@MaNVLapPhieuMuon ,@Madocgia,@ngaylapphieumuon)
-	end
+end
 end
 go
-------------------------------------------------------------
+if OBJECT_ID('usp_ThemCTphieumuon') is not null
+ Drop proc usp_ThemCTphieumuon
+go
+create proc usp_ThemCTphieumuon @STTMuon nchar(10), @MaTaiLieu nchar(10), @MaPhieuMuon nchar(10),@HanTra DATE
+as
+begin
+	if exists( select * from [PHIEU MUON] where MaPhieuMuon=@MaPhieuMuon)
+
+	insert into [CHI TIET PHIEU MUON]
+
+	values(@STTMuon,@MaTaiLieu,@HanTra)
+end
+go
+---
+---------------------tim kiem------------------------
+   if OBJECT_ID('usp_SearchPhieuMuontheoMaPM') is not null
+ Drop proc usp_SearchPhieuMuontheoMaPM
+ go
+
+ create proc usp_SearchPhieuMuontheoMaPM @Maphieumuon char(15)
+ as
+ begin
+	select *
+	from [PHIEU MUON] join [CHI TIET PHIEU MUON] on [CHI TIET PHIEU MUON].MaPhieuMuon=[PHIEU MUON].MaPhieuMuon
+	where [PHIEU MUON].MaPhieuMuon=@Maphieumuon
+ end
+ go
+   if OBJECT_ID('usp_SearchPhieuMuontheoMaDG') is not null
+ Drop proc usp_SearchPhieuMuontheoMaDG
+ go
+
+ create proc usp_SearchPhieuMuontheoMaDG @Madocgia char(15)
+ as
+ begin
+	select *
+	from [PHIEU MUON] join [CHI TIET PHIEU MUON] on [CHI TIET PHIEU MUON].MaPhieuMuon=[PHIEU MUON].MaPhieuMuon
+	where MaDocGia=@Madocgia
+ end
+ go
+ -----------------------------xoa--------------------------------------
+  if OBJECT_ID('usp_Xoaphieumuon') is not null
+ Drop proc usp_Xoaphieumuon
+ go
+
+ create proc usp_Xoaphieumuon @Maphieumuon char(15)
+ as
+ begin
+	delete from [CHI TIET PHIEU MUON]
+	where MaPhieuMuon= @Maphieumuon
+	delete from [PHIEU MUON] 
+	where MaPhieuMuon= @Maphieumuon
+ end
+
+
+
+--------------------------------PHIEU TRA----------------------------
 if OBJECT_ID('usp_TimMaPhieuTraTiepTheo') is not null
 drop proc usp_TimMaPhieuTraTiepTheo
 go
@@ -501,32 +540,96 @@ declare @idx int
 	while exists (select MaPhieuTra from [PHIEU Tra] Where MaPhieuTra = @Mapt)
 	begin
 		set @idx = @idx + 1
-		set @Maphieutra= 'PT' + REPLICATE('0', 3 - len(cast(@idx as varchar))) + cast(@idx as varchar)
+		set @mapt= 'PT' + REPLICATE('0', 3 - len(cast(@idx as varchar))) + cast(@idx as varchar)
 	end
 	Set  @Maphieutra=@Mapt
+end
+go
+
+if OBJECT_ID('usp_ThemCTphieutra') is not null
+ Drop proc usp_ThemCTphieutra
+go
+create proc usp_ThemCTphieutra @STTPhieuTra nchar(10), @MaPhieuTra nchar(10), @MaDocGia nchar(10),@ngaytra date
+as
+begin
+	if exists( select * from [PHIEU TRA] where MaPhieuTra=@MaPhieuTra)
+
+	insert into [CHI TIET PHIEU TRA]
+
+	values(@STTPhieuTra,@MaPhieuTra ,@Madocgia,@ngaytra)
 end
 go
 -------------------------------------------------
 if OBJECT_ID('usp_ThemPhieuTra') is not null
  Drop proc usp_ThemPhieuTra
 go
-create proc usp_ThemPhieuTra @MaPhieuTra nchar(10), @MaNVLapPhieuTra nchar(10), @ngaylapphieutra date
+create proc usp_ThemPhieuTra @MaPhieuMuon nchar(10), @MaNVLapPhieuTra nchar(10), @ngaylapphieutra date
 as
 begin
 	Declare @Mapt nchar(10)
-	if exists (select MaPhieuTra from [PHIEU TRA] Where MaPhieuTra = @MaPhieuTra)
+	if exists (select MaPhieuMuon from [PHIEU MUON]  Where MaPhieuMuon = @MaPhieuMuon)
 	begin
 	exec usp_TimMaPhieuTraTiepTheo @Mapt out
 	--if exists (select MaDocGia from [DOC GIA] Where MaDocGia = @Madocgia)
 
 	insert into [PHIEU TRA]
 
-	values(@Mapt,@MaPhieuTra, @MaNVLapPhieuTra, @ngaylapphieutra)
-	end
+	values(@Mapt,@MaPhieuMuon, @MaNVLapPhieuTra, @ngaylapphieutra)
 end
-go
+end
+-----------------------------TIM KIẾM------------------------------
+   if OBJECT_ID('usp_SearchPhieuTratheoMaPT') is not null
+ Drop proc usp_SearchPhieuTratheoMaPT
+ go
 
-if OBJECT_ID('usp_XoaNhanVien') is not null
+ create proc usp_SearchPhieuTratheoMaPT @Maphieutra char(15)
+ as
+ begin
+	select *
+	from  [CHI TIET PHIEU TRA] join [PHIEU TRA] on [CHI TIET PHIEU TRA].MaPhieuTra=[PHIEU TRA].MaPhieuTra
+	where [PHIEU TRA].MaPhieuTra=@Maphieutra
+ end
+ go
+    if OBJECT_ID('usp_SearchPhieuTratheoMaPM') is not null
+ Drop proc usp_SearchPhieuTratheoMaPM
+ go
+
+ create proc usp_SearchPhieuTratheoMaPM @Maphieumuon char(15)
+ as
+ begin
+	select *
+	from  [CHI TIET PHIEU TRA] join [PHIEU TRA] on [CHI TIET PHIEU TRA].MaPhieuTra=[PHIEU TRA].MaPhieuTra
+	where MaPhieuMuon=@Maphieumuon
+ end
+ go
+     if OBJECT_ID('usp_SearchPhieuTratheoMaDG') is not null
+ Drop proc usp_SearchPhieuTratheoMaDG
+ go
+
+ create proc usp_SearchPhieuTratheoMaDG @Madocgia char(15)
+ as
+ begin
+	select *
+	from  [CHI TIET PHIEU TRA] join [PHIEU TRA] on [CHI TIET PHIEU TRA].MaPhieuTra=[PHIEU TRA].MaPhieuTra
+	where MaDocGia=@Madocgia
+ end
+ go
+ -------------------------xóa-----------------------------------
+   if OBJECT_ID('usp_Xoaphieutra') is not null
+ Drop proc usp_Xoaphieutra
+ go
+
+ create proc usp_Xoaphieutra @Maphieutra char(15)
+ as
+ begin
+	delete from [CHI TIET PHIEU TRA]
+	where MaPhieuTra= @Maphieutra
+	delete from [PHIEU TRA] 
+	where MaPhieuTra= @Maphieutra
+ end
+
+
+ if OBJECT_ID('usp_XoaNhanVien') is not null
  Drop proc usp_XoaNhanVien
 
 go
@@ -539,5 +642,17 @@ end
  ---------------------------------------------------------------------------------------------------------------------------------------
  ---------------------------------------------------------------------------------------------------------------------------------------
 
- select * from [dbo].[TAI LIEU]
- --son đã update
+
+ select * from [PHIEU MUON]
+
+ select * from [CHI TIET PHIEU MUON]
+
+ select * from [PHIEU TRA]
+
+ select * from [CHI TIET PHIEU TRA]
+
+ select * from [PHIEU NHAC NHO]
+
+ select * from [PHIEU PHAT]
+
+ select * from [CHI TIET PHIEU PHAT]
