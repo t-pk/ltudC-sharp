@@ -13,9 +13,9 @@ namespace DAL_QuanLy
     public class DBConnect
     {
         // chuỗi kết nối không sử dụng proc 
-        protected SqlConnection _conn = new SqlConnection(@"Server=DESKTOP-NV83OIR\QUOCSON; Database=QL_thuvien; Trusted_Connection=True;");
+        protected SqlConnection _conn = new SqlConnection(@"Server=NGUYENDUYQUYET\SQLEXPRESS; Database=QL_thuvien; Trusted_Connection=True;");
         // chuỗi kết nối có sử dụng proc
-        static String ConnectionString = @"Server=DESKTOP-NV83OIR\QUOCSON; Database=QL_thuvien; Trusted_Connection=True;";
+        static String ConnectionString = @"Server=NGUYENDUYQUYET\SQLEXPRESS; Database=QL_thuvien; Trusted_Connection=True;";
         SqlConnection Connection;
 
         public void Connect()
@@ -109,7 +109,28 @@ namespace DAL_QuanLy
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Lỗi : " + ex.ToString());
+                throw ex;
+            }
+        }
+
+        public DataTable Select(CommandType cmdType, string strSql,
+            params SqlParameter[] parameters)
+        {
+            try
+            {
+                SqlCommand command = Connection.CreateCommand();
+                command.CommandText = strSql;
+                command.CommandType = cmdType;
+                if (parameters != null && parameters.Length > 0)
+                    command.Parameters.AddRange(parameters);
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (SqlException ex)
+            {
                 throw ex;
             }
         }

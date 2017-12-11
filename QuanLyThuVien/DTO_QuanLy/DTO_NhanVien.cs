@@ -5,15 +5,29 @@ using System.Text;
 
 namespace DTO_QuanLy
 {
-    public class DTO_DangKy
+    public class DTO_NhanVien
     {
         private string _user;
         private string _hotennv;
         private string _pass;
         private string _loai;
         private string _ca;
+        private string _manv;
 
         /* ======== GETTER/SETTER ======== */
+        public string NhanVien_manv
+        {
+            get
+            {
+                return _manv;
+            }
+
+            set
+            {
+                _manv = value;
+            }
+        }
+
         public string NhanVien_user
         {
             get
@@ -76,18 +90,17 @@ namespace DTO_QuanLy
         }
 
         /* === Constructor === */
-        public DTO_DangKy()
+        public DTO_NhanVien()
         {
         }
-        public DTO_DangKy(string user, string hoten, string pass, string loai, string ca)
+        public DTO_NhanVien(string manv ,string user, string hoten, string pass, string loai, string ca)
         {
+            this.NhanVien_manv = manv;
             this.NhanVien_user = user;
             this.NhanVien_hotennv = hoten;
             this.NhanVien_pass = pass;
             this.NhanVien_loai = loai;
             this.NhanVien_ca = ca;
         }
-
-     
     }
 }
