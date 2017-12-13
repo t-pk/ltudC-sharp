@@ -10,22 +10,33 @@ namespace DAL_QuanLy
 {
     public class DAL_DangKy : DBConnect
     {
-   
+
         public bool addNhanVien(DTO_DangKy DTO_Nhanvien)
         {
             string strSql = "usp_ThemNhanVien";
             DBConnect provider = new DBConnect();
             provider.Connect();
-
-            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-            new SqlParameter { ParameterName = "@CaTruc", Value = DTO_Nhanvien.NhanVien_ca },
-            new SqlParameter { ParameterName = "@TenDangNhap", Value = DTO_Nhanvien.NhanVien_user },
-            new SqlParameter { ParameterName = "@HoTen", Value = DTO_Nhanvien.NhanVien_hotennv },
-            new SqlParameter { ParameterName = "@MatKhau", Value = DTO_Nhanvien.NhanVien_pass },
-            new SqlParameter { ParameterName = "@LoaiNV", Value = DTO_Nhanvien.NhanVien_loai });
-            provider.Disconnect();
-            return true;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@result", SqlDbType.Int);
+                p1.Direction = ParameterDirection.Output;
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                    new SqlParameter { ParameterName = "@CaTruc", Value = DTO_Nhanvien.NhanVien_ca },
+                    new SqlParameter { ParameterName = "@TenDangNhap", Value = DTO_Nhanvien.NhanVien_user },
+                    new SqlParameter { ParameterName = "@HoTen", Value = DTO_Nhanvien.NhanVien_hotennv },
+                    new SqlParameter { ParameterName = "@MatKhau", Value = DTO_Nhanvien.NhanVien_pass },
+                    new SqlParameter { ParameterName = "@LoaiNV", Value = DTO_Nhanvien.NhanVien_loai }, p1);
+                provider.Disconnect();
+                if (p1.Value.ToString().Trim() == "0")
+                    return false;
+                return true;
+            }
+            catch
+            {
+                return true;
+            }
         }
+
         public string TimNhanVienTiepTheo()
         {
             string strSql1 = "usp_TimMaNVTiepTheo";

@@ -15,6 +15,7 @@ using System.Runtime.InteropServices;
 using System.Globalization;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace GUI_QuanLy
 {
@@ -40,6 +41,7 @@ namespace GUI_QuanLy
             this.StartPosition = FormStartPosition.CenterScreen;                     
             setVisiblePannel();
             Add_IconTab();
+
         }
         private void tab_MouseClick(object sender, MouseEventArgs e)
         {
@@ -485,6 +487,14 @@ namespace GUI_QuanLy
                 dgvNhanVien.DataSource = busUP.getNV();
                 // ẩn cột passWord 
                 dgvNhanVien.Columns[3].Visible = false;
+                dgvNhanVien.Columns[0].HeaderText = "Mã Nhân Viên";
+                dgvNhanVien.Columns[1].HeaderText = "Ca Trực";
+                dgvNhanVien.Columns[2].HeaderText = "Tên Đăng Nhập";
+                dgvNhanVien.Columns[4].HeaderText = "Họ Tên";
+                dgvNhanVien.Columns[5].HeaderText = "Login Gần Nhất";
+                dgvNhanVien.Columns[6].HeaderText = "Loại Nhân Viên";
+                dgvNhanVien.Columns[7].HeaderText = "Trạng Thái";
+
             }
         }
         private void btnCapNhatNV_Click(object sender, EventArgs e)
@@ -506,7 +516,7 @@ namespace GUI_QuanLy
                         txtSearchPhieuMuon.Enabled = false;
                         txtHoTenNVCapNhat.Text = dgvNhanVien[4, dgvNhanVien.CurrentCell.RowIndex].Value.ToString().ToUpper().Trim();
                         txtTenDangNhapNVCapNhat.Text = dgvNhanVien[2, dgvNhanVien.CurrentCell.RowIndex].Value.ToString().Trim();
-                        txtMatKhauNVCapNhat.Text = dgvNhanVien[3, dgvNhanVien.CurrentCell.RowIndex].Value.ToString().Trim();
+                        txtMatKhauNVCapNhat.Text = "********";
                         txtCaTrucNVCapNhat.Text = dgvNhanVien[1, dgvNhanVien.CurrentCell.RowIndex].Value.ToString().Trim();
 
                         string loaiNV = dgvNhanVien[6, dgvNhanVien.CurrentCell.RowIndex].Value.ToString().Trim();
@@ -579,12 +589,35 @@ namespace GUI_QuanLy
             }
             return true;
         }
+        /*
+        * Hàm băm SHA
+        */
+        private string EncodeSHA1(string pass)
+        {
+
+            SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
+            byte[] bs = System.Text.Encoding.UTF8.GetBytes(pass);
+            bs = sha1.ComputeHash(bs);
+            System.Text.StringBuilder s = new System.Text.StringBuilder();
+            foreach (byte b in bs)
+            {
+                s.Append(b.ToString("x").ToLower());
+            }
+            pass = s.ToString();
+            return pass;
+        }
         private void btnCapNhatNhanVien_Click(object sender, EventArgs e)
         {
-           if (txtSearchPhieuMuon.Text != "" && txtHoTenNVCapNhat.Text != "" && txtTenDangNhapNVCapNhat.Text != "" && txtMatKhauNVCapNhat.Text != ""
+            if (txtMatKhauNVCapNhat.Text == "********" || txtMatKhauNVCapNhat.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập lại Mật Khẩu Mới !");
+                return;
+            }
+            if (txtSearchPhieuMuon.Text != "" && txtHoTenNVCapNhat.Text != "" && txtTenDangNhapNVCapNhat.Text != "" && (txtMatKhauNVCapNhat.Text != "********" && txtMatKhauNVCapNhat.Text != "")
                 && txtCaTrucNVCapNhat.Text != ""){
                 if (Quyen == "Admin")
                 {
+                   
                     if (CheckNumber(txtCaTrucNVCapNhat.Text) == false)
                     {
                         MessageBox.Show("Ca Trực Phải là Số Nguyên !");
@@ -595,7 +628,7 @@ namespace GUI_QuanLy
                         string manv = txtSearchPhieuMuon.Text;
                         string hotennv = txtHoTenNVCapNhat.Text;
                         string tendangnhapnv = txtTenDangNhapNVCapNhat.Text;
-                        string mkhaudangnhapnv = txtMatKhauNVCapNhat.Text;
+                        string mkhaudangnhapnv =  EncodeSHA1(txtMatKhauNVCapNhat.Text);
                         string catruc = txtCaTrucNVCapNhat.Text;
                         string loai = "";
                         if (rdAdminCapNhat.Checked == true)
@@ -641,6 +674,16 @@ namespace GUI_QuanLy
                 MessageBox.Show("Xin hãy nhập đầy đủ");
             }
             
+        }
+        private void btnHuyCapNhapNV_Click(object sender, EventArgs e)
+        {
+            txtSearchPhieuMuon.Text = null;
+            txtHoTenNVCapNhat.Text = null;
+            txtTenDangNhapNVCapNhat.Text = null;
+            txtMatKhauNVCapNhat.Text = null;
+            txtCaTrucNVCapNhat.Text = null;
+            rdAdminCapNhat.Checked = false;
+            rdThuThuCapNhat.Checked = false;
         }
         private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -809,11 +852,10 @@ namespace GUI_QuanLy
                 dgvDGSearch.DataSource = busDocGia.SearchDocGiaTheoTieuChi(strSql);
                 dgvDGSearch.ReadOnly = true;
 
-                //dgvDGSearch.Columns[0].Width = 90;
-                //dgvDGSearch.Columns[1].Width = 420;
-                //dgvDGSearch.Columns[2].Width = 90;
-                //dgvDGSearch.Columns[3].Width = 90;
-                //dgvDGSearch.Columns[4].Width = 90;
+                dgvDGSearch.Columns[0].HeaderText = "Mã Độc Giả";
+                dgvDGSearch.Columns[1].HeaderText = "Họ Tên";
+                dgvDGSearch.Columns[3].HeaderText = "Loại Độc Giả";
+
             }
 
         }
@@ -879,7 +921,10 @@ namespace GUI_QuanLy
 
             dgvDGSearch.ReadOnly = true;
             dgvDGSearch.Columns[0].ReadOnly = true;
-        
+            dgvDGSearch.Columns[0].HeaderText = "Mã Độc Giả";
+            dgvDGSearch.Columns[1].HeaderText = "Họ Tên";           
+            dgvDGSearch.Columns[3].HeaderText = "Loại Độc Giả";
+
         }
 
         private void btnXemChiTiet_Click(object sender, EventArgs e)
@@ -889,6 +934,15 @@ namespace GUI_QuanLy
             string secondCellValue = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
             //dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvDGSearch.DataSource = busDocGia.XemChiTietDocGia(secondCellValue);
+
+
+
+            dgvDGSearch.Columns[0].HeaderText = "Mã Độc Giả";
+            dgvDGSearch.Columns[1].HeaderText = "Họ Tên";
+            dgvDGSearch.Columns[2].HeaderText = "Ngày Sinh";
+            dgvDGSearch.Columns[3].HeaderText = "Địa Chỉ";
+            dgvDGSearch.Columns[4].HeaderText = "Số Điện Thoại";
+            dgvDGSearch.Columns[9].HeaderText = "Loại Độc Giả";
 
             btnXemChiTiet.Hide();
             btnXoaDocGia.Hide();
@@ -990,12 +1044,12 @@ namespace GUI_QuanLy
         }
         private void btnLapPhieMuon_Click(object sender, EventArgs e)
         {
-            //int rowindex = dgvDGSearch.CurrentRow.Index;
-            //string maDG = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
-            //btnThongKe_Click(sender, e);
-            //txtMaDG_PhieuMuon.Text = maDG;
-            //tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[0];
-            //tbcPhieuMuon.SelectedTab = tbcPhieuMuon.TabPages[1];
+            int rowindex = dgvDGSearch.CurrentRow.Index;
+            string maDG = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
+            btnThongKe_Click(sender, e);
+            lbMaDocGiaPhieuMuon.Text = maDG;
+            tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[0];
+            tbcPhieuMuon.SelectedTab = tbcPhieuMuon.TabPages[1];
         }
         private void btnLapPhieuTra_Click(object sender, EventArgs e)
         {
@@ -1041,6 +1095,8 @@ namespace GUI_QuanLy
                 // load danh sách yêu cầu tài liệu mới           
                 dgvYeuCauTaiLieu.DataSource = busTaiLieu.XemTatCaTaiLieuYeuCauMoi();
                 dgvYeuCauTaiLieu.ReadOnly = true;
+                dgvYeuCauTaiLieu.Columns[0].HeaderText = "Tên Tài Liệu";
+
             }
         }
         private void btnXemTheoLoai_Click(object sender, EventArgs e)
@@ -1055,13 +1111,6 @@ namespace GUI_QuanLy
            
             dgvSearchTaiLieu.DataSource = TL.gettheloai();
 
-
-            //DBConnect DBConnect = new DBConnect();
-            //DBConnect.Connect();
-            //DataTable dt = DBConnect.Select(CommandType.Text, strSql);
-            //dgvSearchTaiLieu.DataSource = dt;
-            //dgvSearchTaiLieu.ReadOnly = true;
-            //DBConnect.Disconnect();
             dgvSearchTaiLieu.ReadOnly = true;
             dgvSearchTaiLieu.Columns[0].Width = 90;
             dgvSearchTaiLieu.Columns[1].Width = 420;
@@ -1069,6 +1118,11 @@ namespace GUI_QuanLy
             dgvSearchTaiLieu.Columns[3].Width = 90;
             dgvSearchTaiLieu.Columns[4].Width = 90;
 
+            dgvSearchTaiLieu.Columns[0].HeaderText = "Mã Tài Liệu";
+            dgvSearchTaiLieu.Columns[1].HeaderText = "Tên Tài Liệu";
+            dgvSearchTaiLieu.Columns[2].HeaderText = "Hiện Trạng";
+            dgvSearchTaiLieu.Columns[3].HeaderText = "Loại Tài Liệu";
+            dgvSearchTaiLieu.Columns[4].HeaderText = "Số Lượng";
 
             btnXemChiTietTL.Show();
             btnXoaTL.Show();
@@ -1340,12 +1394,12 @@ namespace GUI_QuanLy
 
         private void btnLapPhieuMuonTL_Click(object sender, EventArgs e)
         {
-            //int rowindex = dgvSearchTaiLieu.CurrentRow.Index;
-            //string matailieu = dgvSearchTaiLieu[0, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString();
-            //btnThongKe_Click(sender, e);
-            //txtMaTL_Muon.Text = matailieu;
-            //tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[0];
-            //tbcPhieuMuon.SelectedTab = tbcPhieuMuon.TabPages[1];
+            int rowindex = dgvSearchTaiLieu.CurrentRow.Index;
+            string matailieu = dgvSearchTaiLieu[0, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString();
+            btnThongKe_Click(sender, e);
+            lbMaTLPhieuMuon.Text = matailieu;
+            tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[0];
+            tbcPhieuMuon.SelectedTab = tbcPhieuMuon.TabPages[1];
         }
         private void btnYeuCauTL_Click(object sender, EventArgs e)
         {
@@ -1393,6 +1447,8 @@ namespace GUI_QuanLy
                         lbTenTaiLieuYeuCauMoi.Visible = false;
                         btnYeuCauTaiLieuMoi.Text = "Yêu Cầu Tài Liệu Mới";
                         dgvYeuCauTaiLieu.DataSource = busTaiLieu.XemTatCaTaiLieuYeuCauMoi(); ;
+                        dgvYeuCauTaiLieu.Columns[0].HeaderText = "Tên Tài Liệu";
+                      
                     }
                     else
                     {
@@ -1474,6 +1530,12 @@ namespace GUI_QuanLy
             BUS_Phieu busPhieu = new BUS_Phieu();
             dgvPhieuMuon.DataSource = busPhieu.XemTatCaPhieuMuon();
             dgvPhieuMuon.ReadOnly = true;
+
+            dgvPhieuMuon.Columns[0].HeaderText = "Mã Phiếu Mượn";
+            dgvPhieuMuon.Columns[1].HeaderText = "Mã Nhân Viên Lập";
+            dgvPhieuMuon.Columns[2].HeaderText = "Mã Độc Giả";
+            dgvPhieuMuon.Columns[3].HeaderText = "Ngày Lập";
+
 
             btnXemChiTiet_PhieuMuon.Visible = true;
             btnXoaPhieuMuon.Visible = true;
@@ -1586,19 +1648,19 @@ namespace GUI_QuanLy
 
         private void btnThem_PhieuMuon_Click(object sender, EventArgs e)
         {
-            string madocgia = cbxMaDGPM.SelectedValue.ToString();
-            string matailieu = lbListSachMuonHide.Items[0].ToString();
+            string madocgia = cbxMaDGPM.SelectedValue.ToString().Trim();
+            string matailieu = lbListSachMuonHide.Items[0].ToString().Trim();
 
             BUS_Phieu mpm = new BUS_Phieu();
-            string maphieumuon = mpm.LayMaPhieuMuonTiepTheo();
-            string mactpm = mpm.LayMaChiTietPhieuMuonTiepTheo();
+            string maphieumuon = mpm.LayMaPhieuMuonTiepTheo().Trim();
+            string mactpm = mpm.LayMaChiTietPhieuMuonTiepTheo().Trim();
 
             BUS_Phieu busPhieu = new BUS_Phieu();
-            DTO_PhieuMuon DTO = new DTO_PhieuMuon(maNVHienTai, madocgia, matailieu, maphieumuon, mactpm);
+            DTO_PhieuMuon DTO = new DTO_PhieuMuon(maNVHienTai.Trim(), madocgia, matailieu, maphieumuon, mactpm);
             busPhieu.ThemPhieuMuon(DTO);
             for (int i = 0; i < Int32.Parse(lbListSachMuon.Items.Count.ToString()); i++)
             {
-                string matailieuCT = lbListSachMuonHide.Items[i].ToString();
+                string matailieuCT = lbListSachMuonHide.Items[i].ToString().Trim();
                 BUS_Phieu busPhieuCT = new BUS_Phieu();
                 DTO_PhieuMuon DTOCT = new DTO_PhieuMuon(maNVHienTai, madocgia, matailieuCT, maphieumuon, mactpm);
                 busPhieu.ThemChiTietPhieuMuon(DTOCT);
@@ -1606,6 +1668,15 @@ namespace GUI_QuanLy
             MessageBox.Show("Lập Phiếu Mượn Thành Công !!!");
             
         }
+        private void cbxMaDGPM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void cbxMaDGPM_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+
         /*
          * Phiếu Trả
          */
@@ -1615,6 +1686,10 @@ namespace GUI_QuanLy
             BUS_Phieu busPhieu = new BUS_Phieu();
             dgvPhieuTra.DataSource = busPhieu.XemTatCaPhieuTra();
             dgvPhieuTra.ReadOnly = true;
+
+            dgvPhieuTra.Columns[0].HeaderText = "Mã Phiếu Trả";
+            dgvPhieuTra.Columns[1].HeaderText = "Mã Phiếu Mượn";
+            dgvPhieuTra.Columns[2].HeaderText = "Mã Nhân Vien Lập";
 
             btnXemChiTietPhieuTra.Visible = true;
             btnXoaPhieuTra.Visible = true;
@@ -1724,6 +1799,11 @@ namespace GUI_QuanLy
                 lbListSachMuonHide.Items.RemoveAt(index);
             }
         }
+        private void cbxMaPMCuaPT_TextChanged(object sender, EventArgs e)
+        {        
+            
+        }
+
 
         private void cbxMaPMCuaPT_SelectedIndexChanged(object sender, EventArgs e)
         {

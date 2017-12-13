@@ -162,45 +162,27 @@ namespace DAL_QuanLy
         }
         public bool XoaChiTietTaiLieu(string maTL)
         {
-           
-                string strSql = "usp_DeleteTaiLieu";
-                DBConnect DBConnect = new DBConnect();
-                DBConnect.Connect();               
-                try
-                {
-                    DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-                    new SqlParameter { ParameterName = "@MaTaiLieu", Value = maTL });
-                    DBConnect.Disconnect();
-                    return true;
-                }
-                catch
-                {
-                    return false;
-                }
-        }
-        // hàm XoaChiTietTaiLieu Sơn viết mới có sửa trong proc SQL
-        //public bool XoaChiTietTaiLieu(string maTL)
-        //{
 
-        //    string strSql = "usp_DeleteTaiLieu";
-        //    DBConnect DBConnect = new DBConnect();
-        //    DBConnect.Connect();
-        //    try
-        //    {
-        //        SqlParameter p1 = new SqlParameter("@result", SqlDbType.Int);
-        //        p1.Direction = ParameterDirection.Output;
-        //        DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-        //        new SqlParameter { ParameterName = "@MaTaiLieu", Value = maTL }, p1);
-        //        DBConnect.Disconnect();
-        //        if (p1.Value.ToString() == "1")
-        //            return true;
-        //        return false;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
+            string strSql = "usp_DeleteTaiLieu";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@result", SqlDbType.Int);
+                p1.Direction = ParameterDirection.Output;
+                DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaTaiLieu", Value = maTL }, p1);
+                DBConnect.Disconnect();
+                if (p1.Value.ToString() == "1")
+                    return true;
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public void LuuChiTietTaiLieu(DTO_TaiLieu dTO_TL)
         {
             string strSql = "usp_UpdateTaiLieu";

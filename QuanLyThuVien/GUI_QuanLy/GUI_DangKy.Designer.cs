@@ -56,8 +56,8 @@
             this.lbTittle.AutoSize = true;
             this.lbTittle.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbTittle.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTittle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
-            this.lbTittle.Location = new System.Drawing.Point(187, 25);
+            this.lbTittle.ForeColor = System.Drawing.Color.Lime;
+            this.lbTittle.Location = new System.Drawing.Point(310, 25);
             this.lbTittle.Name = "lbTittle";
             this.lbTittle.Size = new System.Drawing.Size(385, 29);
             this.lbTittle.TabIndex = 0;
@@ -71,7 +71,7 @@
             // 
             this.lbUserName.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbUserName.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbUserName.Image = ((System.Drawing.Image)(resources.GetObject("lbUserName.Image")));
             this.lbUserName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbUserName.Location = new System.Drawing.Point(81, 112);
@@ -87,16 +87,16 @@
             // 
             // btnDangKy
             // 
-            this.btnDangKy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(204)))), ((int)(((byte)(253)))));
+            this.btnDangKy.BackColor = System.Drawing.Color.Turquoise;
             this.btnDangKy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDangKy.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.btnDangKy.FlatAppearance.BorderSize = 2;
+            this.btnDangKy.FlatAppearance.BorderSize = 0;
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangKy.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnDangKy.Location = new System.Drawing.Point(419, 328);
+            this.btnDangKy.ForeColor = System.Drawing.Color.White;
+            this.btnDangKy.Location = new System.Drawing.Point(419, 342);
             this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(104, 41);
+            this.btnDangKy.Size = new System.Drawing.Size(172, 41);
             this.btnDangKy.TabIndex = 5;
             this.btnDangKy.Text = "Đăng ký";
             this.btnDangKy.UseVisualStyleBackColor = false;
@@ -106,7 +106,7 @@
             // 
             this.lbPassword.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbPassword.Image = ((System.Drawing.Image)(resources.GetObject("lbPassword.Image")));
             this.lbPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbPassword.Location = new System.Drawing.Point(81, 171);
@@ -142,7 +142,7 @@
             // 
             this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(81, 238);
@@ -219,7 +219,7 @@
             // 
             this.label2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label2.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label2.Location = new System.Drawing.Point(522, 171);
@@ -236,7 +236,7 @@
             // 
             this.lblCaTrucNVDangKy.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lblCaTrucNVDangKy.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblCaTrucNVDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.lblCaTrucNVDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblCaTrucNVDangKy.Image = ((System.Drawing.Image)(resources.GetObject("lblCaTrucNVDangKy.Image")));
             this.lblCaTrucNVDangKy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblCaTrucNVDangKy.Location = new System.Drawing.Point(522, 233);
@@ -253,7 +253,7 @@
             // 
             this.label5.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label5.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label5.Location = new System.Drawing.Point(522, 112);
@@ -270,7 +270,7 @@
             // 
             this.rdAdminDangKy.AutoSize = true;
             this.rdAdminDangKy.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdAdminDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.rdAdminDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rdAdminDangKy.Location = new System.Drawing.Point(230, 254);
             this.rdAdminDangKy.Name = "rdAdminDangKy";
             this.rdAdminDangKy.Size = new System.Drawing.Size(71, 22);
@@ -284,7 +284,7 @@
             // 
             this.rdThuThuDangKy.AutoSize = true;
             this.rdThuThuDangKy.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdThuThuDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.rdThuThuDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rdThuThuDangKy.Location = new System.Drawing.Point(343, 254);
             this.rdThuThuDangKy.Name = "rdThuThuDangKy";
             this.rdThuThuDangKy.Size = new System.Drawing.Size(85, 22);
@@ -302,7 +302,7 @@
             this.txtCaNVDangKy.Size = new System.Drawing.Size(212, 26);
             this.txtCaNVDangKy.TabIndex = 30;
             // 
-            // FrmDangKy
+            // GUI_DangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -331,7 +331,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmDangKy";
+            this.Name = "GUI_DangKy";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);

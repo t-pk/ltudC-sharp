@@ -12,7 +12,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DTO_QuanLy;
 using BUS_QuanLy;
-
+using System.Security.Cryptography;
 
 namespace GUI_QuanLy
 {
@@ -63,28 +63,40 @@ namespace GUI_QuanLy
         {
 
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
             Application.Exit();
         }
+        /*
+        * Hàm băm SHA
+        */
+        private string EncodeSHA1(string pass)
+        {
 
+            SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
+            byte[] bs = System.Text.Encoding.UTF8.GetBytes(pass);
+            bs = sha1.ComputeHash(bs);
+            System.Text.StringBuilder s = new System.Text.StringBuilder();
+            foreach (byte b in bs)
+            {
+                s.Append(b.ToString("x").ToLower());
+            }
+            pass = s.ToString();
+            return pass;
+        }
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string username = txtUSER.Text;
-            string password = txtPASS.Text;
-
+            string password = EncodeSHA1(txtPASS.Text);
             string NameUser = busDangNhap.getNameUser_Login(username, password);
             string Quyen = busDangNhap.getPermissionUser_Login(username, password);
             string p = busDangNhap._Login(username, password);
@@ -111,6 +123,11 @@ namespace GUI_QuanLy
         private void Form1_Load(object sender, EventArgs e)
         {
        
+        }
+
+        private void cbNhoPassWord_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void txtPASS_TextChanged(object sender, EventArgs e)

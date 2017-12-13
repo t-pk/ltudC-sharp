@@ -50,7 +50,7 @@
             this.lbTittle.AutoSize = true;
             this.lbTittle.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbTittle.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTittle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.lbTittle.ForeColor = System.Drawing.Color.Lime;
             this.lbTittle.Location = new System.Drawing.Point(187, 25);
             this.lbTittle.Name = "lbTittle";
             this.lbTittle.Size = new System.Drawing.Size(385, 29);
@@ -65,7 +65,7 @@
             // 
             this.lbUserName.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbUserName.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbUserName.Image = ((System.Drawing.Image)(resources.GetObject("lbUserName.Image")));
             this.lbUserName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbUserName.Location = new System.Drawing.Point(98, 105);
@@ -81,16 +81,16 @@
             // 
             // btnDangKy
             // 
-            this.btnDangKy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(204)))), ((int)(((byte)(253)))));
+            this.btnDangKy.BackColor = System.Drawing.Color.Turquoise;
             this.btnDangKy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDangKy.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.btnDangKy.FlatAppearance.BorderSize = 2;
+            this.btnDangKy.FlatAppearance.BorderSize = 0;
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnDangKy.Location = new System.Drawing.Point(284, 340);
+            this.btnDangKy.ForeColor = System.Drawing.Color.White;
+            this.btnDangKy.Location = new System.Drawing.Point(297, 314);
             this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(182, 30);
+            this.btnDangKy.Size = new System.Drawing.Size(141, 35);
             this.btnDangKy.TabIndex = 5;
             this.btnDangKy.Text = "Đăng ký";
             this.btnDangKy.UseVisualStyleBackColor = false;
@@ -99,27 +99,28 @@
             // cbNhoPassWord
             // 
             this.cbNhoPassWord.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbNhoPassWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
-            this.cbNhoPassWord.Location = new System.Drawing.Point(285, 204);
+            this.cbNhoPassWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbNhoPassWord.Location = new System.Drawing.Point(284, 216);
             this.cbNhoPassWord.Name = "cbNhoPassWord";
             this.cbNhoPassWord.Size = new System.Drawing.Size(140, 38);
             this.cbNhoPassWord.TabIndex = 6;
             this.cbNhoPassWord.Text = "Nhớ Mật Khẩu";
             this.cbNhoPassWord.UseVisualStyleBackColor = true;
+            this.cbNhoPassWord.CheckedChanged += new System.EventHandler(this.cbNhoPassWord_CheckedChanged);
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(204)))), ((int)(((byte)(253)))));
+            this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(86)))), ((int)(((byte)(94)))));
             this.btnDangNhap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDangNhap.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.btnDangNhap.FlatAppearance.BorderSize = 2;
+            this.btnDangNhap.FlatAppearance.BorderSize = 0;
             this.btnDangNhap.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnDangNhap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnDangNhap.Location = new System.Drawing.Point(284, 248);
+            this.btnDangNhap.ForeColor = System.Drawing.Color.White;
+            this.btnDangNhap.Location = new System.Drawing.Point(522, 136);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(182, 30);
+            this.btnDangNhap.Size = new System.Drawing.Size(133, 38);
             this.btnDangNhap.TabIndex = 7;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
@@ -129,8 +130,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
-            this.label5.Location = new System.Drawing.Point(350, 296);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(345, 268);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 23);
             this.label5.TabIndex = 9;
@@ -140,7 +141,7 @@
             // 
             this.lbPassword.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(92)))), ((int)(((byte)(154)))));
+            this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbPassword.Image = ((System.Drawing.Image)(resources.GetObject("lbPassword.Image")));
             this.lbPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbPassword.Location = new System.Drawing.Point(98, 159);
@@ -217,7 +218,7 @@
             this.txtPASS.TabIndex = 22;
             this.txtPASS.TextChanged += new System.EventHandler(this.txtPASS_TextChanged);
             // 
-            // FrmDangNhap
+            // GUI_DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -240,7 +241,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmDangNhap";
+            this.Name = "GUI_DangNhap";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);

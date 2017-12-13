@@ -12,6 +12,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DTO_QuanLy;
 using BUS_QuanLy;
+using System.Security.Cryptography;
 namespace GUI_QuanLy
 {
     public partial class GUI_DangKy : Form
@@ -70,13 +71,31 @@ namespace GUI_QuanLy
             this.Close();
             Application.Exit();
         }
+
+        /*
+        * Hàm băm SHA để băm mật khẩu user 
+        */
+        private string EncodeSHA1(string pass)
+        {
+
+            SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
+            byte[] bs = System.Text.Encoding.UTF8.GetBytes(pass);
+            bs = sha1.ComputeHash(bs);
+            System.Text.StringBuilder s = new System.Text.StringBuilder();
+            foreach (byte b in bs)
+            {
+                s.Append(b.ToString("x").ToLower());
+            }
+            pass = s.ToString();
+            return pass;
+        }
         private void btnDangKy_Click(object sender, EventArgs e)
         {
             if (txtHoTenNVDangKy.Text != "" && txtUserNVDangKy.Text != "" && txtPassNVDangKy.Text != "")
             {
                 string hotennv = txtHoTenNVDangKy.Text;
                 string user = txtUserNVDangKy.Text;
-                string pass = txtPassNVDangKy.Text;
+                string pass = EncodeSHA1(txtPassNVDangKy.Text);
                 string loai = "";
                 string ca = "";
                 if (rdAdminDangKy.Checked == true)
@@ -88,20 +107,20 @@ namespace GUI_QuanLy
                 }
 
                 // Tạo DTo
-                DTO_DangKy tv = new DTO_DangKy(user, hotennv, pass, loai, ca); // Vì ID tự tăng nên để ID số gì cũng dc
-                                                                                             
-                if (busDangKy.addNhanVien(tv))
+                DTO_DangKy tv = new DTO_DangKy(user.Trim(), hotennv.Trim(), pass.Trim(), loai.Trim(), ca.Trim()); // Vì ID tự tăng nên để ID số gì cũng dc
+                if (!busDangKy.addNhanVien(tv))
+                {
+                    MessageBox.Show("Nhân Viên Này Đã Tồn Tại");
+                    return;
+                }
+                else
                 {
                     MessageBox.Show("Đăng Ký Nhân Viên Thành Công!!!");
                     GUI_DangNhap frmDangNhap = new GUI_DangNhap();
                     this.Hide();
                     frmDangNhap.Show();
 
-                }
-                else
-                {
-                    MessageBox.Show("Thêm ko thành công");
-                }
+                }  
 
             }
             else
@@ -109,6 +128,7 @@ namespace GUI_QuanLy
                 MessageBox.Show("Xin hãy nhập đầy đủ");
             }
         }
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
