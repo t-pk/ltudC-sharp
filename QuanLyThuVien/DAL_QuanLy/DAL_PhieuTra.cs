@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using DTO_QuanLy;
+using System.Windows.Forms;
 
 namespace DAL_QuanLy
 {
@@ -57,20 +58,19 @@ namespace DAL_QuanLy
 
             provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
             new SqlParameter { ParameterName = "@MaPhieuTra", Value = DTO.MaPhieuTra },
-            new SqlParameter { ParameterName = "@MaPhieuMuon", Value = DTO.MaPhieuMuon },
             new SqlParameter { ParameterName = "@MaNVLapPhieuTra", Value = DTO.MaNhanVienLapPhieuTra });
             provider.Disconnect();
         }
-
         public void ThemChiTietPhieuTra(DTO_PhieuTra DTO)
         {
-            string strSql = "usp_ThemCTPhieuTra";
+            string strSql = "usp_ThemChiTietPhieuTra";
             DBConnect provider = new DBConnect();
             provider.Connect();
 
             provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
             new SqlParameter { ParameterName = "@MaCTPT", Value = DTO.MaCTPT },
             new SqlParameter { ParameterName = "@MaPhieuTra", Value = DTO.MaPhieuTra },
+            new SqlParameter { ParameterName = "@MaPhieuMuon", Value = DTO.MaPhieuMuon },
             new SqlParameter { ParameterName = "@MaTaiLieu", Value = DTO.MaTaiLieu });
             provider.Disconnect();
         }

@@ -109,5 +109,35 @@ namespace BUS_QuanLy
        {
            return dal_PhieuTra.LayMaChiTietPhieuTraTiepTheo();
        }
+        //PHIẾU PHẠT 
+        DAL_PhieuPhat dal_Phieuphat = new DAL_PhieuPhat();
+        public DataTable XemTatCaPhieuPhat()
+        {
+            return dal_Phieuphat.XemTatCaPhieuPhat();
+        }
+        public int ThemPhieuPhat(DTO_PhieuPhat DTO)
+        {
+            return dal_Phieuphat.ThemPhieuPhat(DTO);
+        }
+
+        public int XoaPhieuPhat(string maPhieuPhat)
+        {
+            return dal_Phieuphat.XoaPhieuPhat(maPhieuPhat);
+        }
+        //PHIẾU NHẮC NHỞ
+        DAL_PhieuNhacNho dal_PhieuNhacNho = new DAL_PhieuNhacNho();
+        public DataTable XemPhieuNhacNho()
+        {
+            return dal_PhieuNhacNho.XemPhieuNhacNho();
+        }
+       public void ThemPhieuNhacNho(string maDocGia)
+        {
+            dal_PhieuNhacNho.ThemPhieuNhacNho(maDocGia);
+        }
+
+       public int XoaPhieuNhacNho(string maDocGia)
+       {
+           return dal_PhieuNhacNho.XoaPhieuNhacNho(maDocGia);
+       }
     }
 }

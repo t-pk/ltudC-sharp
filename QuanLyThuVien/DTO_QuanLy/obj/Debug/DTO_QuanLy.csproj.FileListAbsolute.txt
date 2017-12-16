@@ -30,3 +30,11 @@ C:\Users\Quyet\Desktop\QuanLyThanhVien_2\QuanLyThanhVien\DTO_QuanLy\bin\Debug\DT
 C:\Users\Quyet\Desktop\QuanLyThanhVien_2\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.dll
 C:\Users\Quyet\Desktop\QuanLyThanhVien_2\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.pdb
 C:\Users\Quyet\Desktop\QuanLyThanhVien_2\QuanLyThanhVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.csprojResolveAssemblyReference.cache
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.pdb
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.dll
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.pdb

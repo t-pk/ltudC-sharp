@@ -13,9 +13,9 @@ namespace DAL_QuanLy
     public class DBConnect
     {
         // chuỗi kết nối không sử dụng proc 
-        protected SqlConnection _conn = new SqlConnection(@"Server=WIN-GCDD6G4KV5S\SQLEXPRESS; Database=QL_thuvien; Trusted_Connection=True;");
+        protected SqlConnection _conn = new SqlConnection(@"Data Source=NGUYENDUYQUYET\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;");
         // chuỗi kết nối có sử dụng proc
-        static String ConnectionString = @"Server=WIN-GCDD6G4KV5S\SQLEXPRESS; Database=QL_thuvien; Trusted_Connection=True;";
+        static String ConnectionString = @"Data Source=NGUYENDUYQUYET\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;";
         SqlConnection Connection;
 
         public void Connect()

@@ -9,10 +9,9 @@ namespace DTO_QuanLy
     {
         private string _MaTL;
         private string _TenTL;
-        private string _HienTrang;
         private string _LoaiTL;
         private string _SoLuong;
-   
+
         public string _maTL
         {
             get
@@ -35,18 +34,6 @@ namespace DTO_QuanLy
             set
             {
                 _TenTL = value;
-            }
-        }
-        public string _hienTrang
-        {
-            get
-            {
-                return _HienTrang;
-            }
-
-            set
-            {
-                _HienTrang = value;
             }
         }
         public string _loaiTL
@@ -77,19 +64,17 @@ namespace DTO_QuanLy
 
         /* === Constructor === */
         // Constructor đủ 5 tham số truyền vào --> Lưu Tài Liệu
-        public DTO_TaiLieu(string maTL, string tenTL, string hienTrang, string loaiTL, string soLong)
+        public DTO_TaiLieu(string maTL, string tenTL, string loaiTL, string soLong)
         {
             this._maTL = maTL;
             this._tenTL = tenTL;
-            this._hienTrang = hienTrang;
             this._loaiTL = loaiTL;
-            this._soLuong = soLong;       
+            this._soLuong = soLong;
         }
         // Constructor đủ 4 tham số truyền vào --> Thêm Tài Liệu
-        public DTO_TaiLieu(string tenTL, string hienTrang, string loaiTL, string soLong)
+        public DTO_TaiLieu(string tenTL, string loaiTL, string soLong)
         {
             this._tenTL = tenTL;
-            this._hienTrang = hienTrang;
             this._loaiTL = loaiTL;
             this._soLuong = soLong;
         }

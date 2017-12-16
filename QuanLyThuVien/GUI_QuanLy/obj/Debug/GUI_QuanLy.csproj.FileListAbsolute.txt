@@ -93,13 +93,29 @@ C:\Users\Quyet\Desktop\QuanLyThanhVien_2\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GU
 C:\Users\Quyet\Desktop\QuanLyThanhVien_2\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_DangKy.resources
 C:\Users\Quyet\Desktop\QuanLyThanhVien_2\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.Properties.Resources.resources
 C:\Users\Quyet\Desktop\QuanLyThanhVien_2\QuanLyThanhVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.GenerateResource.Cache
-D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.exe
-D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.pdb
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.exe
-D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.pdb
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.Shared.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.Windows.Forms.dll
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.dll
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\FlashControlV71.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\ShockwaveFlashObjects.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\stdole.dll
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.pdb
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.pdb
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.pdb
@@ -109,3 +125,22 @@ D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_DangKy.resources
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.Properties.Resources.resources
 D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.GenerateResource.Cache
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.exe
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.pdb
+D:\Backup C\LTQLUD1\LYTHUYET\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.exe
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.exe
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\GUI_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.dll
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.dll
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\BUS_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\DAL_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_Home.resources
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_DangNhap.resources
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.GUI_DangKy.resources
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.Properties.Resources.resources
+C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\GUI_QuanLy\obj\Debug\GUI_QuanLy.csproj.GenerateResource.Cache
