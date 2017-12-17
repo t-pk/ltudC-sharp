@@ -22,9 +22,19 @@ namespace DAL_QuanLy
         {
             DBConnect DBConnect = new DBConnect();
             DBConnect.Connect();
-            DataTable dt = DBConnect.Select(CommandType.Text, strSql);            
-            DBConnect.Disconnect();
-            return dt;
+            DataTable dt = null;
+            try
+            {
+                dt = DBConnect.Select(CommandType.Text, strSql);
+                DBConnect.Disconnect();
+                return dt;
+            }
+            catch
+            {
+                DBConnect.Disconnect();
+                return dt;
+            }
+           
         }
         public DataTable XemChiTietDocGia(string maDocGia)
         {

@@ -77,6 +77,12 @@
       <DependentUpon>Report_DocGia.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report_SoTaiLieuMuonNhieuNhat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report_SoTaiLieuMuonNhieuNhat.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report_TaiLieu.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,6 +111,10 @@
     <EmbeddedResource Include="Report_DocGia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Report_DocGia.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_SoTaiLieuMuonNhieuNhat.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Report_SoTaiLieuMuonNhieuNhat.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report_TaiLieu.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

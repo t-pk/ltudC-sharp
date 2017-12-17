@@ -830,6 +830,12 @@ namespace GUI_QuanLy
                 string Search = txtSearchDG.Text;
                 if (rdMaDGSearch.Checked == true)
                 {
+                    string Extension = Search.Substring(0,2).ToUpper();
+                    if (Extension != "DG")
+                    {
+                        MessageBox.Show("Vui lòng nhập lại Mã Độc Giả !");
+                        return;
+                    }
                     strSql = "exec usp_TimKiemDocGiaTheoMaDocGia " + Search;
                 }
 
@@ -857,10 +863,13 @@ namespace GUI_QuanLy
 
                 dgvDGSearch.DataSource = busDocGia.SearchDocGiaTheoTieuChi(strSql);
                 dgvDGSearch.ReadOnly = true;
-
-                dgvDGSearch.Columns[0].HeaderText = "Mã Độc Giả";
-                dgvDGSearch.Columns[1].HeaderText = "Họ Tên";
-                dgvDGSearch.Columns[3].HeaderText = "Loại Độc Giả";
+                if (dgvDGSearch.RowCount > 1)
+                {
+                    dgvDGSearch.Columns[0].HeaderText = "Mã Độc Giả";
+                    dgvDGSearch.Columns[1].HeaderText = "Họ Tên";
+                    dgvDGSearch.Columns[3].HeaderText = "Loại Độc Giả";
+                }
+             
 
             }
 
@@ -1268,7 +1277,6 @@ namespace GUI_QuanLy
             }
 
             txtTenTL.Text = null;
-            txtHienTrangTL.Text = null;
             txtLoaiTL.Text = null;
             txtSoLuongTL.Text = null;
             txtMaTL.Text = busTL.TimMaTLTiepTheo();
@@ -1378,7 +1386,29 @@ namespace GUI_QuanLy
             dgvSearchTaiLieu.DataSource = null;
             btnXemAllTaiLieu_Click(sender, e);
         }
+        private void btnXemAllTaiLieu_Click(object sender, EventArgs e)
+        {
+            dgvSearchTaiLieu.ReadOnly = true;
+            dgvSearchTaiLieu.DataSource = TL.getTL();
+            dgvSearchTaiLieu.Columns[0].Width = 90;
+            dgvSearchTaiLieu.Columns[1].Width = 420;
+            dgvSearchTaiLieu.Columns[2].Width = 90;
+            dgvSearchTaiLieu.Columns[3].Width = 90;
 
+            dgvSearchTaiLieu.Columns[0].HeaderText = "Mã Tài Liệu";
+            dgvSearchTaiLieu.Columns[1].HeaderText = "Tên Tài Liệu";
+            dgvSearchTaiLieu.Columns[2].HeaderText = "Loại Tài Liệu";
+            dgvSearchTaiLieu.Columns[3].HeaderText = "Số Lượng";
+
+            btnXemChiTietTL.Show();
+            btnXoaTL.Show();
+            btnLapPhieuMuonTL.Show();
+            btnYeuCauTL.Hide();
+
+            btnChinhSuaTL.Hide();
+            btnLuuTL.Hide();
+            btnHuyTL.Hide();
+        }
 
         private void btnLapPhieuMuonTL_Click(object sender, EventArgs e)
         {
@@ -1795,6 +1825,16 @@ namespace GUI_QuanLy
 
         private void btnAddMTLVaoList_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < Int32.Parse(lbListSachMuon.Items.Count.ToString()); i++)
+            {
+                string value = lbListSachMuon.Items[i].ToString().Trim();
+                if (value == cbxMaTLPM.Text.ToString().Trim())
+                {
+                    MessageBox.Show("Tài Liệu Này Đã Có !!!");
+                    return;
+                }
+            }
+           
             lbListSachMuon.Items.Add(cbxMaTLPM.Text);
             lbListSachMuonHide.Items.Add(cbxMaTLPM.SelectedValue);
         }
@@ -1825,6 +1865,16 @@ namespace GUI_QuanLy
 
         private void btnAddSachTra_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < Int32.Parse(lbDanhSachSachTra.Items.Count.ToString()); i++)
+            {
+                string value = lbDanhSachSachTra.Items[i].ToString().Trim();
+                if (value == cbxSachPT.Text.ToString().Trim())
+                {
+                    MessageBox.Show("Tài Liệu Này Đã Có !!!");
+                    return;
+                }
+            }
+
             lbDanhSachSachTra.Items.Add(cbxSachPT.Text);
             //lbDanhSachSachTraHide.Items.Add(cbxSachPT.SelectedValue);
             //lbDanhSachSachTra.Items.Add(string.Format("{0} | {1}", cbxMaPMCuaPT.Text, cbxSachPT.Text));
@@ -1897,94 +1947,7 @@ namespace GUI_QuanLy
                 checkThemPhieuPhat = true;
             }
 
-        }
-        /*
-        * PHẦN THỐNG KÊ - REPORT
-        * 
-        */
 
-        private void btnBaoCaoThongKe_Click(object sender, EventArgs e)
-        {
-            panelReport.Visible = true;
-            panelQLNhanVien.Visible = false;
-            panelDocGia.Visible = false;
-            pnThongKe.Visible = false;
-            panelQuanTriAdmin.Visible = false;
-            panelQLSach.Visible = false;
-            this.panelReport.Location = new System.Drawing.Point(220, 118);
-
-        }
-
-        private void btnReport_TongSoSach_Click(object sender, EventArgs e)
-        {
-            cryReportViewer.Visible = true;
-            ReportDocument cryRpt = new ReportDocument();
-            cryRpt.Load("D:\\Backup C\\LTQLUD1\\LYTHUYET\\DACK\\QuanLyThuVien\\GUI_QuanLy\\Report_TaiLieu.rpt");
-            cryReportViewer.ReportSource = cryRpt;
-            cryReportViewer.Refresh();
-        }
-
-        private void btnReport_TongSoDocGia_Click(object sender, EventArgs e)
-        {
-            cryReportViewer.Visible = true;
-            ReportDocument cryRpt = new ReportDocument();
-            cryRpt.Load("D:\\Backup C\\LTQLUD1\\LYTHUYET\\DACK\\QuanLyThuVien\\GUI_QuanLy\\Report_DocGia.rpt");
-            cryReportViewer.ReportSource = cryRpt;
-            cryReportViewer.Refresh();
-        }
-
-        private void btnSaveReport_Click(object sender, EventArgs e)
-        {
-            //foreach (ToolStrip ts in cryReportViewer.Controls.OfType<ToolStrip>())
-            //{
-            //    foreach (ToolStripButton tsb in ts.Items.OfType<ToolStripButton>())
-            //    {
-            //        //hacky but should work. you can probably figure out a better method
-            //        if (tsb.ToolTipText.ToLower().Contains("Export"))
-            //        {
-            //            //Adding a handler for our propose
-            //            tsb.Click += new EventHandler(printButton_Click);
-            //        }
-            //    }
-            //}
-        }
-        private void btnXemAllTaiLieu_Click(object sender, EventArgs e)
-        {
-            dgvSearchTaiLieu.ReadOnly = true;
-            dgvSearchTaiLieu.DataSource = TL.getTL();
-            dgvSearchTaiLieu.Columns[0].Width = 90;
-            dgvSearchTaiLieu.Columns[1].Width = 420;
-            dgvSearchTaiLieu.Columns[2].Width = 90;
-            dgvSearchTaiLieu.Columns[3].Width = 90;
-
-            dgvSearchTaiLieu.Columns[0].HeaderText = "Mã Tài Liệu";
-            dgvSearchTaiLieu.Columns[1].HeaderText = "Tên Tài Liệu";
-            dgvSearchTaiLieu.Columns[2].HeaderText = "Loại Tài Liệu";
-            dgvSearchTaiLieu.Columns[3].HeaderText = "Số Lượng";
-
-            btnXemChiTietTL.Show();
-            btnXoaTL.Show();
-            btnLapPhieuMuonTL.Show();
-            btnYeuCauTL.Hide();
-
-            btnChinhSuaTL.Hide();
-            btnLuuTL.Hide();
-            btnHuyTL.Hide();
-        }
-       
-
-        /*
-        * PHẦN QUẢN TRỊ ADMIN
-        */
-        private void btnQuanTriAdmin_Click(object sender, EventArgs e)
-        {
-            panelQuanTriAdmin.Visible = true;
-            panelReport.Visible = false;
-            panelQLNhanVien.Visible = false;
-            panelDocGia.Visible = false;
-            pnThongKe.Visible = false;
-            panelQLSach.Visible = false;
-            this.panelQuanTriAdmin.Location = new System.Drawing.Point(220, 118);
         }
 
         private void btnXoaPP_Click(object sender, EventArgs e)
@@ -2016,6 +1979,98 @@ namespace GUI_QuanLy
             if (p.XoaPhieuNhacNho(mdg) == 1)
                 MessageBox.Show("Xóa thành công phiếu nhắc nhở của độc giả " + mdg);
         }
+        /*
+        * PHẦN THỐNG KÊ - REPORT
+        * 
+        */
+
+        private void btnBaoCaoThongKe_Click(object sender, EventArgs e)
+        {
+            panelReport.Visible = true;
+            panelQLNhanVien.Visible = false;
+            panelDocGia.Visible = false;
+            pnThongKe.Visible = false;
+            panelQuanTriAdmin.Visible = false;
+            panelQLSach.Visible = false;
+            this.panelReport.Location = new System.Drawing.Point(220, 118);
+
+        }
+        ReportDocument cryRpt;
+        private void btnReport_TongSoSach_Click(object sender, EventArgs e)
+        {
+            cryReportViewer.Visible = true;
+            cryRpt = new ReportDocument();
+            cryRpt.Load("D:\\Backup C\\LTQLUD1\\LYTHUYET\\DACK\\QuanLyThuVien\\GUI_QuanLy\\Report_TaiLieu.rpt");
+            cryReportViewer.ReportSource = cryRpt;
+            cryReportViewer.Refresh();
+        }
+
+        private void btnReport_TongSoDocGia_Click(object sender, EventArgs e)
+        {
+            cryReportViewer.Visible = true;
+            cryRpt = new ReportDocument();
+            cryRpt.Load("D:\\Backup C\\LTQLUD1\\LYTHUYET\\DACK\\QuanLyThuVien\\GUI_QuanLy\\Report_DocGia.rpt");
+            cryReportViewer.ReportSource = cryRpt;
+            cryReportViewer.Refresh();
+        }
+
+        private void btnSaveReport_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            saveFileDialog.Filter = "Files PDF (*.pdf)|*.pdf|Microsoft Excel(*.xls)|*.xls|Microsoft Word(*.doc)|*.doc|XML (*.xml)|*.xml";
+            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                string FileName = saveFileDialog.FileName;
+
+                string FileExtension = FileName.Substring(FileName.LastIndexOf('.') + 1).ToLower();
+                if (FileExtension == "pdf")
+                {
+                    cryRpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, @"" + FileName + "");
+
+                }
+                if (FileExtension == "xls")
+                {
+                    cryRpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.Excel, @"" + FileName + "");
+
+                }
+                if (FileExtension == "doc")
+                {
+                    cryRpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.WordForWindows, @"" + FileName + "");
+
+                }
+                if (FileExtension == "xml")
+                {
+                    cryRpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.Xml, @"" + FileName + "");
+
+                }
+                MessageBox.Show("Lưu file Thành Công : " + FileName);
+            }
+        }
+
+        private void btnReport_SoSachMuonNhieuNhat_Click(object sender, EventArgs e)
+        {
+            cryReportViewer.Visible = true;
+            cryRpt = new ReportDocument();
+            cryRpt.Load("D:\\Backup C\\LTQLUD1\\LYTHUYET\\DACK\\QuanLyThuVien\\GUI_QuanLy\\Report_SoTaiLieuMuonNhieuNhat.rpt");
+            cryReportViewer.ReportSource = cryRpt;
+            cryReportViewer.Refresh();
+        }
+
+        /*
+        * PHẦN QUẢN TRỊ ADMIN
+        */
+        private void btnQuanTriAdmin_Click(object sender, EventArgs e)
+        {
+            panelQuanTriAdmin.Visible = true;
+            panelReport.Visible = false;
+            panelQLNhanVien.Visible = false;
+            panelDocGia.Visible = false;
+            pnThongKe.Visible = false;
+            panelQLSach.Visible = false;
+            this.panelQuanTriAdmin.Location = new System.Drawing.Point(220, 118);
+        }
+
     }
 
 }

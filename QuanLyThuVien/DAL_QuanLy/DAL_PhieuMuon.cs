@@ -97,7 +97,7 @@ namespace DAL_QuanLy
             DataTable dt = new DataTable();
             DBConnect provider1 = new DBConnect();
             provider1.Connect();
-            SqlDataAdapter da = new SqlDataAdapter("Select MaDocGia, HoTen From [DOC GIA]", @"Data Source=NGUYENDUYQUYET\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;");
+            SqlDataAdapter da = new SqlDataAdapter("Select MaDocGia, HoTen From [DOC GIA]", @"Data Source=WIN-GCDD6G4KV5S\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;");
             da.Fill(dt);
             provider1.Disconnect();
             return dt;
@@ -109,7 +109,7 @@ namespace DAL_QuanLy
             DataTable dt = new DataTable();
             DBConnect provider1 = new DBConnect();
             provider1.Connect();
-            SqlDataAdapter da = new SqlDataAdapter("select MaTaiLieu, TenTaiLieu from [TAI LIEU]", @"Data Source=NGUYENDUYQUYET\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;");
+            SqlDataAdapter da = new SqlDataAdapter("select MaTaiLieu, TenTaiLieu from [TAI LIEU]", @"Data Source=WIN-GCDD6G4KV5S\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;");
             da.Fill(dt);
             provider1.Disconnect();
             return dt;
