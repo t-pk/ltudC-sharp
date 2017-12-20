@@ -17,15 +17,20 @@ namespace DAL_QuanLy
             DBConnect provider = new DBConnect();
             provider.Connect();
 
+            SqlParameter p = new SqlParameter("@Result", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
             provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
                     new SqlParameter { ParameterName = "@MaNV", Value = DTO_Home.NhanVien_manv },
                     new SqlParameter { ParameterName = "@CaTruc", Value = DTO_Home.NhanVien_ca },
                     new SqlParameter { ParameterName = "@TenDangNhap", Value = DTO_Home.NhanVien_user },
                     new SqlParameter { ParameterName = "@MatKhau", Value = DTO_Home.NhanVien_pass },
                     new SqlParameter { ParameterName = "@HoTen", Value = DTO_Home.NhanVien_hotennv },
-                    new SqlParameter { ParameterName = "@LoaiNV", Value = DTO_Home.NhanVien_loai });
+                    new SqlParameter { ParameterName = "@LoaiNV", Value = DTO_Home.NhanVien_loai }, p);
             provider.Disconnect();
+            if(p.Value.ToString() == "1")
             return true;
+            return false;
         }
 
 

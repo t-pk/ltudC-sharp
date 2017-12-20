@@ -59,18 +59,6 @@ namespace GUI_QuanLy
         {
             drag = false;
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -133,8 +121,6 @@ namespace GUI_QuanLy
         private void txtPASS_TextChanged(object sender, EventArgs e)
         {
             txtPASS.PasswordChar = '*';
-        }
-
-        
+        }   
     }
 }

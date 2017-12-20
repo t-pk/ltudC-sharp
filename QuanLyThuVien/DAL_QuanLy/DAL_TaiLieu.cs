@@ -209,6 +209,16 @@ namespace DAL_QuanLy
             DBConnect.Disconnect();
 
         }
+
+        public DataTable LoadTheLoaiTaiLieu()
+        {
+            string strSql = "exec usp_LoadTheLoaiTaiLieu";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
+            return dt;
+        }
     }
 
 }

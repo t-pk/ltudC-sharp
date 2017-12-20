@@ -24,9 +24,9 @@ namespace BUS_QuanLy
         {
             return dal_Phieu.XemChiTietPhieuMuon(maPhieuMuon);
         }
-        public void ThemPhieuMuon(DTO_PhieuMuon DTO)
+        public int ThemPhieuMuon(DTO_PhieuMuon DTO)
         {
-             dal_Phieu.ThemPhieuMuon(DTO);
+             return dal_Phieu.ThemPhieuMuon(DTO);
         }
 
         public void ThemChiTietPhieuMuon(DTO_PhieuMuon DTO)
@@ -45,6 +45,17 @@ namespace BUS_QuanLy
        {
            return dal_Phieu.SearchPhieuMuonTheoMaPhieuMuon(maPhieuMuon);
        }
+
+       public int SoSachMuonToiDa(string maDocGia)
+        {
+            return dal_Phieu.SoSachMuonToiDa(maDocGia);
+        }
+
+       public int SoLanViPham(string maDocGia)
+       {
+           return dal_Phieu.SoLanViPham(maDocGia);
+       }
+
         // Phiếu Trả
         DAL_PhieuTra dal_PhieuTra = new DAL_PhieuTra();
         public DataTable XemTatCaPhieuTra()
@@ -53,7 +64,7 @@ namespace BUS_QuanLy
         }
         public bool XoaPhieuTra(string maPhieuTra)
         {
-            return dal_PhieuTra.XoaPhieuTra();
+            return dal_PhieuTra.XoaPhieuTra(maPhieuTra);
         }
         public DataTable XemChiTietPhieuTra(string maPhieuTra)
         {
@@ -109,6 +120,29 @@ namespace BUS_QuanLy
        {
            return dal_PhieuTra.LayMaChiTietPhieuTraTiepTheo();
        }
+
+       public void ChinhSuaCTPhieuTra(string maCTPT, string maPhieuTra, string maPhieuMuon, string maTaiLieu)
+       {
+           dal_PhieuTra.ChinhSuaCTPhieuTra(maCTPT, maPhieuTra, maPhieuMuon, maTaiLieu);
+       }
+
+
+       public DataTable SearchPT_PT(string maPhieuTra)
+       {
+           return dal_PhieuTra.SearchPT_PT(maPhieuTra);
+       }
+
+       public DataTable SearchPT_PM(string maPhieuMuon)
+       {
+           return dal_PhieuTra.SearchPT_PM(maPhieuMuon);
+       }
+
+       public DataTable SearchPT_DG(string maDocGia)
+       {
+           return dal_PhieuTra.SearchPT_DG(maDocGia);
+       }
+
+       
         //PHIẾU PHẠT 
         DAL_PhieuPhat dal_Phieuphat = new DAL_PhieuPhat();
         public DataTable XemTatCaPhieuPhat()
@@ -124,6 +158,22 @@ namespace BUS_QuanLy
         {
             return dal_Phieuphat.XoaPhieuPhat(maPhieuPhat);
         }
+
+        public DataTable SearchPP_PP(string maPhieuPhat)
+        {
+            return dal_Phieuphat.SearchPP_PP(maPhieuPhat);
+        }
+
+        public DataTable SearchPP_DG(string maDocGia)
+        {
+            return dal_Phieuphat.SearchPP_DG(maDocGia);
+        }
+
+        public DataTable SearchPP_PM(string maPhieuMuon)
+        {
+            return dal_Phieuphat.SearchPP_PM(maPhieuMuon);
+        }
+
         //PHIẾU NHẮC NHỞ
         DAL_PhieuNhacNho dal_PhieuNhacNho = new DAL_PhieuNhacNho();
         public DataTable XemPhieuNhacNho()
@@ -138,6 +188,16 @@ namespace BUS_QuanLy
        public int XoaPhieuNhacNho(string maDocGia)
        {
            return dal_PhieuNhacNho.XoaPhieuNhacNho(maDocGia);
+       }
+
+       public DataTable SearchPNN(string maDocGia)
+       {
+           return dal_PhieuNhacNho.SearchPNN(maDocGia);
+       }
+
+       public void UpdatePNN(string mdg, int SLVP)
+       {
+           dal_PhieuNhacNho.UpdatePNN(mdg, SLVP);
        }
     }
 }

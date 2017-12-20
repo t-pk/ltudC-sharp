@@ -38,3 +38,8 @@ C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.d
 C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.pdb
 C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.dll
 C:\Users\Quyet\Desktop\TEMP\DACK\QuanLyThuVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\QQQ2\QQQ1\DACK\QuanLyThuVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.dll
+C:\Users\Quyet\Desktop\TEMP\QQQ2\QQQ1\DACK\QuanLyThuVien\DTO_QuanLy\bin\Debug\DTO_QuanLy.pdb
+C:\Users\Quyet\Desktop\TEMP\QQQ2\QQQ1\DACK\QuanLyThuVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.csprojResolveAssemblyReference.cache
+C:\Users\Quyet\Desktop\TEMP\QQQ2\QQQ1\DACK\QuanLyThuVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.dll
+C:\Users\Quyet\Desktop\TEMP\QQQ2\QQQ1\DACK\QuanLyThuVien\DTO_QuanLy\obj\Debug\DTO_QuanLy.pdb

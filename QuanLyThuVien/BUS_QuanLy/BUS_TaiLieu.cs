@@ -58,5 +58,10 @@ namespace BUS_QuanLy
         {
             return dalTaiLieu.XoaTaiLieuYeuCauMoi(TenTaiLieuYeuCau);
         }
+
+       public DataTable LoadTheLoaiTaiLieu()
+        {
+            return dalTaiLieu.LoadTheLoaiTaiLieu();
+        }
     }
 }

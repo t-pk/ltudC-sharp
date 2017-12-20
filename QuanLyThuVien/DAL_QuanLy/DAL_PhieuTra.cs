@@ -118,16 +118,67 @@ namespace DAL_QuanLy
 
 
         // chưa có proc xóa phiếu trả
-        public bool XoaPhieuTra()
+        public bool XoaPhieuTra(string maPhieuTra)
         {
             try
             {
+                string strSql = "usp_Xoaphieutra";
+                DBConnect provider = new DBConnect();
+                provider.Connect();
+
+                provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@Maphieutra", Value = maPhieuTra });
+                provider.Disconnect();
                 return true;
             }
             catch
             {
                 return false;
             }
+        }
+        public void ChinhSuaCTPhieuTra(string maCTPT, string maPhieuTra, string maPhieuMuon, string maTaiLieu)
+        {
+            string strSql = "usp_ChinhSuaPhieuTra";
+            DBConnect provider = new DBConnect();
+            provider.Connect();
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@MaCTPT", Value = maCTPT },
+            new SqlParameter { ParameterName = "@MaPhieuTra", Value = maPhieuTra },
+            new SqlParameter { ParameterName = "@MaPhieuMuon", Value = maPhieuMuon },
+            new SqlParameter { ParameterName = "@MaTaiLieu", Value = maTaiLieu });
+            provider.Disconnect();
+        }
+
+        public DataTable SearchPT_PT(string maPhieuTra)
+        {
+            string strSql = "exec usp_SearchPhieuTratheoMaPT " + maPhieuTra;
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
+            return dt;
+        }
+
+
+        public DataTable SearchPT_PM(string maPhieuMuon)
+        {
+            string strSql = "exec usp_SearchPhieuTratheoMaPM " + maPhieuMuon;
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
+            return dt;
+        }
+
+        public DataTable SearchPT_DG(string maDocGia)
+        {
+            string strSql = "exec usp_SearchPhieuTratheoMaDG " + maDocGia;
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
+            return dt;
         }
     }
 }

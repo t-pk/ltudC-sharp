@@ -89,19 +89,6 @@ namespace GUI_QuanLy
             pass = s.ToString();
             return pass;
         }
-        static public bool CheckNumber(string pValue)
-        {
-            if (pValue == "")
-            {
-                return false;
-            }
-            foreach (Char c in pValue)
-            {
-                if (!Char.IsDigit(c))
-                    return false;
-            }
-            return true;
-        }
         private void btnDangKy_Click(object sender, EventArgs e)
         {
             if (txtHoTenNVDangKy.Text != "" && txtUserNVDangKy.Text != "" && txtPassNVDangKy.Text != "")
@@ -116,11 +103,6 @@ namespace GUI_QuanLy
                 else if (rdThuThuDangKy.Checked == true)
                 {
                     loai = "TT";
-                    if(CheckNumber(txtCaNVDangKy.Text.ToString()) == false)
-                    {
-                        MessageBox.Show("Vui lòng Nhập lại Ca Trực - Là Số !");
-                        return;
-                    }
                     ca = txtCaNVDangKy.Text;
                 }
 
@@ -166,13 +148,6 @@ namespace GUI_QuanLy
         {
             lblCaTrucNVDangKy.Show();
             txtCaNVDangKy.Show();
-        }
-
-        private void btnHuyDangKy_Click(object sender, EventArgs e)
-        {
-            GUI_DangNhap frmDangNhap = new GUI_DangNhap();        
-            frmDangNhap.Show();
-            this.Close();
         }
 
         private void rdAdminDangKy_CheckedChanged(object sender, EventArgs e)

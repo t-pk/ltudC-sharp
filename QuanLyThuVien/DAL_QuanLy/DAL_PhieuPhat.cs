@@ -76,5 +76,39 @@ namespace DAL_QuanLy
                 return 0;
             }
         }
+
+        public DataTable SearchPP_DG(string maDocGia)
+        {
+            string strSql = "exec usp_SearchPPTheoMaDG " + maDocGia;
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
+            return dt;
+        }
+
+
+        public DataTable SearchPP_PM(string maPhieuMuon)
+        {
+            string strSql = "exec usp_SearchPPTheoMaPM " + maPhieuMuon;
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
+            return dt;
+        }
+
+
+        public DataTable SearchPP_PP(string maPhieuPhat)
+        {
+            string strSql = "exec usp_SearchPPTheoMaPP " + maPhieuPhat;
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
+            return dt;
+        }
+
+
     }
 }

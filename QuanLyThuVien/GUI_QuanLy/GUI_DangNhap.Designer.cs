@@ -56,7 +56,6 @@
             this.lbTittle.Size = new System.Drawing.Size(385, 29);
             this.lbTittle.TabIndex = 0;
             this.lbTittle.Text = "PHẦM MỀM QUẢN LÝ THƯ VIỆN";
-            this.lbTittle.Click += new System.EventHandler(this.label1_Click);
             this.lbTittle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.lbTittle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.lbTittle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
@@ -77,7 +76,6 @@
             this.lbUserName.Text = "Tên Đăng Nhập :";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbUserName.UseCompatibleTextRendering = true;
-            this.lbUserName.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnDangKy
             // 

@@ -40,5 +40,20 @@ namespace BUS_QuanLy
         {
            return dal_DOcGia.ThemDocGia(DTO);
         }
+
+        public void ADMIN_AD_LDG(string MaLoaiDG, int SoNgayMuonToiDa, int SoSachMuonToiDa, string TenLoaiDG, int PhiThuongNien, string TaiLieuDB)
+        {
+            dal_DOcGia.ADMIN_AD_LDG(MaLoaiDG, SoNgayMuonToiDa, SoSachMuonToiDa, TenLoaiDG, PhiThuongNien, TaiLieuDB);
+        }
+
+        public void ADMIN_UD_LDG(string MaLoaiDG, int SoNgayMuonToiDa, int SoSachMuonToiDa, string TenLoaiDG, int PhiThuongNien, string TaiLieuDB)
+        {
+            dal_DOcGia.ADMIN_UD_LDG(MaLoaiDG, SoNgayMuonToiDa, SoSachMuonToiDa, TenLoaiDG, PhiThuongNien, TaiLieuDB);
+        }
+
+        public DataTable LoadLoaiDocGia()
+        {
+            return dal_DOcGia.LoadLoaiDocGia();
+        }
     }
 }

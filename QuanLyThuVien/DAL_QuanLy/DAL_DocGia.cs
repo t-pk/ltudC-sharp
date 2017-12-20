@@ -22,19 +22,9 @@ namespace DAL_QuanLy
         {
             DBConnect DBConnect = new DBConnect();
             DBConnect.Connect();
-            DataTable dt = null;
-            try
-            {
-                dt = DBConnect.Select(CommandType.Text, strSql);
-                DBConnect.Disconnect();
-                return dt;
-            }
-            catch
-            {
-                DBConnect.Disconnect();
-                return dt;
-            }
-           
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);            
+            DBConnect.Disconnect();
+            return dt;
         }
         public DataTable XemChiTietDocGia(string maDocGia)
         {
@@ -53,7 +43,7 @@ namespace DAL_QuanLy
             try
             {
                 DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-                new SqlParameter { ParameterName = "@MaDG", Value = maDG });
+                new SqlParameter { ParameterName = "@MaDocGia", Value = maDG });
                 DBConnect.Disconnect();
                 return true;
             }
@@ -119,7 +109,46 @@ namespace DAL_QuanLy
             {
                 return false;
             }
-           
+        }
+
+        public void ADMIN_AD_LDG(string MaLoaiDG, int SoNgayMuonToiDa, int SoSachMuonToiDa, string TenLoaiDG, int PhiThuongNien, string TaiLieuDB)
+        {
+            string strSql = "usp_AD_Add_LDG";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@MaLoaiDG", Value = MaLoaiDG },
+            new SqlParameter { ParameterName = "@SoNgayMuonToiDa", Value = SoNgayMuonToiDa },
+            new SqlParameter { ParameterName = "@SoSachMuonToiDa", Value = SoSachMuonToiDa },
+            new SqlParameter { ParameterName = "@TenLoaiDG", Value = TenLoaiDG },
+            new SqlParameter { ParameterName = "@PhiThuongNien", Value = PhiThuongNien },
+            new SqlParameter { ParameterName = "@TaiLieuDB", Value = TaiLieuDB });
+            DBConnect.Disconnect();
+        }
+
+        public DataTable LoadLoaiDocGia()
+        {
+            string strSql = "exec usp_LoadLoaiDocGia";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
+            return dt;
+        }
+
+        public void ADMIN_UD_LDG(string MaLoaiDG, int SoNgayMuonToiDa, int SoSachMuonToiDa, string TenLoaiDG, int PhiThuongNien, string TaiLieuDB)
+        {
+            string strSql = "usp_AD_UP_LDG";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@MaLoaiDG", Value = MaLoaiDG },
+            new SqlParameter { ParameterName = "@SoNgayMuonToiDa", Value = SoNgayMuonToiDa },
+            new SqlParameter { ParameterName = "@SoSachMuonToiDa", Value = SoSachMuonToiDa },
+            new SqlParameter { ParameterName = "@TenLoaiDG", Value = TenLoaiDG },
+            new SqlParameter { ParameterName = "@PhiThuongNien", Value = PhiThuongNien },
+            new SqlParameter { ParameterName = "@TaiLieuDB", Value = TaiLieuDB });
+            DBConnect.Disconnect();
         }
     }
 }

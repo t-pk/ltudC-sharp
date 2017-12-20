@@ -37,5 +37,27 @@ namespace DAL_QuanLy
             DBConnect.Disconnect();
             return 1;
         }
+
+        public DataTable SearchPNN(string maDocGia)
+        {
+            string strSql = "exec usp_SearchPhieuNN " + maDocGia;
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
+            return dt;
+        }
+
+        public void UpdatePNN(string mdg, int SLVP)
+        {
+            string strSql = "usp_UpdatePNN";
+            DBConnect provider = new DBConnect();
+            provider.Connect();
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@MaDocGIa", Value = mdg },
+            new SqlParameter { ParameterName = "@SLVP", Value = SLVP });
+            provider.Disconnect();
+        }
     }
 }

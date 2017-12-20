@@ -48,7 +48,6 @@
             this.rdAdminDangKy = new System.Windows.Forms.RadioButton();
             this.rdThuThuDangKy = new System.Windows.Forms.RadioButton();
             this.txtCaNVDangKy = new System.Windows.Forms.TextBox();
-            this.btnHuyDangKy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +94,7 @@
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangKy.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDangKy.ForeColor = System.Drawing.Color.White;
-            this.btnDangKy.Location = new System.Drawing.Point(583, 342);
+            this.btnDangKy.Location = new System.Drawing.Point(419, 342);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(172, 41);
             this.btnDangKy.TabIndex = 5;
@@ -303,23 +302,6 @@
             this.txtCaNVDangKy.Size = new System.Drawing.Size(212, 26);
             this.txtCaNVDangKy.TabIndex = 30;
             // 
-            // btnHuyDangKy
-            // 
-            this.btnHuyDangKy.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnHuyDangKy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHuyDangKy.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.btnHuyDangKy.FlatAppearance.BorderSize = 0;
-            this.btnHuyDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHuyDangKy.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHuyDangKy.ForeColor = System.Drawing.Color.White;
-            this.btnHuyDangKy.Location = new System.Drawing.Point(230, 342);
-            this.btnHuyDangKy.Name = "btnHuyDangKy";
-            this.btnHuyDangKy.Size = new System.Drawing.Size(172, 41);
-            this.btnHuyDangKy.TabIndex = 31;
-            this.btnHuyDangKy.Text = "Quay Về";
-            this.btnHuyDangKy.UseVisualStyleBackColor = false;
-            this.btnHuyDangKy.Click += new System.EventHandler(this.btnHuyDangKy_Click);
-            // 
             // GUI_DangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,7 +309,6 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(959, 426);
             this.ControlBox = false;
-            this.Controls.Add(this.btnHuyDangKy);
             this.Controls.Add(this.txtCaNVDangKy);
             this.Controls.Add(this.rdThuThuDangKy);
             this.Controls.Add(this.rdAdminDangKy);
@@ -382,7 +363,6 @@
         private System.Windows.Forms.RadioButton rdAdminDangKy;
         private System.Windows.Forms.RadioButton rdThuThuDangKy;
         private System.Windows.Forms.TextBox txtCaNVDangKy;
-        private System.Windows.Forms.Button btnHuyDangKy;
     }
 }
 

@@ -21,16 +21,21 @@ namespace DAL_QuanLy
 
         }
         // chưa có proc thêm phiếu mượn
-        public void ThemPhieuMuon(DTO_PhieuMuon DTO)
+        public int ThemPhieuMuon(DTO_PhieuMuon DTO)
         {
             string strSql = "usp_ThemPhieuMuon";
             DBConnect provider = new DBConnect();
             provider.Connect();
 
+            SqlParameter p = new SqlParameter("@result", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
             provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
             new SqlParameter { ParameterName = "@MaNVLapPhieuMuon", Value = DTO.MaNhanVienLapPhieuMuon },
-            new SqlParameter { ParameterName = "@MaDocGia", Value = DTO.MaDocGiaMuon });
+            new SqlParameter { ParameterName = "@MaDocGia", Value = DTO.MaDocGiaMuon }, p);
             provider.Disconnect();
+
+            return Int32.Parse(p.Value.ToString());
         }
 
 
@@ -94,24 +99,22 @@ namespace DAL_QuanLy
 
         public DataTable LayDanhSachMaDocGia()
         {
-            DataTable dt = new DataTable();
-            DBConnect provider1 = new DBConnect();
-            provider1.Connect();
-            SqlDataAdapter da = new SqlDataAdapter("Select MaDocGia, HoTen From [DOC GIA]", @"Data Source=WIN-GCDD6G4KV5S\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;");
-            da.Fill(dt);
-            provider1.Disconnect();
+            string strSql = "exec usp_LayDanhSachDocGia";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
             return dt;
         }
 
 
         public DataTable LayDanhSachMaTaiLieu()
         {
-            DataTable dt = new DataTable();
-            DBConnect provider1 = new DBConnect();
-            provider1.Connect();
-            SqlDataAdapter da = new SqlDataAdapter("select MaTaiLieu, TenTaiLieu from [TAI LIEU]", @"Data Source=WIN-GCDD6G4KV5S\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;");
-            da.Fill(dt);
-            provider1.Disconnect();
+            string strSql = "exec usp_LayDanhSachTaiLieu";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            DataTable dt = DBConnect.Select(CommandType.Text, strSql);
+            DBConnect.Disconnect();
             return dt;
         }
         // chưa có proc xóa phiếu mượn
@@ -153,6 +156,38 @@ namespace DAL_QuanLy
             DataTable dt = DBConnect.Select(CommandType.Text, strSql);
             DBConnect.Disconnect();
             return dt;
+        }
+
+        public int SoSachMuonToiDa(string maDocGia)
+        {
+            string strSql = "usp_LaySoSachMuonToiDa";
+            DBConnect provider = new DBConnect();
+            provider.Connect();
+
+            SqlParameter p = new SqlParameter("@Result", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaDocGia", Value = maDocGia }, p);
+
+            provider.Disconnect();
+            return Int32.Parse(p.Value.ToString());
+        }
+
+        public int SoLanViPham(string maDocGia)
+        {
+            string strSql = "usp_SoLanViPham";
+            DBConnect provider = new DBConnect();
+            provider.Connect();
+
+            SqlParameter p = new SqlParameter("@SoLanViPham", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaDocGia", Value = maDocGia }, p);
+
+            provider.Disconnect();
+            return Int32.Parse(p.Value.ToString());
         }
     }
 }
