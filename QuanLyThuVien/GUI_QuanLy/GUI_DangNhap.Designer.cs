@@ -32,7 +32,6 @@
             this.lbTittle = new System.Windows.Forms.Label();
             this.lbUserName = new System.Windows.Forms.Label();
             this.btnDangKy = new System.Windows.Forms.Button();
-            this.cbNhoPassWord = new System.Windows.Forms.CheckBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@
             this.lbTittle.Size = new System.Drawing.Size(385, 29);
             this.lbTittle.TabIndex = 0;
             this.lbTittle.Text = "PHẦM MỀM QUẢN LÝ THƯ VIỆN";
+            this.lbTittle.Click += new System.EventHandler(this.label1_Click);
             this.lbTittle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.lbTittle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.lbTittle.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
@@ -63,7 +63,7 @@
             // lbUserName
             // 
             this.lbUserName.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lbUserName.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbUserName.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbUserName.Image = ((System.Drawing.Image)(resources.GetObject("lbUserName.Image")));
             this.lbUserName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -76,6 +76,7 @@
             this.lbUserName.Text = "Tên Đăng Nhập :";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbUserName.UseCompatibleTextRendering = true;
+            this.lbUserName.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnDangKy
             // 
@@ -84,7 +85,7 @@
             this.btnDangKy.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
             this.btnDangKy.FlatAppearance.BorderSize = 0;
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDangKy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangKy.ForeColor = System.Drawing.Color.White;
             this.btnDangKy.Location = new System.Drawing.Point(297, 314);
             this.btnDangKy.Name = "btnDangKy";
@@ -94,18 +95,6 @@
             this.btnDangKy.UseVisualStyleBackColor = false;
             this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
-            // cbNhoPassWord
-            // 
-            this.cbNhoPassWord.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbNhoPassWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cbNhoPassWord.Location = new System.Drawing.Point(284, 216);
-            this.cbNhoPassWord.Name = "cbNhoPassWord";
-            this.cbNhoPassWord.Size = new System.Drawing.Size(140, 38);
-            this.cbNhoPassWord.TabIndex = 6;
-            this.cbNhoPassWord.Text = "Nhớ Mật Khẩu";
-            this.cbNhoPassWord.UseVisualStyleBackColor = true;
-            this.cbNhoPassWord.CheckedChanged += new System.EventHandler(this.cbNhoPassWord_CheckedChanged);
-            // 
             // btnDangNhap
             // 
             this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(86)))), ((int)(((byte)(94)))));
@@ -114,7 +103,7 @@
             this.btnDangNhap.FlatAppearance.BorderSize = 0;
             this.btnDangNhap.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDangNhap.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
             this.btnDangNhap.Location = new System.Drawing.Point(522, 136);
             this.btnDangNhap.Name = "btnDangNhap";
@@ -127,18 +116,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(345, 268);
+            this.label5.Location = new System.Drawing.Point(276, 266);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 23);
+            this.label5.Size = new System.Drawing.Size(190, 21);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Hoặc ";
+            this.label5.Text = "Hoặc Tạo Mới Tài Khoản";
             // 
             // lbPassword
             // 
             this.lbPassword.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lbPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbPassword.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbPassword.Image = ((System.Drawing.Image)(resources.GetObject("lbPassword.Image")));
             this.lbPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -173,16 +162,16 @@
             // 
             // lbCopyright
             // 
-            this.lbCopyright.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbCopyright.Location = new System.Drawing.Point(27, 388);
+            this.lbCopyright.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCopyright.Location = new System.Drawing.Point(12, 399);
             this.lbCopyright.Name = "lbCopyright";
-            this.lbCopyright.Size = new System.Drawing.Size(146, 22);
+            this.lbCopyright.Size = new System.Drawing.Size(153, 22);
             this.lbCopyright.TabIndex = 13;
             this.lbCopyright.Text = "CopyRight 2017 ©";
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(663, 399);
             this.label3.Name = "label3";
@@ -232,7 +221,6 @@
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnDangNhap);
-            this.Controls.Add(this.cbNhoPassWord);
             this.Controls.Add(this.btnDangKy);
             this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.lbTittle);
@@ -255,7 +243,6 @@
         private System.Windows.Forms.Label lbTittle;
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.Button btnDangKy;
-        private System.Windows.Forms.CheckBox cbNhoPassWord;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbPassword;

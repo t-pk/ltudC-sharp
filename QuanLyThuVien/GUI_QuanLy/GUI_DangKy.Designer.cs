@@ -48,6 +48,7 @@
             this.rdAdminDangKy = new System.Windows.Forms.RadioButton();
             this.rdThuThuDangKy = new System.Windows.Forms.RadioButton();
             this.txtCaNVDangKy = new System.Windows.Forms.TextBox();
+            this.btnHuyDangKy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,15 +71,15 @@
             // lbUserName
             // 
             this.lbUserName.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lbUserName.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUserName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbUserName.Image = ((System.Drawing.Image)(resources.GetObject("lbUserName.Image")));
             this.lbUserName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbUserName.Location = new System.Drawing.Point(81, 112);
+            this.lbUserName.Location = new System.Drawing.Point(64, 119);
             this.lbUserName.Margin = new System.Windows.Forms.Padding(0);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Padding = new System.Windows.Forms.Padding(2);
-            this.lbUserName.Size = new System.Drawing.Size(137, 54);
+            this.lbUserName.Size = new System.Drawing.Size(145, 54);
             this.lbUserName.TabIndex = 1;
             this.lbUserName.Text = "Mã NV :";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -92,11 +93,11 @@
             this.btnDangKy.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
             this.btnDangKy.FlatAppearance.BorderSize = 0;
             this.btnDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangKy.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDangKy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangKy.ForeColor = System.Drawing.Color.White;
-            this.btnDangKy.Location = new System.Drawing.Point(419, 342);
+            this.btnDangKy.Location = new System.Drawing.Point(472, 365);
             this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(172, 41);
+            this.btnDangKy.Size = new System.Drawing.Size(180, 41);
             this.btnDangKy.TabIndex = 5;
             this.btnDangKy.Text = "Đăng ký";
             this.btnDangKy.UseVisualStyleBackColor = false;
@@ -105,15 +106,15 @@
             // lbPassword
             // 
             this.lbPassword.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lbPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbPassword.Image = ((System.Drawing.Image)(resources.GetObject("lbPassword.Image")));
             this.lbPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbPassword.Location = new System.Drawing.Point(81, 171);
+            this.lbPassword.Location = new System.Drawing.Point(64, 178);
             this.lbPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Padding = new System.Windows.Forms.Padding(2);
-            this.lbPassword.Size = new System.Drawing.Size(137, 53);
+            this.lbPassword.Size = new System.Drawing.Size(145, 53);
             this.lbPassword.TabIndex = 11;
             this.lbPassword.Text = "UserName :";
             this.lbPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -124,13 +125,13 @@
             this.btnClosed.BackColor = System.Drawing.SystemColors.Control;
             this.btnClosed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnClosed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClosed.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnClosed.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnClosed.FlatAppearance.BorderSize = 0;
-            this.btnClosed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnClosed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnClosed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnClosed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnClosed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosed.Image = ((System.Drawing.Image)(resources.GetObject("btnClosed.Image")));
-            this.btnClosed.Location = new System.Drawing.Point(919, -1);
+            this.btnClosed.Location = new System.Drawing.Point(856, 3);
             this.btnClosed.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.btnClosed.Name = "btnClosed";
             this.btnClosed.Size = new System.Drawing.Size(41, 37);
@@ -141,15 +142,15 @@
             // label1
             // 
             this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(81, 238);
+            this.label1.Location = new System.Drawing.Point(64, 245);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2);
-            this.label1.Size = new System.Drawing.Size(128, 53);
+            this.label1.Size = new System.Drawing.Size(136, 53);
             this.label1.TabIndex = 13;
             this.label1.Text = "Loại NV :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -157,20 +158,20 @@
             // 
             // lbCopyright
             // 
-            this.lbCopyright.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbCopyright.Location = new System.Drawing.Point(9, 395);
+            this.lbCopyright.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCopyright.Location = new System.Drawing.Point(12, 423);
             this.lbCopyright.Name = "lbCopyright";
-            this.lbCopyright.Size = new System.Drawing.Size(146, 22);
+            this.lbCopyright.Size = new System.Drawing.Size(154, 22);
             this.lbCopyright.TabIndex = 17;
             this.lbCopyright.Text = "CopyRight 2017 ©";
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(843, 395);
+            this.label3.Location = new System.Drawing.Point(760, 423);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 22);
+            this.label3.Size = new System.Drawing.Size(112, 22);
             this.label3.TabIndex = 18;
             this.label3.Text = "Version 2.4";
             // 
@@ -186,7 +187,7 @@
             // txtMaNVDangKy
             // 
             this.txtMaNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNVDangKy.Location = new System.Drawing.Point(230, 126);
+            this.txtMaNVDangKy.Location = new System.Drawing.Point(213, 133);
             this.txtMaNVDangKy.Name = "txtMaNVDangKy";
             this.txtMaNVDangKy.Size = new System.Drawing.Size(198, 26);
             this.txtMaNVDangKy.TabIndex = 20;
@@ -194,7 +195,7 @@
             // txtUserNVDangKy
             // 
             this.txtUserNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserNVDangKy.Location = new System.Drawing.Point(230, 186);
+            this.txtUserNVDangKy.Location = new System.Drawing.Point(213, 193);
             this.txtUserNVDangKy.Name = "txtUserNVDangKy";
             this.txtUserNVDangKy.Size = new System.Drawing.Size(198, 26);
             this.txtUserNVDangKy.TabIndex = 21;
@@ -202,7 +203,7 @@
             // txtPassNVDangKy
             // 
             this.txtPassNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassNVDangKy.Location = new System.Drawing.Point(675, 185);
+            this.txtPassNVDangKy.Location = new System.Drawing.Point(625, 191);
             this.txtPassNVDangKy.Name = "txtPassNVDangKy";
             this.txtPassNVDangKy.Size = new System.Drawing.Size(212, 26);
             this.txtPassNVDangKy.TabIndex = 27;
@@ -210,7 +211,7 @@
             // txtHoTenNVDangKy
             // 
             this.txtHoTenNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoTenNVDangKy.Location = new System.Drawing.Point(675, 126);
+            this.txtHoTenNVDangKy.Location = new System.Drawing.Point(625, 132);
             this.txtHoTenNVDangKy.Name = "txtHoTenNVDangKy";
             this.txtHoTenNVDangKy.Size = new System.Drawing.Size(212, 26);
             this.txtHoTenNVDangKy.TabIndex = 26;
@@ -218,15 +219,15 @@
             // label2
             // 
             this.label2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label2.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(522, 171);
+            this.label2.Location = new System.Drawing.Point(472, 177);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(2);
-            this.label2.Size = new System.Drawing.Size(137, 53);
+            this.label2.Size = new System.Drawing.Size(145, 53);
             this.label2.TabIndex = 25;
             this.label2.Text = "Mật Khẩu :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -235,15 +236,15 @@
             // lblCaTrucNVDangKy
             // 
             this.lblCaTrucNVDangKy.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lblCaTrucNVDangKy.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblCaTrucNVDangKy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCaTrucNVDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblCaTrucNVDangKy.Image = ((System.Drawing.Image)(resources.GetObject("lblCaTrucNVDangKy.Image")));
             this.lblCaTrucNVDangKy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblCaTrucNVDangKy.Location = new System.Drawing.Point(522, 233);
+            this.lblCaTrucNVDangKy.Location = new System.Drawing.Point(472, 239);
             this.lblCaTrucNVDangKy.Margin = new System.Windows.Forms.Padding(0);
             this.lblCaTrucNVDangKy.Name = "lblCaTrucNVDangKy";
             this.lblCaTrucNVDangKy.Padding = new System.Windows.Forms.Padding(2);
-            this.lblCaTrucNVDangKy.Size = new System.Drawing.Size(137, 53);
+            this.lblCaTrucNVDangKy.Size = new System.Drawing.Size(145, 53);
             this.lblCaTrucNVDangKy.TabIndex = 24;
             this.lblCaTrucNVDangKy.Text = "Ca Trực :";
             this.lblCaTrucNVDangKy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -252,15 +253,15 @@
             // label5
             // 
             this.label5.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label5.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(522, 112);
+            this.label5.Location = new System.Drawing.Point(472, 118);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2);
-            this.label5.Size = new System.Drawing.Size(137, 54);
+            this.label5.Size = new System.Drawing.Size(145, 54);
             this.label5.TabIndex = 23;
             this.label5.Text = "Họ Tên :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -269,11 +270,11 @@
             // rdAdminDangKy
             // 
             this.rdAdminDangKy.AutoSize = true;
-            this.rdAdminDangKy.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdAdminDangKy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdAdminDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rdAdminDangKy.Location = new System.Drawing.Point(230, 254);
+            this.rdAdminDangKy.Location = new System.Drawing.Point(213, 261);
             this.rdAdminDangKy.Name = "rdAdminDangKy";
-            this.rdAdminDangKy.Size = new System.Drawing.Size(71, 22);
+            this.rdAdminDangKy.Size = new System.Drawing.Size(80, 25);
             this.rdAdminDangKy.TabIndex = 28;
             this.rdAdminDangKy.TabStop = true;
             this.rdAdminDangKy.Text = "Admin";
@@ -283,11 +284,11 @@
             // rdThuThuDangKy
             // 
             this.rdThuThuDangKy.AutoSize = true;
-            this.rdThuThuDangKy.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdThuThuDangKy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdThuThuDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rdThuThuDangKy.Location = new System.Drawing.Point(343, 254);
+            this.rdThuThuDangKy.Location = new System.Drawing.Point(326, 261);
             this.rdThuThuDangKy.Name = "rdThuThuDangKy";
-            this.rdThuThuDangKy.Size = new System.Drawing.Size(85, 22);
+            this.rdThuThuDangKy.Size = new System.Drawing.Size(86, 25);
             this.rdThuThuDangKy.TabIndex = 29;
             this.rdThuThuDangKy.TabStop = true;
             this.rdThuThuDangKy.Text = "Thủ Thư";
@@ -297,18 +298,36 @@
             // txtCaNVDangKy
             // 
             this.txtCaNVDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCaNVDangKy.Location = new System.Drawing.Point(675, 246);
+            this.txtCaNVDangKy.Location = new System.Drawing.Point(625, 252);
             this.txtCaNVDangKy.Name = "txtCaNVDangKy";
             this.txtCaNVDangKy.Size = new System.Drawing.Size(212, 26);
             this.txtCaNVDangKy.TabIndex = 30;
+            // 
+            // btnHuyDangKy
+            // 
+            this.btnHuyDangKy.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnHuyDangKy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHuyDangKy.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.btnHuyDangKy.FlatAppearance.BorderSize = 0;
+            this.btnHuyDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHuyDangKy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuyDangKy.ForeColor = System.Drawing.Color.White;
+            this.btnHuyDangKy.Location = new System.Drawing.Point(213, 365);
+            this.btnHuyDangKy.Name = "btnHuyDangKy";
+            this.btnHuyDangKy.Size = new System.Drawing.Size(172, 41);
+            this.btnHuyDangKy.TabIndex = 32;
+            this.btnHuyDangKy.Text = "Quay Về";
+            this.btnHuyDangKy.UseVisualStyleBackColor = false;
+            this.btnHuyDangKy.Click += new System.EventHandler(this.btnHuyDangKy_Click);
             // 
             // GUI_DangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(959, 426);
+            this.ClientSize = new System.Drawing.Size(894, 454);
             this.ControlBox = false;
+            this.Controls.Add(this.btnHuyDangKy);
             this.Controls.Add(this.txtCaNVDangKy);
             this.Controls.Add(this.rdThuThuDangKy);
             this.Controls.Add(this.rdAdminDangKy);
@@ -363,6 +382,7 @@
         private System.Windows.Forms.RadioButton rdAdminDangKy;
         private System.Windows.Forms.RadioButton rdThuThuDangKy;
         private System.Windows.Forms.TextBox txtCaNVDangKy;
+        private System.Windows.Forms.Button btnHuyDangKy;
     }
 }
 

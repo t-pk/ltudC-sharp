@@ -150,6 +150,13 @@ namespace GUI_QuanLy
             txtCaNVDangKy.Show();
         }
 
+        private void btnHuyDangKy_Click(object sender, EventArgs e)
+        {
+            GUI_DangNhap frmDangNhap = new GUI_DangNhap();
+            frmDangNhap.Show();
+            this.Close();
+        }
+
         private void rdAdminDangKy_CheckedChanged(object sender, EventArgs e)
         {
             lblCaTrucNVDangKy.Hide();

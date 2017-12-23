@@ -174,6 +174,45 @@ namespace DAL_QuanLy
             return Int32.Parse(p.Value.ToString());
         }
 
+        public bool KiemTraMuonTaiLieuDacBiet(string maDocGia, string maTaiLieu)
+        {
+            string strSql = "usp_KiemTraMuonTaiLieuDacBiet";
+            DBConnect provider = new DBConnect();
+            provider.Connect();
+
+            SqlParameter p = new SqlParameter("@result", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaDocGia", Value = maDocGia },
+                new SqlParameter { ParameterName = "@MaTaiLieu", Value = maTaiLieu }, p);
+
+            provider.Disconnect();
+            if (p.Value.ToString() == "1")
+                return true;
+            else
+                return false;
+        }
+
+
+        public int SoSachDangMuon(string maDocGia)
+        {
+            string strSql = "usp_SoSachDangMuon";
+            DBConnect provider = new DBConnect();
+            provider.Connect();
+
+            SqlParameter p = new SqlParameter("@SoSachDangMuon", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaDocGia", Value = maDocGia }, p);
+
+            provider.Disconnect();
+            return Int32.Parse(p.Value.ToString());
+        }
+
+
+
         public int SoLanViPham(string maDocGia)
         {
             string strSql = "usp_SoLanViPham";

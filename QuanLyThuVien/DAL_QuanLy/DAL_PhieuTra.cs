@@ -117,6 +117,59 @@ namespace DAL_QuanLy
         }
 
 
+        public int LaySoNgayQuaHan(string maPhieuMuon)
+        {
+            string strSql = "usp_LaySoNgayQuaHan";
+            DBConnect provider = new DBConnect();
+            provider.Connect();
+
+            SqlParameter p = new SqlParameter("@NQH", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaPhieuMuon", Value = maPhieuMuon }, p);
+
+            provider.Disconnect();
+            return Int32.Parse(p.Value.ToString());
+        }
+
+
+        public int LaySoSachCuaPM(string maPhieuMuon)
+        {
+            string strSql = "usp_LaySoSachCuaPM";
+            DBConnect provider = new DBConnect();
+            provider.Connect();
+
+            SqlParameter p = new SqlParameter("@SoSach", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaPhieuMuon", Value = maPhieuMuon }, p);
+
+            provider.Disconnect();
+            return Int32.Parse(p.Value.ToString());
+        }
+
+
+        public int LaySoLanViPhamCuaPhieuMuon(string maPhieuMuon)
+        {
+            string strSql = "usp_LaySoLanViPhamCuaPhieuMuon";
+            DBConnect provider = new DBConnect();
+            provider.Connect();
+
+            SqlParameter p = new SqlParameter("@SLVP", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
+            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+                new SqlParameter { ParameterName = "@MaPhieuMuon", Value = maPhieuMuon }, p);
+
+            provider.Disconnect();
+            return Int32.Parse(p.Value.ToString());
+        }
+
+
+
+
         // chưa có proc xóa phiếu trả
         public bool XoaPhieuTra(string maPhieuTra)
         {

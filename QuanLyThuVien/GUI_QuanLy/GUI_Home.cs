@@ -49,26 +49,7 @@ namespace GUI_QuanLy
         }
 
         private void tab_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            //e.DrawBackground();
-            //if (e.Index == tbcDocGia.SelectedIndex)
-            //{
-            //    e.Graphics.DrawString(tbcDocGia.TabPages[e.Index].Text,
-            //        new Font(tbcDocGia.Font, FontStyle.Bold),
-            //        Brushes.Red,
-            //        new PointF(e.Bounds.X + 3, e.Bounds.Y + 3));
-            //}
-            //else
-            //{
-            //    e.Graphics.DrawString(tbcDocGia.TabPages[e.Index].Text,
-            //        tbcDocGia.Font,
-            //        Brushes.Black,
-            //        new PointF(e.Bounds.X + 3, e.Bounds.Y + 3));
-            //}
-
-            // Draw the background of the ListBox control for each item.
-
-
+        {        
         }
 
         /*
@@ -83,8 +64,6 @@ namespace GUI_QuanLy
             {
                 btnQuanTriAdmin.Visible = true;
             }
-            //label1.TextAlign = ContentAlignment.MiddleRight;
-            //userName.TextAlign = ContentAlignment.MiddleRight;
             BUS_NhanVien busNhanVien = new BUS_NhanVien();
             maNVHienTai = busNhanVien.getMaNhanVienHienTai(userName.Text.ToString()).Trim();
             try
@@ -114,10 +93,34 @@ namespace GUI_QuanLy
 
             tbcQuanLiSach.Dock = DockStyle.Fill;
             tbcQuanLiSach.ImageList = imageList2;
-            tbcQuanLiSach.TabPages[0].ImageIndex = 0;
-            tbcQuanLiSach.TabPages[1].ImageIndex = 1;
+            tbcQuanLiSach.TabPages[0].ImageIndex = 4;
+            tbcQuanLiSach.TabPages[1].ImageIndex = 2;
+            tbcQuanLiSach.TabPages[2].ImageIndex = 3;
 
-          
+
+            tbcQuanLiPhieu.Dock = DockStyle.Fill;
+            tbcQuanLiPhieu.ImageList = imageList4;
+            tbcQuanLiPhieu.TabPages[0].ImageIndex = 0;
+            tbcQuanLiPhieu.TabPages[1].ImageIndex = 1;
+            tbcQuanLiPhieu.TabPages[2].ImageIndex = 3;
+            tbcQuanLiPhieu.TabPages[3].ImageIndex = 2;
+
+            tbcPhieuMuon.Dock = DockStyle.Fill;
+            tbcPhieuMuon.ImageList = imageList5;
+            tbcPhieuMuon.TabPages[0].ImageIndex = 1;
+            tbcPhieuMuon.TabPages[1].ImageIndex = 0;
+
+            tbcPhieuTra.Dock = DockStyle.Fill;
+            tbcPhieuTra.ImageList = imageList5;
+            tbcPhieuTra.TabPages[0].ImageIndex = 2;
+            tbcPhieuTra.TabPages[1].ImageIndex = 3;
+
+            tbcQuanTriAdmin.Dock = DockStyle.Fill;
+            tbcQuanTriAdmin.ImageList = imageList6;
+            tbcQuanTriAdmin.TabPages[0].ImageIndex = 1;
+            tbcQuanTriAdmin.TabPages[1].ImageIndex = 0;
+
+
 
         }
         // xử lý ảnh của nhân viên trên picturebox khi onclick
@@ -199,11 +202,9 @@ namespace GUI_QuanLy
             pnThongKe.Visible = false;        
             panelDocGia.Visible = false;
             panelReport.Visible = false;
-            this.panelQLSach.Location = new System.Drawing.Point(220, 118);
+            this.panelQLSach.Location = new System.Drawing.Point(217, 93);
             panelQLSach.Visible = true;
-            panelQLSach.Size = new Size(900, 447);
-
-
+            panelQLSach.Size = new Size(910, 470);
         }
         private void tab_MouseMove(object sender, MouseEventArgs e)
         {
@@ -291,7 +292,7 @@ namespace GUI_QuanLy
             panelQLSach.Visible = false;
             panelReport.Visible = false;
             panelQuanTriAdmin.Visible = false;
-            this.panelDocGia.Location = new System.Drawing.Point(220, 118);
+            this.panelDocGia.Location = new System.Drawing.Point(217, 93);
             panelDocGia.Visible = true;
             if (dgvDGSearch.RowCount > 1)
             {
@@ -310,14 +311,10 @@ namespace GUI_QuanLy
         {
 
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
-
-
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
@@ -786,7 +783,7 @@ namespace GUI_QuanLy
                 }
                 else if (rdHoTenSearch.Checked == true)
                 {
-                    strSql = "exec usp_TimKiemDocGiaTheoHoTen N'" + Search + "'";
+                    strSql = "exec usp_TimKiemDocGiaTheoHoTen '" + Search + "'";
                 }
 
                 dgvDGSearch.DataSource = busDocGia.SearchDocGiaTheoTieuChi(strSql);
@@ -988,16 +985,21 @@ namespace GUI_QuanLy
             string tenDG = dgvDGSearch[1, dgvDGSearch.CurrentRow.Index].Value.ToString();
             BUS_Phieu p = new BUS_Phieu();
             int slvp = p.SoLanViPham(maDocGia);
+            int sosachdangmuon = Int32.Parse(p.SoSachDangMuon(maDocGia).ToString());
+            int sosachmuontoida = p.SoSachMuonToiDa(maDocGia);
             if (slvp < 5)
             {
-                int rowindex = dgvDGSearch.CurrentRow.Index;
-                btnThongKe_Click(sender, e);
-                // sao đây là thống kế v tài
-                cbxMaDGPM.Text = tenDG;
-                cbxMaDGPM.SelectedValue = maDocGia;
-                lbMaDocGia.Text = maDocGia;
-                tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[0];
-                tbcPhieuMuon.SelectedTab = tbcPhieuMuon.TabPages[1];
+                if (sosachdangmuon < sosachmuontoida)
+                {
+                    int rowindex = dgvDGSearch.CurrentRow.Index;
+                    btnThongKe_Click(sender, e);
+                    cbxMaDGPM.Text = tenDG;
+                    cbxMaDGPM.SelectedValue = maDocGia;
+                    lbMaDocGia.Text = maDocGia;
+                    tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[0];
+                    tbcPhieuMuon.SelectedTab = tbcPhieuMuon.TabPages[1];
+                }
+                else MessageBox.Show("Độc giả đã mượn tối đa sách được mượn");
             }
             else MessageBox.Show("Độc giả " + tenDG + " đã quá số lần vi phạm\n Không được sử dụng dịch vụ nữa :(");
         }
@@ -1037,7 +1039,7 @@ namespace GUI_QuanLy
             panelQLSach.Visible = true;
             panelDocGia.Visible = false;
             pnThongKe.Visible = false;
-            this.panelQLSach.Location = new System.Drawing.Point(220, 118);
+            this.panelQLSach.Location = new System.Drawing.Point(217, 93);
 
             BUS_TaiLieu busTaiLieu = new BUS_TaiLieu();
 
@@ -1458,7 +1460,7 @@ namespace GUI_QuanLy
             panelQLSach.Visible = false;
             panelQuanTriAdmin.Visible = false;
             pnThongKe.Visible = true;
-            this.pnThongKe.Location = new System.Drawing.Point(220, 118);
+            this.pnThongKe.Location = new System.Drawing.Point(217, 93);
 
             // ẩn button phiếu mượn
             btnChinhSua_CTPM.Visible = false;
@@ -1504,8 +1506,6 @@ namespace GUI_QuanLy
 
             btnXemChiTiet_PhieuMuon.Visible = true;
             btnXoaPhieuMuon.Visible = true;
-            btnLuuPM.Visible = true;
-            btnChinSuaPM.Visible = true;
 
             btnChinhSua_CTPM.Visible = false;
             btnLuuCTPM.Visible = false;
@@ -1561,19 +1561,29 @@ namespace GUI_QuanLy
 
             btnXemChiTiet_PhieuMuon.Visible = false;
             btnXoaPhieuMuon.Visible = false;
-            btnLuuPM.Visible = false;
-            btnChinSuaPM.Visible = false;
-
+      
+            if (dgvPhieuMuon.RowCount < 1)
+            {
+                return;
+            }
             BUS_Phieu busPhieu = new BUS_Phieu();
             string maPhieuMuon = dgvPhieuMuon[0, dgvPhieuMuon.CurrentRow.Index].Value.ToString();
+            dgvPhieuMuon.DataSource = null;
             dgvPhieuMuon.DataSource = busPhieu.XemChiTietPhieuMuon(maPhieuMuon);
             dgvPhieuMuon.ReadOnly = true;
+            dgvPhieuMuon.Columns[0].HeaderText = "Chi Tiết Phiếu Mượn";
+            dgvPhieuMuon.Columns[1].HeaderText = "Mã Tài Liệu";
+            dgvPhieuMuon.Columns[2].HeaderText =  "Mã Phiếu Mượn";
             btnHuy_PhieuMuon.Text = "Hủy";
 
         }
         // chưa có proc Xóa Phiếu Mượn
         private void btnXoaPhieuMuon_Click(object sender, EventArgs e)
         {
+            if (dgvPhieuMuon.RowCount < 1)
+            {
+                return;
+            }
             BUS_Phieu busPhieu = new BUS_Phieu();
             string maPhieuMuon = dgvPhieuMuon[0, dgvPhieuMuon.CurrentRow.Index].Value.ToString();
             if (MessageBox.Show(string.Format("Xác nhận xóa Phiếu Mượn : {0}", maPhieuMuon), "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -1707,17 +1717,31 @@ namespace GUI_QuanLy
             btnChinhSua_PhieuTra.Visible = true;
             btnLuuPhieuTra.Visible = true;
             btnHuy_PhieuTra.Visible = true;
-
+            if (dgvPhieuTra.RowCount < 1)
+            {
+                return;
+            }
             BUS_Phieu busPhieu = new BUS_Phieu();
             string maPhieuTra = dgvPhieuTra[0, dgvPhieuTra.CurrentRow.Index].Value.ToString();
+            dgvPhieuTra.DataSource = null;
             dgvPhieuTra.DataSource = busPhieu.XemChiTietPhieuTra(maPhieuTra);
             dgvPhieuTra.ReadOnly = true;
+
+            dgvPhieuTra.Columns[0].HeaderText = "Chi Tiết Phiểu Trả";
+            dgvPhieuTra.Columns[1].HeaderText = "Mã Phiếu Trả";
+            dgvPhieuTra.Columns[2].HeaderText = "Mã Phiếu Mượn";
+            dgvPhieuTra.Columns[3].HeaderText = "Mã Tài Liệu";
             btnHuy_PhieuTra.Text = "Hủy";
 
         }
         // chưa có proc Xóa Phiếu Mượn
         private void btnXoaPhieuTra_Click(object sender, EventArgs e)
         {
+
+            if (dgvPhieuTra.RowCount < 1)
+            {
+                return;
+            }
             BUS_Phieu busPhieu = new BUS_Phieu();
             string maPhieuMuon = dgvPhieuTra[0, dgvPhieuTra.CurrentRow.Index].Value.ToString();
             if (MessageBox.Show(string.Format("Xác nhận xóa Phiếu Trả {0}", maPhieuMuon), "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -1779,6 +1803,49 @@ namespace GUI_QuanLy
                     BUS_Phieu busPhieuCT = new BUS_Phieu();
                     DTO_PhieuTra DTOCT = new DTO_PhieuTra(maNVHienTai, maphieumuon, maphieutra, mactpt, matailieuCT);
                     busPhieuCT.ThemChiTietPhieuTra(DTOCT);
+                    if(mpt.LaySoSachCuaPM(maphieumuon) < lbDanhSachSachTra.Items.Count)
+                    {
+                        //Xử lý qua bên kia
+                        
+                        if(mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) > 0 && mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) < 2)
+                        {
+                            if (MessageBox.Show(string.Format("Có Lập Phiểu Nhắc Nhở Không?"), "Độc Giả Trả Sách Không Đủ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                ///ađâsđấ
+                            }
+                        }
+
+                        if (mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) >= 2 && mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) < 5)
+                        {
+                            if (MessageBox.Show(string.Format("Có Lập Phiểu Phạt Không?"), "Độc Giả Trả Sách Không Đủ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                //ađâsđâsdá
+                            }
+                        }
+
+                    }
+
+
+                    else if (mpt.LaySoNgayQuaHan(maphieumuon) > 0)
+                    {
+
+                        if (mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) > 0 && mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) < 2)
+                        {
+                            if (MessageBox.Show(string.Format("Có Lập Phiểu Nhắc Nhở Không?"), "Độc Giả Trả Sách Quá Hạn", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                //ađâsđâsd
+                            }
+                        }
+
+                        if (mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) >= 2 && mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) < 5)
+                        {
+                            if (MessageBox.Show(string.Format("Có Lập Phiểu Phạt Không?"), "Độc Giả Trả Sách Quá Hạn", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                //ađâsđâsd
+                            }
+                        }
+
+                    }
                 }
                 lbDanhSachSachTra.Items.Clear();
                 lbDanhSachSachTra.Items.Clear();
@@ -1800,10 +1867,14 @@ namespace GUI_QuanLy
                     return;
                 }
             }
-            if (lbListSachMuon.Items.Count < p.SoSachMuonToiDa(maDocGia))
+            if ((p.SoSachDangMuon(maDocGia) + lbListSachMuon.Items.Count) < p.SoSachMuonToiDa(maDocGia))
             {
-                lbListSachMuon.Items.Add(cbxMaTLPM.Text);
-                lbListSachMuonHide.Items.Add(cbxMaTLPM.SelectedValue);
+                if (p.KiemTraMuonTaiLieuDacBiet(maDocGia, cbxMaTLPM.SelectedValue.ToString()))
+                {
+                    lbListSachMuon.Items.Add(cbxMaTLPM.Text);
+                    lbListSachMuonHide.Items.Add(cbxMaTLPM.SelectedValue);
+                }
+                else MessageBox.Show("Độc giả không được mượn tài liệu đặc biệt");
             }
             else MessageBox.Show("Đã quá số sách mượn tối đa");
         }
@@ -1870,6 +1941,13 @@ namespace GUI_QuanLy
             dgvPhieuPhat.DataSource = busPhieu.XemTatCaPhieuPhat();
             dgvPhieuPhat.ReadOnly = true;
 
+            dgvPhieuPhat.Columns[0].HeaderText = "Mã Phiếu Phạt";
+            dgvPhieuPhat.Columns[1].HeaderText = "Mã Nhân Viên";
+            dgvPhieuPhat.Columns[2].HeaderText = "Mã Phiếu Mượn";
+            dgvPhieuPhat.Columns[3].HeaderText = "Số Sách Quá Hạn";
+            dgvPhieuPhat.Columns[4].HeaderText = "Số Ngày Quá Hạn";
+            dgvPhieuPhat.Columns[5].HeaderText = "Số Tiền Phạt";
+
             //btnXemChiTietPhieuTra.Visible = true;
             //btnXoaPhieuTra.Visible = true;
 
@@ -1884,6 +1962,8 @@ namespace GUI_QuanLy
             BUS_Phieu busPhieu = new BUS_Phieu();
             dgvPhieuNhacNho.DataSource = busPhieu.XemPhieuNhacNho();
             dgvPhieuNhacNho.ReadOnly = false;
+            dgvPhieuNhacNho.Columns[0].HeaderText = "Mã Độc Giả ";
+            dgvPhieuNhacNho.Columns[1].HeaderText = "Số Lần Vi Phạm";
 
         }
         bool checkThemPhieuPhat = true;
@@ -1932,7 +2012,7 @@ namespace GUI_QuanLy
             pnThongKe.Visible = false;
             panelQuanTriAdmin.Visible = false;
             panelQLSach.Visible = false;
-            this.panelReport.Location = new System.Drawing.Point(220, 118);
+            this.panelReport.Location = new System.Drawing.Point(217, 93);
 
         }
         ReportDocument cryRpt;
@@ -1940,18 +2020,36 @@ namespace GUI_QuanLy
         {
             cryReportViewer.Visible = true;
             cryRpt = new ReportDocument();
-            cryRpt.Load("C:\\Users\\Quyet\\Desktop\\TEMP\\QQQ2\\QQQ1\\DACK\\QuanLyThuVien\\GUI_QuanLy\\Report_TaiLieu.rpt");
-            cryReportViewer.ReportSource = cryRpt;
-            cryReportViewer.Refresh();
+            try
+            {
+                cryRpt.Load(@"C:\\Users\\Quyet\\Desktop\\Version4.2\\QuanLyThuVien\\GUI_QuanLy\\Report_TaiLieu.rpt");
+                cryReportViewer.ReportSource = cryRpt;
+                cryReportViewer.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Dữ Liệu Không Tìm Thấy !");
+                return;
+            }
+         
         }
 
         private void btnReport_TongSoDocGia_Click(object sender, EventArgs e)
         {
             cryReportViewer.Visible = true;
             cryRpt = new ReportDocument();
-            cryRpt.Load("C:\\Users\\Quyet\\Desktop\\TEMP\\QQQ2\\QQQ1\\DACK\\QuanLyThuVien\\GUI_QuanLy\\Report_DocGia.rpt");
-            cryReportViewer.ReportSource = cryRpt;
-            cryReportViewer.Refresh();
+            try
+            {
+                cryRpt.Load(@"C:\\Users\\Quyet\\Desktop\\Version4.2\\QuanLyThuVien\\GUI_QuanLy\\Report_DocGia.rpt");
+                cryReportViewer.ReportSource = cryRpt;
+                cryReportViewer.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Dữ Liệu Không Tìm Thấy !");
+                return;
+            }
+          
         }
 
         private void btnSaveReport_Click(object sender, EventArgs e)
@@ -2024,24 +2122,41 @@ namespace GUI_QuanLy
             panelDocGia.Visible = false;
             pnThongKe.Visible = false;
             panelQLSach.Visible = false;
-            this.panelQuanTriAdmin.Location = new System.Drawing.Point(220, 118);
+            this.panelQuanTriAdmin.Location = new System.Drawing.Point(217, 93);
 
             BUS_DocGia dg = new BUS_DocGia();
             dgvLoaiDocGia.DataSource = dg.LoadLoaiDocGia();
             dgvLoaiDocGia.ReadOnly = true;
-            
+
+            dgvLoaiDocGia.Columns[0].HeaderText = "Mã Độc Giả";
+            dgvLoaiDocGia.Columns[1].HeaderText = "Số Ngày Mượn Tối Đa";
+            dgvLoaiDocGia.Columns[2].HeaderText = "Số Sách Mượn Tối Đa";
+            dgvLoaiDocGia.Columns[3].HeaderText = "Tên Loại Độc Giả";
+            dgvLoaiDocGia.Columns[4].HeaderText = "Phí Thường Niên";
+
         }
 
         private void btnXoaPP_Click(object sender, EventArgs e)
         {
+            if (dgvPhieuPhat.RowCount < 2)
+            {
+                return;
+            }
             string maphieuphat = dgvPhieuPhat[0, dgvPhieuPhat.CurrentRow.Index].Value.ToString();
             BUS_Phieu p = new BUS_Phieu();
-
-            if (p.XoaPhieuPhat(maphieuphat) == 1)
+            if (MessageBox.Show(string.Format("Xác nhận xóa Phiếu Phạt {0}", maphieuphat), "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                btnXemTatCaPhieuPhat_Click(sender, e);
-                MessageBox.Show("Xóa thành công phiếu phạt " + maphieuphat);
+                if (p.XoaPhieuPhat(maphieuphat) == 1)
+                {
+                    btnXemTatCaPhieuPhat_Click(sender, e);
+                    MessageBox.Show("Xóa thành công phiếu Phạt " + maphieuphat);
+                }
+                else
+                    MessageBox.Show("Chưa Thể Xóa Phiếu Này !");
             }
+
+
+          
         }
 
         private void btnThemPhieuNhacNho_Click(object sender, EventArgs e)
@@ -2060,12 +2175,23 @@ namespace GUI_QuanLy
 
         private void btnXoaPhieuNN_Click(object sender, EventArgs e)
         {
+            if (dgvPhieuNhacNho.RowCount < 2)
+            {
+                return;
+            }
             string mdg = dgvPhieuNhacNho[0, dgvPhieuNhacNho.CurrentRow.Index].Value.ToString();
             BUS_Phieu p = new BUS_Phieu();
-
-            if (p.XoaPhieuNhacNho(mdg) == 1)
-                MessageBox.Show("Xóa thành công phiếu nhắc nhở của độc giả " + mdg);
-            btnXemTatCaPhieuNhacNho_Click(sender, e);
+            if (MessageBox.Show(string.Format("Xác nhận xóa Phiếu Nhắc Nhở Độc Giả  {0}", mdg), "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (p.XoaPhieuNhacNho(mdg) == 1)
+                {
+                    MessageBox.Show("Xóa thành công phiếu nhắc nhở của độc giả " + mdg);
+                    btnXemTatCaPhieuNhacNho_Click(sender, e);
+                }                   
+                else
+                    MessageBox.Show("Chưa Thể Xóa Phiếu Này !");
+            }
+           
         }
 
         private void cbxMaTLPM_SelectedIndexChanged(object sender, EventArgs e)
@@ -2077,23 +2203,28 @@ namespace GUI_QuanLy
         {
             cryReportViewer.Visible = true;
             cryRpt = new ReportDocument();
-            cryRpt.Load("C:\\Users\\Quyet\\Desktop\\TEMP\\QQQ2\\QQQ1\\DACK\\QuanLyThuVien\\GUI_QuanLy\\Report_SoTaiLieuMuonNhieuNhat.rpt");
-            cryReportViewer.ReportSource = cryRpt;
-            cryReportViewer.Refresh();
-        }
+            try
+            {
+                cryRpt.Load(@"C:\\Users\\Quyet\\Desktop\\Version4.2\\QuanLyThuVien\\GUI_QuanLy\\Report_SoTaiLieuMuonNhieuNhat.rpt");
+                cryReportViewer.ReportSource = cryRpt;
+                cryReportViewer.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Dữ Liệu Không Tìm Thấy !");
+                return;
 
-        private void btnChinSuaPM_Click(object sender, EventArgs e)
-        {
-            dgvPhieuMuon.ReadOnly = false;
-        }
-
-        private void btnLuuPM_Click(object sender, EventArgs e)
-        {
-
+            }
+           
         }
 
         private void btnSearchPP_Click(object sender, EventArgs e)
         {
+            if (txtSearchMaPP.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng nhập Thông Tin Tìm Kiếm !");
+                return;
+            }
             BUS_Phieu p = new BUS_Phieu();
             if (rdMaPM_PP.Checked)
             {
@@ -2107,16 +2238,31 @@ namespace GUI_QuanLy
             {
                 dgvPhieuPhat.DataSource = p.SearchPP_PP(txtSearchMaPP.Text);
             }
+            dgvPhieuPhat.Columns[0].HeaderText = "Mã Phiếu Phạt";
+            dgvPhieuPhat.Columns[1].HeaderText = "Mã Nhân Viên";
+            dgvPhieuPhat.Columns[2].HeaderText = "Mã Phiếu Mượn";
+            dgvPhieuPhat.Columns[3].HeaderText = "Số Sách Quá Hạn";
+            dgvPhieuPhat.Columns[4].HeaderText = "Số Ngày Quá Hạn";
+            dgvPhieuPhat.Columns[5].HeaderText = "Số Tiền Phạt";
         }
 
         private void btnSearchPNN_Click(object sender, EventArgs e)
         {
+            if (txtMaPNN.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng nhập Mã Độc Giả !");
+                return;
+            }
             BUS_Phieu p = new BUS_Phieu();
             dgvPhieuNhacNho.DataSource = p.SearchPNN(txtMaPNN.Text);
         }
 
         private void btnChinhSuaPNN_Click(object sender, EventArgs e)
         {
+            if (dgvPhieuNhacNho.RowCount < 2)
+            {
+                return;
+            }
             string mdg = dgvPhieuNhacNho[0, dgvPhieuNhacNho.CurrentRow.Index].Value.ToString();
             int solanvipham = Int32.Parse(dgvPhieuNhacNho[1, dgvPhieuNhacNho.CurrentRow.Index].Value.ToString());
             BUS_Phieu p = new BUS_Phieu();
@@ -2126,12 +2272,18 @@ namespace GUI_QuanLy
 
         private void btnADCNLDG_Click(object sender, EventArgs e)
         {
+            if (txtADMaLoai.Text == "" || txtADSoNM.Text == "" || txtADSSM.Text == "" || txtADTDG.Text == "" || txtADPTN.Text == "" || txtADTLDB.Text == "")
+            {
+                MessageBox.Show("Không có Dữ Liệu Vui lòng Chọn Trên Danh Sách !");
+                return;
+            }
             string MaLoaiDG = txtADMaLoai.Text;
             int SoNgayMuonToiDa = Int32.Parse(txtADSoNM.Text);
             int SoSachMuonToiDa = Int32.Parse(txtADSSM.Text);
             string TenLoaiDG = txtADTDG.Text;
             int PhiThuongNien = Int32.Parse(txtADPTN.Text);
             string TaiLieuDB = txtADTLDB.Text;
+          
             BUS_DocGia dg = new BUS_DocGia();
             dg.ADMIN_UD_LDG(MaLoaiDG, SoNgayMuonToiDa, SoSachMuonToiDa, TenLoaiDG, PhiThuongNien, TaiLieuDB);
             MessageBox.Show("Cập Nhật Loại Độc Giả Thành Công");
@@ -2140,12 +2292,18 @@ namespace GUI_QuanLy
 
         private void btnADTLDG_Click(object sender, EventArgs e)
         {
+            if (txtADMaLoai.Text == "" || txtADSoNM.Text == "" || txtADSSM.Text == "" || txtADTDG.Text == "" || txtADPTN.Text == "" || txtADTLDB.Text == "")
+            {
+                MessageBox.Show("Vui lòng Điển đầy đủ Thông Tin !");
+                return;
+            }
             string MaLoaiDG = txtADMaLoai.Text;
             int SoNgayMuonToiDa = Int32.Parse(txtADSoNM.Text);
             int SoSachMuonToiDa = Int32.Parse(txtADSSM.Text);
             string TenLoaiDG = txtADTDG.Text;
             int PhiThuongNien = Int32.Parse(txtADPTN.Text);
             string TaiLieuDB = txtADTLDB.Text;
+          
             BUS_DocGia dg = new BUS_DocGia();
             dg.ADMIN_AD_LDG(MaLoaiDG, SoNgayMuonToiDa, SoSachMuonToiDa, TenLoaiDG, PhiThuongNien, TaiLieuDB);
             MessageBox.Show("Thêm Loại Độc Giả Thành Công");
@@ -2153,7 +2311,7 @@ namespace GUI_QuanLy
         }
 
         private void dgvLoaiDocGia_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {          
             txtADMaLoai.Text = dgvLoaiDocGia[0, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
             txtADSoNM.Text = dgvLoaiDocGia[1, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
             txtADSSM.Text = dgvLoaiDocGia[2, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
@@ -2174,7 +2332,7 @@ namespace GUI_QuanLy
                 dgvNhanVien.Columns[2].HeaderText = "Tên Đăng Nhập";
                 dgvNhanVien.Columns[4].HeaderText = "Họ Tên";
                 dgvNhanVien.Columns[5].HeaderText = "Login Gần Nhất";
-                dgvNhanVien.Columns[6].HeaderText = "Loại Nhân Viên";
+                dgvNhanVien.Columns[6].HeaderText = "Loại Nhân Viên";                
                 dgvNhanVien.ReadOnly = true;
             }
 

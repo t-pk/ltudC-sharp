@@ -51,9 +51,19 @@ namespace BUS_QuanLy
             return dal_Phieu.SoSachMuonToiDa(maDocGia);
         }
 
+       public int SoSachDangMuon(string maDocGia)
+       {
+           return dal_Phieu.SoSachDangMuon(maDocGia);
+       }
+
        public int SoLanViPham(string maDocGia)
        {
            return dal_Phieu.SoLanViPham(maDocGia);
+       }
+
+       public bool KiemTraMuonTaiLieuDacBiet(string maDocGia, string maTaiLieu)
+       {
+           return dal_Phieu.KiemTraMuonTaiLieuDacBiet(maDocGia, maTaiLieu);
        }
 
         // Phiếu Trả
@@ -85,6 +95,20 @@ namespace BUS_QuanLy
             return dal_Phieu.getMaPhieuMuon();
         }
 
+       public int LaySoNgayQuaHan(string maPhieuMuon)
+       {
+           return dal_PhieuTra.LaySoNgayQuaHan(maPhieuMuon);
+       }
+
+       public int LaySoSachCuaPM(string maPhieuMuon)
+       {
+           return dal_PhieuTra.LaySoSachCuaPM(maPhieuMuon);
+       }
+
+       public int LaySoLanViPhamCuaPhieuMuon(string maPhieuMuon)
+       {
+           return dal_PhieuTra.LaySoLanViPhamCuaPhieuMuon(maPhieuMuon);
+       }
 
        public string LayMaChiTietPhieuMuonTiepTheo()
        {
