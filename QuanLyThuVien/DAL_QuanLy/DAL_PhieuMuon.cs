@@ -9,6 +9,7 @@ namespace DAL_QuanLy
 {
     public class DAL_PhieuMuon : DBConnect 
     {
+        // PHIẾU MƯỢN
         public DataTable XemTatCaPhieuMuon()
         {
             string strSql = "exec usp_XemPhieuMuon";
@@ -19,7 +20,7 @@ namespace DAL_QuanLy
             return dt;
 
         }
-
+        // chưa có proc thêm phiếu mượn
         public int ThemPhieuMuon(DTO_PhieuMuon DTO)
         {
             string strSql = "usp_ThemPhieuMuon";
@@ -66,21 +67,7 @@ namespace DAL_QuanLy
             return p.Value.ToString();
         }
 
-        public string LayMaDocGiaDePhat(string maPhieuMuon)
-        {
-            string strSql = "usp_LayMaDocGiaDePhat";
-            DBConnect provider = new DBConnect();
-            provider.Connect();
 
-            SqlParameter p = new SqlParameter("@MaDocGia", SqlDbType.NVarChar, 100);
-            p.Direction = ParameterDirection.Output;
-
-            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-                new SqlParameter { ParameterName = "@MaPhieuMuon", Value = maPhieuMuon }, p);
-
-            provider.Disconnect();
-            return p.Value.ToString();
-        }
 
         public string getMaChiTietPhieuMuon()
         {
@@ -97,6 +84,7 @@ namespace DAL_QuanLy
             return p.Value.ToString();
         }
 
+        // chưa có proc xem chi tiết phiếu mượn
         public DataTable XemChiTietPhieuMuon(string maPhieuMuon)
         {
             string strSql = "exec usp_xemChiTietPhieuMuon " + maPhieuMuon;
@@ -129,7 +117,7 @@ namespace DAL_QuanLy
             DBConnect.Disconnect();
             return dt;
         }
-
+        // chưa có proc xóa phiếu mượn
         public bool XoaPhieuMuon(string maPhieuMuon)
         {
             try
@@ -206,6 +194,7 @@ namespace DAL_QuanLy
                 return false;
         }
 
+
         public int SoSachDangMuon(string maDocGia)
         {
             string strSql = "usp_SoSachDangMuon";
@@ -222,6 +211,8 @@ namespace DAL_QuanLy
             return Int32.Parse(p.Value.ToString());
         }
 
+
+
         public int SoLanViPham(string maDocGia)
         {
             string strSql = "usp_SoLanViPham";
@@ -236,21 +227,6 @@ namespace DAL_QuanLy
 
             provider.Disconnect();
             return Int32.Parse(p.Value.ToString());
-        }
-
-        public void UpdatePhieuMuon(DTO_PhieuMuon PM)
-        {
-            string strSql = "usp_CapNhatPhieuMuon";
-            DBConnect provider = new DBConnect();
-            provider.Connect();
-
-            provider.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
-                new SqlParameter { ParameterName = "@MaCTPM", Value = PM.MaCTPM },
-                new SqlParameter { ParameterName = "@MaTaiLieu", Value = PM.MaTaiLieuMuon },
-                new SqlParameter { ParameterName = "@MaTaiLieuCu", Value = PM.MaTaiLieuCu },
-                new SqlParameter { ParameterName = "@MaPhieuMuon", Value = PM.MaPhieuMuon });
-
-            provider.Disconnect();
         }
     }
 }

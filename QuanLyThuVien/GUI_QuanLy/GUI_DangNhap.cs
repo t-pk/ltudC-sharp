@@ -96,8 +96,7 @@ namespace GUI_QuanLy
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string username = txtUSER.Text;
-            string salt = "QUYETDAICA1997";
-            string password = EncodeSHA1(txtPASS.Text + salt);
+            string password = EncodeSHA1(txtPASS.Text);
             string NameUser = busDangNhap.getNameUser_Login(username, password);
             string Quyen = busDangNhap.getPermissionUser_Login(username, password);
             string p = busDangNhap._Login(username, password);

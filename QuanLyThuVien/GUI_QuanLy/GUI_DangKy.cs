@@ -95,8 +95,7 @@ namespace GUI_QuanLy
             {
                 string hotennv = txtHoTenNVDangKy.Text;
                 string user = txtUserNVDangKy.Text;
-                string salt = "QUYETDAICA1997";
-                string pass = EncodeSHA1(txtPassNVDangKy.Text + salt);
+                string pass = EncodeSHA1(txtPassNVDangKy.Text);
                 string loai = "";
                 string ca = "";
                 if (rdAdminDangKy.Checked == true)

@@ -12,7 +12,6 @@ namespace DTO_QuanLy
         private string maTaiLieuMuon;
         private string maPhieuMuon;
         private string maCTPM;
-        private string maTaiLieuCu;
 
         /* ======== GETTER/SETTER ======== */
 
@@ -82,19 +81,6 @@ namespace DTO_QuanLy
             }
         }
 
-        public string MaTaiLieuCu
-        {
-            get
-            {
-                return maTaiLieuCu;
-            }
-
-            set
-            {
-                maTaiLieuCu = value;
-            }
-        }
-
         /* === Constructor === */
         public DTO_PhieuMuon()
         {
@@ -106,14 +92,6 @@ namespace DTO_QuanLy
             this.MaTaiLieuMuon = maTL_PMuon;
             this.MaPhieuMuon = ma_PhieuMuon;
             this.MaCTPM = ma_CTPM;
-        }
-
-        public DTO_PhieuMuon(string maCTPM, string maTaiLieu, string maTaiLieuCu, string maPhieuMuon)
-        {
-            this.MaCTPM = maCTPM;
-            this.MaTaiLieuMuon = maTaiLieu;
-            this.MaTaiLieuCu = maTaiLieuCu;
-            this.MaPhieuMuon = maPhieuMuon;
         }
 
      
