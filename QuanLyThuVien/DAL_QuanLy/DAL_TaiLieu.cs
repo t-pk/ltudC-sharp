@@ -60,8 +60,8 @@ namespace DAL_QuanLy
             dt = db.Select(CommandType.Text, strSql1);
             if (dt.Rows.Count > 1)
             {
-                int maxSlNo = int.Parse(dt.Rows[dt.Rows.Count - 1]["STT"].ToString());
-                maxSlNo = 1;
+                //int maxSlNo = int.Parse(dt.Rows[dt.Rows.Count - 1]["STT"].ToString());
+                int maxSlNo = 1;
                 foreach (DataRow dtRow in dt.Rows)
                 {
                     dtRow["STT"] = maxSlNo;
@@ -160,7 +160,8 @@ namespace DAL_QuanLy
             DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
             new SqlParameter { ParameterName = "@TenTaiLieu", Value = dTO_TL._tenTL },
             new SqlParameter { ParameterName = "@LoaiTaiLieu", Value = dTO_TL._loaiTL },
-            new SqlParameter { ParameterName = "@SoLuong", Value = dTO_TL._soLuong });
+            new SqlParameter { ParameterName = "@SoLuong", Value = dTO_TL._soLuong },
+            new SqlParameter { ParameterName = "@DacBiet", Value = dTO_TL._tLDacBiet });
             DBConnect.Disconnect();
         }
         public DataTable xemChiTietTaiLieu(string maTL)
@@ -205,7 +206,8 @@ namespace DAL_QuanLy
             new SqlParameter { ParameterName = "@MaTaiLieu", Value = dTO_TL._maTL },
             new SqlParameter { ParameterName = "@TenTaiLieu", Value = dTO_TL._tenTL },
             new SqlParameter { ParameterName = "@LoaiTaiLieu", Value = dTO_TL._loaiTL },
-            new SqlParameter { ParameterName = "@SoLuong", Value = dTO_TL._soLuong });
+            new SqlParameter { ParameterName = "@SoLuong", Value = dTO_TL._soLuong },
+            new SqlParameter { ParameterName = "@DacBiet", Value = dTO_TL._tLDacBiet });
             DBConnect.Disconnect();
 
         }

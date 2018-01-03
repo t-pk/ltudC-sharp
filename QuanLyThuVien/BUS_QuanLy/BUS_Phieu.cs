@@ -61,9 +61,20 @@ namespace BUS_QuanLy
            return dal_Phieu.SoLanViPham(maDocGia);
        }
 
+
+       public string LayMaDocGiaDePhat(string maPhieuMuon)
+       {
+           return dal_Phieu.LayMaDocGiaDePhat(maPhieuMuon);
+       }
+
        public bool KiemTraMuonTaiLieuDacBiet(string maDocGia, string maTaiLieu)
        {
            return dal_Phieu.KiemTraMuonTaiLieuDacBiet(maDocGia, maTaiLieu);
+       }
+
+       public void UpdatePhieuMuon(DTO_PhieuMuon PM)
+       {
+           dal_Phieu.UpdatePhieuMuon(PM);
        }
 
         // Phiếu Trả
