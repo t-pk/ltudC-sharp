@@ -41,12 +41,7 @@ namespace GUI_QuanLy
             {
                 // Phải using System.Drawing;
                 Point change = Point.Subtract(Cursor.Position, new Size(dragCursor));
-                Point newpos = Point.Add(dragForm, new Size(change));
-                // QUyết định có cho form chui ra ngoài màn hình không
-                if (newpos.X < 0) newpos.X = 0;
-                if (newpos.Y < 0) newpos.Y = 0;
-                if (newpos.X + this.Width > wid) newpos.X = wid - this.Width;
-                if (newpos.Y + this.Height > hei) newpos.Y = hei - this.Height;
+                Point newpos = Point.Add(dragForm, new Size(change));              
                 this.Location = newpos;
             }
         }
@@ -95,7 +90,8 @@ namespace GUI_QuanLy
             {
                 string hotennv = txtHoTenNVDangKy.Text;
                 string user = txtUserNVDangKy.Text;
-                string pass = EncodeSHA1(txtPassNVDangKy.Text);
+                string salt = "QUYETDAICA1997";
+                string pass = EncodeSHA1(txtPassNVDangKy.Text + salt);
                 string loai = "";
                 string ca = "";
                 if (rdAdminDangKy.Checked == true)

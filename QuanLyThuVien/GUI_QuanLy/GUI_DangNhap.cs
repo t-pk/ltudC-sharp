@@ -46,12 +46,7 @@ namespace GUI_QuanLy
             {
                 // Phải using System.Drawing;
                 Point change = Point.Subtract(Cursor.Position, new Size(dragCursor));
-                Point newpos = Point.Add(dragForm, new Size(change));
-                // QUyết định có cho form chui ra ngoài màn hình không
-                if (newpos.X < 0) newpos.X = 0;
-                if (newpos.Y < 0) newpos.Y = 0;
-                if (newpos.X + this.Width > wid) newpos.X = wid - this.Width;
-                if (newpos.Y + this.Height > hei) newpos.Y = hei - this.Height;
+                Point newpos = Point.Add(dragForm, new Size(change));               
                 this.Location = newpos;
             }
         }
@@ -96,7 +91,8 @@ namespace GUI_QuanLy
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string username = txtUSER.Text;
-            string password = EncodeSHA1(txtPASS.Text);
+            string salt = "QUYETDAICA1997";
+            string password = EncodeSHA1(txtPASS.Text + salt);
             string NameUser = busDangNhap.getNameUser_Login(username, password);
             string Quyen = busDangNhap.getPermissionUser_Login(username, password);
             string p = busDangNhap._Login(username, password);

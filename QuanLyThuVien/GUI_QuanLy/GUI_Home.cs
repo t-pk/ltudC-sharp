@@ -28,7 +28,7 @@ namespace GUI_QuanLy
         BUS_NhanVien busUP = new BUS_NhanVien();
         BUS_TaiLieu TL = new BUS_TaiLieu();
 
-
+        public string pathReport = @"C:\\Users\\Windows 8.1 Ultimate\\Desktop\\QLTV_Offical\\QuanLyThuVien\\GUI_QuanLy\\";
         /*
          * PHẦN XỬ LÝ GIAO DIỆN FORM
          */
@@ -173,7 +173,7 @@ namespace GUI_QuanLy
                         }
                         catch
                         {
-                            //MessageBox.Show("Hãy chọn lại Ảnh !");
+                            MessageBox.Show("Hãy chọn lại Ảnh !");
                         }
 
                         ptB_AnhNhanVien.ImageLocation = @"" + maNVHienTai + ".png";
@@ -243,12 +243,7 @@ namespace GUI_QuanLy
             {
                 // Phải using System.Drawing;
                 Point change = Point.Subtract(Cursor.Position, new Size(dragCursor));
-                Point newpos = Point.Add(dragForm, new Size(change));
-                // QUyết định có cho form chui ra ngoài màn hình không
-                if (newpos.X < 0) newpos.X = 0;
-                if (newpos.Y < 0) newpos.Y = 0;
-                if (newpos.X + this.Width > wid) newpos.X = wid - this.Width;
-                if (newpos.Y + this.Height > hei) newpos.Y = hei - this.Height;
+                Point newpos = Point.Add(dragForm, new Size(change));             
                 this.Location = newpos;
             }
         }
@@ -305,6 +300,7 @@ namespace GUI_QuanLy
             }
             // Tìm mã Độc Giả Tiếp theo để Thêm Mới
             txtMaDG.Text = busDocGia.TimMaDocGiaTiepTheo();
+            Hide_ChiTietDG();
         }
 
         private void lbTittle_Click(object sender, EventArgs e)
@@ -327,6 +323,9 @@ namespace GUI_QuanLy
 
         private void frmHome_Load(object sender, EventArgs e)
         {
+            Hide_ChiTietTaiLieu();
+
+            txtCapNhatCTPM.Hide();
             lbDanhSachSachTraHide.Hide();
             dgvDGSearch.RowHeadersVisible = false;
             dgvNhanVien.RowHeadersVisible = false;
@@ -412,7 +411,7 @@ namespace GUI_QuanLy
             txtMSSVDG.Show();
             lblMSSVDangKy.Show();
             txtMSCBDG.Hide();
-            txtCMNDDG.Hide();
+            //txtCMNDDG.Hide();
             lblMSCBDangKy.Hide();
         }
 
@@ -421,7 +420,7 @@ namespace GUI_QuanLy
             txtMSCBDG.Show();
             lblMSCBDangKy.Show();
             txtMSSVDG.Hide();
-            txtCMNDDG.Hide();
+            //txtCMNDDG.Hide();
             lblMSSVDangKy.Hide();
         }
 
@@ -570,13 +569,16 @@ namespace GUI_QuanLy
                         string manv = txtSearchPhieuMuon.Text;
                         string hotennv = txtHoTenNVCapNhat.Text;
                         string tendangnhapnv = txtTenDangNhapNVCapNhat.Text;
-                        string mkhaudangnhapnv = EncodeSHA1(txtMatKhauNVCapNhat.Text);
+                        string salt = "QUYETDAICA1997";
+                        string mkhaudangnhapnv = EncodeSHA1(txtMatKhauNVCapNhat.Text + salt);
                         string catruc = txtCaTrucNVCapNhat.Text;
                         string loai = "";
                         if (rdAdminCapNhat.Checked == true)
                             loai = "AD";
                         else if (rdThuThuCapNhat.Checked == true)
+                        {
                             loai = "TT";
+                        }
 
 
                         // Tạo DTo
@@ -736,6 +738,7 @@ namespace GUI_QuanLy
 
         private void btnSearchDocGia_Click(object sender, EventArgs e)
         {
+           
             BUS_DocGia busDocGia = new BUS_DocGia();
             btnLuu.Hide();
             btnHuy.Hide();
@@ -783,7 +786,7 @@ namespace GUI_QuanLy
                 }
                 else if (rdHoTenSearch.Checked == true)
                 {
-                    strSql = "exec usp_TimKiemDocGiaTheoHoTen '" + Search + "'";
+                    strSql = "exec usp_TimKiemDocGiaTheoHoTen N'" + Search + "'";
                 }
 
                 dgvDGSearch.DataSource = busDocGia.SearchDocGiaTheoTieuChi(strSql);
@@ -792,7 +795,7 @@ namespace GUI_QuanLy
                 dgvDGSearch.Columns[0].HeaderText = "Mã Độc Giả";
                 dgvDGSearch.Columns[1].HeaderText = "Họ Tên";
                 dgvDGSearch.Columns[3].HeaderText = "Loại Độc Giả";
-
+                Hide_ChiTietDG();
             }
 
         }
@@ -841,6 +844,7 @@ namespace GUI_QuanLy
 
         private void btnXemAllDocGia_Click(object sender, EventArgs e)
         {
+            Hide_ChiTietDG();
             BUS_DocGia busDocGia = new BUS_DocGia();
             btnLuu.Hide();
             btnHuy.Hide();
@@ -863,29 +867,149 @@ namespace GUI_QuanLy
             dgvDGSearch.Columns[3].HeaderText = "Loại Độc Giả";
 
         }
+        void ReadOnly_ChiTietDG() {
 
+            rdCTCB_DG.Enabled = false;
+            rdCTKhach_DG.Enabled = false;
+            rdCTSV_DG.Enabled = false;
+            dtkCTNgaySinhDG.Enabled = false;
+
+            txtCTCMNDDG.ReadOnly = true;
+            txtCTDiaChiDG.ReadOnly = true;
+            txtCTEmailDG.ReadOnly = true;
+            txtCTMaDG.ReadOnly = true;
+            txtCTMSCB_DG.ReadOnly = true;
+            txtCTMSSV_DG.ReadOnly = true;
+            txtCTPhoneDG.ReadOnly = true;
+            txtCTTenDG.ReadOnly = true;
+
+        }
+        void UnReadOnly_ChiTietDG()
+        {
+            rdCTCB_DG.Enabled = true;
+            rdCTKhach_DG.Enabled = true;
+            rdCTSV_DG.Enabled = true;
+            dtkCTNgaySinhDG.Enabled = true;
+
+            txtCTCMNDDG.ReadOnly = false;
+            txtCTDiaChiDG.ReadOnly = false;
+            txtCTEmailDG.ReadOnly = false;
+            txtCTMaDG.ReadOnly = true;
+            txtCTMSCB_DG.ReadOnly = false;
+            txtCTMSSV_DG.ReadOnly = false;
+            txtCTPhoneDG.ReadOnly = false;
+            txtCTTenDG.ReadOnly = false;
+        }
+        void Hide_ChiTietDG()
+        {
+
+            lbCTCMNDDG.Hide();
+            lbCTDiaChiDG.Hide();
+            lbCTEmailDG.Hide();
+            lbCTLoaiDG.Hide();
+            lbCTMaDG.Hide();
+            lbCTNgaySinhDG.Hide();
+            lbCTPhoneDG.Hide();
+            lbCTTenDG.Hide();
+            lbCTMSCB_DG.Hide();
+            lbCTMSSV_DG.Hide();
+
+            rdCTCB_DG.Hide();
+            rdCTKhach_DG.Hide();
+            rdCTSV_DG.Hide();
+
+            dtkCTNgaySinhDG.Hide();
+
+            txtCTCMNDDG.Hide();
+            txtCTDiaChiDG.Hide();
+            txtCTEmailDG.Hide();
+            txtCTMaDG.Hide();
+            txtCTMSCB_DG.Hide();
+            txtCTMSSV_DG.Hide();
+            txtCTPhoneDG.Hide();
+            txtCTTenDG.Hide();
+
+            dgvDGSearch.Show();
+        }
+        void Show_ChiTietDG()
+        {
+
+            lbCTCMNDDG.Show();
+            lbCTDiaChiDG.Show();
+            lbCTEmailDG.Show();
+            lbCTLoaiDG.Show();
+            lbCTMaDG.Show();
+            lbCTNgaySinhDG.Show();
+            lbCTPhoneDG.Show();
+            lbCTTenDG.Show();
+            lbCTMSCB_DG.Show();
+            lbCTMSSV_DG.Show();
+
+            rdCTCB_DG.Show();
+            rdCTKhach_DG.Show();
+            rdCTSV_DG.Show();
+
+            dtkCTNgaySinhDG.Show();
+
+            txtCTCMNDDG.Show();
+            txtCTDiaChiDG.Show();
+            txtCTEmailDG.Show();
+            txtCTMaDG.Show();
+            txtCTMSCB_DG.Show();
+            txtCTMSSV_DG.Show();
+            txtCTPhoneDG.Show();
+            txtCTTenDG.Show();
+
+            dgvDGSearch.Hide();
+        }
         private void btnXemChiTiet_Click(object sender, EventArgs e)
         {
             BUS_DocGia busDocGia = new BUS_DocGia();
-            // lấy mã độc giả
+            DataGridView dgvTemp = new DataGridView();
             string secondCellValue = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
             //dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvDGSearch.DataSource = busDocGia.XemChiTietDocGia(secondCellValue);
 
+            string loai = dgvDGSearch[9, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();          
+            if (loai == "K")
+            {
+                rdCTKhach_DG.Checked = true;
+                rdCTKhach_DG_CheckedChanged(sender, e);
+            }
+               
+            if (loai == "SV")
+            {
+                rdCTSV_DG_CheckedChanged(sender, e);
+                rdCTSV_DG.Checked = true;
+            }
+                
+            if (loai == "CBNV")
+            {
+                rdCTCB_DG_CheckedChanged(sender, e);
+                rdCTCB_DG.Checked = true;
+            }
+               
 
 
-            dgvDGSearch.Columns[0].HeaderText = "Mã Độc Giả";
-            dgvDGSearch.Columns[1].HeaderText = "Họ Tên";
-            dgvDGSearch.Columns[2].HeaderText = "Ngày Sinh";
-            dgvDGSearch.Columns[3].HeaderText = "Địa Chỉ";
-            dgvDGSearch.Columns[4].HeaderText = "Số Điện Thoại";
-            dgvDGSearch.Columns[9].HeaderText = "Loại Độc Giả";
+            dtkCTNgaySinhDG.Text = dgvDGSearch[2, dgvDGSearch.CurrentRow.Index].Value.ToString();
+
+            txtCTCMNDDG.Text = dgvDGSearch[6, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();
+            txtCTDiaChiDG.Text = dgvDGSearch[3, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();
+            txtCTEmailDG.Text = dgvDGSearch[5, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();
+            txtCTMaDG.Text = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();
+            txtCTMSCB_DG.Text = dgvDGSearch[8, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();
+            txtCTMSSV_DG.Text = dgvDGSearch[7, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();
+            txtCTPhoneDG.Text = dgvDGSearch[4, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();
+            txtCTTenDG.Text = dgvDGSearch[1, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();
+            Show_ChiTietDG();
 
             btnXemChiTiet.Hide();
             btnXoaDocGia.Hide();
             btnLapPhieMuon.Hide();
             btnLapPhieuCanhCao.Hide();
             btnLapPhieuTra.Hide();
+
+            ReadOnly_ChiTietDG();
 
             btnHuy.Show();
             btnLuu.Show();
@@ -895,51 +1019,126 @@ namespace GUI_QuanLy
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            ReadOnly_ChiTietDG();
+            //BUS_DocGia busDocGia = new BUS_DocGia();
+            //try
+            //{
+            //    string madocgia = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
+            //    string hoten = dgvDGSearch[1, dgvDGSearch.CurrentCell.RowIndex].Value.ToString().ToUpper();
+            //    string ngaysinh = dgvDGSearch[2, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
+            //    if (CheckDate(ngaysinh) == false)
+            //    {
+            //        MessageBox.Show("Vui lòng Nhập lại Ngày Sinh !");
+            //        return;
+            //    }
+            //    try
+            //    {
+            //        // convert dữ liệu từ datetime 
+            //        DateTime dt2 = Convert.ToDateTime(ngaysinh);
+            //        ngaysinh = dt2.ToString("yyyy-MM-dd");
+            //    }
+            //    catch
+            //    {
+            //        MessageBox.Show("Vui lòng Nhập lại Ngày Sinh !");
+            //        return;
+            //    }
+            //    string diachi = dgvDGSearch[3, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
+            //    string sdt = dgvDGSearch[4, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
+            //    string email = dgvDGSearch[5, dgvDGSearch.CurrentCell.RowIndex].Value.ToString().ToUpper();
+            //    string cmnd = dgvDGSearch[6, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
+            //    string mssv = dgvDGSearch[7, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
+            //    string mcb = dgvDGSearch[8, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
+            //    string loai = dgvDGSearch[9, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
+
+            //    //string[] ns = ngaysinh.Split(' ');
+
+            //    DTO_DocGia DTO_DocGia = new DTO_DocGia(madocgia, hoten, ngaysinh, diachi, sdt, email, cmnd, mssv, mcb, loai);
+            //    busDocGia.CapNhatDocGia(DTO_DocGia);
+
+            //    MessageBox.Show("Cập Nhật Độc Giả Thành Công!!!");
+            //    btnHuy.Text = "Thoát";
+            //}
+            //catch (SqlException ex)
+            //{
+            //    MessageBox.Show("Cập Nhật Thất Bại :(");
+            //    MessageBox.Show("Cập Nhật Thất Bại :(" + ex.ToString());
+            //    return;
+            //    throw ex;
+            //}
             BUS_DocGia busDocGia = new BUS_DocGia();
             try
             {
-                string madocgia = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString();
-                string hoten = dgvDGSearch[1, dgvDGSearch.CurrentCell.RowIndex].Value.ToString().ToUpper();
-                string ngaysinh = dgvDGSearch[2, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
-                if (CheckDate(ngaysinh) == false)
+               
+                string tendocgia = txtCTTenDG.Text;
+                string ngaysinh = "";
+                string diachi = txtCTDiaChiDG.Text;
+                string sdt = txtCTPhoneDG.Text;
+                string email = txtCTEmailDG.Text;
+                string cmnd = txtCTCMNDDG.Text;
+                string mscb = txtCTMSCB_DG.Text;
+                string mssv = txtCTMSSV_DG.Text;
+
+                ngaysinh = dtkCTNgaySinhDG.Value.ToString();
+                // convert dữ liệu từ datetime picker
+                DateTime dt2 = Convert.ToDateTime(ngaysinh);
+                ngaysinh = dt2.ToString("yyyy-MM-dd");
+
+                string loai;
+                if (rdCTSV_DG.Checked == true)
+                    loai = "SV";
+                else if (rdCTCB_DG.Checked == true)
+                    loai = "CBNV";
+                else
+                    loai = "K";
+
+                if (tendocgia == "" || ngaysinh == "" || diachi == "" || sdt == "" || email == "")
                 {
-                    MessageBox.Show("Vui lòng Nhập lại Ngày Sinh !");
+                    MessageBox.Show("Vui lòng điền đủ thông tin trước khi Thêm Độc Giả!");
                     return;
                 }
-                try
+                if (cmnd == "" && mscb == "" && mssv == "")
                 {
-                    // convert dữ liệu từ datetime 
-                    DateTime dt2 = Convert.ToDateTime(ngaysinh);
-                    ngaysinh = dt2.ToString("yyyy-MM-dd");
-                }
-                catch
-                {
-                    MessageBox.Show("Vui lòng Nhập lại Ngày Sinh !");
+                    MessageBox.Show("Vui lòng chọn Loại Độc Giả !");
                     return;
                 }
-                string diachi = dgvDGSearch[3, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
-                string sdt = dgvDGSearch[4, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
-                string email = dgvDGSearch[5, dgvDGSearch.CurrentCell.RowIndex].Value.ToString().ToUpper();
-                string cmnd = dgvDGSearch[6, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
-                string mssv = dgvDGSearch[7, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
-                string mcb = dgvDGSearch[8, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
-                string loai = dgvDGSearch[9, dgvDGSearch.CurrentCell.RowIndex].Value.ToString();
+                if (rdCTSV_DG.Checked == false && rdCTCB_DG.Checked == false && rdCTKhach_DG.Checked == false)
+                {
+                    MessageBox.Show("Vui lòng chọn Loại Độc Giả !");
+                    return;
+                }
+                if ((CheckNumber(cmnd) == false || cmnd == "") && rdCTKhach_DG.Checked == true)
+                {
+                    MessageBox.Show("Vui lòng nhập lại Số CMND !");
+                    return;
+                }
+                if (mssv == "" && rdCTSV_DG.Checked == true)
+                {
+                    MessageBox.Show("Vui lòng nhập lại MSSV !");
+                    return;
+                }
+                if (mscb == "" && rdCTCB_DG.Checked == true)
+                {
+                    MessageBox.Show("Vui lòng nhập lại Mã Số CB !");
+                    return;
+                }
+                if (CheckNumber(sdt) == false)
+                {
+                    MessageBox.Show("Vui lòng Nhập lại Số Điện Thoại!");
+                    return;
+                }
 
-                //string[] ns = ngaysinh.Split(' ');
-
-                DTO_DocGia DTO_DocGia = new DTO_DocGia(madocgia, hoten, ngaysinh, diachi, sdt, email, cmnd, mssv, mcb, loai);
-                busDocGia.CapNhatDocGia(DTO_DocGia);
-
+                DTO_DocGia DTO = new DTO_DocGia(txtCTMaDG.Text, tendocgia, ngaysinh, diachi, sdt, email, cmnd, mssv, mscb, loai);
+                busDocGia.CapNhatDocGia(DTO);
                 MessageBox.Show("Cập Nhật Độc Giả Thành Công!!!");
                 btnHuy.Text = "Thoát";
             }
             catch (SqlException ex)
             {
                 MessageBox.Show("Cập Nhật Thất Bại :(");
-                MessageBox.Show("Cập Nhật Thất Bại :(" + ex.ToString());
                 return;
                 throw ex;
             }
+
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -952,16 +1151,19 @@ namespace GUI_QuanLy
             btnHuy.Hide();
             btnLuu.Hide();
             btnChinhSua.Hide();
+            Hide_ChiTietDG();
 
             dgvDGSearch.DataSource = null;
             // load lại danh sách
             btnXemAllDocGia_Click(sender, e);
+            ReadOnly_ChiTietDG();
         }
 
         private void btnChinhSua_Click(object sender, EventArgs e)
         {
             dgvDGSearch.ReadOnly = false;
             dgvDGSearch.Columns[0].ReadOnly = true;
+            UnReadOnly_ChiTietDG();
 
         }
 
@@ -983,6 +1185,21 @@ namespace GUI_QuanLy
         {
             string maDocGia = dgvDGSearch[0, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();
             string tenDG = dgvDGSearch[1, dgvDGSearch.CurrentRow.Index].Value.ToString();
+            string loaiDG = dgvDGSearch[3, dgvDGSearch.CurrentRow.Index].Value.ToString().Trim();     
+            BUS_DocGia busDG = new BUS_DocGia();
+            if (busDG.GetNgayHetHan(maDocGia) == false)
+            {
+                if (MessageBox.Show(string.Format("Vui Lòng Đóng Phí Để Có Thể Mượn Tài Liệu !"), "Bạn Chưa Đóng Phí ! ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    MessageBox.Show(string.Format("Đóng Lệ Phí Thành Công !"));
+                    busDG.UpdateNgayHetHan(maDocGia, loaiDG);
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             BUS_Phieu p = new BUS_Phieu();
             int slvp = p.SoLanViPham(maDocGia);
             int sosachdangmuon = Int32.Parse(p.SoSachDangMuon(maDocGia).ToString());
@@ -1034,7 +1251,8 @@ namespace GUI_QuanLy
          */
 
         private void btnPanelSach_Click(object sender, EventArgs e)
-        { 
+        {
+            Hide_ChiTietTaiLieu();
             panelQuanTriAdmin.Visible = false;
             panelQLSach.Visible = true;
             panelDocGia.Visible = false;
@@ -1072,7 +1290,7 @@ namespace GUI_QuanLy
         
         private void btnXemTheoLoai_Click(object sender, EventArgs e)
         {
-
+            Hide_ChiTietTaiLieu();
 
             string loaitl = cbxLoaiTaiLieu.Text;
 
@@ -1107,6 +1325,7 @@ namespace GUI_QuanLy
 
         private void btnSearchTaiLieu_Click(object sender, EventArgs e)
         {
+            Hide_ChiTietTaiLieu();
             if (rdTimTLCoBan.Checked == true)
             {
                 string matl = txtSearchTaiLieu.Text;
@@ -1194,6 +1413,11 @@ namespace GUI_QuanLy
                 string tentailieu = txtTenTL.Text;
                 string loaitailieu = txtLoaiTL.Text;
                 string soluongtailieu = txtSoLuongTL.Text;
+                string tldb;
+                if (ckbTLDB.Checked)
+                    tldb = "True";
+                else
+                    tldb = "False";
                 if (tentailieu == "" || loaitailieu == "" || soluongtailieu == "")
                 {
                     MessageBox.Show("Vui lòng điền đủ thông tin trước khi Thêm Tài Liệu !");
@@ -1207,7 +1431,7 @@ namespace GUI_QuanLy
 
                 else
                 {
-                    DTO_TaiLieu dto = new DTO_TaiLieu(tentailieu, loaitailieu, soluongtailieu);
+                    DTO_TaiLieu dto = new DTO_TaiLieu(tentailieu, loaitailieu, soluongtailieu, tldb);
                     busTL.ThemTaiLieuMoi(dto);
                     MessageBox.Show("Thêm Tài Liệu Thành Công!!!");
                 }
@@ -1225,8 +1449,46 @@ namespace GUI_QuanLy
             txtMaTL.Text = busTL.TimMaTLTiepTheo();
 
         }
+        void Hide_ChiTietTaiLieu()
+        {
+            lbCTMaTL.Hide();
+            lbCTSoLuongTL.Hide();
+            lbCTTenTaiLieu.Hide();
+            lbCTLoaiTaiLieu.Hide();
+            cbxCTTLDB.Hide();
+
+            txtCTMaTaiLieu.Hide();
+            txtCTSoLuongTL.Hide();
+            txtCTTenTaiLieu.Hide();
+            cbbCTLoaiTL.Hide();
+
+            dgvSearchTaiLieu.Show();
+
+        }
+        void Show_ChiTietTaiLieu()
+        {
+            lbCTMaTL.Show();
+            lbCTSoLuongTL.Show();
+            lbCTTenTaiLieu.Show();
+            lbCTLoaiTaiLieu.Show();
+
+            cbxCTTLDB.Show();
+            txtCTMaTaiLieu.Show();
+            txtCTSoLuongTL.Show();
+            txtCTTenTaiLieu.Show();
+            cbbCTLoaiTL.Show();
+
+            BUS_TaiLieu tl = new BUS_TaiLieu();
+            cbbCTLoaiTL.DataSource = tl.LoadTheLoaiTaiLieu();
+            cbbCTLoaiTL.DisplayMember = "LoaiTaiLieu";
+            cbbCTLoaiTL.ValueMember = "LoaiTaiLieu";
+            dgvSearchTaiLieu.Hide();
+
+        }
         private void btnXemChiTietTL_Click(object sender, EventArgs e)
         {
+            Show_ChiTietTaiLieu();
+            ReadOnly_ChiTietTaiLieu();
             BUS_TaiLieu busTL = new BUS_TaiLieu();
             if (dgvSearchTaiLieu.RowCount < 1)
             {
@@ -1241,6 +1503,16 @@ namespace GUI_QuanLy
             // dgvSearchTaiLieu.DataSource = busTL.XemChitietTaiLieu(secondCellValue);
 
             //dgvDGSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            string check = dgvSearchTaiLieu[4, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString().Trim();
+            if(check == "True")
+                cbxCTTLDB.Checked = true;
+            else
+                cbxCTTLDB.Checked = false;
+            txtCTMaTaiLieu.Text = dgvSearchTaiLieu[0, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString().Trim();
+            txtCTSoLuongTL.Text = dgvSearchTaiLieu[3, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString().Trim();
+            txtCTTenTaiLieu.Text = dgvSearchTaiLieu[1, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString().Trim();
+            cbbCTLoaiTL.Text = dgvSearchTaiLieu[2, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString().Trim();
+
             btnChinhSuaTL.Show();
             btnLuuTL.Show();
             btnHuyTL.Text = "Hủy";
@@ -1285,24 +1557,81 @@ namespace GUI_QuanLy
         {
             dgvSearchTaiLieu.ReadOnly = false;
             dgvSearchTaiLieu.Columns[0].ReadOnly = true;
+            UnReadOnly_ChiTietTaiLieu();
+        }
+        void ReadOnly_ChiTietTaiLieu()
+        {
+          
+            cbxCTTLDB.Enabled = false;
+
+            txtCTMaTaiLieu.ReadOnly = true;
+            txtCTSoLuongTL.ReadOnly = true;
+            txtCTTenTaiLieu.ReadOnly = true;
+            cbbCTLoaiTL.Enabled = false;
+        }
+        void UnReadOnly_ChiTietTaiLieu()
+        {
+            cbxCTTLDB.Enabled = true;
+            txtCTSoLuongTL.ReadOnly = false;
+            txtCTTenTaiLieu.ReadOnly = false;
+            cbbCTLoaiTL.Enabled = true;
         }
         private void btnLuuTL_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    string matailieu = dgvSearchTaiLieu[0, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString();
+            //    string tentailieu = dgvSearchTaiLieu[1, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString().ToUpper();
+            //    string loaitailieu = dgvSearchTaiLieu[2, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString();
+            //    string soluong = dgvSearchTaiLieu[3, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString();
+            //    string tldb = dgvSearchTaiLieu[4, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString();
+            //    if (matailieu == "" || tentailieu == "" || loaitailieu == "" || soluong == "" || tldb =="")
+            //    {
+            //        MessageBox.Show("Vui lòng Điền đủ thông tin trước khi Lưu !");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        DTO_TaiLieu dto = new DTO_TaiLieu(matailieu, tentailieu, loaitailieu, soluong, tldb);
+            //        BUS_TaiLieu busTL = new BUS_TaiLieu();
+            //        busTL.LuuChitietTaiLieu(dto);
+            //        btnHuyTL.Text = "Thoát";
+            //        MessageBox.Show("Cập Nhật Tài Liệu Thành Công!!!");
+            //    }
+
+            //}
+            //catch (SqlException ex)
+            //{
+            //    MessageBox.Show("Cập Nhật Tài Liệu Thất Bại :(");
+            //    throw ex;
+            //}
+
+
+            BUS_TaiLieu busTL = new BUS_TaiLieu();
             try
             {
-                string matailieu = dgvSearchTaiLieu[0, dgvSearchTaiLieu.CurrentRow.Index].Value.ToString();
-                string tentailieu = dgvSearchTaiLieu[1, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString().ToUpper();
-                string loaitailieu = dgvSearchTaiLieu[2, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString();
-                string soluong = dgvSearchTaiLieu[3, dgvSearchTaiLieu.CurrentCell.RowIndex].Value.ToString();
-                if (matailieu == "" || tentailieu == "" || loaitailieu == "" || soluong == "")
+                string tentailieu = txtCTTenTaiLieu.Text;
+                string loaitailieu = cbbCTLoaiTL.Text.Trim();
+                string soluongtailieu = txtCTSoLuongTL.Text;
+                string tldb;
+                if (cbxCTTLDB.Checked)
+                    tldb = "True";
+                else
+                    tldb = "False";
+                if (tentailieu == "" || loaitailieu == "" || soluongtailieu == "")
                 {
-                    MessageBox.Show("Vui lòng Điền đủ thông tin trước khi Lưu !");
+                    MessageBox.Show("Vui lòng điền đủ thông tin trước khi Thêm Tài Liệu !");
                     return;
                 }
+                if (CheckNumber(soluongtailieu) == false)
+                {
+                    MessageBox.Show("Vui lòng Nhập lại Số Lượng !");
+                    return;
+                }
+
                 else
                 {
-                    DTO_TaiLieu dto = new DTO_TaiLieu(matailieu, tentailieu, loaitailieu, soluong);
-                    BUS_TaiLieu busTL = new BUS_TaiLieu();
+                    DTO_TaiLieu dto = new DTO_TaiLieu(txtCTMaTaiLieu.Text, tentailieu, loaitailieu, soluongtailieu, tldb);                   
                     busTL.LuuChitietTaiLieu(dto);
                     btnHuyTL.Text = "Thoát";
                     MessageBox.Show("Cập Nhật Tài Liệu Thành Công!!!");
@@ -1314,9 +1643,12 @@ namespace GUI_QuanLy
                 MessageBox.Show("Cập Nhật Tài Liệu Thất Bại :(");
                 throw ex;
             }
+            ReadOnly_ChiTietTaiLieu();
+
         }
         private void btnHuyTL_Click(object sender, EventArgs e)
         {
+            Hide_ChiTietTaiLieu();
             btnXemChiTietTL.Hide();
             btnXoaTL.Hide();
             btnLapPhieuMuonTL.Hide();
@@ -1328,6 +1660,7 @@ namespace GUI_QuanLy
 
             dgvSearchTaiLieu.DataSource = null;
             btnXemAllTaiLieu_Click(sender, e);
+            ReadOnly_ChiTietTaiLieu();
         }
 
 
@@ -1605,10 +1938,18 @@ namespace GUI_QuanLy
             dgvPhieuMuon.ReadOnly = false;
             dgvPhieuMuon.Columns[0].ReadOnly = true;
         }
-        // chưa có proc update phiếu mượn
+
         private void btnLuuPhieuMuon_Click(object sender, EventArgs e)
         {
             btnHuy_PhieuMuon.Text = "Thoát";
+            string maCTPM = dgvPhieuMuon[0, dgvPhieuMuon.CurrentRow.Index].Value.ToString();
+            string maTaiLieu = dgvPhieuMuon[1, dgvPhieuMuon.CurrentRow.Index].Value.ToString();
+            string maTaiLieuCu = txtCapNhatCTPM.Text;
+            string maPhieuMuon = dgvPhieuMuon[2, dgvPhieuMuon.CurrentRow.Index].Value.ToString();
+
+            DTO_PhieuMuon x = new DTO_PhieuMuon(maCTPM, maTaiLieu, maTaiLieuCu, maPhieuMuon);
+            BUS_Phieu p = new BUS_Phieu();
+            p.UpdatePhieuMuon(x);
         }
 
         private void btnHuy_PhieuMuon_Click(object sender, EventArgs e)
@@ -1688,24 +2029,31 @@ namespace GUI_QuanLy
         // chưa có proc tìm kiếm phiếu mượn
         private void btnTimKiemPhieuTra_Click(object sender, EventArgs e)
         {
-            btnXemChiTietPhieuTra.Visible = true;
-            btnXoaPhieuTra.Visible = true;
+            if ((rdMaDG_PhieuTra.Checked == false && rdMaPhieuMuon_PhieuTraTK.Checked == false && rdMaPhieuTra.Checked == false) || (txtSearchPT.Text == ""))
+            {
+                MessageBox.Show("Vui lòng chọn điều kiện để tìm kiếm!!!");
+            }
+            else
+            {
+                BUS_Phieu p = new BUS_Phieu();
+                if (rdMaDG_PhieuTra.Checked)
+                {
+                    dgvPhieuTra.DataSource = p.SearchPT_DG(txtSearchPT.Text);
+                }
+                if (rdMaPhieuMuon_PhieuTraTK.Checked)
+                {
+                    dgvPhieuTra.DataSource = p.SearchPT_PM(txtSearchPT.Text);
+                }
+                if (rdMaPhieuTra.Checked)
+                {
+                    dgvPhieuTra.DataSource = p.SearchPT_PT(txtSearchPT.Text);
+                }
+                btnXemChiTietPhieuTra.Visible = true;
+                btnXoaPhieuTra.Visible = true;
 
-            btnChinhSua_PhieuTra.Visible = false;
-            btnLuuPhieuTra.Visible = false;
-            btnHuy_PhieuTra.Visible = false;
-            BUS_Phieu p = new BUS_Phieu();
-            if (rdMaDG_PhieuTra.Checked)
-            {
-                dgvPhieuTra.DataSource = p.SearchPT_DG(txtSearchPT.Text);
-            }
-            if (rdMaPhieuMuon_PhieuTraTK.Checked)
-            {
-                dgvPhieuTra.DataSource = p.SearchPT_PM(txtSearchPT.Text);
-            }
-            if (rdMaPhieuTra.Checked == true)
-            {
-                dgvPhieuTra.DataSource = p.SearchPT_PT(txtSearchPT.Text);
+                btnChinhSua_PhieuTra.Visible = false;
+                btnLuuPhieuTra.Visible = false;
+                btnHuy_PhieuTra.Visible = false;
             }
         }
         // chưa có proc xem chi tiết phiếu mượn
@@ -1803,15 +2151,18 @@ namespace GUI_QuanLy
                     BUS_Phieu busPhieuCT = new BUS_Phieu();
                     DTO_PhieuTra DTOCT = new DTO_PhieuTra(maNVHienTai, maphieumuon, maphieutra, mactpt, matailieuCT);
                     busPhieuCT.ThemChiTietPhieuTra(DTOCT);
-                    if(mpt.LaySoSachCuaPM(maphieumuon) < lbDanhSachSachTra.Items.Count)
+                    if(mpt.LaySoSachCuaPM(maphieumuon) > lbDanhSachSachTra.Items.Count)
                     {
-                        //Xử lý qua bên kia
-                        
-                        if(mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) > 0 && mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) < 2)
+                        if(mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) >= 0 && mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) < 2)
                         {
+                            
                             if (MessageBox.Show(string.Format("Có Lập Phiểu Nhắc Nhở Không?"), "Độc Giả Trả Sách Không Đủ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
-                                ///ađâsđấ
+                                cbxmaDocGiaNN.Visible = true;
+                                cbxmaDocGiaNN.Text = mpt.LayMaDocGiaDePhat(maphieumuon);
+                                tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[3];
+                                return;
+                                
                             }
                         }
 
@@ -1819,7 +2170,12 @@ namespace GUI_QuanLy
                         {
                             if (MessageBox.Show(string.Format("Có Lập Phiểu Phạt Không?"), "Độc Giả Trả Sách Không Đủ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
-                                //ađâsđâsdá
+                                cbxMaPMcuaPP.Visible = true;
+                                lbMaPM_PP.Visible = true;
+                                cbxMaPMcuaPP.Text = maphieumuon;
+                                tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[2];
+                                return;
+
                             }
                         }
 
@@ -1829,11 +2185,14 @@ namespace GUI_QuanLy
                     else if (mpt.LaySoNgayQuaHan(maphieumuon) > 0)
                     {
 
-                        if (mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) > 0 && mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) < 2)
+                        if (mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) >= 0 && mpt.LaySoLanViPhamCuaPhieuMuon(maphieumuon) < 2)
                         {
                             if (MessageBox.Show(string.Format("Có Lập Phiểu Nhắc Nhở Không?"), "Độc Giả Trả Sách Quá Hạn", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
-                                //ađâsđâsd
+                                cbxmaDocGiaNN.Visible = true;
+                                cbxmaDocGiaNN.Text = mpt.LayMaDocGiaDePhat(maphieumuon);
+                                tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[3];
+                                return;
                             }
                         }
 
@@ -1841,7 +2200,11 @@ namespace GUI_QuanLy
                         {
                             if (MessageBox.Show(string.Format("Có Lập Phiểu Phạt Không?"), "Độc Giả Trả Sách Quá Hạn", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
-                                //ađâsđâsd
+                                cbxMaPMcuaPP.Visible = true;
+                                lbMaPM_PP.Visible = true;
+                                cbxMaPMcuaPP.Text = maphieumuon;
+                                tbcQuanLiPhieu.SelectedTab = tbcQuanLiPhieu.TabPages[2];
+                                return;
                             }
                         }
 
@@ -2022,7 +2385,7 @@ namespace GUI_QuanLy
             cryRpt = new ReportDocument();
             try
             {
-                cryRpt.Load(@"C:\\Users\\Quyet\\Desktop\\Version4.2\\QuanLyThuVien\\GUI_QuanLy\\Report_TaiLieu.rpt");
+                cryRpt.Load(pathReport+ "Report_TaiLieu.rpt");
                 cryReportViewer.ReportSource = cryRpt;
                 cryReportViewer.Refresh();
             }
@@ -2040,7 +2403,7 @@ namespace GUI_QuanLy
             cryRpt = new ReportDocument();
             try
             {
-                cryRpt.Load(@"C:\\Users\\Quyet\\Desktop\\Version4.2\\QuanLyThuVien\\GUI_QuanLy\\Report_DocGia.rpt");
+                cryRpt.Load(pathReport+ "Report_DocGia.rpt");
                 cryReportViewer.ReportSource = cryRpt;
                 cryReportViewer.Refresh();
             }
@@ -2051,7 +2414,24 @@ namespace GUI_QuanLy
             }
           
         }
+        private void btnReport_SoSachMuonNhieuNhat_Click(object sender, EventArgs e)
+        {
+            cryReportViewer.Visible = true;
+            cryRpt = new ReportDocument();
+            try
+            {
+                cryRpt.Load(pathReport +"Report_SoTaiLieuMuonNhieuNhat.rpt");
+                cryReportViewer.ReportSource = cryRpt;
+                cryReportViewer.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Dữ Liệu Không Tìm Thấy !");
+                return;
 
+            }
+
+        }
         private void btnSaveReport_Click(object sender, EventArgs e)
         {
 
@@ -2088,6 +2468,8 @@ namespace GUI_QuanLy
         }
         private void btnXemAllTaiLieu_Click(object sender, EventArgs e)
         {
+            Hide_ChiTietTaiLieu();
+
             dgvSearchTaiLieu.ReadOnly = true;
             dgvSearchTaiLieu.DataSource = TL.getTL();
             dgvSearchTaiLieu.Columns[0].Width = 90;
@@ -2099,6 +2481,7 @@ namespace GUI_QuanLy
             dgvSearchTaiLieu.Columns[1].HeaderText = "Tên Tài Liệu";
             dgvSearchTaiLieu.Columns[2].HeaderText = "Loại Tài Liệu";
             dgvSearchTaiLieu.Columns[3].HeaderText = "Số Lượng";
+            dgvSearchTaiLieu.Columns[4].HeaderText = "Đặc Biệt";
 
             btnXemChiTietTL.Show();
             btnXoaTL.Show();
@@ -2133,6 +2516,7 @@ namespace GUI_QuanLy
             dgvLoaiDocGia.Columns[2].HeaderText = "Số Sách Mượn Tối Đa";
             dgvLoaiDocGia.Columns[3].HeaderText = "Tên Loại Độc Giả";
             dgvLoaiDocGia.Columns[4].HeaderText = "Phí Thường Niên";
+            dgvLoaiDocGia.Columns[5].HeaderText = "Tài Liệu Đặc Biệt";
 
         }
 
@@ -2197,25 +2581,6 @@ namespace GUI_QuanLy
         private void cbxMaTLPM_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbMaTaiLieuPhieuMuon.Text = cbxMaTLPM.SelectedValue.ToString();
-        }
-
-        private void btnReport_SoSachMuonNhieuNhat_Click(object sender, EventArgs e)
-        {
-            cryReportViewer.Visible = true;
-            cryRpt = new ReportDocument();
-            try
-            {
-                cryRpt.Load(@"C:\\Users\\Quyet\\Desktop\\Version4.2\\QuanLyThuVien\\GUI_QuanLy\\Report_SoTaiLieuMuonNhieuNhat.rpt");
-                cryReportViewer.ReportSource = cryRpt;
-                cryReportViewer.Refresh();
-            }
-            catch
-            {
-                MessageBox.Show("Dữ Liệu Không Tìm Thấy !");
-                return;
-
-            }
-           
         }
 
         private void btnSearchPP_Click(object sender, EventArgs e)
@@ -2310,16 +2675,6 @@ namespace GUI_QuanLy
             btnQuanTriAdmin_Click(sender, e);
         }
 
-        private void dgvLoaiDocGia_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {          
-            txtADMaLoai.Text = dgvLoaiDocGia[0, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
-            txtADSoNM.Text = dgvLoaiDocGia[1, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
-            txtADSSM.Text = dgvLoaiDocGia[2, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
-            txtADTDG.Text = dgvLoaiDocGia[3, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
-            txtADPTN.Text = dgvLoaiDocGia[4, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
-            txtADTLDB.Text = dgvLoaiDocGia[5, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
-        }
-
         private void tbcQuanTriAdmin_Click(object sender, EventArgs e)
         {
             if (tbcQuanTriAdmin.SelectedTab == tbcQuanTriAdmin.TabPages[1])
@@ -2338,9 +2693,47 @@ namespace GUI_QuanLy
 
         }
 
-        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPhieuMuon_DoubleClick(object sender, EventArgs e)
         {
-            
+            txtCapNhatCTPM.Text = dgvPhieuMuon[dgvPhieuMuon.CurrentCell.ColumnIndex, dgvPhieuMuon.CurrentRow.Index].Value.ToString().Trim();
+        }
+
+        private void dgvLoaiDocGia_Click(object sender, EventArgs e)
+        {
+            txtADMaLoai.Text = dgvLoaiDocGia[0, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
+            txtADSoNM.Text = dgvLoaiDocGia[1, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
+            txtADSSM.Text = dgvLoaiDocGia[2, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
+            txtADTDG.Text = dgvLoaiDocGia[3, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
+            txtADPTN.Text = dgvLoaiDocGia[4, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
+            txtADTLDB.Text = dgvLoaiDocGia[5, dgvLoaiDocGia.CurrentRow.Index].Value.ToString();
+        }
+
+        private void rdCTSV_DG_CheckedChanged(object sender, EventArgs e)
+        {
+            lbCTMSSV_DG.Show();
+            txtCTMSSV_DG.Show();
+            lbCTMSCB_DG.Hide();
+            txtCTMSCB_DG.Hide();
+        }
+
+        private void rdCTCB_DG_CheckedChanged(object sender, EventArgs e)
+        {
+            lbCTMSSV_DG.Hide();
+            txtCTMSSV_DG.Hide();
+            lbCTMSCB_DG.Show();
+            txtCTMSCB_DG.Show();
+        }
+
+        private void rdCTKhach_DG_CheckedChanged(object sender, EventArgs e)
+        {
+            lbCTMSSV_DG.Hide();
+            txtCTMSSV_DG.Hide();
+            lbCTMSCB_DG.Hide();
+            txtCTMSCB_DG.Hide();
+        }
+
+        private void dgvNhanVien_Click(object sender, EventArgs e)
+        {
             txtSearchPhieuMuon.Text = dgvNhanVien[0, dgvNhanVien.CurrentRow.Index].Value.ToString().Trim();
             txtSearchPhieuMuon.Enabled = false;
             txtTenDangNhapNVCapNhat.Enabled = false;

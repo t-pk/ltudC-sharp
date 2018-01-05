@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
 using System.Windows.Forms;
 
@@ -12,10 +11,7 @@ namespace DAL_QuanLy
 {
     public class DBConnect
     {
-        // chuỗi kết nối không sử dụng proc 
-        protected SqlConnection _conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;");
-        // chuỗi kết nối có sử dụng proc
-        static String ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QL_thuvien;Integrated Security=True;";
+        static string ConnectionString = ConfigurationManager.ConnectionStrings["QLTV"].ConnectionString;
         SqlConnection Connection;
 
         public void Connect()

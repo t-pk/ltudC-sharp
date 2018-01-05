@@ -55,5 +55,13 @@ namespace BUS_QuanLy
         {
             return dal_DOcGia.LoadLoaiDocGia();
         }
+        public Boolean GetNgayHetHan(string MaDG)
+        {
+            return dal_DOcGia.GetNgayHetHan(MaDG);
+        }
+        public void UpdateNgayHetHan(string MaDG, string MaLoaiDG)
+        {
+            dal_DOcGia.UpdateNgayHetHan(MaDG, MaLoaiDG);
+        }
     }
 }

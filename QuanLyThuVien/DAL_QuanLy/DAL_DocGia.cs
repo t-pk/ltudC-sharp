@@ -9,6 +9,34 @@ namespace DAL_QuanLy
 {
     public class DAL_DocGia:DBConnect 
     {
+        public Boolean GetNgayHetHan(string MaDG)
+        {
+            string strSql = "sp_KiemtraHetHan";
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+            SqlParameter p = new SqlParameter("@thongbao", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
+
+            DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@madg", Value = MaDG }, p);
+            DBConnect.Disconnect();
+            if (p.Value.ToString() == "1")
+                return true;
+            else
+                return false;
+        }
+        public void UpdateNgayHetHan(string MaDG, string MaLoaiDG)
+        {
+            string strSql = "sp_NgayHetHan";
+
+            DBConnect DBConnect = new DBConnect();
+            DBConnect.Connect();
+
+            DBConnect.ExecuteNonQuery(CommandType.StoredProcedure, strSql,
+            new SqlParameter { ParameterName = "@loaidg", Value = MaLoaiDG },
+            new SqlParameter { ParameterName = "@madg", Value = MaDG });
+            DBConnect.Disconnect();
+        }
         public DataTable getAllDocGia()
         {
             string strSql = "exec usp_TimKiemTatCaDocGia";
